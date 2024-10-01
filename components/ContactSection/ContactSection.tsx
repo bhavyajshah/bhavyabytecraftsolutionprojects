@@ -5,8 +5,21 @@ import * as Yup from "yup";
 import { AiOutlineMail, AiOutlineUser, AiOutlinePhone } from "react-icons/ai";
 import { motion } from "framer-motion";
 
+interface FormValues {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  company: string;
+  referral: string;
+  softwareType: string[]; 
+  developmentStage: string;
+  teamMembers: string[];
+  projectDuration: string;
+}
+
 const ContactSection = () => {
-  const formik = useFormik({
+  const formik = useFormik<FormValues>({
     initialValues: {
       firstName: "",
       lastName: "",
