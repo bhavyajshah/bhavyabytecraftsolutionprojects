@@ -129,7 +129,7 @@ const Footer = () => {
             &copy; 2024 ByteCraft Solutions. All rights reserved.
           </motion.p>
           <div className="flex items-center gap-5">
-            {socialLinks.map(({ alt, title, link, icon }, idx) => (
+            {socialLinks.map(({ alt, link, icon }, idx) => (
               <motion.a
                 key={idx}
                 href={link}

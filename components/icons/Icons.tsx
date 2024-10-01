@@ -38,7 +38,7 @@ export const TextLogo = (props: any) => (
   </svg>
 );
 
-export const Logo = (props: any) => (
+export const Logo = () => (
   <svg
     width="18"
     height="18"
@@ -64,7 +64,7 @@ export const Logo = (props: any) => (
     ></path>
   </svg>
 );
-export const DropdownArrow = (props: any) => (
+export const DropdownArrow = () => (
   <svg
     width="22"
     height="22"

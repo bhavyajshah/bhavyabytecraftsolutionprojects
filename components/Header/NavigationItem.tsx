@@ -39,7 +39,7 @@ const NavigationItem: React.FC<NavigationItemProps> = ({
   isDarkMode,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const dropdownRef = useRef<any>(null);
 
   const toggleDropdown = () => {
     if (hasDropdown) {
