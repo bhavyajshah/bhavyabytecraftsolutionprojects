@@ -5,6 +5,7 @@ const nextConfig = {
       "assets.aceternity.com",
       "preview.uideck.com",
       "img.freepik.com",
+      "ui.aceternity.com",
       "ai-tool-tailwind.preview.uideck.com",
     ],
   },

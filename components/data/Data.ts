@@ -14,9 +14,6 @@ import {
   FaRedo,
 } from "react-icons/fa";
 
-
-
-
 export const steps = [
   {
     id: 0,

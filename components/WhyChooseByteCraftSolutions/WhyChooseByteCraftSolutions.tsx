@@ -1,138 +1,102 @@
 "use client";
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
+import { Tabs } from "../ui/tabs";
 
-gsap.registerPlugin(ScrollTrigger);
-
-const styles = [
-  {
-    id: 1,
-    title: "Expertise",
-    description: "Write a wedding toast in the style of a 1930s gangster",
-  },
-  {
-    id: 2,
-    title: "Quality Assurance",
-    description:
-      "Write the introductory paragraph of an essay on the paradox of free will in the style of Friedrich Nietzsche",
-  },
-  {
-    id: 3,
-    title: "Customer-Centric Approach",
-    description:
-      "Write a rap about how to take over the world in the style of Eminem",
-  },
-  {
-    id: 4,
-    title: "Innovation",
-    description:
-      "Create groundbreaking tech solutions to elevate your business.",
-  },
-];
-
-const WhyChooseByteCraftSolutions = () => {
-  const [activeStyle, setActiveStyle] = useState(styles[0]);
-
-  useEffect(() => {
-    // GSAP parallax effect for left side buttons
-    gsap.to(".parallax", {
-      y: 100,
-      ease: "power1.out",
-      scrollTrigger: {
-        trigger: ".parallax",
-        start: "top bottom",
-        scrub: 1,
-      },
-    });
-
-    // Sticky effect for right content section
-    gsap.to(".sticky-section", {
-      scrollTrigger: {
-        trigger: ".sticky-section",
-        start: "top top",
-        end: "bottom bottom",
-        scrub: true,
-        pin: true,
-      },
-    });
-  }, []);
+export function WhyChooseByteCraftSolutions() {
+  const tabs = [
+    {
+      title: "Mastery",
+      value: "product",
+      image:
+        "https://ui.aceternity.com/_next/image?url=%2Flinear.webp&w=1080&q=75",
+      description: "Explore our product offerings tailored to your needs.",
+      content: (
+        <TabContent
+          title="Mastery"
+          image="https://ui.aceternity.com/_next/image?url=%2Flinear.webp&w=1080&q=75"
+          description="Explore our product offerings tailored to your needs."
+        />
+      ),
+    },
+    {
+      title: "Perfection Assurance",
+      value: "services",
+      image:
+        "https://ui.aceternity.com/_next/image?url=%2Flinear.webp&w=1080&q=75",
+      description: "Our range of services that help your business thrive.",
+      content: (
+        <TabContent
+          title="Perfection Assurance"
+          image="https://ui.aceternity.com/_next/image?url=%2Flinear.webp&w=1080&q=75"
+          description="Our range of services that help your business thrive."
+        />
+      ),
+    },
+    {
+      title: "Client-Focused Approach",
+      value: "playground",
+      image:
+        "https://ui.aceternity.com/_next/image?url=%2Flinear.webp&w=1080&q=75",
+      description: "Discover our innovative solutions in action.",
+      content: (
+        <TabContent
+          title="Client-Focused Approach"
+          image="https://ui.aceternity.com/_next/image?url=%2Flinear.webp&w=1080&q=75"
+          description="Discover our innovative solutions in action."
+        />
+      ),
+    },
+    {
+      title: "Creativity",
+      value: "content",
+      image:
+        "https://ui.aceternity.com/_next/image?url=%2Flinear.webp&w=1080&q=75",
+      description: "Engage with high-quality content to grow your brand.",
+      content: (
+        <TabContent
+          title="Creativity"
+          image="https://ui.aceternity.com/_next/image?url=%2Flinear.webp&w=1080&q=75"
+          description="Engage with high-quality content to grow your brand."
+        />
+      ),
+    },
+  ];
 
   return (
-    <div className="relative w-full px-4 py-20">
-      {/* Section Title */}
+    <div className="h-[30rem] md:h-[50rem] [perspective:1000px] relative flex flex-col max-w-5xl mx-auto w-full items-center justify-center mt-10 mb-60">
       <div className="text-center mb-12">
-        <motion.h2
-          className="text-4xl font-extrabold text-white transition duration-500 hover:text-indigo-400"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-        >
+        <h2 className="text-4xl font-extrabold text-white transition duration-500 hover:text-indigo-400">
           Why Choose ByteCraft Solutions?
-        </motion.h2>
+        </h2>
         <p className="max-w-[714px] mx-auto mt-4 text-lg text-gray-300">
           At ByteCraft, we turn your visions into scalable digital solutions.
           Our team’s combined expertise of over 30 years helps us create
           innovative software for all business sizes.
         </p>
       </div>
+      <Tabs tabs={tabs} />
+    </div>
+  );
+}
 
-      {/* Main Grid: Tabs and Content */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        {/* Left Side: Tabs */}
-        <div className="parallax flex flex-col space-y-6 overflow-y-auto h-full">
-          {styles.map((style) => (
-            <motion.button
-              key={style.id}
-              whileHover={{ scale: 1.05 }}
-              onClick={() => setActiveStyle(style)}
-              className={`mb-4 w-full rounded-lg p-6 text-left shadow-lg transition-transform ${
-                activeStyle.id === style.id
-                  ? "bg-transparent border"
-                  : "bg-gray-700 text-gray-200"
-              } hover:shadow-2xl`}
-            >
-              <h6 className="text-xl font-semibold">{style.title}</h6>
-              <p className="mt-2 hidden md:block text-base">
-                {style.description}
-              </p>
-            </motion.button>
-          ))}
-        </div>
-
-        {/* Right Side: Sticky Content */}
-        <div className="col-span-2 sticky-section">
-          <motion.div
-            className="relative mx-auto max-w-full rounded-lg shadow-2xl transition duration-300"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="flex h-6 items-center bg-gray-700 px-3 space-x-1 rounded-t-lg">
-              <span className="h-3 w-3 rounded-full bg-red-400"></span>
-              <span className="h-3 w-3 rounded-full bg-yellow-400"></span>
-              <span className="h-3 w-3 rounded-full bg-green-400"></span>
-            </div>
-            <div className="p-8 text-gray-200">
-              <p className="inline-block text-xl font-light">
-                {activeStyle.description}
-              </p>
-              <div className="mt-4">
-                <h2 className="text-2xl font-bold">
-                  {activeStyle.title} Writing Style
-                </h2>
-                <p className="mt-2 text-base">
-                  This is an example of the {activeStyle.title} writing style.
-                  We can tailor it to match your needs and vision.
-                </p>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </div>
+const TabContent = ({
+  title,
+  image,
+}: {
+  title: string;
+  image: string;
+  description: string;
+}) => {
+  return (
+    <div className="w-full h-full relative p-6 rounded-2xl text-xl md:text-4xl font-bold text-white bg-[#201046]">
+      <p className="">{title}</p>
+      <Image
+        src={image}
+        alt={title}
+        width={1000}
+        height={1000}
+        className="object-cover object-left-top h-[60%] md:h-[90%] absolute -bottom-10 inset-x-0 w-[90%] rounded-xl mx-auto transition duration-300"
+      />
     </div>
   );
 };
-
-export default WhyChooseByteCraftSolutions;

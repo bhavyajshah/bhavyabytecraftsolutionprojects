@@ -75,7 +75,7 @@ const AboutUsSection = () => {
                 <p className="text-gray-300">{stat.text}</p>
               </div>
             ))}
-            <button className="px-6 py-3 bg-[#190C3B] backdrop hover:bg-transparent hover:border-[#190C3B] text-white font-medium text-sm rounded-lg shadow-lg transition duration-300 ease-in-out flex items-center mt-4 md:mt-0">
+            <button className="hero-button-gradient inline-flex rounded-lg py-3 px-7 text-white font-medium ease-in duration-300 hover:opacity-80">
               Read More
               <svg
                 className="ml-2"

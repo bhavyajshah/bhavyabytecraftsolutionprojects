@@ -4,6 +4,8 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { AiOutlineMail, AiOutlineUser, AiOutlinePhone } from "react-icons/ai";
 import { motion } from "framer-motion";
+import { FaRegBuilding } from "react-icons/fa";
+import { LuFileSearch } from "react-icons/lu";
 
 interface FormValues {
   firstName: string;
@@ -12,7 +14,7 @@ interface FormValues {
   phone: string;
   company: string;
   referral: string;
-  softwareType: string[]; 
+  softwareType: string[];
   developmentStage: string;
   teamMembers: string[];
   projectDuration: string;
@@ -43,6 +45,8 @@ const ContactSection = () => {
         1,
         "Please select at least one software type"
       ),
+      developmentStage: Yup.string().required("Development stage is required"),
+      teamMembers: Yup.array().min(1, "Please select at least one team member"),
       projectDuration: Yup.string().required("Project duration is required"),
     }),
     onSubmit: (values, { resetForm }) => {
@@ -56,12 +60,33 @@ const ContactSection = () => {
     "Mobile Development",
     "UI/UX Design",
     "Custom Software",
+    "AI Development",
+    "Blockchain Integration",
   ];
+
   const radioOptions = [
     "Less than 3 months",
     "3-6 months",
     "6-12 months",
     "More than 12 months",
+  ];
+
+  const softwareDevelopmentProcess = [
+    "Idea",
+    "Prototype",
+    "MVP",
+    "Designed solution",
+    "In Production",
+  ];
+
+  const teamMember = [
+    "Project Manager",
+    "UI/UX Designer",
+    "Business Analyst",
+    "Architect",
+    "DevOps Engineer",
+    "Quality Assurance",
+    "Software Engineer",
   ];
 
   return (
@@ -208,69 +233,77 @@ const ContactSection = () => {
                   />
                 </div>
               </motion.div>
-            </motion.div>
 
-            {/* Company Name */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.6 }}
-            >
-              <label
-                htmlFor="company"
-                className="block text-sm font-medium mb-2"
+              {/* Company Name */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.6 }}
               >
-                Company Name
-              </label>
-              <input
-                id="company"
-                type="text"
-                name="company"
-                placeholder="Enter your Company Name"
-                className="bg-transparent w-full p-3 border border-gray-500 rounded-lg outline-none text-white placeholder-gray-400"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.company}
-              />
-            </motion.div>
+                <label
+                  htmlFor="company"
+                  className="block text-sm font-medium mb-2"
+                >
+                  Company Name
+                </label>
+                <div className="flex items-center border border-gray-500 bg-transparent rounded-lg p-2">
+                  <FaRegBuilding className="text-gray-400 mr-2" />
+                  <input
+                    id="company"
+                    type="text"
+                    name="company"
+                    placeholder="Enter your Company Name"
+                    className="bg-transparent w-full outline-none text-white placeholder-gray-400"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.company}
+                  />
+                </div>
+              </motion.div>
 
-            {/* Referral */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.7 }}
-            >
-              <label
-                htmlFor="referral"
-                className="block text-sm font-medium mb-2"
+              {/* Referral */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.7 }}
               >
-                How did you hear about us? *
-              </label>
-              <input
-                id="referral"
-                type="text"
-                name="referral"
-                placeholder="Tell us how you heard about us"
-                className="bg-transparent w-full p-3 border border-gray-500 rounded-lg outline-none text-white placeholder-gray-400"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.referral}
-              />
-              {formik.touched.referral && formik.errors.referral ? (
-                <p className="text-red-500 text-sm mt-1">
-                  {formik.errors.referral}
-                </p>
-              ) : null}
+                <label
+                  htmlFor="referral"
+                  className="block text-sm font-medium mb-2"
+                >
+                  How did you hear about us? *
+                </label>
+                <div className="flex items-center border border-gray-500 bg-transparent rounded-lg p-2">
+                  <LuFileSearch className="text-gray-400 mr-2" />
+                  <input
+                    id="referral"
+                    type="text"
+                    name="referral"
+                    placeholder="Tell us how you heard about us"
+                    className="bg-transparent w-full outline-none text-white placeholder-gray-400"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.referral}
+                  />
+                </div>
+                {formik.touched.referral && formik.errors.referral ? (
+                  <p className="text-red-500 text-sm mt-1">
+                    {formik.errors.referral}
+                  </p>
+                ) : null}
+              </motion.div>
             </motion.div>
 
-            {/* Checkboxes */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.8 }}
               className="mt-6"
             >
-              <p className="block mb-3">Software Type *</p>
+              <p className="block mb-3">
+                1. What type of software solution would you like to develop with
+                Bytecraft? *
+              </p>
               <div className="flex flex-wrap gap-6">
                 {checkboxOptions.map((option, index) => (
                   <label
@@ -301,14 +334,15 @@ const ContactSection = () => {
               ) : null}
             </motion.div>
 
-            {/* Radio Buttons */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.9 }}
               className="mt-6"
             >
-              <p className="block mb-3">Project Duration *</p>
+              <p className="block mb-3">
+                2. What is the expected duration of your project?
+              </p>
               <div className="flex flex-wrap gap-6">
                 {radioOptions.map((option, index) => (
                   <label
@@ -336,6 +370,86 @@ const ContactSection = () => {
               formik.errors.projectDuration ? (
                 <p className="text-red-500 text-sm mt-2">
                   {formik.errors.projectDuration}
+                </p>
+              ) : null}
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.8 }}
+              className="mt-6"
+            >
+              <p className="block mb-3">
+                3. What team members do you need for your project? *
+              </p>
+              <div className="flex flex-wrap gap-6">
+                {teamMember.map((option, index) => (
+                  <label
+                    key={index}
+                    className="flex items-center gap-2 cursor-pointer group"
+                  >
+                    <div className="relative">
+                      <input
+                        type="checkbox"
+                        name="teamMembers"
+                        value={option}
+                        checked={formik.values.teamMembers.includes(option)}
+                        onChange={formik.handleChange}
+                        className="appearance-none h-5 w-5 border-2 border-gray-300 rounded-md checked:bg-blue-500 transition-all duration-300 group-hover:border-blue-400"
+                      />
+                      <motion.span className="absolute top-1/2 left-1/2 w-full h-full bg-blue-500 opacity-0 scale-0 rounded-md transition-transform duration-300" />
+                    </div>
+                    <span className="group-hover:text-blue-500 transition-all duration-200">
+                      {option}
+                    </span>
+                  </label>
+                ))}
+              </div>
+              {formik.touched.teamMembers && formik.errors.teamMembers ? (
+                <p className="text-red-500 text-sm mt-2">
+                  {formik.errors.teamMembers}
+                </p>
+              ) : null}
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.9 }}
+              className="mt-6"
+            >
+              <p className="block mb-3">
+                4. What is the current stage of your software development
+                process? *
+              </p>
+              <div className="flex flex-wrap gap-6">
+                {softwareDevelopmentProcess.map((option, index) => (
+                  <label
+                    key={index}
+                    className="flex items-center gap-2 cursor-pointer group"
+                  >
+                    <div className="relative">
+                      <input
+                        type="radio"
+                        name="developmentStage"
+                        value={option}
+                        checked={formik.values.developmentStage === option}
+                        onChange={formik.handleChange}
+                        className="appearance-none h-5 w-5 border-2 border-gray-300 rounded-full checked:bg-blue-500 transition-all duration-300 group-hover:border-blue-400"
+                      />
+                      <motion.span className="absolute top-1/2 left-1/2 w-full h-full bg-blue-500 opacity-0 scale-0 rounded-full transition-transform duration-300" />
+                    </div>
+                    <span className="group-hover:text-blue-500 transition-all duration-200">
+                      {option}
+                    </span>
+                  </label>
+                ))}
+              </div>
+              {formik.touched.developmentStage &&
+              formik.errors.developmentStage ? (
+                <p className="text-red-500 text-sm mt-2">
+                  {formik.errors.developmentStage}
                 </p>
               ) : null}
             </motion.div>

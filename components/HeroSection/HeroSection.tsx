@@ -2,21 +2,18 @@ import Link from "next/link";
 import React from "react";
 import { ContainerScroll } from "../ui/container-scroll-animation";
 import Image from "next/image";
+import { BackgroundImageBlur } from "../icons/Icons";
 
 const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative overflow-hidden z-10 pt-35 md:pt-40 xl:pt-45"
+      className="relative overflow-hidden z-10 pt-20 sm:pt-35 md:pt-40 xl:pt-45"
     >
       <div className="max-w-7xl mx-auto">
         <div className="absolute -z-10 pointer-events-none inset-0 overflow-hidden -mx-28">
           <div className="absolute top-0 left-1/2 -translate-x-1/2">
-            <img
-              src="https://ai-tool-tailwind.preview.uideck.com/images/blur-01.svg"
-              alt="blur"
-              className="max-w-none"
-            />
+            <BackgroundImageBlur />
           </div>
         </div>
       </div>
@@ -38,7 +35,6 @@ const HeroSection = () => {
                   tailored applications. Experience the difference of working
                   with a dedicated team that puts your business first.
                 </p>
-
                 <Link
                   href="/"
                   className="hero-button-gradient inline-flex rounded-lg py-3 px-7 text-white font-medium ease-in duration-300 hover:opacity-80"
@@ -55,6 +51,7 @@ const HeroSection = () => {
           alt="hero"
           height={720}
           width={1400}
+          loading="lazy"
           className="mx-auto rounded-2xl object-cover h-full object-left-top"
           draggable={false}
         />

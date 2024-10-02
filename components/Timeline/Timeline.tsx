@@ -58,11 +58,11 @@ export function TimelineDemo() {
             ))}
           </ul>
           <motion.div whileHover="hover" className="rounded-lg shadow-lg">
-            <div className="w-[400px] h-[400px]">
+            <div className="w-[250px] h-[250px] md:w-[400px] md:h-[400px]">
               <img
                 src={step.image.src}
                 alt={step.title}
-                className="rounded-lg w-auto h-full object-cover w-full shadow-lg"
+                className="rounded-lg object-cover w-full h-full shadow-lg"
               />
             </div>
           </motion.div>

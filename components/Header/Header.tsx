@@ -15,7 +15,7 @@ import {
 } from "react-icons/fa";
 import { PiHandWaving } from "react-icons/pi";
 import { TextLogo } from "../icons/Icons";
-import { usePathname } from "next/navigation"; // Update import to use usePathname
+import { usePathname } from "next/navigation";
 
 const servicesData = [
   {
@@ -82,8 +82,9 @@ const Header = () => {
 
   const navLinks = [
     { label: "Home", href: "/", as: "/" },
-    { label: "About Us", href: "/about-us", as: "/about-us" },
-    { label: "FAQ's", href: "/faqs", as: "/faqs" },
+    { label: "About Us", href: "/aboutus", as: "/about-us" },
+    { label: "FAQ's", href: "/faq", as: "/faqs" },
+    { label: "Blog", href: "/blog", as: "/blog" },
   ];
 
   return (
@@ -94,14 +95,15 @@ const Header = () => {
     >
       <div className="max-w-[90%] mx-auto px-4 sm:px-6 xl:px-0 lg:flex items-center justify-between relative">
         <nav className="flex items-center justify-between w-full">
-          {/* Left-aligned Logo */}
-          <div className="lg:w-1/4 flex items-center">
+          {/* Logo & Mobile Menu Toggle */}
+          <div className="flex flex-row items-center justify-between w-full lg:w-auto">
             <Link href="/">
               <TextLogo className="transition transform hover:scale-105" />
             </Link>
             <button
-              className="lg:hidden block text-white ml-auto"
+              className="lg:hidden block text-white focus:outline-none ml-auto"
               onClick={() => setNavigationOpen(!navigationOpen)}
+              aria-label="Toggle navigation"
             >
               {navigationOpen ? (
                 <FaTimes className="w-6 h-6" />
@@ -111,17 +113,19 @@ const Header = () => {
             </button>
           </div>
 
-          {/* Centered Links */}
+          {/* Desktop Menu */}
           <div className="hidden lg:flex justify-center w-1/2">
             <ul className="flex gap-5">
-              <li className="nav__menu">
-                <Link
-                  href="/"
-                  className="text-white/80 text-sm py-2 px-4 rounded-lg hover:bg-gradient-to-b from-white/10 to-transparent transition-all duration-300 ease-in-out flex items-center gap-2"
-                >
-                  Home
-                </Link>
-              </li>
+              {navLinks.map((item, index) => (
+                <li key={index} className="nav__menu">
+                  <Link
+                    href={item.href}
+                    className="text-white/80 text-sm py-2 px-4 rounded-lg hover:bg-gradient-to-b from-white/10 to-transparent transition-all duration-300 ease-in-out flex items-center gap-2"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
 
               {/* Services Dropdown */}
               <li className="relative group">
@@ -144,19 +148,17 @@ const Header = () => {
                             initial={{ opacity: 0, y: -10 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -10 }}
-                            className="absolute left-0 mt-3 w-[600px] p-6 bg-[#190C3B] rounded-lg shadow-xl origin-top grid grid-cols-2 gap-4"
+                            className="absolute left-0 mt-3 w-[600px] p-6 bg-[#1A0C3B] rounded-lg shadow-xl origin-top grid grid-cols-2 gap-4"
                           >
                             {servicesData.map((service, index) => (
                               <Link
                                 key={index}
                                 href={service.href}
-                                className={`flex items-center gap-2 text-gray-200 rounded-lg p-2 transition duration-200
-                    hover:bg-gradient-to-b from-white/10 to-transparent 
-                    ${
-                      pathname === service.href
-                        ? "bg-gradient-to-b from-white/10 to-transparent"
-                        : ""
-                    }`}
+                                className={`flex items-center gap-2 text-gray-200 rounded-lg p-2 transition duration-200 hover:bg-gradient-to-b from-white/10 to-transparent ${
+                                  pathname === service.href
+                                    ? "bg-gradient-to-b from-white/10 to-transparent"
+                                    : ""
+                                }`}
                               >
                                 {service.icon} {service.label}
                               </Link>
@@ -168,37 +170,10 @@ const Header = () => {
                   )}
                 </Popover>
               </li>
-
-              <li className="nav__menu">
-                <Link
-                  href="/about"
-                  className="text-white/80 text-sm py-2 px-4 rounded-lg hover:bg-gradient-to-b from-white/10 to-transparent transition-all duration-300 ease-in-out flex items-center gap-2"
-                >
-                  About Us
-                </Link>
-              </li>
-
-              <li className="nav__menu">
-                <Link
-                  href="/pricing"
-                  className="text-white/80 text-sm py-2 px-4 rounded-lg hover:bg-gradient-to-b from-white/10 to-transparent transition-all duration-300 ease-in-out flex items-center gap-2"
-                >
-                  Pricing
-                </Link>
-              </li>
-
-              <li className="nav__menu">
-                <Link
-                  href="/blog"
-                  className="text-white/80 text-sm py-2 px-4 rounded-lg hover:bg-gradient-to-b from-white/10 to-transparent transition-all duration-300 ease-in-out flex items-center gap-2"
-                >
-                  Blog
-                </Link>
-              </li>
             </ul>
           </div>
 
-          {/* Right-aligned Button */}
+          {/* Desktop Get in Touch Button */}
           <div className="hidden lg:flex lg:w-1/4 justify-end">
             <Link
               href="/pricing"
@@ -211,12 +186,20 @@ const Header = () => {
         </nav>
       </div>
 
-      {/* Mobile Right Drawer */}
+      {/* Mobile Menu */}
       <div
-        className={`fixed top-0 right-0 w-3/4 h-full bg-gray-900 shadow-lg transition-transform duration-300 ease-in-out z-50 ${
+        className={`fixed top-0 right-0 w-3/4 h-full bg-[#1A0C3B] shadow-lg transition-transform duration-300 ease-in-out z-50 ${
           navigationOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
+        {/* Close Button */}
+        <button
+          className="absolute top-4 right-4 text-white focus:outline-none"
+          onClick={() => setNavigationOpen(false)}
+        >
+          <FaTimes className="w-6 h-6" />
+        </button>
+
         <div className="p-6 text-white">
           <nav>
             <ul className="flex flex-col gap-4">
@@ -224,8 +207,8 @@ const Header = () => {
                 <li key={index} className="nav__menu">
                   <Link
                     href={item.href}
-                    as={item.as}
                     className="text-white/80 text-sm py-2 px-4 rounded-lg hover:bg-gradient-to-b from-white/10 to-transparent transition-all duration-300 ease-in-out flex items-center gap-2"
+                    onClick={() => setNavigationOpen(false)}
                   >
                     {item.label}
                   </Link>
