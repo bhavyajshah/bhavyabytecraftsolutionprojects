@@ -4,27 +4,6 @@ import DeployBanner from "../../public/deploy-banner.webp";
 import UiUxBanner from "../../public/ui&ux banner.webp";
 import IdeateBanner from "../../public/ideate-banner-667c8514caa39.webp";
 import DevelopBanner from "../../public/develop-banner-667c85169a186.webp";
-import ReactLogo from "./../../public/react=banner.svg";
-import AngularLogo from "../../public/angular.svg";
-import VuejsLogo from "../../public/vuejs.svg";
-import OpenAILogo from "../../public/openai.svg";
-import QwenLogo from "../../public/qwen.svg";
-import MistralLogo from "../../public/mistral.svg";
-import LlmByMetaLogo from "../../public/llm-by-meta.svg";
-import NodejsLogo from "../../public/nodejs.svg";
-import PythonLogo from "../../public/python.svg";
-import FireBaseLogo from "../../public/firebase.svg";
-import googleCloudLogo from "../../public/goggle-cloud.svg";
-import MsAzureLogo from "../../public/azure.svg";
-import AwsLogo from "../../public/aws.svg";
-import MongoDbLogo from "../../public/mongodb.svg";
-import PostgresLogo from "../../public/postgres.svg";
-import MySqlLogo from "../../public/mysql.svg";
-import SwiftLogo from "../../public/swift.svg";
-import FlutterLogo from "../../public/flutter-logo.svg";
-import PytorchLogo from "../../public/pytorch.svg";
-import TensorFlowLogo from "../../public/tensorflow.svg";
-import KotlinLogo from "../../public/kotlin-java.svg";
 import {
   FaCode,
   FaPalette,
