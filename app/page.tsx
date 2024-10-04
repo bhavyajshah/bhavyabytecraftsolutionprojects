@@ -6,6 +6,7 @@ import DetailedSection from "@/components/DetailedSection/DetailedSection";
 import FeaturesSection from "@/components/FeatureSection/FeatureSection";
 import HeroSection from "@/components/HeroSection/HeroSection";
 import RequestaQuote from "@/components/RequestaQuote/RequestaQuote";
+import Technology from "@/components/Technology/Technology";
 import { InfiniteMovingCardsDemo } from "@/components/Testinomials/Testinomials";
 import { TimelineDemo } from "@/components/Timeline/Timeline";
 import { WhyChooseByteCraftSolutions } from "@/components/WhyChooseByteCraftSolutions/WhyChooseByteCraftSolutions";
@@ -21,6 +22,7 @@ const page = () => {
         <WhyChooseByteCraftSolutions />
         <FeaturesSection />
         <AboutUsSection />
+        <Technology/>
         <CaseStudies />
         <TimelineDemo />
         <InfiniteMovingCardsDemo />
