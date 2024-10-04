@@ -104,7 +104,7 @@ const TrustedClients: React.FC = () => {
       <div className="container mx-auto px-4">
         <h2 className="text-2xl text-white font-bold mb-2 text-center">Trusted Clients</h2>
         <p className="text-center text-white mb-8">
-          We're proud to work with some of the most innovative companies in the world.
+          We&apos;re proud to work with some of the most innovative companies in the world.
         </p>
         <div
           className="relative overflow-hidden"

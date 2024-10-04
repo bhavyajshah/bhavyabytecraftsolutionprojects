@@ -58,7 +58,7 @@ const Portfolio: React.FC = () => {
         Our Portfolio
       </h2>
       <p className="mt-2.5 text-base leading-7 text-neutral-800 max-md:max-w-full">
-        Explore our recent web development projects and see how we've helped
+        Explore our recent web development projects and see how we&apos;ve helped
         businesses succeed online.
       </p>
       <div className="flex flex-wrap gap-10 items-start mt-12 w-full bg-blend-normal max-w-[1340px] min-h-[455px] max-md:mt-10 max-md:max-w-full">

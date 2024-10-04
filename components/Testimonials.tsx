@@ -49,7 +49,7 @@ const Testimonials: React.FC = () => {
         What Our Clients Say
       </h2>
       <p className="mt-2.5 text-base leading-7 text-neutral-800 max-md:max-w-full">
-        Don't just take our word for it - hear from some of our satisfied
+        Don&apos;t just take our word for it - hear from some of our satisfied
         clients
       </p>
       <div className="flex flex-wrap gap-10 justify-center mt-12 w-full max-w-[1340px] max-md:mt-10 max-md:max-w-full">
