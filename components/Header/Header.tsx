@@ -3,67 +3,13 @@ import { Popover, PopoverButton, PopoverPanel } from "@headlessui/react";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import {
-  FaMobileAlt,
-  FaLaptopCode,
-  FaCode,
-  FaProjectDiagram,
-  FaTools,
-  FaBars,
-  FaTimes,
-  FaChevronDown,
-} from "react-icons/fa";
 import { PiHandWaving } from "react-icons/pi";
 import { TextLogo } from "../icons/Icons";
 import { usePathname } from "next/navigation";
+import { servicesData } from "../data/Data";
+import { FaBars, FaChevronDown, FaTimes } from "react-icons/fa";
 
-const servicesData = [
-  {
-    icon: <FaMobileAlt />,
-    label: "Mobile Development",
-    href: "/mobile-development",
-  },
-  {
-    icon: <FaLaptopCode />,
-    label: "Web Development",
-    href: "/web-development",
-  },
-  {
-    icon: <FaCode />,
-    label: "Cross-Platform Development",
-    href: "/cross-platform-development",
-  },
-  {
-    icon: <FaProjectDiagram />,
-    label: "Custom Software Development",
-    href: "/custom-software-development",
-  },
-  { icon: <FaProjectDiagram />, label: "UI/UX Design", href: "/ui-ux-design" },
-  {
-    icon: <FaProjectDiagram />,
-    label: "Project Management",
-    href: "/project-management",
-  },
-  { icon: <FaTools />, label: "DevOps Services", href: "/devops-services" },
-  {
-    icon: <FaTools />,
-    label: "IT Support Services",
-    href: "/it-support-services",
-  },
-  {
-    icon: <FaTools />,
-    label: "Artificial Intelligence",
-    href: "/artificial-intelligence",
-  },
-  { icon: <FaTools />, label: "Quality Assurance", href: "/quality-assurance" },
-  { icon: <FaTools />, label: "Business Analysis", href: "/business-analysis" },
-  {
-    icon: <FaTools />,
-    label: "Solution Architecture",
-    href: "/solution-architecture",
-  },
-  { icon: <FaTools />, label: "All services →", href: "/all-services" },
-];
+
 
 const Header = () => {
   const [stickyMenu, setStickyMenu] = useState(false);
@@ -153,7 +99,7 @@ const Header = () => {
                             {servicesData.map((service, index) => (
                               <Link
                                 key={index}
-                                href={service.href}
+                                href={`/services${service.href}`}
                                 className={`flex items-center gap-2 text-gray-200 rounded-lg p-2 transition duration-200 hover:bg-gradient-to-b from-white/10 to-transparent ${
                                   pathname === service.href
                                     ? "bg-gradient-to-b from-white/10 to-transparent"

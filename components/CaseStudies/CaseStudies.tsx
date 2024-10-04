@@ -54,7 +54,7 @@ export function CaseStudies() {
           <motion.div
             key={index}
             className="group relative p-4 bg-transparent border border-gray-200 backdrop-blur-md rounded-3xl shadow-lg transition-transform hover:bg-gray-900 hover:shadow-2xl cursor-pointer"
-            onClick={() => window.open(caseStudy.link, "_blank")} // Redirect on click
+            onClick={() => window.open(caseStudy.link, "_blank")}
           >
             <FollowerPointerCard
               title={
@@ -80,9 +80,10 @@ export function CaseStudies() {
                 </p>
 
                 {/* Enhanced List Content with SVG */}
-                <ul className="list-none space-y-2 group-hover:pl-4 transition-all duration-300">
+                <ul className="list-none space-y-2 transition-all duration-300">
                   <li className="flex items-center space-x-2">
-                    <FaCheckCircle className="text-green-400" />{" "}
+                    <div className="">
+                    <FaCheckCircle className="text-green-400" /></div>
                     {/* SVG Icon */}
                     <span className="text-sm">
                       ABC Corporation needed a scalable and secure e-commerce
@@ -90,7 +91,9 @@ export function CaseStudies() {
                     </span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <FaCheckCircle className="text-green-400" />{" "}
+                    <div className="">
+                    <FaCheckCircle className="text-green-400" />
+                    </div>
                     {/* SVG Icon */}
                     <span className="text-sm">
                       Developed a custom e-commerce platform with integrated
@@ -98,7 +101,10 @@ export function CaseStudies() {
                     </span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <FaCheckCircle className="text-green-400" />{" "}
+                    <div className="">
+
+                    <FaCheckCircle className="text-green-400" />
+                    </div>
                     {/* SVG Icon */}
                     <span className="text-sm">
                       Increased online sales by 40% within the first six months

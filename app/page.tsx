@@ -11,6 +11,14 @@ import { InfiniteMovingCardsDemo } from "@/components/Testinomials/Testinomials"
 import { TimelineDemo } from "@/components/Timeline/Timeline";
 import { WhyChooseByteCraftSolutions } from "@/components/WhyChooseByteCraftSolutions/WhyChooseByteCraftSolutions";
 import React from "react";
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'ByteCraft Solutions - Leading IT Software Services',
+  description: 'ByteCraft Solutions is a leading IT software services provider, offering innovative and custom-tailored solutions to enhance your business efficiency.',
+  keywords: ['ByteCraft Solutions', 'IT software services', 'technology solutions', 'custom software development', 'business solutions', 'IT consulting'],
+  viewport: 'width=device-width, initial-scale=1.0',
+};
 
 const page = () => {
   return (
@@ -22,7 +30,7 @@ const page = () => {
         <WhyChooseByteCraftSolutions />
         <FeaturesSection />
         <AboutUsSection />
-        <Technology/>
+        <Technology />
         <CaseStudies />
         <TimelineDemo />
         <InfiniteMovingCardsDemo />

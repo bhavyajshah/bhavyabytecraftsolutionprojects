@@ -2,6 +2,7 @@
 import React, { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -75,29 +76,30 @@ const AboutUsSection = () => {
                 <p className="text-gray-300">{stat.text}</p>
               </div>
             ))}
-            <button className="hero-button-gradient inline-flex rounded-lg py-3 px-7 text-white font-medium ease-in duration-300 hover:opacity-80">
-              Read More
-              <svg
-                className="ml-2"
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                viewBox="0 0 18 18"
-                fill="none"
-              >
-                <path
-                  d="M6.75 4.5L11.25 9L6.75 13.5"
-                  stroke="white"
-                  strokeWidth="1.6"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </button>
+        <Link href='/aboutus' className="hero-button-gradient inline-flex self-start w-full sm:w-auto justify-center items-center rounded-lg py-3 px-5 md:px-7 text-white font-medium ease-in duration-300 hover:opacity-80">
+  Read More
+  <svg
+    className="ml-2"
+    xmlns="http://www.w3.org/2000/svg"
+    width="18"
+    height="18"
+    viewBox="0 0 18 18"
+    fill="none"
+  >
+    <path
+      d="M6.75 4.5L11.25 9L6.75 13.5"
+      stroke="white"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+</Link>
+
           </div>
 
           <div className="flex flex-col sm:flex-row justify-center items-center">
-            <div className="relative w-full sm:w-[564px] h-[300px] sm:h-[446px] rounded-3xl overflow-hidden bg-gray-200 border-2 border-indigo-500 hover:shadow-2xl transition duration-500 ease-in-out transform hover:scale-105 mt-6 sm:mt-0">
+            <div className="relative w-full sm:w-[564px] h-[300px] sm:h-[380px] rounded-3xl overflow-hidden bg-gray-200 border-2 border-indigo-500 hover:shadow-2xl transition duration-500 ease-in-out transform hover:scale-105 mt-6 sm:mt-0">
               <img
                 className="w-full h-full object-cover transition-transform duration-500 ease-in-out hover:scale-110"
                 src="https://pagedone.io/asset/uploads/1717742431.png"

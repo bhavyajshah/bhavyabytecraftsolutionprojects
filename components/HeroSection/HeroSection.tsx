@@ -1,7 +1,6 @@
 import Link from "next/link";
 import React from "react";
 import { ContainerScroll } from "../ui/container-scroll-animation";
-import Image from "next/image";
 import { BackgroundImageBlur } from "../icons/Icons";
 
 const HeroSection = () => {
@@ -46,14 +45,11 @@ const HeroSection = () => {
           </>
         }
       >
-        <Image
-          src={`https://img.freepik.com/free-photo/variety-people-multitasking-3d-cartoon-scene_23-2151294501.jpg`}
+        <img
+          src={"landingpageherosection.webp"}
           alt="hero"
-          height={720}
-          width={1400}
-          loading="lazy"
-          className="mx-auto rounded-2xl object-cover h-full object-left-top"
-          draggable={false}
+
+          className="w-full rounded-2xl object-cover h-full"
         />
       </ContainerScroll>
     </section>

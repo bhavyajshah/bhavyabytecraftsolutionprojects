@@ -5,6 +5,12 @@ import UiUxBanner from "../../public/ui&ux banner.webp";
 import IdeateBanner from "../../public/ideate-banner-667c8514caa39.webp";
 import DevelopBanner from "../../public/develop-banner-667c85169a186.webp";
 import {
+  FaMobileAlt,
+  FaLaptopCode,
+  FaProjectDiagram,
+  FaTools,
+} from "react-icons/fa";
+import {
   FaCode,
   FaPalette,
   FaCogs,
@@ -130,9 +136,9 @@ export const techCategory = [
         category: "Frontend",
         description: "Explore the popular frameworks and libraries for building responsive and dynamic user interfaces.",
         items: [
-          { name: "React", icon: "https://w7.pngwing.com/pngs/235/872/png-transparent-react-computer-icons-redux-javascript-others-logo-symmetry-nodejs.png" },
-          { name: "Angular", icon: "https://w1.pngwing.com/pngs/385/9/png-transparent-angular-red-getting-started-with-angular-rxjs-debugging-progressive-web-apps-singlepage-application-web-application-software-framework-thumbnail.png" },
-          { name: "Vue", icon: "https://w7.pngwing.com/pngs/595/279/png-transparent-vue-js-javascript-library-angularjs-react-vue-js-template-angle-text.png" },
+          { name: "React", icon: "react=banner.svg" },
+          { name: "Angular", icon: "angular.svg" },
+          { name: "Vue", icon: "vuejs.svg" },
         ],
       },
       {
@@ -201,4 +207,52 @@ export const techCategory = [
       },
     ],
   },
+];
+
+export const servicesData = [
+  {
+    icon: <FaMobileAlt />,
+    label: "Mobile Development",
+    href: "/mobile-development",
+  },
+  {
+    icon: <FaLaptopCode />,
+    label: "Web Development",
+    href: "/web-development",
+  },
+  {
+    icon: <FaCode />,
+    label: "Cross-Platform Development",
+    href: "/cross-platform-development",
+  },
+  {
+    icon: <FaProjectDiagram />,
+    label: "Custom Software Development",
+    href: "/custom-software-development",
+  },
+  { icon: <FaProjectDiagram />, label: "UI/UX Design", href: "/ui-ux-design" },
+  {
+    icon: <FaProjectDiagram />,
+    label: "Project Management",
+    href: "/project-management",
+  },
+  { icon: <FaTools />, label: "DevOps Services", href: "/devops-services" },
+  {
+    icon: <FaTools />,
+    label: "IT Support Services",
+    href: "/it-support-services",
+  },
+  {
+    icon: <FaTools />,
+    label: "Artificial Intelligence",
+    href: "/artificial-intelligence",
+  },
+  { icon: <FaTools />, label: "Quality Assurance", href: "/quality-assurance" },
+  { icon: <FaTools />, label: "Business Analysis", href: "/business-analysis" },
+  {
+    icon: <FaTools />,
+    label: "Solution Architecture",
+    href: "/solution-architecture",
+  },
+  { icon: <FaTools />, label: "All services →", href: "/all-services" },
 ];
