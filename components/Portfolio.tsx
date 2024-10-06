@@ -1,79 +1,39 @@
+import { PinContainer } from "./ui/3d-pin";
 
-import React from "react";
-
-type PortfolioItemProps = {
-  image: string;
-  title: string;
-  description: string;
-};
-
-const PortfolioItem: React.FC<PortfolioItemProps> = ({
-  image,
-  title,
-  description,
-}) => {
+const WebDevelopmentWork = ({ works, sectionTitle, sectionSubtitle }) => {
   return (
-    <div className="flex overflow-hidden flex-col grow shrink px-5 py-6 bg-white shadow-2xl bg-blend-normal min-h-[455px] min-w-[240px] rounded-[30px] w-[330px]">
-      <div className="flex overflow-hidden flex-col max-w-full bg-blend-normal rounded-[30px] w-[373px]">
-        <img
-          loading="lazy"
-          src={image}
-          alt={title}
-          className="object-contain w-full bg-blend-normal aspect-[1.5]"
-        />
+    <div className="pt-32">
+      {/* Section Title and Subtitle */}
+      <div className="text-center mb-8">
+        <h1 className="text-4xl font-bold text-slate-100 mb-2">{sectionTitle}</h1>
+        <p className="text-lg text-slate-300">{sectionSubtitle}</p>
       </div>
-      <div className="flex flex-col items-start mt-8 max-w-full font-medium bg-blend-normal w-[373px]">
-        <h3 className="flex z-10 flex-col self-stretch pr-10 pb-16 mt-4 text-2xl leading-none bg-blend-normal min-h-[64px] text-neutral-800 max-md:pr-5 max-md:pb-24">
-          {title}
-        </h3>
-        <p className="text-sm leading-none text-slate-900">{description}</p>
+
+      {/* Responsive Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-full gap-y-28 gap-x-16 py-10 px-10">
+        {works.map((work, index) => (
+          <PinContainer key={index} title={work.title} href={work.href}>
+            <div className="flex flex-col p-4 tracking-tight text-slate-100/50 w-full h-full">
+              <h3 className="font-bold text-lg text-slate-100 mb-1">{work.title}</h3>
+              <h4 className="font-semibold text-sm text-slate-300 mb-2">
+                {work.subTitle}
+              </h4>
+              <div className="text-base font-normal text-slate-500 mb-4">
+                {work.description}
+              </div>
+              <img
+                src={work.image}
+                alt={work.title}
+                className="w-full h-auto mb-4 rounded-lg object-cover"
+              />
+              {/* Gradient Effect */}
+              <div className="flex flex-1 w-full rounded-lg bg-gradient-to-br from-violet-500 via-purple-500 to-blue-500" />
+            </div>
+          </PinContainer>
+        ))}
       </div>
     </div>
   );
 };
 
-const Portfolio: React.FC = () => {
-  const portfolioItems = [
-    {
-      image: "http://b.io/ext_78-",
-      title: "E-commerce Platform",
-      description: "A fully responsive online store with advanced features.",
-    },
-    {
-      image: "http://b.io/ext_79-",
-      title: "Business Analytics Dashboard",
-      description:
-        "Interactive data visualization for informed decision-making.",
-    },
-    {
-      image: "http://b.io/ext_80-",
-      title: "Social Media App",
-      description: "A feature-rich platform for connecting people worldwide.",
-    },
-  ];
-
-  return (
-    <section className="flex flex-col items-center mt-24 max-md:mt-10 max-md:max-w-full">
-      <h2 className="text-5xl font-bold leading-none text-slate-900 max-md:max-w-full max-md:text-4xl">
-        Our Portfolio
-      </h2>
-      <p className="mt-2.5 text-base leading-7 text-neutral-800 max-md:max-w-full">
-        Explore our recent web development projects and see how we&apos;ve helped
-        businesses succeed online.
-      </p>
-      <div className="flex flex-wrap gap-10 items-start mt-12 w-full bg-blend-normal max-w-[1340px] min-h-[455px] max-md:mt-10 max-md:max-w-full">
-        {portfolioItems.map((item, index) => (
-          <PortfolioItem key={index} {...item} />
-        ))}
-      </div>
-      <a
-        href="#contact"
-        className="px-8 py-2.5 mt-12 max-w-full text-base leading-7 text-white bg-blue-600 bg-blend-normal rounded-[30px] w-[145px] max-md:px-5 max-md:mt-10"
-      >
-        Contact Us
-      </a>
-    </section>
-  );
-};
-
-export default Portfolio;
+export default WebDevelopmentWork;

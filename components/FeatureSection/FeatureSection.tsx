@@ -1,54 +1,9 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import {
-  FaMobileAlt,
-  FaGlobe,
-  FaRobot,
-  FaDatabase,
-  FaCloud,
-} from "react-icons/fa";
-import { GrTestDesktop } from "react-icons/gr";
+import { services } from "../data/Data";
 
 const FeaturesSection = () => {
-  const services = [
-    {
-      title: "Mobile Development",
-      description:
-        "Crafting seamless mobile experiences across platforms for businesses and users alike.",
-      icon: <FaMobileAlt />,
-    },
-    {
-      title: "Web Apps and Portals",
-      description:
-        "Building responsive, scalable, and secure web applications tailored to your needs.",
-      icon: <FaGlobe />,
-    },
-    {
-      title: "AI Programming & Technical Solutions",
-      description:
-        "Leveraging AI to deliver cutting-edge solutions and enhance operational efficiency.",
-      icon: <FaRobot />,
-    },
-    {
-      title: "Backend Development",
-      description:
-        "Developing robust backend architectures that ensure reliability, security, and performance.",
-      icon: <FaDatabase />,
-    },
-    {
-      title: "Q/A & Testing",
-      description:
-        "Ensuring the highest quality and reliability for your software.",
-      icon: <GrTestDesktop />,
-    },
-    {
-      title: "Cloud Solutions & DevOps",
-      description:
-        "Empowering your infrastructure with cloud integration and continuous delivery pipelines.",
-      icon: <FaCloud />,
-    },
-  ];
 
   return (
     <section

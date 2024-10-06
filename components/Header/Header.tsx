@@ -6,10 +6,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { PiHandWaving } from "react-icons/pi";
 import { TextLogo } from "../icons/Icons";
 import { usePathname } from "next/navigation";
-import { servicesData } from "../data/Data";
 import { FaBars, FaChevronDown, FaTimes } from "react-icons/fa";
-
-
+import { services } from "../data/Data";
 
 const Header = () => {
   const [stickyMenu, setStickyMenu] = useState(false);
@@ -86,32 +84,36 @@ const Header = () => {
                           }`}
                         />
                       </PopoverButton>
-                      <AnimatePresence>
-                        {open && (
-                          <PopoverPanel
-                            static
-                            as={motion.div}
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -10 }}
-                            className="absolute left-0 mt-3 w-[600px] p-6 bg-[#1A0C3B] rounded-lg shadow-xl origin-top grid grid-cols-2 gap-4"
-                          >
-                            {servicesData.map((service, index) => (
-                              <Link
-                                key={index}
-                                href={`/services${service.href}`}
-                                className={`flex items-center gap-2 text-gray-200 rounded-lg p-2 transition duration-200 hover:bg-gradient-to-b from-white/10 to-transparent ${
-                                  pathname === service.href
-                                    ? "bg-gradient-to-b from-white/10 to-transparent"
-                                    : ""
-                                }`}
-                              >
-                                {service.icon} {service.label}
-                              </Link>
-                            ))}
-                          </PopoverPanel>
-                        )}
-                      </AnimatePresence>
+            <AnimatePresence>
+  {open && (
+    <PopoverPanel
+      static
+      as={motion.div}
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      className="absolute left-0 mt-3 w-[800px] p-6 bg-[#1A0C3B] rounded-lg shadow-xl origin-top grid grid-cols-3 gap-6"
+    >
+      {services.map((service, index) => (
+        <div key={index} className="flex flex-col items-start space-y-2 hover:rounded-lg hover:bg-gradient-to-b from-white/10 to-transparent">
+          <div className="flex h-10 w-10 items-center justify-center rounded-full text-gray-500">
+            {service.icon}
+          </div>
+          <Link
+            href={`/services${service.href}`}
+            className={`flex items-center gap-2 text-gray-200 rounded-lg transition duration-200 ${
+              pathname === service.href ? "bg-gradient-to-b from-white/10 to-transparent" : ""
+            }`}
+          >
+            {service.title}
+          </Link>
+          <p className="text-gray-400 text-sm">{service.description}</p>
+        </div>
+      ))}
+    </PopoverPanel>
+  )}
+</AnimatePresence>
+
                     </>
                   )}
                 </Popover>
@@ -180,14 +182,14 @@ const Header = () => {
                       exit={{ opacity: 0, height: 0 }}
                       className="ml-4 mt-2 space-y-2"
                     >
-                      {servicesData.map((service, index) => (
+                      {services.map((service, index) => (
                         <Link
                           key={index}
                           href={service.href}
                           className="flex items-center gap-2 text-gray-200 rounded-lg p-2 transition duration-200 hover:bg-gradient-to-b from-white/10 to-transparent"
                           onClick={() => setNavigationOpen(false)}
                         >
-                          {service.icon} {service.label}
+                          {service.icon} {service.title}
                         </Link>
                       ))}
                     </motion.div>
