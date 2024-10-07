@@ -91,10 +91,10 @@ export default function NotFound() {
                Page Not Found
               </h2>
               <p className="text-lg mb-4">
-                Oops! It seems like you've taken a wrong turn.
+                Oops! It seems like you&apos;ve taken a wrong turn.
               </p>
               <p className="text-sm mb-6">
-                We're working to bring it back. In the meantime, you can head
+                We&apos;re working to bring it back. In the meantime, you can head
                 back to the homepage.
               </p>
               <Link

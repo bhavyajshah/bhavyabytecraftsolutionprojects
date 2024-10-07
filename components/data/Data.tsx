@@ -17,7 +17,7 @@ import {
   FaLifeRing,
   FaRocket,
   FaRedo,
-  FaUserShield, FaDrawPolygon, FaSearchDollar, FaChartLine
+  FaUserShield, FaDrawPolygon, FaSearchDollar
 } from "react-icons/fa";
 import { GrTestDesktop } from "react-icons/gr";
 import { RiTeamLine } from "react-icons/ri";
@@ -238,7 +238,7 @@ export const services = [
  {
     title: "Custom Software Development",
     description:
-      "Developing bespoke software solutions that are tailored to your business processes and objectives, enhancing efficiency and driving innovation.",
+      "Developing bespoke software solutions that are tailored to your business processes & enhancing efficiency and driving innovation.",
     icon: <FaCogs />,
     href: "/custom-software-development",
   },

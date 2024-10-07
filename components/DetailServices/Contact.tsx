@@ -1,5 +1,5 @@
 import React from "react";
-import { FaUser, FaEnvelope, FaPhone, FaMoneyBill, FaBriefcase } from 'react-icons/fa';
+import { FaUser, FaEnvelope, FaPhone, FaBriefcase } from 'react-icons/fa';
 import { MdOutlineBusinessCenter } from 'react-icons/md';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';

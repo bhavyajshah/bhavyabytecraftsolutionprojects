@@ -13,7 +13,7 @@ const Hero: React.FC = () => {
             A small creative team excited to create beautiful things
           </h1>
           <p className="mt-4 sm:mt-5 text-base sm:text-lg md:text-xl leading-snug sm:leading-none text-slate-300 text-center max-w-3xl">
-            Born out of a shared passion for design and innovation, we're a
+            Born out of a shared passion for design and innovation, we&apos;re a
             dedicated team committed to turning visions into impactful digital
             realities.
           </p>
