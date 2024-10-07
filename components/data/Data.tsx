@@ -22,6 +22,7 @@ import {
 import { GrTestDesktop } from "react-icons/gr";
 import { RiTeamLine } from "react-icons/ri";
 import { MdOutlineDesignServices, MdOutlineBusinessCenter } from "react-icons/md";
+import { DummyContent } from "../DetailServices/Expertise";
 
 export const steps = [
   {
@@ -234,12 +235,12 @@ export const services = [
     icon: <FaProjectDiagram />,
     href: "/cross-platform-development",
   },
-  {
-    title: "Trending Technologies",
+ {
+    title: "Custom Software Development",
     description:
-      "Adopting the latest and emerging tech to keep your business ahead of the curve.",
-    icon: <FaChartLine />,
-    href: "/trending-technologies",
+      "Developing bespoke software solutions that are tailored to your business processes and objectives, enhancing efficiency and driving innovation.",
+    icon: <FaCogs />,
+    href: "/custom-software-development",
   },
   {
     title: "UI/UX Design",
@@ -302,6 +303,181 @@ export const services = [
     description:
       "Explore all the services that can help you build and scale your business.",
     icon: <FaSearchDollar />,
-    href: "/all-services",
+    href: "/services",
   },
+];
+
+export const expertiseData = [
+  {
+    category: "Farming",
+    title: "Revolutionizing Agriculture with Web Development",
+    src: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=3556&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    content: <DummyContent description="We build digital tools for modern farmers to enhance productivity and manage resources efficiently." />,
+  },
+  {
+    category: "Electronics",
+    title: "Innovative Solutions for the Electronics Industry",
+    src: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=3578&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    content: <DummyContent description="We create e-commerce platforms and inventory management systems tailored for electronics businesses." />,
+  },
+  {
+    category: "Ecommerce",
+    title: "Building Scalable Ecommerce Platforms",
+    src: "https://images.unsplash.com/photo-1523475472560-d2df97ec485c?q=80&w=4000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    content: <DummyContent description="We design high-performance ecommerce platforms that enhance user experience and increase conversions." />,
+  },
+  {
+    category: "Healthcare",
+    title: "Empowering Healthcare with Technology",
+    src: "https://images.unsplash.com/photo-1602081957921-9137a5d6eaee?q=80&w=2793&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    content: <DummyContent description="We create patient management systems and telemedicine platforms for the healthcare industry." />,
+  },
+  {
+    category: "Education",
+    title: "Digital Transformation in Education",
+    src: "https://images.unsplash.com/photo-1602081957921-9137a5d6eaee?q=80&w=2793&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    content: <DummyContent description="We develop e-learning platforms and content management systems for the education sector." />,
+  },
+  {
+    category: "Real Estate",
+    title: "Building Digital Tools for Real Estate",
+    src: "https://images.unsplash.com/photo-1511984804822-e16ba72f5848?q=80&w=2048&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    content: <DummyContent description="We create property management and listing platforms for the real estate industry." />,
+  },
+];
+
+export const testimonials = [
+  {
+    quote:
+      "Working with Byte Craft Systems was a seamless experience. Their team transformed our ideas into a functional software solution with professionalism.",
+    name: "John Doe",
+    avatar: "https://ai-tool-tailwind.preview.uideck.com/images/user-08.png",
+    rating: 5,
+    designation: "CEO, Tech Innovators",
+  },
+  {
+    quote:
+      "The development team at Byte Craft Systems exceeded our expectations with their attention to detail and commitment to delivering a top-quality product.",
+    name: "Jane Smith",
+    avatar: "https://ai-tool-tailwind.preview.uideck.com/images/user-08.png",
+    rating: 4,
+    designation: "Product Manager, NextGen Solutions",
+  },
+  {
+    quote:
+      "Byte Craft Systems provided excellent service and technical support throughout the entire development process. We are very satisfied with the results.",
+    name: "Mark Johnson",
+    avatar: "https://ai-tool-tailwind.preview.uideck.com/images/user-08.png",
+    rating: 5,
+    designation: "CTO, Visionary Labs",
+  },
+  {
+    quote:
+      "The team was responsive and adapted to our evolving needs during the project. I highly recommend Byte Craft Systems for software development.",
+    name: "Emily Davis",
+    avatar: "https://ai-tool-tailwind.preview.uideck.com/images/user-08.png",
+    rating: 4,
+    designation: "Founder, Davis Enterprises",
+  },
+  {
+    quote:
+      "From start to finish, Byte Craft Systems demonstrated their expertise and delivered a solution that surpassed our expectations.",
+    name: "Michael Lee",
+    avatar: "https://ai-tool-tailwind.preview.uideck.com/images/user-08.png",
+    rating: 5,
+    designation: "Operations Director, Synergy Works",
+  },
+];
+
+export const caseStudies = [
+  {
+    author: "ByteCraft Solutions",
+    title: "Custom ERP Solution for Manufacturing Industry",
+    description:
+      "Developed a comprehensive ERP solution to streamline manufacturing processes, reduce operational costs, and enhance productivity for a mid-sized manufacturing company.",
+    image:
+      "https://img.freepik.com/free-photo/industry-engineer-technology-graphic-interface_53876-110863.jpg",
+    authorAvatar: "https://img.icons8.com/ios/452/avatar--v1.png",
+    link: "https://example.com/custom-erp-solution",
+    bulletPoints: [
+      "Implemented modules for inventory management, production planning, and quality control.",
+      "Reduced manual data entry by 60% through automation of routine tasks.",
+      "Achieved a 30% increase in production efficiency within the first year."
+    ]
+  },
+  {
+    author: "ByteCraft Solutions",
+    title: "AI-Powered Predictive Analytics for Retail Chain",
+    description:
+      "Built a predictive analytics platform using AI to help a retail chain optimize inventory levels, reduce stockouts, and improve demand forecasting accuracy.",
+    image:
+      "https://img.freepik.com/free-photo/artificial-intelligence-ai-research-concept_53876-123212.jpg",
+    authorAvatar: "https://img.icons8.com/ios/452/avatar--v1.png",
+    link: "https://example.com/ai-predictive-analytics",
+    bulletPoints: [
+      "Developed machine learning models that improved sales forecasting accuracy by 45%.",
+      "Integrated analytics with the client's existing ERP system for seamless data flow.",
+      "Reduced inventory holding costs by 20% through precise demand predictions."
+    ]
+  },
+  {
+    author: "ByteCraft Solutions",
+    title: "Cloud Migration for Financial Services Firm",
+    description:
+      "Led a seamless cloud migration for a financial services firm, ensuring data security and compliance with industry regulations while reducing IT infrastructure costs.",
+    image:
+      "https://img.freepik.com/free-photo/businessman-touching-cloud-icon-working-with-cloud-technology_53876-136335.jpg",
+    authorAvatar: "https://img.icons8.com/ios/452/avatar--v1.png",
+    link: "https://example.com/cloud-migration-finance",
+    bulletPoints: [
+      "Migrated over 500 GB of data to a secure, scalable cloud infrastructure.",
+      "Improved application performance by 35% post-migration.",
+      "Achieved a 25% reduction in IT infrastructure costs."
+    ]
+  },
+  {
+    author: "ByteCraft Solutions",
+    title: "Mobile Banking App Development for Fintech Startup",
+    description:
+      "Designed and developed a user-friendly mobile banking app for a fintech startup, focusing on security, speed, and seamless user experience.",
+    image:
+      "https://img.freepik.com/free-photo/businessman-using-mobile-banking-fintech_53876-109251.jpg",
+    authorAvatar: "https://img.icons8.com/ios/452/avatar--v1.png",
+    link: "https://example.com/mobile-banking-app",
+    bulletPoints: [
+      "Implemented advanced encryption protocols to ensure secure transactions.",
+      "Reduced customer onboarding time by 50% through automated KYC processes.",
+      "Achieved 4.8-star ratings on both iOS and Android app stores."
+    ]
+  },
+  {
+    author: "ByteCraft Solutions",
+    title: "E-commerce Platform Optimization for Online Retailer",
+    description:
+      "Enhanced the performance of an existing e-commerce platform, resulting in faster load times, better search functionality, and increased sales conversion rates.",
+    image:
+      "https://img.freepik.com/free-photo/close-up-hands-online-payment_23-2149161288.jpg",
+    authorAvatar: "https://img.icons8.com/ios/452/avatar--v1.png",
+    link: "https://example.com/ecommerce-optimization",
+    bulletPoints: [
+      "Improved page load speeds by 40% with optimized backend and front-end code.",
+      "Increased conversion rates by 30% through a redesigned user experience.",
+      "Integrated personalized product recommendations, boosting average order value by 15%."
+    ]
+  },
+  {
+    author: "ByteCraft Solutions",
+    title: "IoT Integration for Smart Manufacturing",
+    description:
+      "Implemented IoT solutions for a manufacturing client, enabling real-time monitoring of equipment and predictive maintenance to reduce downtime.",
+    image:
+      "https://img.freepik.com/free-photo/iot-internet-things-industry-4_53876-123212.jpg",
+    authorAvatar: "https://img.icons8.com/ios/452/avatar--v1.png",
+    link: "https://example.com/iot-smart-manufacturing",
+    bulletPoints: [
+      "Integrated sensors with existing machinery for real-time performance tracking.",
+      "Reduced equipment downtime by 25% through predictive maintenance alerts.",
+      "Enhanced overall equipment efficiency (OEE) by 18%."
+    ]
+  }
 ];

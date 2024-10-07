@@ -34,7 +34,7 @@ const Hero: React.FC<HeroProps> = ({
     initial={{ opacity: 0, scale: 0.8 }}
     animate={{ opacity: 1, scale: 1 }}
     transition={{ duration: 1 }}
-    className="relative font-medium text-sm inline-flex items-center gap-2 py-2 px-6 hero-subtitle-gradient rounded-full text-white"
+    className="relative font-medium text-sm inline-flex items-center gap-2 py-2 px-6 button-border-gradient rounded-full text-white"
     style={{ width: "fit-content" }}
   >
     {headline}

@@ -2,46 +2,14 @@
 import { FollowerPointerCard } from "../ui/following-pointer";
 import { motion } from "framer-motion";
 import { FaCheckCircle } from "react-icons/fa";
+import { caseStudies } from "../data/Data";
 
 export function CaseStudies() {
-  const caseStudies = [
-    {
-      author: "Byte Craft Solutions",
-      title: "Mobile App for E-commerce Startup",
-      description:
-        "Developed a robust mobile app for an e-commerce startup, boosting user engagement by 35%. Seamless integration with payment gateways and personalized recommendations.",
-      image:
-        "https://img.freepik.com/free-vector/e-commerce-concept-illustration_114360-1351.jpg",
-      authorAvatar: "https://img.icons8.com/ios/452/avatar--v1.png",
-      link: "https://example.com/mobile-app-ecommerce",
-    },
-    {
-      author: "Byte Craft Solutions",
-      title: "AI-Powered Analytics Platform",
-      description:
-        "Created an AI-powered platform for data analysis that streamlined operations, reducing manual effort by 50%. Innovative algorithms and real-time data visualizations.",
-      image:
-        "https://img.freepik.com/free-vector/artificial-intelligence-illustration-concept_114360-2295.jpg",
-      authorAvatar: "https://img.icons8.com/ios/452/avatar--v1.png",
-      link: "https://example.com/ai-powered-analytics",
-    },
-    {
-      author: "Byte Craft Solutions",
-      title: "Cross-Platform SaaS Product",
-      description:
-        "Delivered a scalable SaaS solution across web and mobile, achieving a 40% increase in client productivity. Advanced multi-device synchronization and secure cloud storage.",
-      image:
-        "https://img.freepik.com/free-photo/software-developer-programming-code_53876-96402.jpg",
-      authorAvatar: "https://img.icons8.com/ios/452/avatar--v1.png",
-      link: "https://example.com/saas-product",
-    },
-  ];
-
   return (
     <div className="max-w-6xl mx-auto bg-transparent relative">
       {/* Title and Description */}
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-white mb-4">Case Studies</h1>
+        <h1 className="text-4xl font-bold text-white mb-4">Byte-Craft Case Studies</h1>
         <p className="text-lg text-gray-300">
           Explore how Byte Craft Solutions has delivered cutting-edge solutions
           to help businesses succeed and grow.
@@ -79,38 +47,16 @@ export function CaseStudies() {
                   {caseStudy.description}
                 </p>
 
-                {/* Enhanced List Content with SVG */}
+                {/* Enhanced List Content with Dynamic Data */}
                 <ul className="list-none space-y-2 transition-all duration-300">
-                  <li className="flex items-center space-x-2">
-                    <div className="">
-                    <FaCheckCircle className="text-green-400" /></div>
-                    {/* SVG Icon */}
-                    <span className="text-sm">
-                      ABC Corporation needed a scalable and secure e-commerce
-                      platform to expand their online presence.
-                    </span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <div className="">
-                    <FaCheckCircle className="text-green-400" />
-                    </div>
-                    {/* SVG Icon */}
-                    <span className="text-sm">
-                      Developed a custom e-commerce platform with integrated
-                      payments, inventory management, and customer analytics.
-                    </span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <div className="">
-
-                    <FaCheckCircle className="text-green-400" />
-                    </div>
-                    {/* SVG Icon */}
-                    <span className="text-sm">
-                      Increased online sales by 40% within the first six months
-                      of launch.
-                    </span>
-                  </li>
+                  {caseStudy.bulletPoints?.map((point, pointIndex) => (
+                    <li key={pointIndex} className="flex items-center space-x-2">
+                      <div className="">
+                      <FaCheckCircle className="text-green-400" />
+                      </div>
+                      <span className="text-sm">{point}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </FollowerPointerCard>

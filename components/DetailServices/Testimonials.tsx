@@ -3,8 +3,6 @@ import SwiperCore from "swiper";
 import { Pagination, Autoplay } from 'swiper/modules';
 import React from "react";
 
-
-
 SwiperCore.use([Autoplay, Pagination]);
 
 const TestimonialSlider = ({title, subTitle, testimonials}) => {

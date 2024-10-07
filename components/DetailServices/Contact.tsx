@@ -11,7 +11,6 @@ const Contact = () => {
       email: '',
       phone: '',
       projectType: '',
-      budget: '',
       description: '',
     },
     validationSchema: Yup.object({
@@ -19,7 +18,6 @@ const Contact = () => {
       email: Yup.string().email('Invalid email address').required('Email is required'),
       phone: Yup.string().required('Phone is required'),
       projectType: Yup.string().required('Project type is required'),
-      budget: Yup.string().required('Budget is required'),
       description: Yup.string().required('Description is required'),
     }),
     onSubmit: (values) => {
@@ -67,13 +65,9 @@ const Contact = () => {
                 </ul>
               </div>
             </div>
-            <div className="w-f
-            ull lg:w-2/3 xl:w-7/12">
-
-
+            <div className="w-full lg:w-2/3 xl:w-7/12">
               <div className="p-8 lg:p-8 rounded-lg border-2 text-white shadow-xl border-gray-700 dark:bg-dark-2 transition-transform hover:shadow-2xl">
-
-                <form onSubmit={formik.handleSubmit} className="space-y-6">
+               <form onSubmit={formik.handleSubmit} className="space-y-6">
                   <ContactInputBox
                     type="text"
                     name="name"
@@ -102,13 +96,7 @@ const Contact = () => {
                     icon={<FaBriefcase />}
                     formik={formik}
                   />
-                  <ContactInputBox
-                    type="text"
-                    name="budget"
-                    placeholder="Estimated Budget"
-                    icon={<FaMoneyBill />}
-                    formik={formik}
-                  />
+
                   <ContactTextArea
                     row="6"
                     placeholder="Project Description"

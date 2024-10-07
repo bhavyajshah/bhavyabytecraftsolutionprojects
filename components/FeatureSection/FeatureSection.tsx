@@ -1,9 +1,21 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { services } from "../data/Data";
 
 const FeaturesSection = () => {
+  const [visibleServices, setVisibleServices] = useState(3);
+
+  // Function to load more services
+  const showMoreServices = () => {
+    setVisibleServices((prevVisibleServices) => prevVisibleServices + 3);
+  };
+
+  // Animation variants for services
+  const serviceAnimation = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0 },
+  };
 
   return (
     <section
@@ -24,10 +36,14 @@ const FeaturesSection = () => {
         </div>
 
         <ul className="mx-auto mt-8 max-w-7xl grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service, index) => (
+          {services.slice(0, visibleServices).map((service, index) => (
             <motion.li
               key={index}
               className="group relative z-0 h-full overflow-hidden rounded-xl border border-[#190C3B] p-6 transition-transform duration-300"
+              initial="hidden"
+              animate="visible"
+              variants={serviceAnimation}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
             >
               <motion.div
                 className="relative z-10 space-y-3"
@@ -54,6 +70,18 @@ const FeaturesSection = () => {
             </motion.li>
           ))}
         </ul>
+
+        {/* Show More button */}
+        {visibleServices < services.length && (
+          <div className="text-center mt-8">
+            <button
+              className="hero-button-gradient inline-flex rounded-lg py-3 px-7 text-white font-medium ease-in duration-300 hover:opacity-80"
+              onClick={showMoreServices}
+            >
+              Show More
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

@@ -35,7 +35,7 @@ const HeroSection = () => {
                   with a dedicated team that puts your business first.
                 </p>
                 <Link
-                  href="/"
+                  href="/pricing"
                   className="hero-button-gradient inline-flex rounded-lg py-3 px-7 text-white font-medium ease-in duration-300 hover:opacity-80"
                 >
                   Book a Free Consultation

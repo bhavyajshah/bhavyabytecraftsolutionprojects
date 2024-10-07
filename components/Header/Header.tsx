@@ -33,9 +33,8 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed left-0 top-0 w-full z-50 py-3 lg:py-2 transition duration-200 ${
-        stickyMenu ? "backdrop-blur-lg" : "bg-transparent"
-      }`}
+      className={`fixed left-0 top-0 w-full z-50 py-3 lg:py-2 transition duration-200 ${stickyMenu ? "backdrop-blur-lg" : "bg-transparent"
+        }`}
     >
       <div className="max-w-[90%] mx-auto px-4 sm:px-6 xl:px-0 lg:flex items-center justify-between relative">
         <nav className="flex items-center justify-between w-full">
@@ -61,65 +60,77 @@ const Header = () => {
           <div className="hidden lg:flex justify-center w-1/2">
             <ul className="flex gap-5">
               {navLinks.map((item, index) => (
-                <li key={index} className="nav__menu">
-                  <Link
-                    href={item.href}
-                    className="text-white/80 text-sm py-2 px-4 rounded-lg hover:bg-gradient-to-b from-white/10 to-transparent transition-all duration-300 ease-in-out flex items-center gap-2"
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
+                <>
+                  <li key={index} className="nav__menu">
+                    <Link
+                      href={item.href}
+                      className="text-white/80 text-sm py-2 px-4 rounded-lg hover:bg-gradient-to-b from-white/10 to-transparent transition-all duration-300 ease-in-out flex items-center gap-2"
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                  {item.label === "Home" && (
+                    <li className="">
+                      <Popover>
+                        {({ open, close }) => (
+                          <>
+                            <PopoverButton className="text-white/80 text-sm py-2 px-4 rounded-lg hover:bg-gradient-to-b from-white/10 to-transparent transition-all duration-300 ease-in-out flex items-center gap-2">
+                              Services
+                              <FaChevronDown
+                                className={`transition-transform duration-200 ${open ? "rotate-180" : ""
+                                  }`}
+                              />
+                            </PopoverButton>
 
-              {/* Services Dropdown */}
-              <li className="relative group">
-                <Popover>
-                  {({ open }) => (
-                    <>
-                      <PopoverButton className="text-white/80 text-sm py-2 px-4 rounded-lg hover:bg-gradient-to-b from-white/10 to-transparent transition-all duration-300 ease-in-out flex items-center gap-2">
-                        Services
-                        <FaChevronDown
-                          className={`transition-transform duration-200 ${
-                            open ? "rotate-180" : ""
-                          }`}
-                        />
-                      </PopoverButton>
-            <AnimatePresence>
-  {open && (
-    <PopoverPanel
-      static
-      as={motion.div}
-      initial={{ opacity: 0, y: -10 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -10 }}
-      className="absolute left-0 mt-3 w-[800px] p-6 bg-[#1A0C3B] rounded-lg shadow-xl origin-top grid grid-cols-3 gap-6"
-    >
-      {services.map((service, index) => (
-        <div key={index} className="flex flex-col items-start space-y-2 hover:rounded-lg hover:bg-gradient-to-b from-white/10 to-transparent">
-          <div className="flex h-10 w-10 items-center justify-center rounded-full text-gray-500">
-            {service.icon}
-          </div>
-          <Link
-            href={`/services${service.href}`}
-            className={`flex items-center gap-2 text-gray-200 rounded-lg transition duration-200 ${
-              pathname === service.href ? "bg-gradient-to-b from-white/10 to-transparent" : ""
-            }`}
-          >
-            {service.title}
-          </Link>
-          <p className="text-gray-400 text-sm">{service.description}</p>
-        </div>
-      ))}
-    </PopoverPanel>
-  )}
-</AnimatePresence>
-
-                    </>
+                            <AnimatePresence>
+                              {open && (
+                                <PopoverPanel
+                                  static
+                                  as={motion.div}
+                                  initial={{ opacity: 0, y: -10 }}
+                                  animate={{ opacity: 1, y: 0 }}
+                                  exit={{ opacity: 0, y: -10 }}
+                                  className="absolute left-0 mt-3 p-3 w-full max-w-screen overflow-hidden z-50 bg-[#1A0C3B] rounded-lg shadow-xl origin-top grid grid-cols-3 gap-6 overflow-y-scroll"
+                                >
+                                  {services.map((service, index) => (
+                                    <div
+                                      key={index}
+                                      className="flex flex-row gap-4 items-start space-y-2 hover:rounded-lg hover:bg-gradient-to-b from-white/10 to-transparent"
+                                    >
+                                      <div className="flex h-10 w-10 items-center justify-center rounded-full text-gray-500">
+                                        {service.icon}
+                                      </div>
+                                      <div className="">
+                                        <Link
+                                          href={`/services${service.href}`}
+                                          className={`flex items-center gap-2 text-gray-200 rounded-lg transition duration-200 ${pathname === service.href
+                                              ? "bg-gradient-to-b from-white/10 to-transparent"
+                                              : ""
+                                            }`}
+                                          onClick={() => close()}
+                                        >
+                                          {service.title}
+                                        </Link>
+                                        <p className="text-gray-400 text-sm">
+                                          {service.description}
+                                        </p>
+                                      </div>
+                                    </div>
+                                  ))}
+                                </PopoverPanel>
+                              )}
+                            </AnimatePresence>
+                          </>
+                        )}
+                      </Popover>
+                    </li>
                   )}
-                </Popover>
-              </li>
+                </>
+              ))}
             </ul>
           </div>
+
+
 
           {/* Desktop Get in Touch Button */}
           <div className="hidden lg:flex lg:w-1/4 justify-end">
@@ -136,9 +147,8 @@ const Header = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-0 right-0 w-3/4 h-full bg-[#1A0C3B] shadow-lg transition-transform duration-300 ease-in-out z-50 ${
-          navigationOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`fixed top-0 right-0 w-3/4 h-full bg-[#1A0C3B] shadow-lg transition-transform duration-300 ease-in-out z-50 ${navigationOpen ? "translate-x-0" : "translate-x-full"
+          }`}
       >
         {/* Close Button */}
         <button
@@ -169,9 +179,8 @@ const Header = () => {
                 >
                   Services
                   <FaChevronDown
-                    className={`transition-transform duration-200 ${
-                      showServices ? "rotate-180" : ""
-                    }`}
+                    className={`transition-transform duration-200 ${showServices ? "rotate-180" : ""
+                      }`}
                   />
                 </button>
                 <AnimatePresence>

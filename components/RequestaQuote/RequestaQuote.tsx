@@ -45,7 +45,7 @@ const RequestaQuote = () => {
                   className="max-w-none"
                 />
               </span>
-              <span className="absolute left-1/2 bottom-0 -translate-x-1/2 -z-1">
+              <span className="absolute lg:block hidden left-1/2 bottom-0 -translate-x-1/2 -z-1">
                 <img
                   src="https://ai-tool-tailwind.preview.uideck.com/images/blur-24.svg"
                   alt="blur"
