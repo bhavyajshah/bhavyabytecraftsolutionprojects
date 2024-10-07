@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link"; 
 import { services } from "../data/Data";
 
 const FeaturesSection = () => {
@@ -45,21 +46,24 @@ const FeaturesSection = () => {
               variants={serviceAnimation}
               transition={{ duration: 0.4, delay: index * 0.1 }}
             >
-              <motion.div
-                className="relative z-10 space-y-3"
-                initial={{ x: 0 }}
-                whileHover={{
-                  cursor: "pointer",
-                  x: [0, -5, 0],
-                  transition: { duration: 0.3 },
-                }}
-              >
-                <div className="flex h-9 w-9 items-center justify-center rounded-full border border-zinc-700 text-gray-500">
-                  {service.icon}
-                </div>
-                <h3 className="font-semibold text-zinc-100">{service.title}</h3>
-                <p className="text-zinc-300">{service.description}</p>
-              </motion.div>
+              {/* Wrap the entire list item with Link */}
+              <Link href={service.href}>
+                <motion.div
+                  className="relative z-10 space-y-3"
+                  initial={{ x: 0 }}
+                  whileHover={{
+                    cursor: "pointer",
+                    x: [0, -5, 0],
+                    transition: { duration: 0.3 },
+                  }}
+                >
+                  <div className="flex h-9 w-9 items-center justify-center rounded-full border border-zinc-700 text-gray-500">
+                    {service.icon}
+                  </div>
+                  <h3 className="font-semibold text-zinc-100">{service.title}</h3>
+                  <p className="text-zinc-300">{service.description}</p>
+                </motion.div>
+              </Link>
               <motion.div className="absolute inset-0 z-0">
                 <img
                   alt={service.title}

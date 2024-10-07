@@ -1,4 +1,3 @@
-'use client';
 import { notFound } from 'next/navigation';
 import Feature from '@/components/DetailServices/Feature';
 import Layout from '@/components/DetailServices/Layout';
@@ -10,10 +9,34 @@ import Contact from '@/components/DetailServices/Contact';
 import Stats from '@/components/DetailServices/Stats';
 import { Expertise } from '@/components/DetailServices/Expertise';
 import FAQ from '@/components/FAQ/FAQ';
+import { Metadata } from 'next';
 
 interface ServicePageProps {
   params: {
     slug: string;
+  };
+}
+
+export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {
+  const { slug } = params;
+  const content = contentData[slug];
+
+  if (!content) {
+    return {
+      title: "Page Not Found - Byte Craft Solutions",
+      description: "The page you are looking for does not exist. Please check the URL or return to the homepage.",
+    };
+  }
+
+  return {
+    title: `${content.metadata.title} - Byte Craft Solutions`,
+    description: content.metadata.description,
+    openGraph: {
+      title: `${content.metadata.title} - Byte Craft Solutions`,
+      description: content.metadata.description,
+      url: `https://www.bytecraftsolutions.com/services/${slug}`,
+      type: 'website',
+    },
   };
 }
 
@@ -27,7 +50,6 @@ const ServicePage = ({ params }: ServicePageProps) => {
 
   return (
     <Layout>
-      {/* Hero Section */}
       <Hero
         heroImage={content.hero.image}
         title={content.hero.title}
@@ -40,15 +62,11 @@ const ServicePage = ({ params }: ServicePageProps) => {
         headline={content.hero.headline}
         valuePropositions={content.hero.valuePropositions}
       />
-
-      {/* Stats Section */}
       <Stats
         title={content.stats.title}
         description={content.stats.description}
         stats={content.stats.stats}
       />
-
-      {/* Features Section */}
       <Feature
         title={content.feature.title}
         subtitle={content.feature.description}
@@ -59,7 +77,6 @@ const ServicePage = ({ params }: ServicePageProps) => {
         }))}
       />
 
-      {/* Past Works Section */}
       <WebDevelopmentWork
         works={content.pastWork.pastWorks}
         sectionTitle={content.pastWork?.title}
@@ -72,17 +89,16 @@ const ServicePage = ({ params }: ServicePageProps) => {
         description={content.process.description}
       />
 
-      {/* Testimonials Section */}
       <Testimonials
         title={content.testimonial.title}
         subTitle={content.testimonial.description}
         testimonials={content.testimonial.testimonials}
       />
+
       <Expertise
         title={content.expertiseTitle}
         subtitle={content.expertiseSubtitle}
       />
-      {/* Contact Section */}
       <Contact />
     </Layout>
   );

@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import { FaUser, FaEnvelope, FaPhone, FaBriefcase } from 'react-icons/fa';
 import { MdOutlineBusinessCenter } from 'react-icons/md';

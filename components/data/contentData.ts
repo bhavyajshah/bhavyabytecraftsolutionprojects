@@ -13,6 +13,10 @@ import {
 
 export const contentData = {
   "web-development": {
+  metadata: {
+  title: "Web Development",
+  description: "At Byte Craft Solutions, we specialize in creating dynamic, user-friendly websites tailored to your business needs. Our expert team combines cutting-edge technology with innovative design to deliver responsive and scalable web applications. Whether you’re looking for a stunning portfolio site, an engaging e-commerce platform, or a robust web application, we provide end-to-end solutions that enhance user experience and drive growth. Partner with us to elevate your online presence and achieve your digital goals."
+},
     hero: {
       title: "Innovative",
       subTitle: "Web Solutions for Your Business",
@@ -32,7 +36,6 @@ export const contentData = {
         "Proven Results",
       ],
     },
-
     feature: {
       title: "Discover Our Web Development Features",
       description:
@@ -76,7 +79,6 @@ export const contentData = {
         },
       ],
     },
-
     pastWork: {
       title: "Our Web Development Work",
       description: "Explore some of our featured web development projects",
@@ -184,7 +186,6 @@ export const contentData = {
         },
       ],
     },
-
     process: {
       title: "Web Development Phases - Key Stages in Our Process",
       description:
@@ -253,6 +254,10 @@ export const contentData = {
   },
 
   "mobile-development": {
+  metadata: {
+  title: "Mobile Development",
+  description: "At Byte Craft Solutions, we deliver exceptional mobile development services that help you connect with your audience on-the-go. Our experienced team creates intuitive, high-performance mobile applications for both iOS and Android platforms. From concept to launch, we prioritize user experience and functionality, ensuring that your app not only looks great but also performs seamlessly. Whether you need a native app, a cross-platform solution, or an innovative mobile strategy, we are dedicated to turning your vision into reality. Transform your business with our mobile solutions today!"
+},
     hero: {
       title: "Transformative",
       subTitle: "Mobile Solutions for the Future",
@@ -272,7 +277,6 @@ export const contentData = {
         "Scalable Mobile Apps",
       ],
     },
-
     feature: {
       title: "Discover Our Mobile Development Features",
       description:
@@ -316,7 +320,6 @@ export const contentData = {
         },
       ],
     },
-
     pastWork: {
       title: "Our Mobile Development Work",
       description: "Explore our portfolio of mobile development projects.",
@@ -359,7 +362,6 @@ export const contentData = {
         },
       ],
     },
-
     testimonial: {
       title: "Client Testimonials",
       description:
@@ -394,7 +396,6 @@ export const contentData = {
         },
       ],
     },
-
     process: {
       title: "Mobile Development Process",
       description:
@@ -426,11 +427,9 @@ export const contentData = {
         },
       ],
     },
-
     expertiseTitle: "Mobile Development Expertise",
     expertiseSubtitle:
       "Our team specializes in building scalable, high-performance mobile apps across various industries.",
-
     stats: {
       title: "Mobile Development Stats",
       description:

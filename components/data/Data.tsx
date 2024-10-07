@@ -22,8 +22,7 @@ import {
 import { GrTestDesktop } from "react-icons/gr";
 import { RiTeamLine } from "react-icons/ri";
 import { MdOutlineDesignServices, MdOutlineBusinessCenter } from "react-icons/md";
-import { DummyContent } from "../DetailServices/Expertise";
-
+import Image from "next/image";
 export const steps = [
   {
     id: 0,
@@ -131,6 +130,27 @@ export const steps = [
     ],
   },
 ];
+
+
+const DummyContent = ({ description }) => {
+  return (
+    <>
+      <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-xl font-sans max-w-3xl mx-auto mb-4">
+        <span className="font-bold text-neutral-700 dark:text-neutral-200">
+          {description}
+        </span>
+      </p>
+      <Image
+        src="https://assets.aceternity.com/macbook.png"
+        alt="Macbook mockup"
+        height="500"
+        width="500"
+        className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
+      />
+    </>
+  );
+};
+
 
 export const techCategory = [
   {
@@ -480,4 +500,27 @@ export const caseStudies = [
       "Enhanced overall equipment efficiency (OEE) by 18%."
     ]
   }
+];
+
+export const faqsList = [
+  {
+    q: "What services does your software agency offer?",
+    a: "We offer custom software development, mobile app development, web development, UI/UX design, and cloud solutions tailored to your business needs.",
+  },
+  {
+    q: "What industries do you specialize in?",
+    a: "Our team has expertise in various industries including healthcare, finance, education, and e-commerce, ensuring solutions that meet specific industry standards.",
+  },
+  {
+    q: "What is the process of working with your agency?",
+    a: "Our process involves an initial consultation, project scoping, development sprints, rigorous testing, and post-launch support to ensure seamless delivery.",
+  },
+  {
+    q: "How long does a typical project take?",
+    a: "Project timelines vary based on complexity, but most projects are completed within 3-6 months, including planning, development, and testing phases.",
+  },
+  {
+    q: "What technologies do you work with?",
+    a: "We specialize in a wide range of technologies including JavaScript frameworks (React, Node.js), mobile technologies (Flutter, Swift), and cloud platforms (AWS, Azure).",
+  },
 ];

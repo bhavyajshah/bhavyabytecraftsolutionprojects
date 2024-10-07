@@ -1,3 +1,4 @@
+'use client';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
 import SwiperCore from 'swiper';
@@ -5,7 +6,6 @@ import { PinContainer } from '../ui/3d-pin';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-// Initialize Swiper modules
 SwiperCore.use([Navigation, Autoplay]);
 
 const WebDevelopmentWork = ({ works, sectionTitle, sectionSubtitle }) => {
@@ -78,10 +78,8 @@ const WebDevelopmentWork = ({ works, sectionTitle, sectionSubtitle }) => {
         ))}
 
         {/* Custom Navigation Buttons */}
-        <div className="swiper-button-next absolute right-4 top-1/2 transform -translate-y-1/2">
-        </div>
-        <div className="swiper-button-prev absolute left-4 top-1/2 transform -translate-y-1/2">
-        </div>
+        <div className="swiper-button-next absolute right-4 top-1/2 transform -translate-y-1/2"></div>
+        <div className="swiper-button-prev absolute left-4 top-1/2 transform -translate-y-1/2"></div>
       </Swiper>
     </div>
   );
