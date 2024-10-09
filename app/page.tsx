@@ -12,6 +12,7 @@ import { TimelineDemo } from "@/components/Timeline/Timeline";
 import { WhyChooseByteCraftSolutions } from "@/components/WhyChooseByteCraftSolutions/WhyChooseByteCraftSolutions";
 import React from "react";
 import type { Metadata } from 'next'
+import { getBlogPosts } from "@/lib/api";
 
 export const metadata: Metadata = {
   title: 'ByteCraft Solutions - Leading IT Software Services',
@@ -20,7 +21,8 @@ export const metadata: Metadata = {
   viewport: 'width=device-width, initial-scale=1.0',
 };
 
-const page = () => {
+const page = async () => {
+   const posts = await getBlogPosts();
   return (
     <>
       <main>
@@ -28,13 +30,13 @@ const page = () => {
         <ClientSlider />
         <DetailedSection />
         <WhyChooseByteCraftSolutions />
-        <FeaturesSection />
+        <FeaturesSection showMoreAction="/services" showAll={false}  showMoreLoad={false} />
         <AboutUsSection />
         <Technology />
         <CaseStudies />
         <TimelineDemo />
         <InfiniteMovingCardsDemo />
-        <BlogSection />
+     <BlogSection initialPosts={posts} />
         <RequestaQuote />
       </main>
     </>

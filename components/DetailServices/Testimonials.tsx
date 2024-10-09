@@ -8,7 +8,6 @@ import 'swiper/css/pagination';
 
 SwiperCore.use([Autoplay, Pagination]);
 
-
 const TestimonialSlider = ({ title, subTitle, testimonials }) => {
   return (
     <section className="pt-24 pb-16">

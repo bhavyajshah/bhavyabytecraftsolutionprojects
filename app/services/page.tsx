@@ -16,7 +16,10 @@ export const metadata: Metadata = {
 
 const ITServicesPage = () => {
   return (
-    <div className="my-20"><FeaturesSection /></div>
+    <div className="my-20">
+      <FeaturesSection showAll={true} />
+
+      </div>
   );
 };
 

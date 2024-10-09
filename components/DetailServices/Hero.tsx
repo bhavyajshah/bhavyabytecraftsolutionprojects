@@ -28,7 +28,7 @@ const Hero: React.FC<HeroProps> = ({
   return (
     <section className="flex flex-wrap justify-between items-center min-h-screen text-white py-24 relative">
 
-<div className="w-full lg:w-1/2 px-6 lg:px-12 flex flex-col justify-center space-y-6 z-10">
+<div className="w-full lg:w-1/2 px-6 lg:pl-12 flex flex-col justify-center space-y-6 z-10">
 
   {/* Headline */}
   <motion.h2

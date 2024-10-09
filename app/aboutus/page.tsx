@@ -2,6 +2,7 @@ import React from "react";
 import { FaChartLine, FaUsers, FaProjectDiagram } from 'react-icons/fa';
 import { Metadata } from 'next';
 import TeamSection from "@/components/AboutUsSection/AboutTeamSection";
+import AboutUsSectionHeader from "@/components/AboutUsSection/AboutUsSectionHeader";
 
 export const metadata: Metadata = {
   title: "About Us - Byte Craft Solutions | Leading IT Services",
@@ -15,50 +16,7 @@ export const metadata: Metadata = {
   },
 };
 
-const AboutSection = ({ imgSrc, heading, description, imgAlt, reverse }: any) => {
-  return (
-    <section className="py-14 lg:pt-24 relative">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-9">
-          {/* Conditionally render image or text first based on reverse */}
-          {reverse ? (
-            <>
-              <div className="flex items-center">
-                <div className="data w-full">
-                  <h2 className="font-manrope font-bold text-4xl lg:text-5xl text-white mb-9 max-lg:text-center">
-                    {heading}
-                  </h2>
-                  <p className="font-normal text-xl leading-8 max-lg:text-center max-w-2xl mx-auto">
-                    {description}
-                  </p>
-                </div>
-              </div>
-              <div className="img-box">
-                <img src={imgSrc} alt={imgAlt} className="max-lg:mx-auto object-cover rounded-lg shadow-lg" />
-              </div>
-            </>
-          ) : (
-            <>
-              <div className="img-box">
-                <img src={imgSrc} alt={imgAlt} className="max-lg:mx-auto object-cover rounded-lg shadow-lg" />
-              </div>
-              <div className="flex items-center">
-                <div className="data w-full">
-                  <h2 className="font-manrope font-bold text-4xl lg:text-5xl text-white mb-9 max-lg:text-center">
-                    {heading}
-                  </h2>
-                  <p className="font-normal text-xl leading-8 max-lg:text-center max-w-2xl mx-auto">
-                    {description}
-                  </p>
-                </div>
-              </div>
-            </>
-          )}
-        </div>
-      </div>
-    </section>
-  );
-};
+
 const StatsSection = ({ stats }: any) => {
   return (
     <section className="py-10">
@@ -90,25 +48,6 @@ const StatsSection = ({ stats }: any) => {
 };
 
 const AboutUsPage = () => {
-  const aboutData = [
-    {
-      imgSrc: 'https://cdni.iconscout.com/illustration/premium/thumb/team-working-on-business-startup-illustration-download-in-svg-png-gif-file-formats--launch-mobile-pack-people-illustrations-4340633.png',
-      heading: 'About Byte Craft Solutions',
-      description:
-        'At Byte Craft Solutions, we are driven by a commitment to provide cutting-edge IT services and solutions. We aim to empower businesses by delivering seamless, scalable, and user-friendly software that enhances every interaction and experience.',
-      imgAlt: 'Byte Craft Solutions About Us',
-      reverse: false,
-    },
-    {
-      imgSrc: 'https://cdni.iconscout.com/illustration/premium/thumb/boy-with-creative-ideas-illustration-download-in-svg-png-gif-file-formats--thinking-business-idea-pack-illustrations-10245583.png',
-      heading: 'Creative and Innovative',
-      description:
-        'Founded in 2024, Byte Craft Solutions has been at the forefront of technology innovation. We prioritize creativity, accessibility, and scalability in every project, crafting intuitive and functional software solutions that help businesses thrive.',
-      imgAlt: 'Byte Craft Solutions Innovation',
-      reverse: true,
-    },
-  ];
-
 const stats = [
     {
       icon: <FaChartLine size={40} className="text-white" />,
@@ -130,16 +69,20 @@ const stats = [
   return (
     <div>
 
-    {aboutData.map((section, index) => (
-        <AboutSection
-          key={index}
-          imgSrc={section.imgSrc}
-          heading={section.heading}
-          description={section.description}
-          imgAlt={section.imgAlt}
-          reverse={section.reverse}
-        />
-      ))}
+ <AboutUsSectionHeader
+        heading="About Byte Craft Solutions"
+        description="At Byte Craft Solutions, we are driven by a commitment to provide cutting-edge IT services and solutions. We aim to empower businesses by delivering seamless, scalable, and user-friendly software that enhances every interaction and experience."
+        reverse={false}
+        useLottieFile="animation1"
+      />
+
+
+      <AboutUsSectionHeader
+        heading="Creative and Innovative"
+        description="Founded in 2024, Byte Craft Solutions has been at the forefront of technology innovation. We prioritize creativity, accessibility, and scalability in every project, crafting intuitive and functional software solutions that help businesses thrive."
+        reverse={true}
+        useLottieFile="animation2"
+      />
       <StatsSection stats={stats} />
 <TeamSection />
     </div>

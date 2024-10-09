@@ -10,7 +10,7 @@ import Stats from '@/components/DetailServices/Stats';
 import { Expertise } from '@/components/DetailServices/Expertise';
 import FAQ from '@/components/FAQ/FAQ';
 import { Metadata } from 'next';
-
+import TechnologySection from '@/components/DetailServices/TechnologySection';
 interface ServicePageProps {
   params: {
     slug: string;
@@ -67,6 +67,16 @@ const ServicePage = ({ params }: ServicePageProps) => {
         description={content.stats.description}
         stats={content.stats.stats}
       />
+
+      <TechnologySection
+        title={content.technologyused.title}
+        subtitle={content.technologyused.description}
+        technologies={
+          content.technologyused.technologylist
+        }
+      />
+
+
       <Feature
         title={content.feature.title}
         subtitle={content.feature.description}
@@ -82,7 +92,6 @@ const ServicePage = ({ params }: ServicePageProps) => {
         sectionTitle={content.pastWork?.title}
         sectionSubtitle={content.pastWork.description}
       />
-
       <FAQ
         faqsList={content.process.processqna}
         title={content.process.title}

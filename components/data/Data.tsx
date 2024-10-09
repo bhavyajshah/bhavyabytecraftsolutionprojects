@@ -23,6 +23,7 @@ import { GrTestDesktop } from "react-icons/gr";
 import { RiTeamLine } from "react-icons/ri";
 import { MdOutlineDesignServices, MdOutlineBusinessCenter } from "react-icons/md";
 import Image from "next/image";
+
 export const steps = [
   {
     id: 0,
@@ -131,7 +132,6 @@ export const steps = [
   },
 ];
 
-
 const DummyContent = ({ description }) => {
   return (
     <>
@@ -150,7 +150,6 @@ const DummyContent = ({ description }) => {
     </>
   );
 };
-
 
 export const techCategory = [
   {
@@ -233,7 +232,7 @@ export const techCategory = [
   },
 ];
 
-export const services = [
+export const services:any = [
   {
     title: "Mobile Development",
     description:

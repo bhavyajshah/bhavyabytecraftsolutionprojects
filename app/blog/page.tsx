@@ -1,6 +1,7 @@
 import BlogSection from "@/components/BlogSection/BlogSection";
 import React from "react";
 import { Metadata } from 'next';
+import { getBlogPosts } from "@/lib/api";
 
 export const metadata: Metadata = {
   title: "Blog - Byte Craft Solutions | Insights on IT Services and Innovation",
@@ -14,12 +15,12 @@ export const metadata: Metadata = {
   },
 };
 
-const BlogPage = () => {
+export default async function BlogPage() {
+  const posts = await getBlogPosts();
+
   return (
-    <div className="my-20">
-      <BlogSection />
+    <div className="min-h-screen">
+      <BlogSection initialPosts={posts} />
     </div>
   );
-};
-
-export default BlogPage;
+}

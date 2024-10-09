@@ -1,15 +1,27 @@
 "use client";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import Link from "next/link"; 
+import Link from "next/link";
 import { services } from "../data/Data";
+interface FeaturesSectionProps {
+  showMoreAction?: string;
+  showMoreLoad?: boolean;
+  showAll?: boolean;
+}
 
-const FeaturesSection = () => {
-  const [visibleServices, setVisibleServices] = useState(3);
+const FeaturesSection: React.FC<FeaturesSectionProps> = ({
+  showMoreAction,
+  showMoreLoad = false,
+  showAll = false,
+}) => {
+  const initialVisibleServices = showAll ? services.length : 6;
+  const [visibleServices, setVisibleServices] = useState(initialVisibleServices);
 
   // Function to load more services
   const showMoreServices = () => {
-    setVisibleServices((prevVisibleServices) => prevVisibleServices + 3);
+    if (showMoreLoad) {
+      setVisibleServices((prevVisibleServices) => prevVisibleServices + 3);
+    }
   };
 
   // Animation variants for services
@@ -41,13 +53,11 @@ const FeaturesSection = () => {
             <motion.li
               key={index}
               className="group relative z-0 h-full overflow-hidden rounded-xl border border-[#190C3B] p-6 transition-transform duration-300"
-              initial="hidden"
-              animate="visible"
               variants={serviceAnimation}
               transition={{ duration: 0.4, delay: index * 0.1 }}
             >
-              {/* Wrap the entire list item with Link */}
-              <Link href={service.href}>
+
+              <Link href={`/services${service.href}`}>
                 <motion.div
                   className="relative z-10 space-y-3"
                   initial={{ x: 0 }}
@@ -76,11 +86,17 @@ const FeaturesSection = () => {
         </ul>
 
         {/* Show More button */}
-        {visibleServices < services.length && (
+        {!showAll && visibleServices < services.length && (
           <div className="text-center mt-8">
             <button
               className="hero-button-gradient inline-flex rounded-lg py-3 px-7 text-white font-medium ease-in duration-300 hover:opacity-80"
-              onClick={showMoreServices}
+              onClick={() => {
+                if (showMoreAction) {
+                  window.location.href = showMoreAction;
+                } else {
+                  showMoreServices();
+                }
+              }}
             >
               Show More
             </button>
