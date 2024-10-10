@@ -1175,3 +1175,48 @@ body {
   transition: 0.45s cubic-bezier(0.6, 0.6, 0, 1) box-shadow;
   transition: 0.45s cubic-bezier(0.6, 0.6, 0, 1) box-shadow, 0.45s cubic-bezier(0.6, 0.6, 0, 1) -webkit-box-shadow;
 }
+
+.gradient-text {
+  font-size: 42px;
+  background: -webkit-linear-gradient(#eee, #04091e);
+  opacity: .1;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+  position: relative;
+  top: 30px;
+}
+
+
+.bg-porange-700 {
+  --tw-bg-opacity: 0.1;
+  background-color: rgb(253 204 4 / var(--tw-bg-opacity));
+}
+
+.bg-fpink-500 {
+  --tw-bg-opacity: 0.1;
+  background-color: rgb(245 9 99 / var(--tw-bg-opacity));
+}
+
+.bg-seagreen-500 {
+  --tw-bg-opacity: 0.1;
+  background-color: rgb(71 217 144 / var(--tw-bg-opacity));
+}
+
+.bg-orange-500 {
+  --tw-bg-opacity: 0.1;
+  background-color: rgb(249 115 22 / var(--tw-bg-opacity));
+}
+
+.rounded-custom {
+  border-radius: 10px;
+}
+
+.stroke-interface-100 {
+  stroke: #04091E;
+}
+
+.bg-pblue-500 {
+  background-color: rgb(38 98 250 / var(--tw-bg-opacity));
+}

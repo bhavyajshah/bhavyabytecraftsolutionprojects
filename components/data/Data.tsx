@@ -322,7 +322,7 @@ export const services:any = [
     description:
       "Explore all the services that can help you build and scale your business.",
     icon: <FaSearchDollar />,
-    href: "/services",
+    href: "",
   },
 ];
 

@@ -13,7 +13,7 @@ interface AboutSectionProps {
 
 const LazyLottie = dynamic(() => import("lottie-react"), { ssr: false });
 
-const AboutUsSectionHeader: FC<AboutSectionProps> = memo(({ heading, description, reverse, useLottieFile }) => {
+const AboutUsSectionHeader: FC<AboutSectionProps> = memo(({ heading, description, reverse, useLottieFile }:any) => {
   const [isInView, setIsInView] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 

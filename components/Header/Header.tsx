@@ -194,7 +194,7 @@ const Header = () => {
                       {services.map((service, index) => (
                         <Link
                           key={index}
-                          href={service.href}
+                          href={`/services${service.href}`}
                           className="flex items-center gap-2 text-gray-200 rounded-lg p-2 transition duration-200 hover:bg-gradient-to-b from-white/10 to-transparent"
                           onClick={() => setNavigationOpen(false)}
                         >
