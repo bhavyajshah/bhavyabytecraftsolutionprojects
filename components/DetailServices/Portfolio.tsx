@@ -5,22 +5,31 @@ import SwiperCore from 'swiper';
 import { PinContainer } from '../ui/3d-pin';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 SwiperCore.use([Navigation, Autoplay]);
 
 const WebDevelopmentWork = ({ works, sectionTitle, sectionSubtitle }) => {
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1200,
+      once: true,
+    });
+  }, []);
+
   return (
-    <div className="pt-32 h-screen">
-      <div className="text-center mb-8">
+    <div className="pt-10 h-screen">
+      <div className="text-center" data-aos="fade-up">
         <h2 className="text-white sm:text-4xl text-2xl font-extrabold text-center mb-4">
           {sectionTitle}
         </h2>
-        <p className="text-gray-300 text-center mb-16">
+        <p className="text-gray-300 text-center sm:text-lg text-base">
           {sectionSubtitle}
         </p>
       </div>
-
-      {/* Swiper Slider */}
       <Swiper
         className="h-full"
         direction="horizontal"
@@ -56,21 +65,22 @@ const WebDevelopmentWork = ({ works, sectionTitle, sectionSubtitle }) => {
       >
         {works.map((work, index) => (
           <SwiperSlide key={index} className="swiper-slide flex h-full">
-            <PinContainer title={work.title} href={work.href}>
+            <PinContainer title={work.title} href={work.href} data-aos="zoom-in">
               <div className="flex flex-col p-4 tracking-tight text-slate-100/50 w-full h-full">
-                <h3 className="font-bold text-lg text-slate-100 mb-1">
+                <h3 className="font-bold text-lg text-slate-100 mb-1 sm:text-xl">
                   {work.title}
                 </h3>
-                <h4 className="font-semibold text-sm text-slate-300 mb-2">
+                <h4 className="font-semibold text-sm text-slate-300 mb-2 sm:text-base">
                   {work.subTitle}
                 </h4>
-                <div className="text-base font-normal text-slate-500 mb-4">
+                <div className="text-base font-normal text-slate-500 mb-4 sm:text-lg">
                   {work.description}
                 </div>
                 <img
                   src={work.image}
                   alt={work.title}
                   className="w-full h-auto mb-4 rounded-lg object-cover"
+                  data-aos="fade-up"
                 />
               </div>
             </PinContainer>

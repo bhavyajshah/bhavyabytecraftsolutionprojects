@@ -10,7 +10,7 @@ SwiperCore.use([Autoplay, Pagination]);
 
 const TestimonialSlider = ({ title, subTitle, testimonials }) => {
   return (
-    <section className="pt-24 pb-16">
+    <section className="pt-32 pb-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-16 text-center">
           <h2 className="text-white sm:text-4xl text-2xl font-extrabold text-center mb-4">
@@ -56,7 +56,7 @@ const TestimonialSlider = ({ title, subTitle, testimonials }) => {
         >
           {testimonials.map((testimonial, index) => (
             <SwiperSlide key={index} className="swiper-slide flex">
-              <div className="bg-white flex flex-col p-8 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300">
+              <div className="bg-white backdrop-blur-lg flex flex-col p-8 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300">
                 <div className="flex items-center gap-4 mb-6">
                   <img
                     className="w-14 h-14 rounded-full object-cover"

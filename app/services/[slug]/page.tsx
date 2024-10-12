@@ -28,6 +28,7 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
     };
   }
 
+  
   return {
     title: `${content.metadata.title} - Byte Craft Solutions`,
     description: content.metadata.description,
