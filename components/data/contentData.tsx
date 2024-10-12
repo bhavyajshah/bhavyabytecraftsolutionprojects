@@ -178,7 +178,8 @@ export const contentData = {
         },
       ],
     },
-    pastWork: {
+    pastWork:
+    {
       title: "Our Web Development Work",
       description: "Explore some of our featured web development projects",
       pastWorks: [
@@ -238,7 +239,8 @@ export const contentData = {
         },
       ],
     },
-    testimonial: {
+    testimonial:
+    {
       title: "Testimonials",
       description:
         "Hear from our satisfied clients about the exceptional web development services we provide. Their success is our mission.",
@@ -285,6 +287,7 @@ export const contentData = {
         },
       ],
     },
+
     process: {
       title: "Web Development Phases - Key Stages in Our Process",
       description:

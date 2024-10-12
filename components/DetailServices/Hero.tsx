@@ -1,13 +1,14 @@
 'use client';
-import React, { useEffect } from "react";
+import React from "react";
 import { FaCheckCircle } from "react-icons/fa";
-import dynamic from "next/dynamic";
 import { gsap } from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { FaUpwork } from "react-icons/fa6";
 import { SiFiverr, SiFreelancer, SiToptal } from "react-icons/si";
+import AnimatedShinyText from "./AnimatedGradientText";
+import { cn } from "@/lib/utils";
+import { CgArrowRight } from "react-icons/cg";
 
-// Register the ScrollToPlugin
 gsap.registerPlugin(ScrollToPlugin);
 
 type Logo = {
@@ -65,11 +66,19 @@ const Hero: React.FC<HeroProps> = ({
 
   return (
     <section className="hero-section flex flex-wrap justify-between items-center min-h-screen text-white py-24 relative">
-      {/* Left Content Section */}
       <div className="w-full lg:w-1/2 px-6 lg:pl-12 flex flex-col justify-center space-y-6 z-10">
-        <h2 className="hero-headline relative font-medium text-sm inline-flex items-center gap-2 py-2 px-6 button-border-gradient rounded-full text-white">
-          {headline}
-        </h2>
+        <div className="z-10 flex items-center justify-start">
+          <div
+            className={cn(
+              "group rounded-full border border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800",
+            )}
+          >
+            <AnimatedShinyText className="inline-flex items-center justify-center px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
+              <span>{headline}</span>
+              <CgArrowRight className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
+            </AnimatedShinyText>
+          </div>
+        </div>
         <h1 className="hero-title text-4xl lg:text-5xl font-bold leading-tight text-left">
           {title}
           <br />
@@ -79,8 +88,6 @@ const Hero: React.FC<HeroProps> = ({
         <p className="hero-description text-sm md:text-base max-w-lg text-left">
           {description}
         </p>
-
-        {/* Value Propositions */}
         <ul className="flex flex-wrap gap-4 text-sm">
           {valuePropositions.map((prop, index) => (
             <li
@@ -93,7 +100,6 @@ const Hero: React.FC<HeroProps> = ({
           ))}
         </ul>
 
-        {/* Buttons */}
         <div className="mt-6 flex gap-4">
           <a
             href={primaryButton.link}
@@ -104,9 +110,9 @@ const Hero: React.FC<HeroProps> = ({
         </div>
       </div>
 
-      {/* Creative iFrame Section */}
+
       <div className="w-full lg:w-1/2 flex justify-center lg:justify-end mt-10 lg:mt-0 relative z-10">
-        <div className="relative w-full lg:w-[600px] h-[400px] lg:h-[500px] overflow-hidden shadow-2xl">
+        <div className="relative w-full lg:w-[600px] h-[400px] lg:h-[600px] overflow-hidden shadow-2xl">
           <iframe
             src={heroImage}
             className="w-full h-full rounded-lg"
@@ -116,8 +122,8 @@ const Hero: React.FC<HeroProps> = ({
         </div>
       </div>
 
-      {/* Company Logos Section */}
-      <div className="text-center mt-8 w-full">
+
+      <div className="text-center w-full">
         <p className="mb-4 text-base font-medium text-white">
           Trusted by Leading Companies
         </p>

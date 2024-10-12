@@ -33,7 +33,7 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed left-0 top-0 w-full z-50 py-3 lg:py-2 transition duration-200 ${stickyMenu ? "backdrop-blur-lg" : "bg-transparent"
+      className={`fixed left-0 top-0 w-full z-50 py-3 lg:py-2 transition duration-200 ${stickyMenu ? "bg-[#1A0C3B]" : "bg-transparent"
         }`}
     >
       <div className="max-w-[90%] mx-auto px-4 sm:px-6 xl:px-0 lg:flex items-center justify-between relative">
@@ -60,8 +60,8 @@ const Header = () => {
           <div className="hidden lg:flex justify-center w-1/2">
             <ul className="flex gap-5">
               {navLinks.map((item, index) => (
-                <>
-                  <li key={index} className="nav__menu">
+                <React.Fragment key={index}>
+                  <li className="nav__menu">
                     <Link
                       href={item.href}
                       className="text-white/80 text-sm py-2 px-4 rounded-lg hover:bg-gradient-to-b from-white/10 to-transparent transition-all duration-300 ease-in-out flex items-center gap-2"
@@ -70,7 +70,7 @@ const Header = () => {
                     </Link>
                   </li>
                   {item.label === "Home" && (
-                    <li className="">
+                    <li>
                       <Popover>
                         {({ open, close }) => (
                           <>
@@ -100,7 +100,7 @@ const Header = () => {
                                       <div className="flex h-10 w-10 items-center justify-center rounded-full text-gray-500">
                                         {service.icon}
                                       </div>
-                                      <div className="">
+                                      <div>
                                         <Link
                                           href={`/services${service.href}`}
                                           className={`flex items-center gap-2 text-gray-200 rounded-lg transition duration-200 ${pathname === service.href
@@ -125,12 +125,10 @@ const Header = () => {
                       </Popover>
                     </li>
                   )}
-                </>
+                </React.Fragment>
               ))}
             </ul>
           </div>
-
-
 
           {/* Desktop Get in Touch Button */}
           <div className="hidden lg:flex lg:w-1/4 justify-end">
