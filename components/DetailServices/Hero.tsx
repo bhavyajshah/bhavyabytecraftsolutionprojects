@@ -5,7 +5,7 @@ import { gsap } from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { FaUpwork } from "react-icons/fa6";
 import { SiFiverr, SiFreelancer, SiToptal } from "react-icons/si";
-import AnimatedShinyText from "./AnimatedGradientText";
+import AnimatedShinyText from "../../hooks/AnimatedGradientText";
 import { cn } from "@/lib/utils";
 import { CgArrowRight } from "react-icons/cg";
 
@@ -62,11 +62,12 @@ const Hero: React.FC<HeroProps> = ({
   description,
   primaryButton,
   valuePropositions,
+
 }) => {
 
   return (
-    <section className="hero-section flex flex-wrap justify-between items-center min-h-screen text-white py-24 relative">
-      <div className="w-full lg:w-1/2 px-6 lg:pl-12 flex flex-col justify-center space-y-6 z-10">
+    <section className="hero-section flex max-w-6xl mx-auto flex-wrap justify-between items-center min-h-screen text-white py-24 relative">
+      <div className="w-full lg:w-1/2 flex flex-col justify-center space-y-6 z-10">
         <div className="z-10 flex items-center justify-start">
           <div
             className={cn(

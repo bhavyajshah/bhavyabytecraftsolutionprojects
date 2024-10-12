@@ -11,7 +11,7 @@ import { useEffect } from 'react';
 
 SwiperCore.use([Navigation, Autoplay]);
 
-const WebDevelopmentWork = ({ works, sectionTitle, sectionSubtitle }) => {
+const WebDevelopmentWork = ({ works, sectionTitle }) => {
 
   useEffect(() => {
     AOS.init({
@@ -21,14 +21,11 @@ const WebDevelopmentWork = ({ works, sectionTitle, sectionSubtitle }) => {
   }, []);
 
   return (
-    <div className="pt-10 h-screen">
+    <div className="pt-10  max-w-6xl mx-auto">
       <div className="text-center" data-aos="fade-up">
         <h2 className="text-white sm:text-4xl text-2xl font-extrabold text-center mb-4">
           {sectionTitle}
         </h2>
-        <p className="text-gray-300 text-center sm:text-lg text-base">
-          {sectionSubtitle}
-        </p>
       </div>
       <Swiper
         className="h-full"

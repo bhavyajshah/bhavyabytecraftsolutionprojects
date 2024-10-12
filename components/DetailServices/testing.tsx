@@ -7,7 +7,7 @@ import { BiRightTopArrowCircle } from 'react-icons/bi';
 import { gsap } from 'gsap';
 import { useEffect, useRef } from 'react';
 
-const LanguageSection = ({languages, title, description}) => {
+const LanguageSection = ({languages, title}) => {
     const sectionRef = useRef(null);
 
     useEffect(() => {
@@ -31,7 +31,6 @@ const LanguageSection = ({languages, title, description}) => {
         <section className="py-16 mx-auto max-w-6xl" ref={sectionRef}>
             <div className="container mx-auto text-center mb-12">
                 <h2 className="text-4xl font-bold text-white mb-4">{title}</h2>
-                <p className="text-lg text-white">{description}</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {languages.map((language, index) => (

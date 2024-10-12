@@ -135,7 +135,8 @@ export const contentData = {
         "Proven Results",
       ],
     },
-    feature: {
+    feature:
+    {
       title: "Discover Our Web Development Features",
       description:
         "Optimize, secure, and customize your web projects with these powerful features",

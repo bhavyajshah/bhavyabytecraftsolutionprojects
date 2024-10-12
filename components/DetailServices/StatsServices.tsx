@@ -10,14 +10,14 @@ const StatsServices = ({ title, stats }) => {
         AOS.init({
             duration: 1000,
             easing: 'ease-in-out',
-            once: true, 
+            once: true,
         });
     }, []);
 
     return (
-        <div className="relative text-white overflow-hidden">
+        <div className="relative text-white overflow-hidden  max-w-6xl mx-auto">
             {/* Background Section */}
-            <div className="relative w-full h-[500px]">
+            <div className="relative w-full h-[500px] rounded-2xl">
                 <img
                     src="/statssection.jpg"
                     className="w-full h-full rounded-xl object-cover max-w-6xl mx-auto"
@@ -55,8 +55,8 @@ const StatsServices = ({ title, stats }) => {
                         {stats.map((stat, index) => (
                             <div
                                 key={index}
-                                data-aos="fade-up"  // Scroll animation for stats items
-                                data-aos-delay={`${200 * index}`}  // Delay increases for each item
+                                data-aos="fade-up"
+                                data-aos-delay={`${200 * index}`}
                                 className="bg-black/40 group hover:hero-button-gradient transition-all flex flex-col items-center px-8 py-6 rounded-xl shadow-lg w-full"
                             >
                                 <div className="-mt-12">
