@@ -3,7 +3,7 @@ import StatsServices from '@/components/DetailServices/StatsServices';
 import FeatureSection from '@/components/DetailServices/testing';
 import { Expertise } from '@/components/DetailServices/Expertise';
 import WebDevelopmentWork from '@/components/DetailServices/Portfolio';
-import { FaUsers, FaRegSmile, FaCode, FaLaptopCode, FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaNodeJs, FaGitAlt, FaSass, FaFigma, FaCogs, FaLock, FaHeadset, FaRocket, FaUserShield, FaMobileAlt } from 'react-icons/fa';
+import { FaUsers, FaRegSmile, FaCode, FaLaptopCode, FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaNodeJs, FaGitAlt, FaCogs, FaLock, FaHeadset, FaRocket, FaUserShield, FaMobileAlt } from 'react-icons/fa';
 import ByteCraftReviews from '@/components/DetailServices/FAQAnimation';
 import Feature from '@/components/DetailServices/Feature';
 import { CheckCircle2, Cog, Globe, HeartHandshake, Rocket } from 'lucide-react';
