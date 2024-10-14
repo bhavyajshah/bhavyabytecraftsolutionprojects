@@ -70,13 +70,13 @@ const WebDevelopmentWork = ({ works, sectionTitle }) => {
                 <h4 className="font-semibold text-sm text-slate-300 mb-2 sm:text-base">
                   {work.subTitle}
                 </h4>
-                <div className="text-base font-normal text-slate-500 mb-4 sm:text-lg">
+                <div className="text-base font-normal text-slate-500 mb-4 sm:text-md">
                   {work.description}
                 </div>
                 <img
                   src={work.image}
                   alt={work.title}
-                  className="w-full h-auto mb-4 rounded-lg object-cover"
+                  className="w-full h-[200px] mb-4 rounded-lg object-cover"
                   data-aos="fade-up"
                 />
               </div>

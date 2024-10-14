@@ -1,170 +1,183 @@
-'use client'
-import React from "react";
-import { FaUser, FaEnvelope, FaPhone, FaBriefcase } from 'react-icons/fa';
-import { MdOutlineBusinessCenter } from 'react-icons/md';
+'use client';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
-const Contact = () => {
-  const formik = useFormik({
+interface FormValues {
+  name: string;
+  email: string;
+  phone: string;
+  projectDescription: string;
+  file: File | null;
+  nda: boolean;
+}
+
+const ConsultationForm: React.FC = () => {
+  const formik = useFormik<FormValues>({
     initialValues: {
       name: '',
       email: '',
       phone: '',
-      projectType: '',
-      description: '',
+      projectDescription: '',
+      file: null,
+      nda: false,
     },
     validationSchema: Yup.object({
       name: Yup.string().required('Name is required'),
-      email: Yup.string().email('Invalid email address').required('Email is required'),
-      phone: Yup.string().required('Phone is required'),
-      projectType: Yup.string().required('Project type is required'),
-      description: Yup.string().required('Description is required'),
+      email: Yup.string().email('Invalid email').required('Corporate email is required'),
+      phone: Yup.string().required('Phone number is required'),
+      projectDescription: Yup.string().required('Please describe your project'),
+      file: Yup.mixed()
+        .test('fileSize', 'File size should be less than 3MB', (value:any) => {
+          return !value || (value && value.size <= 3 * 1024 * 1024);
+        })
+        .test('fileFormat', 'Unsupported format', (value:any) => {
+          return (
+            !value ||
+            [
+              'application/pdf',
+              'application/msword',
+              'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+              'application/vnd.ms-powerpoint',
+              'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+            ].includes(value.type)
+          );
+        }),
     }),
     onSubmit: (values) => {
-      console.log(values);
+      const formData = new FormData();
+      formData.append('name', values.name);
+      formData.append('email', values.email);
+      formData.append('phone', values.phone);
+      formData.append('projectDescription', values.projectDescription);
+      if (values.file) formData.append('file', values.file);
+      formData.append('nda', values.nda.toString());
+
+      console.log('Form Data:', values);
     },
   });
 
   return (
-    <>
-      <section className="relative z-10 overflow-hidden">
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="flex flex-wrap lg:justify-between items-start">
-            <div className="w-full lg:w-1/3 xl:w-4/12 mb-12">
-              <div className="p-8 border-2 border-gray-700 rounded-lg shadow-md transform hover:scale-105 transition duration-300 ease-in-out">
-                <h2 className="mb-6 text-3xl font-bold uppercase dark:text-white">
-                  Schedule a Consultation
-                </h2>
-                <h4 className="mb-4 text-xl font-semibold text-primary">
-                  What happens next?
-                </h4>
-                <ul className="mb-6 text-lg leading-relaxed text-body-color dark:text-gray-400">
-                  <li className="mb-4 flex items-start">
-                    <MdOutlineBusinessCenter className="text-primary mr-3 mt-1" />
-                    An expert contacts you after analyzing your requirements.
-                  </li>
-                  <li className="mb-4 flex items-start">
-                    <MdOutlineBusinessCenter className="text-primary mr-3 mt-1" />
-                    If needed, we sign an NDA to ensure the highest privacy level.
-                  </li>
-                  <li className="mb-4 flex items-start">
-                    <MdOutlineBusinessCenter className="text-primary mr-3 mt-1" />
-                    We submit a comprehensive project proposal with estimates, timelines, CVs, etc.
-                  </li>
-                </ul>
-                <h4 className="mb-2 text-lg font-semibold text-primary">
-                  Customers who trust us:
-                </h4>
-                <ul className="flex space-x-6 items-center text-body-color dark:text-gray-400">
-                  <li className="w-20 flex items-center">
-                    <img src="/Fimeal.png" alt="Samsung" className="object-contain" />
-                  </li>
-                  <li className="w-20 flex items-center">
-                    <img src="/Educait.webp" alt="Verivox" className="object-contain" />
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className="w-full lg:w-2/3 xl:w-7/12">
-              <div className="p-8 lg:p-8 rounded-lg border-2 text-white shadow-xl border-gray-700 dark:bg-dark-2 transition-transform hover:shadow-2xl">
-               <form onSubmit={formik.handleSubmit} className="space-y-6">
-                  <ContactInputBox
-                    type="text"
-                    name="name"
-                    placeholder="Your Name"
-                    icon={<FaUser />}
-                    formik={formik}
-                  />
-                  <ContactInputBox
-                    type="email"
-                    name="email"
-                    placeholder="Your Email"
-                    icon={<FaEnvelope />}
-                    formik={formik}
-                  />
-                  <ContactInputBox
-                    type="tel"
-                    name="phone"
-                    placeholder="Your Phone"
-                    icon={<FaPhone />}
-                    formik={formik}
-                  />
-                  <ContactInputBox
-                    type="text"
-                    name="projectType"
-                    placeholder="Project Type (e.g., Website, Mobile App)"
-                    icon={<FaBriefcase />}
-                    formik={formik}
-                  />
-
-                  <ContactTextArea
-                    row="6"
-                    placeholder="Project Description"
-                    name="description"
-                    formik={formik}
-                  />
-                  <div className="flex items-center justify-between mt-8">
-                    <button
-                      type="submit"
-                      className="w-full rounded-lg border-2 border-primary p-4 text-white font-semibold tracking-wide transition-transform transform hover:scale-105 focus:ring focus:ring-primary focus:outline-none"
-                    >
-                      Schedule Consultation
-                    </button>
-                  </div>
-                </form>
-              </div>
-            </div>
+    <div className="flex flex-col lg:flex-row bg-gray-100 p-10 rounded-lg shadow-lg max-w-6xl mx-auto">
+      {/* Left Section */}
+      <div className="lg:w-1/2 pr-0 lg:pr-10 mb-10 lg:mb-0">
+        <h2 className="text-2xl font-bold mb-5">Schedule a free IT consultation</h2>
+        <ul className="space-y-4 mb-10">
+          <li className="flex items-center">
+            <div className="w-8 h-8 bg-gray-300 rounded-full flex justify-center items-center mr-3">1</div>
+            <span>An expert contacts you after analyzing your requirements</span>
+          </li>
+          <li className="flex items-center">
+            <div className="w-8 h-8 bg-gray-300 rounded-full flex justify-center items-center mr-3">2</div>
+            <span>If needed, we sign an NDA to ensure privacy</span>
+          </li>
+          <li className="flex items-center">
+            <div className="w-8 h-8 bg-gray-300 rounded-full flex justify-center items-center mr-3">3</div>
+            <span>We submit a comprehensive project proposal</span>
+          </li>
+        </ul>
+        <div>
+          <p className="mb-3">Customers who trust us:</p>
+          <div className="flex space-x-5">
+            <img src="/Fimeal.png" alt="Samsung" className="h-8" />
+            <img src="/Educait.webp" alt="Verivox" className="h-8" />
           </div>
         </div>
-      </section>
-    </>
-  );
-};
-
-export default Contact;
-
-const ContactTextArea = ({ row, placeholder, name, formik }) => {
-  return (
-    <div className="relative">
-      <textarea
-        rows={row}
-        placeholder={placeholder}
-        name={name}
-        className={`w-full resize-none rounded-lg bg-transparent border-2 px-6 py-4 text-lg outline-none ${
-          formik.touched[name] && formik.errors[name] ? 'border-red-500' : 'border-gray-700'
-        } focus:border-primary transition-colors duration-300`}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values[name]}
-      />
-      {formik.touched[name] && formik.errors[name] ? (
-        <p className="text-red-500 text-sm mt-2">{formik.errors[name]}</p>
-      ) : null}
-    </div>
-  );
-};
-
-const ContactInputBox = ({ type, placeholder, name, icon, formik }) => {
-  return (
-    <div className="relative flex items-center mb-8">
-      <div className="absolute left-0 pl-4 text-primary">
-        {icon}
       </div>
-      <input
-        type={type}
-        placeholder={placeholder}
-        name={name}
-        className={`w-full pl-14 pr-6 py-4 rounded-lg text-lg bg-transparent border-2 border-gray-700 outline-none ${
-          formik.touched[name] && formik.errors[name] ? 'border-red-500' : 'focus:border-primary'
-        } transition-colors duration-300`}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values[name]}
-      />
-      {formik.touched[name] && formik.errors[name] ? (
-        <p className="text-red-500 text-sm absolute right-0 top-full">{formik.errors[name]}</p>
-      ) : null}
+
+      {/* Right Section */}
+      <div className="lg:w-1/2">
+        <form onSubmit={formik.handleSubmit}>
+          <div className="mb-5">
+            <label htmlFor="name" className="block text-sm font-bold mb-2">Name</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.name}
+              className="w-full p-2 outline-none border border-gray-300 rounded-lg"
+            />
+            {formik.touched.name && formik.errors.name ? <div className="text-red-500 text-sm mt-1">{formik.errors.name}</div> : null}
+          </div>
+
+          <div className="mb-5">
+            <label htmlFor="email" className="block text-sm font-bold mb-2">Corporate E-mail</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.email}
+              className="w-full p-2 outline-none border border-gray-300 rounded-lg"
+            />
+            {formik.touched.email && formik.errors.email ? <div className="text-red-500 text-sm mt-1">{formik.errors.email}</div> : null}
+          </div>
+
+          <div className="mb-5">
+            <label htmlFor="phone" className="block text-sm font-bold mb-2">Phone Number</label>
+            <input
+              id="phone"
+              name="phone"
+              type="text"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.phone}
+              className="w-full p-2 outline-none border border-gray-300 rounded-lg"
+            />
+            {formik.touched.phone && formik.errors.phone ? <div className="text-red-500 text-sm mt-1">{formik.errors.phone}</div> : null}
+          </div>
+
+          <div className="mb-5">
+            <label htmlFor="projectDescription" className="block text-sm font-bold mb-2">Describe your project</label>
+            <textarea
+              id="projectDescription"
+              name="projectDescription"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.projectDescription}
+              className="w-full p-3 border border-gray-300 rounded-lg"
+            />
+            {formik.touched.projectDescription && formik.errors.projectDescription ? <div className="text-red-500 text-sm mt-1">{formik.errors.projectDescription}</div> : null}
+          </div>
+
+          <div className="mb-5">
+            <label htmlFor="file" className="block text-sm font-bold mb-2">Attach File</label>
+            <input
+              id="file"
+              name="file"
+              type="file"
+              onChange={(event) => formik.setFieldValue('file', event.currentTarget.files?.[0] || null)}
+              className="w-full p-3 border border-gray-300 rounded-lg"
+            />
+            {formik.errors.file && formik.touched.file ? <div className="text-red-500 text-sm mt-1">{(formik.errors.file as any)}</div> : null}
+            <p className="text-gray-500 text-xs mt-1">No more than 3MB. Formats: doc, docx, pdf, ppt, pptx.</p>
+          </div>
+
+          <div className="mb-5">
+            <label className="flex items-center text-sm">
+              <input
+                id="nda"
+                name="nda"
+                type="checkbox"
+                onChange={formik.handleChange}
+                checked={formik.values.nda}
+                className="mr-2"
+              />
+              I want to protect my data by signing an NDA
+            </label>
+          </div>
+
+          <button type="submit" className="bg-yellow-500 text-black w-full py-3 font-semibold rounded-lg">Send Request</button>
+
+          <p className="text-sm text-gray-500 flex items-center mt-3">
+            <span className="material-icons text-green-500 mr-1">&#128274;</span> Your privacy is protected
+          </p>
+        </form>
+      </div>
     </div>
   );
 };
+
+export default ConsultationForm;

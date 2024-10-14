@@ -22,7 +22,6 @@ import {
 import { GrTestDesktop } from "react-icons/gr";
 import { RiTeamLine } from "react-icons/ri";
 import { MdOutlineDesignServices, MdOutlineBusinessCenter } from "react-icons/md";
-import Image from "next/image";
 
 export const steps = [
   {
@@ -135,18 +134,11 @@ export const steps = [
 const DummyContent = ({ description }) => {
   return (
     <>
-      <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-xl font-sans max-w-3xl mx-auto mb-4">
-        <span className="font-bold text-neutral-700 dark:text-neutral-200">
+      <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-lg font-sans max-w-3xl mx-auto mb-4">
+        <span className="font-bold text-sm text-neutral-700 dark:text-neutral-200">
           {description}
         </span>
       </p>
-      <Image
-        src="https://assets.aceternity.com/macbook.png"
-        alt="Macbook mockup"
-        height="500"
-        width="500"
-        className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
-      />
     </>
   );
 };

@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 
 
-const ByteCraftReviews = ({reviews, deliveryPhases}) => {
+const ByteCraftReviews = ({reviews, deliveryPhases, title}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [expandedPhase, setExpandedPhase] = useState(null);
@@ -41,7 +41,7 @@ const ByteCraftReviews = ({reviews, deliveryPhases}) => {
   };
 
   return (
-    <div className="mt-20 flex flex-col items-center justify-center p-4 relative">
+    <div className="flex flex-col items-center justify-center p-4 relative">
 
       <motion.div
         className="pointer-events-none fixed inset-0 z-30 transition duration-300 lg:absolute"
@@ -52,7 +52,7 @@ const ByteCraftReviews = ({reviews, deliveryPhases}) => {
 
       <div className="w-full max-w-6xl relative z-10">
        <motion.h2
-          className="text-4xl z-60 font-bold text-center text-white my-12"
+          className="text-4xl z-60 font-bold text-center text-white mb-12"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.6 }}
@@ -60,8 +60,7 @@ const ByteCraftReviews = ({reviews, deliveryPhases}) => {
           Our Client Work Reviews
         </motion.h2>
 
-        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-purple-700 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-        <div className="absolute top-0 -right-4 w-64 h-64 bg-yellow-700 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+     <div className="absolute top-0 -right-4 w-64 h-64 bg-yellow-700 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
         <div className="absolute -bottom-8 left-20 w-64 h-64 bg-pink-700 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
 
         <motion.div
@@ -136,7 +135,7 @@ const ByteCraftReviews = ({reviews, deliveryPhases}) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-          Web Development Delivery Phases
+          {title}
         </motion.h2>
         <motion.div
           className="w-full mx-auto"
