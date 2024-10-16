@@ -7,6 +7,7 @@ import ByteCraftReviews from '@/components/DetailServices/FAQAnimation';
 import Feature from '@/components/DetailServices/Feature';
 import Contact from '@/components/DetailServices/Contact';
 import { Data, deliveryPhases, Expertises, feature, languages, pastWork, reviews, stats } from '@/Servicesdata/WebDevelopment';
+import WebDevelopmentOfferings from '@/components/DetailServices/WebDevelopmentOfferings';
 const page = () => {
 
   return (
@@ -30,6 +31,7 @@ const page = () => {
           stats?.statsCard
         }
       />
+      <WebDevelopmentOfferings/>
       <FeatureSection languages={languages?.languages} title={languages?.title} />
       <Feature
         title={feature.title}
@@ -42,7 +44,6 @@ const page = () => {
       <WebDevelopmentWork
         works={pastWork.pastWorks}
         sectionTitle={pastWork?.title}
-
       />
       <ByteCraftReviews title={deliveryPhases?.title} reviews={reviews} deliveryPhases={deliveryPhases?.phases} />
       <Expertise

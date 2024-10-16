@@ -1,10 +1,8 @@
-'use client'
+'use client';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
-import Link from 'next/link';
-import { BiRightTopArrowCircle } from 'react-icons/bi';
 import { gsap } from 'gsap';
 import { useEffect, useRef, useState } from 'react';
 
@@ -39,26 +37,27 @@ const LanguageSection = ({ languages, title }) => {
 
     return (
         <section className="py-16 mx-auto max-w-6xl" ref={sectionRef}>
-            <div className="container mx-auto text-center mb-12">
-                <h2 className="text-4xl font-bold text-white mb-4">{title}</h2>
-            </div>
-
-            {/* Tab Navigation */}
-            <div className="mb-8 flex justify-center flex-wrap">
+            <div className="mb-12">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl text-white font-bold leading-tight mb-8 md:mb-12">
+                    {title}
+                </h1>
+                            <div className="flex max-w-6xl mx-auto justify-start flex-wrap gap-4 mb-12">
                 {languages.map((language, index) => (
                     <button
                         key={index}
-                        className={`mx-2 px-4 py-2 text-white font-semibold transition-colors duration-300 ${
-                            activeTab === index ? 'bg-porange-500' : 'bg-gray-700'
-                        } rounded-lg`}
+                        className={`px-6 py-2 font-semibold transition-transform duration-300 transform hover:scale-105 ${activeTab === index
+                                ? 'bg-[#6430C2] text-white'
+                                : 'bg-gray-200 text-[#6430C2]'
+                            } rounded-full shadow-lg`}
                         onClick={() => handleTabClick(index)}
                     >
                         {language.title}
                     </button>
                 ))}
             </div>
+            </div>
 
-            {/* Swiper Slider */}
+
             <Swiper
                 onSwiper={(swiper) => (swiperInstanceRef.current = swiper)}
                 spaceBetween={30}
@@ -67,7 +66,7 @@ const LanguageSection = ({ languages, title }) => {
                     640: { slidesPerView: 1 },
                     768: { slidesPerView: 2 },
                     1024: { slidesPerView: 3 },
-                    1280: { slidesPerView: 2 },
+                    1280: { slidesPerView: 6 },
                 }}
                 navigation={true}
                 modules={[Navigation]}
@@ -76,19 +75,13 @@ const LanguageSection = ({ languages, title }) => {
             >
                 {languages.map((language, index) => (
                     <SwiperSlide key={index}>
-                        <div className={`language-card rounded-lg p-8 overflow-hidden relative shadow-lg transition-colors duration-300 ${language.bgClass}`}>
-                            <span className="gradient-text block text-xl font-semibold mb-4">
-                                {language.title}
-                            </span>
-                            <div className={`w-36 h-36 rounded-full inline-flex items-center justify-center bg-opacity-10 ${language.bgClass} absolute -right-5 -top-5`}>
-                                {language.icon}
+                        <div className="language-card text-white p-8 rounded-lg shadow-lg transform transition-transform duration-500 hover:scale-105">
+                            <div className="flex justify-center mb-6">
+                                <div className="w-20 h-20 rounded-full flex items-center justify-center text-[#6430C2]">
+                                    {language.icon}
+                                </div>
                             </div>
-                            <h3 className="text-2xl font-bold mb-3 text-gray-800">{language.title}</h3>
-                            <p className="text-lg text-gray-600 mb-6">{language.description}</p>
-                            <Link href="/" className="text-gray-800 transition-all group hover:text-porange-500 text-base underline inline-flex items-center">
-                                <span>Learn more</span>
-                                <BiRightTopArrowCircle className="ml-2 group-hover:text-porange-500" />
-                            </Link>
+                            <h3 className="text-xl font-bold text-center">{language.title}</h3>
                         </div>
                     </SwiperSlide>
                 ))}

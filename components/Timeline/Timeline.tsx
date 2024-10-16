@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Timeline } from "@/components/ui/timeline";
+import { Timeline } from "@/ui/timeline";
 import { motion } from "framer-motion";
 
 import { gsap } from "gsap";

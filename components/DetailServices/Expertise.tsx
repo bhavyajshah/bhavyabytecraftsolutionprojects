@@ -1,6 +1,5 @@
-"use client";
 import React from "react";
-import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
+import { Carousel, Card } from "@/ui/apple-cards-carousel";
 import { expertiseData } from "../data/Data";
 
 export function Expertise({ title }) {
@@ -9,10 +8,8 @@ export function Expertise({ title }) {
   ));
 
   return (
-    <div className="w-full h-full py-20">
-      <h2 className="text-white sm:text-4xl text-2xl font-extrabold text-center mb-4">
-        {title}
-      </h2>
+    <div className="w-full h-full max-w-6xl mx-auto py-20">
+    <h1  className="text-6xl font-bold leading-none text-white max-md:max-w-full max-md:text-4xl mb-8 text-start">{title}</h1>
       <Carousel items={cards} />
     </div>
   );

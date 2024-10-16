@@ -213,8 +213,7 @@ export const feature = {
       avatar: "https://randomuser.me/api/portraits/men/4.jpg",
     },
   ]
-export const deliveryPhases =
-{
+export const deliveryPhases = {
   title: "Mobile Development Solution Phases",
  phases : [
   {

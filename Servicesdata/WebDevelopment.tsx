@@ -1,6 +1,5 @@
  import { CheckCircle2, Cog, Globe, HeartHandshake, Rocket } from 'lucide-react';
 import { FaUsers, FaRegSmile, FaCode, FaLaptopCode, FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaNodeJs, FaGitAlt, FaCogs, FaLock, FaHeadset, FaRocket, FaUserShield, FaMobileAlt } from 'react-icons/fa';
-
  export const Data = {
     title: "Innovative",
     subTitle: "Web Solutions for Your Business",
@@ -217,48 +216,208 @@ export const reviews = [
       avatar: "https://randomuser.me/api/portraits/men/4.jpg",
     },
   ]
- export const deliveryPhases = {
-    title:"Web Development Solutions",
+export const deliveryPhases = {
+  title: "Web Development Solutions",
   phases: [
     {
-      icon: <CheckCircle2 className="w-8 h-8 text-white mr-4"/>,
+      icon: <CheckCircle2 className="w-8 h-8 text-white mr-4" />,
       title: "Discovery & Planning",
-      description:
-        "We begin by understanding your business goals, target audience, and project requirements. Our team conducts thorough research and creates a detailed project roadmap.",
+      details: [
+        "Identify business goals and project requirements",
+        "Conduct audience research and competitive analysis",
+        "Develop a detailed project roadmap"
+      ],
       image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       color: "from-blue-400 to-blue-600",
     },
     {
-      icon: <Rocket className="w-8 h-8 text-white mr-4"/>,
+      icon: <Rocket className="w-8 h-8 text-white mr-4" />,
       title: "Design & Prototyping",
-      description:
-        "Our designers create wireframes and interactive prototypes, ensuring the user interface is intuitive and aligned with your brand identity.",
+      details: [
+        "Create wireframes and UI sketches",
+        "Develop interactive prototypes",
+        "Ensure brand consistency and user experience alignment"
+      ],
       image: "https://images.unsplash.com/photo-1576153192396-180ecef2a715?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       color: "from-purple-400 to-purple-600",
     },
     {
-      icon: <Cog className="w-8 h-8 text-white mr-4"/>,
+      icon: <Cog className="w-8 h-8 text-white mr-4" />,
       title: "Development & Testing",
-      description:
-        "Our developers bring the designs to life, writing clean, efficient code. Rigorous testing is performed to ensure functionality and responsiveness across devices.",
+      details: [
+        "Develop scalable, efficient code",
+        "Perform cross-device testing and debugging",
+        "Ensure security and performance optimizations"
+      ],
       image: "https://plus.unsplash.com/premium_photo-1663040543387-cb7c78c4f012?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       color: "from-green-400 to-green-600",
     },
     {
-      icon: <Globe  className="w-8 h-8 text-white mr-4"/>,
+      icon: <Globe className="w-8 h-8 text-white mr-4" />,
       title: "Deployment & Launch",
-      description:
-        "We carefully deploy your project to a production environment, conduct final checks, and assist with the official launch of your new digital solution.",
+      details: [
+        "Deploy the solution in a production environment",
+        "Conduct final quality assurance checks",
+        "Assist with official launch and user training"
+      ],
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       color: "from-yellow-400 to-yellow-600",
     },
     {
-      icon: <HeartHandshake  className="w-8 h-8 text-white mr-4"/>,
+      icon: <HeartHandshake className="w-8 h-8 text-white mr-4" />,
       title: "Maintenance & Support",
-      description:
-        "Post-launch, we provide ongoing maintenance, updates, and support to ensure your digital solution continues to perform optimally and evolve with your business needs.",
+      details: [
+        "Provide ongoing maintenance and updates",
+        "Monitor system performance and resolve issues",
+        "Implement new features as your business evolves"
+      ],
       image: "https://plus.unsplash.com/premium_photo-1679429320974-ab1de58bcad9?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       color: "from-red-400 to-red-600",
     },
-  ]
+  ],
+};
+export const tabData = [
+  {
+    title: "WEB APPLICATION DEVELOPMENT",
+    content: {
+      title: "Web Application Development",
+      description: "We offer comprehensive web application development services tailored to your business needs:",
+      features: [
+        "Custom-built web applications",
+        "Scalable and responsive designs",
+        "Integration with existing systems",
+        "Ongoing support and maintenance"
+      ]
+    }
+  },
+  {
+    title: "CUSTOM WEB DEVELOPMENT",
+    content: {
+      title: "Custom Web Development",
+      description: "Our team specializes in creating bespoke web solutions:",
+      features: [
+        "Tailored to your specific requirements",
+        "Unique user experiences",
+        "Optimized for performance",
+        "Secure and reliable implementations"
+      ]
+    }
+  },
+  {
+    title: "STAFF AUGMENTATION",
+    content: {
+      title: "Staff Augmentation",
+      description: "Enhance your team with our skilled professionals:",
+      features: [
+        "Flexible resource allocation",
+        "Experienced developers on demand",
+        "Seamless integration with your team",
+        "Reduced hiring and training costs"
+      ]
+    }
+  },
+  {
+    title: "TECHNOLOGICAL PARTNERSHIP",
+    content: {
+      title: "Technological Partnership",
+      description: "Form a strategic alliance with our tech experts:",
+      features: [
+        "Long-term collaboration",
+        "Access to cutting-edge technologies",
+        "Continuous innovation support",
+        "Shared risk and reward"
+      ]
+    }
+  },
+  {
+    title: "WEB DESIGN SERVICES",
+    content: {
+      title: "Web Design Services",
+      description: "Create stunning and functional web designs:",
+      features: [
+        "User-centric design approach",
+        "Responsive and adaptive layouts",
+        "Brand-aligned visual elements",
+        "Accessibility-focused designs"
+      ]
+    }
+  },
+  {
+    title: "QA FOR WEB PROJECTS",
+    content: {
+      title: "QA for Web Projects",
+      description: "Ensure the quality and reliability of your web projects:",
+      features: [
+        "Comprehensive testing strategies",
+        "Automated and manual testing",
+        "Performance and security audits",
+        "Continuous quality improvement"
+      ]
+    }
+  },
+  {
+    title: "ARCHITECTURE DEVELOPMENT",
+    content: {
+      title: "Architecture Development",
+      description: "Build robust and scalable web architectures:",
+      features: [
+        "Microservices architecture design",
+        "Cloud-native solutions",
+        "Scalable and maintainable structures",
+        "Performance-optimized architectures"
+      ]
+    }
+  },
+  {
+    title: "INFRASTRUCTURE SUPPORT",
+    content: {
+      title: "Infrastructure Support",
+      description: "Reliable support for your web infrastructure:",
+      features: [
+        "24/7 monitoring and maintenance",
+        "Cloud infrastructure management",
+        "Security and compliance support",
+        "Disaster recovery planning"
+      ]
+    }
+  },
+  {
+    title: "MVP DEVELOPMENT",
+    content: {
+      title: "MVP Development",
+      description: "Rapidly bring your ideas to market with MVP development:",
+      features: [
+        "Fast time-to-market",
+        "Core feature focus",
+        "Iterative development approach",
+        "Cost-effective solution validation"
+      ]
+    }
+  },
+  {
+    title: "WEB 3.0 DEVELOPMENT",
+    content: {
+      title: "Web 3.0 Development",
+      description: "Embrace the future of the web with our Web 3.0 services:",
+      features: [
+        "Blockchain integration",
+        "Decentralized applications (dApps)",
+        "Smart contract development",
+        "Tokenization solutions"
+      ]
+    }
+  },
+  {
+    title: "AI WEB DEVELOPMENT",
+    content: {
+      title: "AI Web Development",
+      description: "Integrate AI capabilities into your web applications:",
+      features: [
+        "Machine learning integration",
+        "Natural language processing",
+        "Predictive analytics",
+        "AI-powered chatbots and assistants"
+      ]
+    }
   }
+];

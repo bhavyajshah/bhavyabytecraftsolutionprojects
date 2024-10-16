@@ -6,10 +6,11 @@ import {
   ChevronRight,
   StarIcon,
   ChevronDown,
+  CheckCircle,
 } from "lucide-react";
 
 
-const ByteCraftReviews = ({reviews, deliveryPhases, title}) => {
+const ByteCraftReviews = ({ reviews, deliveryPhases, title }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [expandedPhase, setExpandedPhase] = useState(null);
@@ -41,7 +42,7 @@ const ByteCraftReviews = ({reviews, deliveryPhases, title}) => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center p-4 relative">
+    <div className="flex flex-col items-center mt-20 justify-center p-4 relative">
 
       <motion.div
         className="pointer-events-none fixed inset-0 z-30 transition duration-300 lg:absolute"
@@ -51,16 +52,9 @@ const ByteCraftReviews = ({reviews, deliveryPhases, title}) => {
       />
 
       <div className="w-full max-w-6xl relative z-10">
-       <motion.h2
-          className="text-4xl z-60 font-bold text-center text-white mb-12"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-        >
-          Our Client Work Reviews
-        </motion.h2>
+    <h1  className="text-6xl font-bold leading-none text-white max-md:max-w-full max-md:text-4xl mb-8 text-start">Our Client Work Reviews</h1>
 
-     <div className="absolute top-0 -right-4 w-64 h-64 bg-yellow-700 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+        <div className="absolute top-0 -right-4 w-64 h-64 bg-yellow-700 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
         <div className="absolute -bottom-8 left-20 w-64 h-64 bg-pink-700 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
 
         <motion.div
@@ -101,11 +95,10 @@ const ByteCraftReviews = ({reviews, deliveryPhases, title}) => {
                   {[...Array(5)].map((_, i) => (
                     <StarIcon
                       key={i}
-                      className={`w-6 h-6 ${
-                        i < reviews[currentIndex].rating
+                      className={`w-6 h-6 ${i < reviews[currentIndex].rating
                           ? "text-yellow-400"
                           : "text-gray-600"
-                      } transform hover:scale-125 transition-transform duration-300`}
+                        } transform hover:scale-125 transition-transform duration-300`}
                       fill="currentColor"
                     />
                   ))}
@@ -129,14 +122,7 @@ const ByteCraftReviews = ({reviews, deliveryPhases, title}) => {
           </button>
         </motion.div>
 
-        <motion.h2
-          className="text-4xl font-bold text-center text-white my-12"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-        >
-          {title}
-        </motion.h2>
+            <h1  className="text-6xl font-bold leading-none text-white max-md:max-w-full max-md:text-4xl mb-8 text-start">{title}</h1>
         <motion.div
           className="w-full mx-auto"
           initial={{ opacity: 0 }}
@@ -152,7 +138,7 @@ const ByteCraftReviews = ({reviews, deliveryPhases, title}) => {
               transition={{ duration: 0.3, ease: "easeInOut" }}
             >
               <motion.div
-                className={`flex items-center justify-between p-6 cursor-pointer bg-gradient-to-r ${phase.color}`}
+                className={`flex items-center justify-between p-6 cursor-pointer bg-gradient-to-${phase.color}`}
                 onClick={() => togglePhase(index)}
               >
                 <div className="flex items-center">
@@ -175,15 +161,17 @@ const ByteCraftReviews = ({reviews, deliveryPhases, title}) => {
                     animate={{ opacity: 1, height: "auto" }}
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="px-6 pt-6 pb-6"
+                    className="px-6 pt-6 pb-6  rounded-lg shadow-lg"
                   >
                     <div className="flex flex-col md:flex-row items-center">
-                      <img
-                        src={phase.image}
-                        alt={phase.title}
-                        className="w-full md:w-1/3 h-auto object-cover rounded-lg mb-4 md:mb-0 md:mr-4"
-                      />
-                      <p className="text-gray-300">{phase.description}</p>
+                      <ul className="list-disc list-inside text-white">
+                        {phase?.details?.map((item, index) => (
+                          <li key={index} className="flex items-center mb-2">
+                            <CheckCircle className="text-green-500 mr-2" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   </motion.div>
                 )}

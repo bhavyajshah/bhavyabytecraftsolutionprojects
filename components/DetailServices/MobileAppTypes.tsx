@@ -2,68 +2,63 @@
 import React, { useState } from 'react';
 import { AppType, appTypes, AppFeature } from '../../lib/types';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Clock, Trash2, CheckCircle } from 'lucide-react';
-
+import {Smartphone, TrendingUp, CheckCircle, Swords } from 'lucide-react';
 
 const MobileAppTypes: React.FC = () => {
   const [selectedAppType, setSelectedAppType] = useState<AppType>(appTypes[0]);
 
-  const appData: Record<AppType, {
-    title: string;
-    description: string;
-    image: any;
-  }> = {
-    'NATIVE APPS': {
-      title: 'Native Mobile App Development',
-      description: 'Native Android and iOS app development makes the most of mobile platform capabilities, supports comprehensive feature sets, and offers high performance.',
-      image: 'https://www.flexsin.com/blog/wp-content/uploads/2019/06/native_app_1600_900.jpg',
-    },
-    'CROSS-PLATFORM APPS': {
-      title: 'Cross-Platform App Development',
-      description: 'Cross-platform development allows creating apps that work on multiple platforms using a single codebase, offering cost-effectiveness and faster time-to-market.',
-      image: 'https://www.zestminds.com/blog/wp-content/uploads/2022/02/Cross-Platform-Mobile-App-Development-Framework.jpg',
-    },
-    'HYBRID APPS': {
-      title: 'Hybrid App Development',
-      description: 'Hybrid apps combine elements of both native and web applications, offering a balance between performance and development efficiency.',
-      image: 'https://www.tranktechnologies.com/blog/wp-content/uploads/2021/05/img.png',
-    },
-    'PROGRESSIVE WEB APPS': {
-      title: 'Progressive Web App Development',
-      description: 'Progressive Web Apps (PWAs) offer a web-based solution that provides a native app-like experience to users, working across all devices with features like offline functionality.',
-      image: 'https://techaffinity.com/blog/wp-content/uploads/2022/12/p2uors208q22bcd82g52-1024x576.jpg',
-    },
-  };
+const appData: Record<AppType, {
+  title: string;
+  description: string;
+  image: any;
+}> = {
+  'NATIVE APPS': {
+    title: 'Native Mobile App Development',
+    description: 'Native app development continues to dominate mobile experiences, offering unparalleled performance, robust security, and complete access to device hardware. With native apps, businesses can leverage platform-specific features like Swift for iOS or Kotlin for Android, ensuring smooth, responsive, and feature-rich user experiences tailored to each platform. These apps are essential for high-demand applications, such as gaming, AR/VR, or complex enterprise solutions.',
+    image: 'https://static.vecteezy.com/system/resources/previews/006/800/441/non_2x/react-native-mobile-app-illustration-exclusive-design-vector.jpg',
+  },
+  'CROSS-PLATFORM APPS': {
+    title: 'Cross-Platform Mobile App Development',
+    description: 'Cross-platform development frameworks like Flutter and React Native have revolutionized the mobile app industry. By allowing developers to write a single codebase that works across multiple platforms, cross-platform apps significantly reduce time-to-market and development costs. While offering near-native performance, they also enable rapid prototyping and iterative updates, making them a go-to solution for startups and companies looking to expand their mobile presence without doubling the effort.',
+    image: 'https://www.orangemantra.com/blog/wp-content/uploads/2020/01/Cross-Platform-App-Development-Facts-You-Need-To-Know-Right-Now-1024x576.png',
+  },
+  'HYBRID APPS': {
+    title: 'Hybrid Mobile App Development',
+    description: 'Hybrid apps bridge the gap between web and native apps, offering a cost-effective solution that uses web technologies like HTML, CSS, and JavaScript within a native shell. Hybrid apps are perfect for businesses looking to maintain a presence across multiple platforms while keeping development costs in check. Modern tools like Ionic and Apache Cordova have evolved, making hybrid apps more powerful, allowing integration with native device features and offering smoother performance than ever before.',
+    image: 'https://eibsglobal.com/wp-content/uploads/2019/10/hybrid-app-development.png',
+  },
+  'PROGRESSIVE WEB APPS': {
+    title: 'Progressive Web App (PWA) Development',
+    description: 'Progressive Web Apps (PWAs) are a rapidly growing trend, offering the best of both web and mobile worlds. PWAs provide fast load times, offline capabilities, and a native app-like experience without needing app store distribution. These apps have become crucial for eCommerce platforms, news websites, and content-heavy apps, as they ensure seamless accessibility across all devices while reducing bounce rates and increasing user engagement.',
+    image: 'https://www.pngitem.com/pimgs/m/127-1272322_progressive-web-apps-progressive-app-png-transparent-png.png',
+  },
+};
 
 const features: AppFeature[] = [
   {
-    title: "Advantages",
-    icon: <CheckCircle className="w-10 h-10" />,
+    title: "Features",
+    icon: <Smartphone className="w-10 h-10" />,
     items: [
-      "High app performance and speed;",
-      "Convenient UI/UX;",
-      "Top security."
+      "Exceptional performance and seamless user experiences;",
+      "Access to cutting-edge hardware features (camera, AR, biometrics);",
+  ]
+  },
+  {
+    title: "Current Challenges",
+    icon: <Swords className="w-10 h-10" />,
+    items: [
+      "Balancing user privacy and data security with app functionality;",
+      "Keeping up with rapidly evolving device technologies and operating systems;",
     ]
   },
   {
-    title: "Limitations",
-    icon: <Trash2 className="w-10 h-10" />,
+    title: "Emerging Trends",
+    icon: <TrendingUp className="w-10 h-10" />,
     items: [
-      "High upfront and maintenance costs;",
-      "Slow time-to-market;",
-      "No code reusability."
-    ]
-  },
-  {
-    title: "Best for",
-    icon: <Clock className="w-10 h-10" />,
-    items: [
-      "Complex mobile applications;",
-      "High performance and a smooth UI;",
-      "Apps with heavy data processing."
-    ]
+      "AI and ML-powered apps providing personalized experiences (e.g., recommendation engines, voice assistants);",
+      "5G-enabled apps allowing ultra-fast streaming, gaming, and real-time collaboration;",   ]
   }
-]
+];
 
   return (
     <section className="flex flex-col items-center px-20 py-24 text-white max-md:px-5 transition-all duration-300">
@@ -132,7 +127,9 @@ const features: AppFeature[] = [
               <ul className="flex flex-col mt-4 w-full text-base leading-relaxed h-[97px] max-w-[323px]">
                 {feature.items.map((item, itemIndex) => (
                   <li key={itemIndex} className="flex gap-2.5 mt-2.5">
-                    <div className="flex shrink-0 my-auto w-2 bg-[#6430C2] h-[7px]" />
+                    <div className="">
+                    <CheckCircle className='text-[#6430C2]'/>
+                    </div>
                     <div className="flex-auto">{item}</div>
                   </li>
                 ))}

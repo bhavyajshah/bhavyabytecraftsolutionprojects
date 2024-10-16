@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { ContainerScroll } from "../ui/container-scroll-animation";
+import { ContainerScroll } from "../../ui/container-scroll-animation";
 import { BackgroundImageBlur } from "../icons/Icons";
 
 const HeroSection = () => {
