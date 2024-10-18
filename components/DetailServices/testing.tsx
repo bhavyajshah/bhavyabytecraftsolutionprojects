@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useRef, useEffect } from 'react'
-import { FaReact, FaVuejs, FaAngular, FaNodeJs, FaPython, FaJava, FaSwift, FaAndroid, FaDatabase, FaAws, FaMicrosoft, FaGoogle, FaWordpress, FaDrupal, FaJoomla, FaHtml5, FaCss3, FaJs, FaPhp, FaDocker, FaGit, FaSass, FaChevronLeft, FaChevronRight } from 'react-icons/fa'
+import { FaReact, FaVuejs, FaAngular, FaNodeJs, FaPython, FaJava, FaSwift, FaAndroid, FaAws, FaMicrosoft, FaGoogle, FaWordpress, FaDrupal, FaJoomla, FaHtml5, FaCss3, FaJs, FaPhp, FaDocker, FaGit, FaSass, FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import { SiTypescript, SiGraphql, SiMongodb, SiPostgresql, SiMysql, SiRedis, SiFirebase, SiKubernetes, SiJenkins, SiTerraform } from 'react-icons/si'
 import { IoLogoElectron } from 'react-icons/io5'
 import { TbBrandNextjs } from 'react-icons/tb'

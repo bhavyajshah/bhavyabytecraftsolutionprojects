@@ -1,5 +1,5 @@
+import { FaqData } from "@/Servicesdata/WebDevelopment";
 import FAQ from "@/components/FAQ/FAQ";
-import { faqsList } from "@/components/data/Data";
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -16,11 +16,8 @@ export const metadata: Metadata = {
 
 const FAQPage = () => {
   return (
-    <FAQ
-      faqsList={faqsList}
-      title="Frequently Asked Questions"
-      description="Have more questions? Check out our FAQs or get in touch with us for further assistance."
-    />
+
+        <FAQ title={"Frequently Asked Questions"} FaqData={FaqData} />
   );
 };
 

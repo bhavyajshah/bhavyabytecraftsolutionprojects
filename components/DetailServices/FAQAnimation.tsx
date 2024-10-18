@@ -5,15 +5,12 @@ import {
   ChevronLeft,
   ChevronRight,
   StarIcon,
-  ChevronDown,
-  CheckCircle,
 } from "lucide-react";
 
 
-const ByteCraftReviews = ({ reviews, deliveryPhases, title }) => {
+const ByteCraftReviews = ({ reviews }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [expandedPhase, setExpandedPhase] = useState(null);
 
   const goToPrevious = () => {
     setCurrentIndex(
@@ -36,10 +33,6 @@ const ByteCraftReviews = ({ reviews, deliveryPhases, title }) => {
       window.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
-
-  const togglePhase = (index) => {
-    setExpandedPhase(expandedPhase === index ? null : index);
-  };
 
   return (
     <div className="flex flex-col items-center mt-20 justify-center p-4 relative">

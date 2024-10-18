@@ -5,7 +5,7 @@ import ByteCraftReviews from '@/components/DetailServices/FAQAnimation';
 import MobileAppTypes from '@/components/DetailServices/MobileAppTypes';
 import Contact from '@/components/DetailServices/Contact';
 import SuccessStories from '@/components/DetailServices/MobileSuccessStories/SuccessStories';
-import { Data, deliveryPhases, Expertises, pastWork, reviews } from '@/Servicesdata/MobileDevelopment';
+import { Data, Expertises, pastWork, reviews } from '@/Servicesdata/MobileDevelopment';
 import AppDevelopmentTeam from '@/components/DetailServices/MobileSuccessStories/MobileSuccessTeam';
 import FAQ from '@/components/FAQ/FAQ';
 import { FaqData } from '@/Servicesdata/WebDevelopment';
@@ -36,7 +36,7 @@ const page = () => {
       />
       <FAQ title={"Mobile Development Delievery Cycle"} FaqData={FaqData}/>
       <AppDevelopmentTeam />
-      <ByteCraftReviews title={deliveryPhases?.title} reviews={reviews} deliveryPhases={deliveryPhases?.phases} />
+      <ByteCraftReviews reviews={reviews} />
 
       <Expertise
         title={Expertises.expertiseTitle}
