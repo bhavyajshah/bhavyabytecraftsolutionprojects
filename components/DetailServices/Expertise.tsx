@@ -8,9 +8,8 @@ export function Expertise({ title }) {
   ));
 
   return (
-    <div className="w-full h-full max-w-6xl mx-auto py-20">
-    <h1  className="text-6xl font-bold leading-none text-white max-md:max-w-full max-md:text-4xl mb-8 text-start">{title}</h1>
-      <Carousel items={cards} />
-    </div>
+
+  <Carousel items={cards} title={title} />
+
   );
 }

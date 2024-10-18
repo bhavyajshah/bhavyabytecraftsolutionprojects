@@ -52,8 +52,7 @@ const ByteCraftReviews = ({ reviews, deliveryPhases, title }) => {
       />
 
       <div className="w-full max-w-6xl relative z-10">
-    <h1  className="text-6xl font-bold leading-none text-white max-md:max-w-full max-md:text-4xl mb-8 text-start">Our Client Work Reviews</h1>
-
+        <h1 className="text-6xl font-bold leading-none text-white max-md:max-w-full max-md:text-4xl mb-8 text-start">Our Client Work Reviews</h1>
         <div className="absolute top-0 -right-4 w-64 h-64 bg-yellow-700 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
         <div className="absolute -bottom-8 left-20 w-64 h-64 bg-pink-700 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
 
@@ -96,8 +95,8 @@ const ByteCraftReviews = ({ reviews, deliveryPhases, title }) => {
                     <StarIcon
                       key={i}
                       className={`w-6 h-6 ${i < reviews[currentIndex].rating
-                          ? "text-yellow-400"
-                          : "text-gray-600"
+                        ? "text-yellow-400"
+                        : "text-gray-600"
                         } transform hover:scale-125 transition-transform duration-300`}
                       fill="currentColor"
                     />
@@ -120,64 +119,6 @@ const ByteCraftReviews = ({ reviews, deliveryPhases, title }) => {
           >
             <ChevronRight className="w-6 h-6" />
           </button>
-        </motion.div>
-
-            <h1  className="text-6xl font-bold leading-none text-white max-md:max-w-full max-md:text-4xl mb-8 text-start">{title}</h1>
-        <motion.div
-          className="w-full mx-auto"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.8 }}
-        >
-          {deliveryPhases.map((phase, index) => (
-            <motion.div
-              key={index}
-              className="mb-4 bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-xl overflow-hidden border-2 border-transparent hover:border-purple-500 transition-colors duration-300"
-              initial={false}
-              animate={{ height: expandedPhase === index ? "auto" : "80px" }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-            >
-              <motion.div
-                className={`flex items-center justify-between p-6 cursor-pointer bg-gradient-to-${phase.color}`}
-                onClick={() => togglePhase(index)}
-              >
-                <div className="flex items-center">
-                  {phase.icon}
-                  <h3 className="text-xl font-semibold text-white">
-                    {phase.title}
-                  </h3>
-                </div>
-                <motion.div
-                  animate={{ rotate: expandedPhase === index ? 180 : 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <ChevronDown className="w-6 h-6 text-white" />
-                </motion.div>
-              </motion.div>
-              <AnimatePresence>
-                {expandedPhase === index && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="px-6 pt-6 pb-6  rounded-lg shadow-lg"
-                  >
-                    <div className="flex flex-col md:flex-row items-center">
-                      <ul className="list-disc list-inside text-white">
-                        {phase?.details?.map((item, index) => (
-                          <li key={index} className="flex items-center mb-2">
-                            <CheckCircle className="text-green-500 mr-2" />
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          ))}
         </motion.div>
       </div>
     </div>

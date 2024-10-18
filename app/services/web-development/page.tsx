@@ -1,13 +1,14 @@
 import Hero from '@/components/DetailServices/Hero'
 import StatsServices from '@/components/DetailServices/StatsServices';
-import FeatureSection from '@/components/DetailServices/testing';
 import { Expertise } from '@/components/DetailServices/Expertise';
 import WebDevelopmentWork from '@/components/DetailServices/Portfolio';
 import ByteCraftReviews from '@/components/DetailServices/FAQAnimation';
 import Feature from '@/components/DetailServices/Feature';
 import Contact from '@/components/DetailServices/Contact';
-import { Data, deliveryPhases, Expertises, feature, languages, pastWork, reviews, stats } from '@/Servicesdata/WebDevelopment';
+import { Data, deliveryPhases, Expertises, FaqData, feature, pastWork, reviews, stats } from '@/Servicesdata/WebDevelopment';
 import WebDevelopmentOfferings from '@/components/DetailServices/WebDevelopmentOfferings';
+import TechnologySection from '@/components/DetailServices/testing';
+import FAQ from '@/components/FAQ/FAQ';
 const page = () => {
 
   return (
@@ -32,7 +33,7 @@ const page = () => {
         }
       />
       <WebDevelopmentOfferings/>
-      <FeatureSection languages={languages?.languages} title={languages?.title} />
+      <TechnologySection title={"Technologies for Web Development"} />
       <Feature
         title={feature.title}
         features={feature.features.map((feature) => ({
@@ -41,6 +42,7 @@ const page = () => {
           description: feature.description,
         }))}
       />
+      <FAQ title={"Web Development Delievery Cycle"} FaqData={FaqData} />
       <WebDevelopmentWork
         works={pastWork.pastWorks}
         sectionTitle={pastWork?.title}

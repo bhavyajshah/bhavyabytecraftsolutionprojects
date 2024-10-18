@@ -1,13 +1,15 @@
 import Hero from '@/components/DetailServices/Hero'
-import FeatureSection from '@/components/DetailServices/testing';
 import { Expertise } from '@/components/DetailServices/Expertise';
 import WebDevelopmentWork from '@/components/DetailServices/Portfolio';
 import ByteCraftReviews from '@/components/DetailServices/FAQAnimation';
 import MobileAppTypes from '@/components/DetailServices/MobileAppTypes';
 import Contact from '@/components/DetailServices/Contact';
 import SuccessStories from '@/components/DetailServices/MobileSuccessStories/SuccessStories';
-import { Data, deliveryPhases, Expertises, languages, pastWork, reviews } from '@/Servicesdata/MobileDevelopment';
+import { Data, deliveryPhases, Expertises, pastWork, reviews } from '@/Servicesdata/MobileDevelopment';
 import AppDevelopmentTeam from '@/components/DetailServices/MobileSuccessStories/MobileSuccessTeam';
+import FAQ from '@/components/FAQ/FAQ';
+import { FaqData } from '@/Servicesdata/WebDevelopment';
+import TechnologySection from '@/components/DetailServices/testing';
 
 const page = () => {
   return (
@@ -26,18 +28,20 @@ const page = () => {
       />
 
     <MobileAppTypes/>
-      <FeatureSection languages={languages?.languages} title={languages?.title} />
+      <TechnologySection title={"Technologies for Web Development"}/>
       <SuccessStories />
       <WebDevelopmentWork
         works={pastWork.pastWorks}
         sectionTitle={pastWork?.title}
-
       />
+      <FAQ title={"Mobile Development Delievery Cycle"} FaqData={FaqData}/>
       <AppDevelopmentTeam />
       <ByteCraftReviews title={deliveryPhases?.title} reviews={reviews} deliveryPhases={deliveryPhases?.phases} />
+
       <Expertise
         title={Expertises.expertiseTitle}
       />
+
        <Contact />
     </>
   )

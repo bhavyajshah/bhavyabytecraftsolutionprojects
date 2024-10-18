@@ -1,83 +1,82 @@
-'use client';
-import { useState } from "react";
-import { motion } from "framer-motion";
+"use client"
 
-interface FAQ {
-  q: string;
-  a: string;
-}
+import { useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import { ChevronDown, ChevronUp } from "lucide-react"
 
-interface FAQProps {
-  faqsList: FAQ[];
-  title: string;
-  description: string;
-}
-
-const FAQ: React.FC<FAQProps> = ({ faqsList, title, description }) => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  const handleToggle = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
+export default function FAQ({ title, FaqData }) {
+  const [expandedSection, setExpandedSection] = useState(0)
 
   return (
-    <section className="leading-relaxed max-w-screen-xl mt-40 mb-10 mx-auto px-4 md:px-8">
-      <div className="space-y-3 text-center">
-        <h1 className="text-4xl text-white font-semibold">{title}</h1>
-        <p className="text-gray-400 max-w-lg mx-auto text-md">{description}</p>
-      </div>
+    <div className="max-w-6xl mx-auto p-6 md:p-8 lg:p-12 bg-transparent text-gray-100 min-h-screen py-20 md:py-24">
+      <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-bold leading-tight mb-8 sm:mb-12 md:mb-16">
+        {title}
+      </h1>
 
-      <div className="mt-14 max-w-4xl mx-auto space-y-6">
-        {faqsList.map((faq, idx) => (
-          <motion.div
-            className="space-y-3 mt-5 overflow-hidden border-b border-gray-600"
-            key={idx}
-            onClick={() => handleToggle(idx)}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
+      {FaqData.map((section, index) => (
+        <motion.div
+          key={index}
+          className="mb-4 md:mb-6 border-b border-gray-700 last:border-b-0"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: index * 0.1 }}
+        >
+          <motion.button
+            className="w-full text-left py-4 flex justify-between items-center"
+            onClick={() => setExpandedSection(expandedSection === index ? -1 : index)}
             whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
           >
-            <h4 className="cursor-pointer pb-5 flex items-center justify-between text-lg text-white font-medium">
-              {faq.q}
-              {openIndex === idx ? (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-gray-400 ml-2"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
-                </svg>
-              ) : (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-gray-400 ml-2"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-                </svg>
-              )}
-            </h4>
-
+            <span className="text-lg md:text-xl font-semibold flex items-center">
+              <span className="w-8 mr-4 text-gray-500">{(index + 1).toString().padStart(2, '0')}</span>
+              {section.title}
+            </span>
             <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={openIndex === idx ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-              style={{ overflow: "hidden" }}
+              animate={{ rotate: expandedSection === index ? 180 : 0 }}
+              transition={{ duration: 0.3 }}
             >
-              <div className="p-4 bg-gray-800 rounded-md">
-                <p className="text-gray-300">{faq.a}</p>
-              </div>
+              {expandedSection === index ? <ChevronUp className="text-gray-500" /> : <ChevronDown className="text-gray-500" />}
             </motion.div>
-          </motion.div>
-        ))}
-      </div>
-    </section>
-  );
-};
-
-export default FAQ;
+          </motion.button>
+          <AnimatePresence initial={false}>
+            {expandedSection === index && (
+              <motion.div
+                initial="collapsed"
+                animate="open"
+                exit="collapsed"
+                variants={{
+                  open: { opacity: 1, height: "auto" },
+                  collapsed: { opacity: 0, height: 0 }
+                }}
+                transition={{ duration: 0.8, ease: [0.04, 0.62, 0.23, 0.98] }}
+                className="overflow-hidden"
+              >
+                <motion.div
+                  className="pb-4 pl-12 border-l-4 border-[#6430c2] ml-4"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                >
+                  <p className="mb-4 text-gray-400 text-sm md:text-base">{section.content}</p>
+                  <ul className="list-disc pl-5 text-gray-400">
+                    {section.items.map((item, itemIndex) => (
+                      <motion.li
+                        key={itemIndex}
+                        className="mb-2 text-sm md:text-base"
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5, delay: 0.3 + itemIndex * 0.1 }}
+                      >
+                        {item}
+                      </motion.li>
+                    ))}
+                  </ul>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </motion.div>
+      ))}
+    </div>
+  )
+}

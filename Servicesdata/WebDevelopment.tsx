@@ -421,3 +421,83 @@ export const tabData = [
     }
   }
 ];
+
+export const FaqData = [
+  {
+    title: "Discovery phase",
+    content: "This is where we envision the future web solution, ensuring all essential features are thoroughly considered and examined.",
+    items: [
+      "User research and interviews",
+      "Competitor analysis and benchmarking",
+      "Conceptualization and ideation workshops",
+      "Market trend analysis",
+      "Stakeholder interviews"
+    ]
+  },
+  {
+    title: "Requirements specification",
+    content: "In this phase, we define and document the specific requirements for the web application.",
+    items: [
+      "Functional requirements gathering",
+      "Non-functional requirements definition",
+      "Technical specifications documentation",
+      "User stories and use case development",
+      "Acceptance criteria definition"
+    ]
+  },
+  {
+    title: "UX/UI design",
+    content: "Here, we focus on creating an intuitive and visually appealing user interface for the web application.",
+    items: [
+      "Wireframing and low-fidelity prototypes",
+      "Interactive prototyping",
+      "Visual design and branding",
+      "Usability testing",
+      "Responsive design implementation"
+    ]
+  },
+  {
+    title: "Architecture",
+    content: "This phase involves planning the overall structure and technologies for the web application.",
+    items: [
+      "System architecture design",
+      "Database schema design",
+      "API design and documentation",
+      "Security architecture planning",
+      "Scalability and performance considerations"
+    ]
+  },
+  {
+    title: "Development",
+    content: "The core phase where we bring the web application to life through coding and implementation.",
+    items: [
+      "Front-end development",
+      "Back-end development",
+      "Database implementation",
+      "API integration",
+      "Version control and code management"
+    ]
+  },
+  {
+    title: "Testing and QA",
+    content: "Ensuring the quality and reliability of the web application through comprehensive testing.",
+    items: [
+      "Unit testing",
+      "Integration testing",
+      "User acceptance testing",
+      "Performance testing",
+      "Security testing"
+    ]
+  },
+  {
+    title: "Deployment",
+    content: "Launching the web application and making it available to users.",
+    items: [
+      "Deployment planning",
+      "Environment setup",
+      "Data migration",
+      "Go-live procedures",
+      "Post-deployment monitoring"
+    ]
+  }
+]
