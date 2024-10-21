@@ -1,5 +1,5 @@
 import React from "react";
-import { Carousel, Card } from "@/ui/apple-cards-carousel";
+import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 import { expertiseData } from "../data/Data";
 
 export function Expertise({ title }) {
@@ -9,7 +9,7 @@ export function Expertise({ title }) {
 
   return (
 
-  <Carousel items={cards} title={title} />
+    <Carousel items={cards} title={title} />
 
   );
 }

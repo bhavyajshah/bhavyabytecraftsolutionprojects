@@ -1,5 +1,5 @@
 "use client";
-import { FollowerPointerCard } from "../../ui/following-pointer";
+import { FollowerPointerCard } from "../ui/following-pointer";
 import { motion } from "framer-motion";
 import { FaCheckCircle } from "react-icons/fa";
 import { caseStudies } from "../data/Data";

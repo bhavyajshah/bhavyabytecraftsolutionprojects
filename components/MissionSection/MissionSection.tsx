@@ -3,13 +3,11 @@ import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-const DetailedSection = () => {
+const MissionSection = () => {
   return (
     <section className="my-40">
-     
       <div className="max-w-[1170px] mx-auto px-4 sm:px-8 xl:px-0">
         <div className="grid sm:grid-cols-12 gap-[30px]">
-          {/* Statement */}
           <motion.div
             className="sm:col-span-12 relative rounded-3xl features-box-border"
             initial={{ opacity: 0, y: 50 }}
@@ -90,4 +88,4 @@ const DetailedSection = () => {
   );
 };
 
-export default DetailedSection;
+export default MissionSection;

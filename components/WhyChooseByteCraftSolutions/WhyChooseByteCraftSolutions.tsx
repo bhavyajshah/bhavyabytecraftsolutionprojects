@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { Tabs } from "../../ui/tabs";
+import { Tabs } from "../ui/tabs";
 
 export function WhyChooseByteCraftSolutions() {
   const tabs = [
