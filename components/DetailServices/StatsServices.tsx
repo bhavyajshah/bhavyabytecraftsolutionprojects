@@ -16,13 +16,12 @@ const StatsServices = ({ title, stats }) => {
 
     return (
         <div className="relative text-white overflow-hidden  max-w-6xl mx-auto">
-            {/* Background Section */}
-            <div className="relative w-full h-[500px] rounded-2xl">
+            <div className="relative w-full h-[500px]">
                 <img
                     src="/statssection.jpg"
-                    className="w-full h-full rounded-xl object-cover max-w-6xl mx-auto"
+                    className="w-full h-full rounded-2xl object-cover max-w-6xl mx-auto"
                     alt="Background"
-                    style={{ objectPosition: 'center', filter: 'brightness(90%)' }}
+                    style={{ objectPosition: 'center', filter: 'brightness(90%)', borderRadius: "20px" }}
                 />
             </div>
 
@@ -31,22 +30,22 @@ const StatsServices = ({ title, stats }) => {
                 <div className="relative backdrop-blur-lg rounded-3xl shadow-lg overflow-hidden py-16 px-8 md:px-16 lg:px-20 grid grid-cols-1 lg:grid-cols-[40%_auto] gap-10">
                     {/* Title and Button Section */}
                     <div className="relative z-10 flex flex-col justify-center items-start" data-aos="fade-right">
-                       <div className="">
-                        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6" data-aos="fade-right" data-aos-delay="200">
-                            {title}
-                        </h2>
+                        <div className="">
+                            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6" data-aos="fade-right" data-aos-delay="200">
+                                {title}
+                            </h2>
                         </div>
                         <div className="">
-                        <Link
-                            href="/pricing"
-                            className="hero-button-gradient inline-flex rounded-lg py-3 px-7 text-white font-medium ease-in duration-300 hover:opacity-80"
-                            data-aos="fade-up" data-aos-delay="400"
-                        >
-                            <span>Get a Consultation</span>
-                            <svg className="stroke-white ml-2" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M14 16.5L18 12.5M18 12.5L14 8.5M18 12.5L6 12.5" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
-                            </svg>
-                        </Link>
+                            <Link
+                                href="/pricing"
+                                className="hero-button-gradient inline-flex rounded-lg py-3 px-7 text-white font-medium ease-in duration-300 hover:opacity-80"
+                                data-aos="fade-up" data-aos-delay="400"
+                            >
+                                <span>Get a Consultation</span>
+                                <svg className="stroke-white ml-2" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M14 16.5L18 12.5M18 12.5L14 8.5M18 12.5L6 12.5" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
+                                </svg>
+                            </Link>
                         </div>
                     </div>
 

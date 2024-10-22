@@ -71,8 +71,8 @@ export default function WhyChooseUs() {
                 </div>
 
                 <div className="flex flex-col lg:flex-row gap-12">
-                    {/* Our Expertise section remains unchanged */}
-                    <div className="lg:w-1/2 space-y-8">
+                    {/* Our Expertise section */}
+                    <div className="lg:w-2/5 space-y-8">
                         <h2 className="text-3xl font-bold mb-6 text-center lg:text-left">Our Expertise</h2>
                         <div className="grid grid-cols-1 gap-6">
                             {expertise.map((item, index) => (
@@ -92,9 +92,8 @@ export default function WhyChooseUs() {
                     {/* Technologies We Use section with sticky positioning */}
                     <div
                         ref={techSectionRef}
-                        className={`lg:w-1/2 space-y-8 ${
-                            isSticky ? 'lg:sticky lg:top-0 lg:self-start' : ''
-                        }`}
+                        className={`lg:w-3/5 space-y-8 ${isSticky ? 'lg:sticky lg:top-0 lg:self-start' : ''
+                            }`}
                     >
                         <h2 className="text-3xl font-bold mb-6 text-center lg:text-left">Technologies We Use</h2>
                         <div className="grid grid-cols-3 sm:grid-cols-4 gap-6">
@@ -108,6 +107,7 @@ export default function WhyChooseUs() {
                         </div>
                     </div>
                 </div>
+
                 <div className="text-center space-y-6 mt-12">
                     <h2 className="text-3xl font-bold">Ready to Build Your Cross-Platform App?</h2>
                     <p className="text-xl text-gray-300 max-w-2xl mx-auto">

@@ -29,34 +29,8 @@ const TeamMember = ({ name, title, hourlyRate, skills, previousCompany, imgSrc }
   );
 };
 
-const AppDevelopmentTeam = () => {
+const AppDevelopmentTeam = ({ title, teamMembersData }) => {
 
-  const teamMembersData = [
-    {
-      name: 'John Doe',
-      title: 'Mobile App Developer',
-      hourlyRate: 65,
-      skills: ['Java', 'Kotlin', 'Android Jetpack', 'Firebase', 'Gradle'],
-      previousCompany: 'Company A',
-      imgSrc: 'https://randomuser.me/api/portraits/men/1.jpg',
-    },
-    {
-      name: 'Jane Smith',
-      title: 'Mobile App Developer',
-      hourlyRate: 50,
-      skills: ['Swift', 'iOS Development', 'Xcode', 'Core Data'],
-      previousCompany: 'Company B',
-      imgSrc: 'https://randomuser.me/api/portraits/women/1.jpg',
-    },
-    {
-      name: 'Rohit Sharma',
-      title: 'Mobile App Developer',
-      hourlyRate: 40,
-      skills: ['React Native', 'Flutter', 'Dart', 'API Integration'],
-      previousCompany: 'Company C',
-      imgSrc: 'https://randomuser.me/api/portraits/men/2.jpg',
-    },
-  ];
 
   return (
     <div className="max-w-6xl mx-auto py-10 px-4">
@@ -66,7 +40,7 @@ const AppDevelopmentTeam = () => {
         transition={{ duration: 0.5 }}
         className="text-6xl font-bold leading-none text-white max-md:max-w-full max-md:text-4xl mb-8 text-center"
       >
-        Our Successful Mobile App Team Members
+        {title}
       </motion.h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {teamMembersData.map((member, index) => (

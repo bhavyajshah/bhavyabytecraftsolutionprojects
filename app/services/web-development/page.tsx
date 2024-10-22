@@ -7,8 +7,8 @@ import Feature from '@/components/DetailServices/Feature';
 import Contact from '@/components/DetailServices/Contact';
 import { Data, Expertises, FaqData, feature, pastWork, reviews, stats } from '@/Servicesdata/WebDevelopment';
 import WebDevelopmentOfferings from '@/components/DetailServices/WebDevelopmentOfferings';
-import TechnologySection from '@/components/DetailServices/testing';
 import FAQ from '@/components/FAQ/FAQ';
+import TechnologySection from '@/components/DetailServices/WebDevelopment/WebTechnologySection';
 const page = () => {
 
   return (
@@ -32,7 +32,7 @@ const page = () => {
           stats?.statsCard
         }
       />
-      <WebDevelopmentOfferings/>
+      <WebDevelopmentOfferings title={"Web Development Offerings"} />
       <TechnologySection title={"Technologies for Web Development"} />
       <Feature
         title={feature.title}
@@ -51,7 +51,7 @@ const page = () => {
       <Expertise
         title={Expertises.expertiseTitle}
       />
-      <Contact/>
+      <Contact />
     </div>
   )
 }

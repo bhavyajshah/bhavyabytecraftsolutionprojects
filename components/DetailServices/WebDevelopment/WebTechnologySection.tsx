@@ -1,12 +1,19 @@
 'use client'
 
 import React, { useState, useRef, useEffect } from 'react'
-import { FaReact, FaVuejs, FaAngular, FaNodeJs, FaPython, FaJava, FaSwift, FaAndroid, FaAws, FaMicrosoft, FaGoogle, FaWordpress, FaDrupal, FaJoomla, FaHtml5, FaCss3, FaJs, FaPhp, FaDocker, FaGit, FaSass, FaChevronLeft, FaChevronRight } from 'react-icons/fa'
-import { SiTypescript, SiGraphql, SiMongodb, SiPostgresql, SiMysql, SiRedis, SiFirebase, SiKubernetes, SiJenkins, SiTerraform } from 'react-icons/si'
+import {
+    FaReact, FaVuejs, FaAngular, FaNodeJs, FaPython, FaJava, FaSwift, FaAndroid,
+    FaAws, FaMicrosoft, FaGoogle, FaWordpress, FaDrupal, FaJoomla, FaHtml5,
+    FaCss3, FaJs, FaPhp, FaDocker, FaGit, FaSass, FaChevronLeft, FaChevronRight
+} from 'react-icons/fa'
+import {
+    SiTypescript, SiGraphql, SiMongodb, SiPostgresql, SiMysql, SiRedis, SiFirebase,
+    SiKubernetes, SiJenkins, SiTerraform
+} from 'react-icons/si'
 import { IoLogoElectron } from 'react-icons/io5'
 import { TbBrandNextjs } from 'react-icons/tb'
 
-const technologies:any = [
+const technologies = [
     { name: 'React', category: 'Frontend', icon: FaReact },
     { name: 'Vue.js', category: 'Frontend', icon: FaVuejs },
     { name: 'Angular', category: 'Frontend', icon: FaAngular },
@@ -43,28 +50,32 @@ const technologies:any = [
     { name: 'Joomla', category: 'CMS', icon: FaJoomla },
 ]
 
-export default function TechnologySection({title}) {
+export default function TechnologyShowcase({ title }: { title: string }) {
     const [activeCategory, setActiveCategory] = useState('All')
     const [currentIndex, setCurrentIndex] = useState(0)
+    const [filteredTechnologies, setFilteredTechnologies] = useState(technologies)
     const categoryRef = useRef<HTMLDivElement>(null)
-
     const availableCategories = ['All', ...Array.from(new Set(technologies.map(tech => tech.category)))]
 
-    const filteredTechnologies = activeCategory === 'All'
-        ? technologies
-        : technologies.filter(tech => tech.category === activeCategory)
+    useEffect(() => {
+        const newFilteredTechnologies = activeCategory === 'All'
+            ? technologies
+            : technologies.filter(tech => tech.category === activeCategory)
+        setFilteredTechnologies(newFilteredTechnologies)
+        setCurrentIndex(0)
+    }, [activeCategory])
 
     const nextSlide = () => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % filteredTechnologies.length)
+        if (filteredTechnologies.length > 1) {
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % filteredTechnologies.length)
+        }
     }
 
     const prevSlide = () => {
-        setCurrentIndex((prevIndex) => (prevIndex - 1 + filteredTechnologies.length) % filteredTechnologies.length)
+        if (filteredTechnologies.length > 1) {
+            setCurrentIndex((prevIndex) => (prevIndex - 1 + filteredTechnologies.length) % filteredTechnologies.length)
+        }
     }
-
-    useEffect(() => {
-        setCurrentIndex(0)
-    }, [activeCategory])
 
     const scroll = (scrollOffset: number) => {
         if (categoryRef.current) {
@@ -73,7 +84,10 @@ export default function TechnologySection({title}) {
     }
 
     const getVisibleTechnologies = () => {
-        const visibleCount = filteredTechnologies.length < 5 ? filteredTechnologies.length : 5
+        const visibleCount = window.innerWidth < 640 ? 1 : window.innerWidth < 1024 ? 3 : 5
+        if (filteredTechnologies.length <= visibleCount) {
+            return filteredTechnologies
+        }
         const offset = Math.floor(visibleCount / 2)
         return [...Array(visibleCount)].map((_, i) => {
             const index = (currentIndex - offset + i + filteredTechnologies.length) % filteredTechnologies.length
@@ -82,27 +96,22 @@ export default function TechnologySection({title}) {
     }
 
     return (
-        <div className="min-h-screen bg-transparent text-white p-8">
-            <h1 className="text-5xl font-extrabold mb-4 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
-
-            </h1>
-
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-bold leading-tight mb-8 sm:mb-12 md:mb-16">
+        <div className="w-full text-white px-4 pb-24 max-w-6xl mx-auto overflow-x-hidden">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center font-bold leading-tight mb-8 sm:mb-12 text-white">
                 {title}
             </h1>
-            <div className="relative mb-12">
+            <div className="relative mb-8 sm:mb-12">
                 <div
                     ref={categoryRef}
-                    className="flex overflow-x-auto scrollbar-hide space-x-2 py-4"
+                    className="flex overflow-x-hidden justify-center space-x-2 py-4 px-10"
                 >
-                    {availableCategories.map((category:any) => (
+                    {availableCategories.map((category: any) => (
                         <button
                             key={category}
-                            className={`px-4 py-2 text-sm rounded-full whitespace-nowrap transition-all duration-300 ${
-                                activeCategory === category
-                                    ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg transform scale-110'
-                                    : 'bg-gray-700 hover:bg-gray-600'
-                            }`}
+                            className={`px-4 py-2 text-sm rounded-full whitespace-nowrap transition-all duration-300 ${activeCategory === category
+                                ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg'
+                                : 'bg-gray-800 hover:bg-gray-700 text-gray-300'
+                                }`}
                             onClick={() => setActiveCategory(category)}
                         >
                             {category}
@@ -110,20 +119,20 @@ export default function TechnologySection({title}) {
                     ))}
                 </div>
                 <button
-                    className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 p-2 rounded-full opacity-75 hover:opacity-100 transition-opacity"
+                    className="absolute left-0 top-1/2 lg:hidden block transform -translate-y-1/2 bg-gray-800 p-2 rounded-full opacity-75 hover:opacity-100 transition-opacity"
                     onClick={() => scroll(-100)}
                 >
                     <FaChevronLeft className="w-4 h-4" />
                 </button>
                 <button
-                    className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 p-2 rounded-full opacity-75 hover:opacity-100 transition-opacity"
+                    className="absolute right-0 top-1/2 lg:hidden block transform -translate-y-1/2 bg-gray-800 p-2 rounded-full opacity-75 hover:opacity-100 transition-opacity"
                     onClick={() => scroll(100)}
                 >
                     <FaChevronRight className="w-4 h-4" />
                 </button>
             </div>
 
-            <div className="relative mt-12">
+            <div className="relative mt-12 px-8">
                 {filteredTechnologies.length > 1 && (
                     <>
                         <button
@@ -141,38 +150,24 @@ export default function TechnologySection({title}) {
                     </>
                 )}
 
-                <div className="flex justify-center items-center space-x-12">
+                <div className="flex justify-center items-center space-x-4 sm:space-x-8 md:space-x-12 overflow-hidden">
                     {getVisibleTechnologies().map((tech, index) => {
                         const Icon = tech.icon
                         const isCenter = index === Math.floor(getVisibleTechnologies().length / 2)
                         return (
                             <div
                                 key={tech.name}
-                                className={`text-center transition-all duration-300 ${
-                                    isCenter ? 'scale-125 opacity-100' : 'scale-75 opacity-50'
-                                }`}
+                                className={`text-center transition-all duration-300 ${isCenter ? '' : 'opacity-50'
+                                    }`}
                             >
-                                <div className="bg-gradient-to-br from-gray-700 to-gray-900 rounded-2xl p-6 mb-4 mx-auto w-28 h-28 flex items-center justify-center shadow-lg">
-                                    <Icon className={`w-16 h-16 ${isCenter ? 'animate-pulse' : ''}`} />
+                                <div className="w-20 sm:w-24 h-20 sm:h-24 flex items-center justify-center">
+                                    <Icon className="w-10 h-10 sm:w-12 sm:h-12 text-purple-500" />
                                 </div>
-                                <p className="text-sm font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
-                                    {tech.name}
-                                </p>
+                                <h3 className="text-sm sm:text-base text-gray-300">{tech.name}</h3>
                             </div>
                         )
                     })}
                 </div>
-            </div>
-
-            <div className="flex justify-center mt-12">
-                {filteredTechnologies.map((_, index) => (
-                    <div
-                        key={index}
-                        className={`w-2 h-2 rounded-full mx-1 transition-all duration-300 ${
-                            index === currentIndex ? 'bg-blue-500 scale-150' : 'bg-gray-600'
-                        }`}
-                    />
-                ))}
             </div>
         </div>
     )

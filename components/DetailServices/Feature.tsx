@@ -10,8 +10,8 @@ const Feature = ({ features, title }) => {
 
   return (
     <div className="max-w-6xl mx-auto">
-      <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-bold leading-tight mb-8 sm:mb-12 md:mb-16">
-       {title}
+      <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white text-center font-bold leading-tight mb-8 sm:mb-12 md:mb-16">
+        {title}
       </h1>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-10">
         {features.map((feature, index) => (

@@ -70,8 +70,8 @@ export const languages = {
   ]
 };
 export const Expertises = {
-    expertiseTitle: "Areas of Expertise",
-  }
+  expertiseTitle: "Areas of Expertise",
+}
 export const pastWork = {
   title: "Our Mobile Development Work",
   description: "Explore some of our featured mobile app development projects",
@@ -175,137 +175,182 @@ export const feature = {
     },
   ],
 };
- export const reviews = [
-    {
-      id: 1,
-      name: "Emma Thompson",
-      role: "CTO, TechInnovate",
-      rating: 5,
-      comment:
-        "ByteCraft Solutions transformed our outdated website into a modern, responsive masterpiece. Their attention to detail and innovative approach to web development exceeded our expectations.",
-      avatar: "https://randomuser.me/api/portraits/women/1.jpg",
-    },
-    {
-      id: 2,
-      name: "Michael Chen",
-      role: "Founder, StartUp Hub",
-      rating: 5,
-      comment:
-        "The team at ByteCraft Solutions delivered an exceptional e-commerce platform for our startup. Their expertise in React and Node.js resulted in a fast, scalable solution thats driving our business growth.",
-      avatar: "https://randomuser.me/api/portraits/men/2.jpg",
-    },
-    {
-      id: 3,
-      name: "Sophia Rodriguez",
-      role: "Marketing Director, GrowthGenius",
-      rating: 4,
-      comment:
-        "ByteCraft web development skills are top-notch. They created a beautiful, SEO-optimized website thats significantly improved our online presence and lead generation.",
-      avatar: "https://randomuser.me/api/portraits/women/3.jpg",
-    },
-    {
-      id: 4,
-      name: "Alexander Novak",
-      role: "CEO, FintechForward",
-      rating: 5,
-      comment:
-        "The custom web application ByteCraft developed for our fintech startup is nothing short of brilliant. Their understanding of complex financial processes and ability to translate them into user-friendly interfaces is remarkable.",
-      avatar: "https://randomuser.me/api/portraits/men/4.jpg",
-    },
-  ]
-export const deliveryPhases = {
-  title: "Mobile Development Solution Phases",
- phases : [
+export const reviews = [
   {
-    icon: <MdSearch className="w-8 h-8 text-white mr-4" />,
-    title: "Discovery & Planning",
-    description:
-      "In the discovery phase, we collaborate to envision the future mobile app solution. This step ensures that all essential features are thoroughly considered and examined. Our process includes extensive user research, competitor analysis, conceptualization, and ideation to define clear requirements for development.",
-    details: [
-      "User research & competitor analysis",
-      "Conceptualization & ideation",
-      "Requirements specification",
-    ],
-    image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    color: "from-blue-400 to-blue-600",
+    id: 1,
+    name: "Emma Thompson",
+    role: "CTO, TechInnovate",
+    rating: 5,
+    comment:
+      "ByteCraft Solutions transformed our outdated website into a modern, responsive masterpiece. Their attention to detail and innovative approach to web development exceeded our expectations.",
+    avatar: "https://randomuser.me/api/portraits/women/1.jpg",
   },
   {
-    icon: <MdDesignServices className="w-8 h-8 text-white mr-4" />,
-    title: "UX/UI Design & Architecture",
-    description:
-      "In this phase, we create intuitive designs and establish a solid app architecture. Our design team works on crafting user-friendly interfaces with wireframes and prototypes, while the architecture phase defines the app’s technical structure, ensuring scalability and performance.",
-    details: [
-      "User experience (UX) & user interface (UI) design",
-      "Wireframes & interactive prototypes",
-      "App architecture design",
-    ],
-    image: "https://images.unsplash.com/photo-1576153192396-180ecef2a715?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    color: "from-purple-400 to-purple-600",
+    id: 2,
+    name: "Michael Chen",
+    role: "Founder, StartUp Hub",
+    rating: 5,
+    comment:
+      "The team at ByteCraft Solutions delivered an exceptional e-commerce platform for our startup. Their expertise in React and Node.js resulted in a fast, scalable solution thats driving our business growth.",
+    avatar: "https://randomuser.me/api/portraits/men/2.jpg",
   },
   {
-    icon: <MdCode className="w-8 h-8 text-white mr-4" />,
-    title: "Front-End & Back-End Development",
-    description:
-      "Our development team brings the designs to life. This phase involves coding the app’s front-end for a smooth user experience and back-end to handle data and business logic. We focus on clean, maintainable code and ensure a seamless integration between the front-end and back-end systems.",
-    details: [
-      "Front-end development (React Native, Swift, etc.)",
-      "Back-end development (Node.js, Firebase, etc.)",
-      "Clean and efficient codebase",
-    ],
-    image: "https://plus.unsplash.com/premium_photo-1663040543387-cb7c78c4f012?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    color: "from-green-400 to-green-600",
+    id: 3,
+    name: "Sophia Rodriguez",
+    role: "Marketing Director, GrowthGenius",
+    rating: 4,
+    comment:
+      "ByteCraft web development skills are top-notch. They created a beautiful, SEO-optimized website thats significantly improved our online presence and lead generation.",
+    avatar: "https://randomuser.me/api/portraits/women/3.jpg",
   },
   {
-    icon: <MdIntegrationInstructions className="w-8 h-8 text-white mr-4" />,
-    title: "Integrations",
-    description:
-      "We seamlessly integrate third-party services such as payment gateways, social media logins, analytics tools, and other APIs into your app. These integrations are key to enhancing app functionality and ensuring your app meets all user requirements.",
-    details: [
-      "Third-party service integrations",
-      "API integration",
-      "Payment gateway and social media login support",
-    ],
-    image: "https://images.unsplash.com/photo-1581092339609-30d1c47b92c3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    color: "from-orange-400 to-orange-600",
-  },
-  {
-    icon: <MdHighQuality className="w-8 h-8 text-white mr-4" />,
-    title: "Quality Assurance",
-    description:
-      "Our team conducts thorough testing to ensure that the app functions smoothly across various devices and platforms. We focus on performance, security, and usability, making sure the app is free of bugs and delivers an exceptional user experience.",
-    details: [
-      "Performance testing",
-      "Security testing",
-      "Usability testing",
-    ],
-    image: "https://images.unsplash.com/photo-1522204523234-872ce1c11230?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    color: "from-teal-400 to-teal-600",
-  },
-  {
-    icon: <MdLaunch className="w-8 h-8 text-white mr-4" />,
-    title: "Launch & Support",
-    description:
-      "We handle the final deployment of your mobile app, ensuring a seamless launch on app stores like the App Store and Google Play. After launch, our team provides ongoing maintenance and support to keep your app running smoothly and up-to-date.",
-    details: [
-      "App store deployment (App Store, Google Play)",
-      "Post-launch monitoring and support",
-      "Scaling and app improvements",
-    ],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    color: "from-yellow-400 to-yellow-600",
-  },
-  {
-    icon: <MdSupportAgent className="w-8 h-8 text-white mr-4" />,
-    title: "Scale & Grow",
-    description:
-      "As your business expands, so should your app. We help you scale the app with new features, performance upgrades, and ensure it grows with your business needs. Continuous updates and strategic improvements are made to adapt to changing market demands.",
-    details: [
-      "Ongoing scalability improvements",
-      "Feature expansion",
-      "Business growth alignment",
-    ],
-    image: "https://plus.unsplash.com/premium_photo-1679429320974-ab1de58bcad9?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    color: "from-red-400 to-red-600",
+    id: 4,
+    name: "Alexander Novak",
+    role: "CEO, FintechForward",
+    rating: 5,
+    comment:
+      "The custom web application ByteCraft developed for our fintech startup is nothing short of brilliant. Their understanding of complex financial processes and ability to translate them into user-friendly interfaces is remarkable.",
+    avatar: "https://randomuser.me/api/portraits/men/4.jpg",
   },
 ]
+export const deliveryPhases = {
+  title: "Mobile Development Solution Phases",
+  phases: [
+    {
+      icon: <MdSearch className="w-8 h-8 text-white mr-4" />,
+      title: "Discovery & Planning",
+      description:
+        "In the discovery phase, we collaborate to envision the future mobile app solution. This step ensures that all essential features are thoroughly considered and examined. Our process includes extensive user research, competitor analysis, conceptualization, and ideation to define clear requirements for development.",
+      details: [
+        "User research & competitor analysis",
+        "Conceptualization & ideation",
+        "Requirements specification",
+      ],
+      image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      color: "from-blue-400 to-blue-600",
+    },
+    {
+      icon: <MdDesignServices className="w-8 h-8 text-white mr-4" />,
+      title: "UX/UI Design & Architecture",
+      description:
+        "In this phase, we create intuitive designs and establish a solid app architecture. Our design team works on crafting user-friendly interfaces with wireframes and prototypes, while the architecture phase defines the app’s technical structure, ensuring scalability and performance.",
+      details: [
+        "User experience (UX) & user interface (UI) design",
+        "Wireframes & interactive prototypes",
+        "App architecture design",
+      ],
+      image: "https://images.unsplash.com/photo-1576153192396-180ecef2a715?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      color: "from-purple-400 to-purple-600",
+    },
+    {
+      icon: <MdCode className="w-8 h-8 text-white mr-4" />,
+      title: "Front-End & Back-End Development",
+      description:
+        "Our development team brings the designs to life. This phase involves coding the app’s front-end for a smooth user experience and back-end to handle data and business logic. We focus on clean, maintainable code and ensure a seamless integration between the front-end and back-end systems.",
+      details: [
+        "Front-end development (React Native, Swift, etc.)",
+        "Back-end development (Node.js, Firebase, etc.)",
+        "Clean and efficient codebase",
+      ],
+      image: "https://plus.unsplash.com/premium_photo-1663040543387-cb7c78c4f012?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      color: "from-green-400 to-green-600",
+    },
+    {
+      icon: <MdIntegrationInstructions className="w-8 h-8 text-white mr-4" />,
+      title: "Integrations",
+      description:
+        "We seamlessly integrate third-party services such as payment gateways, social media logins, analytics tools, and other APIs into your app. These integrations are key to enhancing app functionality and ensuring your app meets all user requirements.",
+      details: [
+        "Third-party service integrations",
+        "API integration",
+        "Payment gateway and social media login support",
+      ],
+      image: "https://images.unsplash.com/photo-1581092339609-30d1c47b92c3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      color: "from-orange-400 to-orange-600",
+    },
+    {
+      icon: <MdHighQuality className="w-8 h-8 text-white mr-4" />,
+      title: "Quality Assurance",
+      description:
+        "Our team conducts thorough testing to ensure that the app functions smoothly across various devices and platforms. We focus on performance, security, and usability, making sure the app is free of bugs and delivers an exceptional user experience.",
+      details: [
+        "Performance testing",
+        "Security testing",
+        "Usability testing",
+      ],
+      image: "https://images.unsplash.com/photo-1522204523234-872ce1c11230?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      color: "from-teal-400 to-teal-600",
+    },
+    {
+      icon: <MdLaunch className="w-8 h-8 text-white mr-4" />,
+      title: "Launch & Support",
+      description:
+        "We handle the final deployment of your mobile app, ensuring a seamless launch on app stores like the App Store and Google Play. After launch, our team provides ongoing maintenance and support to keep your app running smoothly and up-to-date.",
+      details: [
+        "App store deployment (App Store, Google Play)",
+        "Post-launch monitoring and support",
+        "Scaling and app improvements",
+      ],
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      color: "from-yellow-400 to-yellow-600",
+    },
+    {
+      icon: <MdSupportAgent className="w-8 h-8 text-white mr-4" />,
+      title: "Scale & Grow",
+      description:
+        "As your business expands, so should your app. We help you scale the app with new features, performance upgrades, and ensure it grows with your business needs. Continuous updates and strategic improvements are made to adapt to changing market demands.",
+      details: [
+        "Ongoing scalability improvements",
+        "Feature expansion",
+        "Business growth alignment",
+      ],
+      image: "https://plus.unsplash.com/premium_photo-1679429320974-ab1de58bcad9?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      color: "from-red-400 to-red-600",
+    },
+  ]
 }
+
+export const stories = {
+  'Crypto Finance': {
+    logo: 'https://via.placeholder.com/100',
+    title: 'A mobile crypto wallet operating in over 40 countries',
+    location: 'South Africa',
+    image: "https://cdn.dribbble.com/userupload/16217870/file/original-9b1ef4f7e5440613b4b1f0cde410e69d.png?resize=752x",
+    description: 'This app enables seamless cross-border transactions with cutting-edge blockchain technology.',
+  },
+  'Financial Services': {
+    logo: 'https://via.placeholder.com/100',
+    title: 'Leading Fintech solutions for global payments',
+    location: 'United States',
+    image: "https://i.pinimg.com/originals/0d/b4/cf/0db4cf8a0fab2e31c0457850a5ebeab7.png",
+    description: 'Providing top-notch payment solutions that ensure security, speed, and transparency across borders.',
+  },
+  'Healthcare': {
+    logo: 'https://via.placeholder.com/100',
+    title: 'Telemedicine app improving healthcare access',
+    location: 'Kenya',
+    image: "https://s3-ap-south-1.amazonaws.com/trt-blog-ghost/2022/12/Patient-s-app.jpg",
+    description: 'This app allows people in remote areas to connect with top doctors for real-time consultations.',
+  },
+  'Automotive': {
+    logo: 'https://via.placeholder.com/100',
+    title: 'Smart vehicle management system',
+    location: 'Germany',
+    image: "https://cdn.dribbble.com/userupload/8392224/file/original-c827d9112ea45a19f75180484ee55168.png?resize=400x0",
+    description: 'An advanced vehicle tracking system that improves fleet management and safety for drivers.',
+  },
+  'Logistics': {
+    logo: 'https://via.placeholder.com/100',
+    title: 'AI-powered logistics platform',
+    location: 'Australia',
+    image: "https://multiqos.com/blogs/wp-content/uploads/2022/08/Cargo-Transportation-App-Design.jpg",
+    description: 'Optimizing delivery routes and improving logistics efficiency with AI-driven solutions.',
+  },
+  'Telecom': {
+    logo: 'https://via.placeholder.com/100',
+    title: 'Next-gen telecom app for seamless communication',
+    location: 'Canada',
+    image: "https://i.pinimg.com/736x/6f/ec/40/6fec40bd7560eab58e510e45163980d0.jpg",
+    description: 'Bringing innovative communication services to users with real-time call optimization.',
+  },
+};

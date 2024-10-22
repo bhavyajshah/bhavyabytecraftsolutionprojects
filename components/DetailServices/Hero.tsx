@@ -8,6 +8,7 @@ import { SiFiverr, SiFreelancer, SiToptal } from "react-icons/si";
 import AnimatedShinyText from "../../hooks/AnimatedGradientText";
 import { cn } from "@/lib/utils";
 import { CgArrowRight } from "react-icons/cg";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -102,12 +103,12 @@ const Hero: React.FC<HeroProps> = ({
         </ul>
 
         <div className="mt-6 flex gap-4">
-          <a
+          <Link
             href={primaryButton.link}
             className="hero-button hero-button-gradient inline-flex rounded-lg py-3 px-7 text-white font-medium ease-in duration-300 hover:opacity-80 transform hover:scale-105"
           >
             {primaryButton.text}
-          </a>
+          </Link>
         </div>
       </div>
 
@@ -130,13 +131,13 @@ const Hero: React.FC<HeroProps> = ({
         </p>
         <div className="flex items-center justify-center gap-8 flex-wrap">
           {logos.map((logo, index) => (
-            <a
+            <Link
               key={index}
               href={logo.link}
               className={`text-white/60 duration-300 ease-in-out hover:${logo.hoverColor}`}
             >
               {logo.icon}
-            </a>
+            </Link>
           ))}
         </div>
       </div>

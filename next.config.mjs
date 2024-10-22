@@ -7,13 +7,13 @@ const bundleAnalyzer = withBundleAnalyzer({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: [
-      "assets.aceternity.com",
-      "preview.uideck.com",
-      "img.freepik.com",
-      "ui.aceternity.com",
-      "ai-tool-tailwind.preview.uideck.com",
-      "images.unsplash.com"
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '*',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
 };
