@@ -309,7 +309,6 @@ export const deliveryPhases = {
     },
   ]
 }
-
 export const stories = {
   'Crypto Finance': {
     logo: 'https://via.placeholder.com/100',
@@ -354,3 +353,29 @@ export const stories = {
     description: 'Bringing innovative communication services to users with real-time call optimization.',
   },
 };
+export const teamMembersData = [
+  {
+    name: 'John Doe',
+    title: 'Mobile App Developer',
+    hourlyRate: 65,
+    skills: ['Java', 'Kotlin', 'Android Jetpack', 'Firebase', 'Gradle'],
+    previousCompany: 'Company A',
+    imgSrc: 'https://randomuser.me/api/portraits/men/1.jpg',
+  },
+  {
+    name: 'Jane Smith',
+    title: 'Mobile App Developer',
+    hourlyRate: 50,
+    skills: ['Swift', 'iOS Development', 'Xcode', 'Core Data'],
+    previousCompany: 'Company B',
+    imgSrc: 'https://randomuser.me/api/portraits/women/1.jpg',
+  },
+  {
+    name: 'Rohit Sharma',
+    title: 'Mobile App Developer',
+    hourlyRate: 40,
+    skills: ['React Native', 'Flutter', 'Dart', 'API Integration'],
+    previousCompany: 'Company C',
+    imgSrc: 'https://randomuser.me/api/portraits/men/2.jpg',
+  },
+];

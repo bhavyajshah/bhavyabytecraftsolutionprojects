@@ -5,40 +5,13 @@ import ByteCraftReviews from '@/components/DetailServices/FAQAnimation';
 import MobileAppTypes from '@/components/DetailServices/MobileAppTypes';
 import Contact from '@/components/DetailServices/Contact';
 import SuccessStories from '@/components/DetailServices/MobileSuccessStories/SuccessStories';
-import { Data, Expertises, pastWork, reviews, stories } from '@/Servicesdata/MobileDevelopment';
+import { Data, Expertises, pastWork, reviews, stories, teamMembersData } from '@/Servicesdata/MobileDevelopment';
 import AppDevelopmentTeam from '@/components/DetailServices/MobileSuccessStories/MobileSuccessTeam';
 import FAQ from '@/components/FAQ/FAQ';
 import { FaqData } from '@/Servicesdata/WebDevelopment';
 import TechnologySection from '@/components/DetailServices/WebDevelopment/WebTechnologySection';
 
 const page = () => {
-
-  const teamMembersData = [
-    {
-      name: 'John Doe',
-      title: 'Mobile App Developer',
-      hourlyRate: 65,
-      skills: ['Java', 'Kotlin', 'Android Jetpack', 'Firebase', 'Gradle'],
-      previousCompany: 'Company A',
-      imgSrc: 'https://randomuser.me/api/portraits/men/1.jpg',
-    },
-    {
-      name: 'Jane Smith',
-      title: 'Mobile App Developer',
-      hourlyRate: 50,
-      skills: ['Swift', 'iOS Development', 'Xcode', 'Core Data'],
-      previousCompany: 'Company B',
-      imgSrc: 'https://randomuser.me/api/portraits/women/1.jpg',
-    },
-    {
-      name: 'Rohit Sharma',
-      title: 'Mobile App Developer',
-      hourlyRate: 40,
-      skills: ['React Native', 'Flutter', 'Dart', 'API Integration'],
-      previousCompany: 'Company C',
-      imgSrc: 'https://randomuser.me/api/portraits/men/2.jpg',
-    },
-  ];
   return (
     <>
       <Hero

@@ -9,8 +9,8 @@ import { Data, Expertises, FaqData, feature, pastWork, reviews, stats } from '@/
 import WebDevelopmentOfferings from '@/components/DetailServices/WebDevelopmentOfferings';
 import FAQ from '@/components/FAQ/FAQ';
 import TechnologySection from '@/components/DetailServices/WebDevelopment/WebTechnologySection';
-const page = () => {
 
+const page = () => {
   return (
     <div>
       <Hero
