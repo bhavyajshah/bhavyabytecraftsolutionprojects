@@ -1,10 +1,11 @@
 import Hero from '@/components/DetailServices/Hero'
 import { Expertise } from '@/components/DetailServices/Expertise';
 import Contact from '@/components/DetailServices/Contact';
-import {Expertises} from '@/Servicesdata/MobileDevelopment';
-import WhyChooseUs from '@/components/DetailServices/CrossAppDevelopment/WhyChooseUs';
+import { Expertises } from '@/Servicesdata/MobileDevelopment';
+
 import { CreativePriceRequestForm } from '@/components/DetailServices/CrossAppDevelopment/RequestPrice';
-import { Data } from '@/Servicesdata/CrossAppDevelopment';
+import { Data } from '@/Servicesdata/CustomSoftwareDevelopment';
+import Stats from '@/components/DetailServices/CustomSoftwareDevelopment/Stats';
 
 const page = () => {
     return (
@@ -22,7 +23,7 @@ const page = () => {
                 valuePropositions={Data.valuePropositions}
             />
 
-  <WhyChooseUs />
+          <Stats />
             <CreativePriceRequestForm />
             <Expertise
                 title={Expertises.expertiseTitle}

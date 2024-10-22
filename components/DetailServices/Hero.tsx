@@ -83,7 +83,7 @@ const Hero: React.FC<HeroProps> = ({
         <h1 className="hero-title text-4xl lg:text-5xl font-bold leading-tight text-left">
           {title}
           <br />
-          <span className="text-blue-400">{subTitle}</span>
+          <span className="text-[#6430c2]">{subTitle}</span>
         </h1>
 
         <p className="hero-description text-sm md:text-base max-w-lg text-left">
@@ -95,7 +95,7 @@ const Hero: React.FC<HeroProps> = ({
               className="hero-value flex items-center text-left"
               key={index}
             >
-              <FaCheckCircle className="mr-2 text-green-400 hover:text-green-300 transition-colors duration-300" />
+              <FaCheckCircle className="mr-2 text-[#6430c2] transition-colors duration-300" />
               {prop}
             </li>
           ))}

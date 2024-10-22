@@ -169,10 +169,10 @@ const ConsultationForm: React.FC = () => {
             </label>
           </div>
 
-          <button type="submit" className="bg-yellow-500 text-black w-full py-3 font-semibold rounded-lg">Send Request</button>
+          <button type="submit" className="bg-[#6430c2] text-white w-full py-3 font-semibold rounded-lg">Send Request</button>
 
           <p className="text-sm text-white flex items-center mt-3">
-            <span className="material-icons text-green-500 mr-1">&#128274;</span> Your privacy is protected
+            <span className="material-icons text-[#6430c2] mr-1">&#128274;</span> Your privacy is protected
           </p>
         </form>
       </div>

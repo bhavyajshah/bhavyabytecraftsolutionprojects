@@ -1,6 +1,6 @@
 import { Smartphone, Watch, Truck, Users, Code, Star, Zap, Globe, Cpu, Cloud, Database, Shield, Server, Layers, Settings, Wifi } from "lucide-react"
 
- export const Data = {
+export const Data = {
     title: "Seamless Cross-Platform Solutions",
     subTitle: "Apps that Run Anywhere, Anytime",
     description:
