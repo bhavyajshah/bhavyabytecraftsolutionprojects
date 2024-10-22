@@ -18,8 +18,7 @@ const ITServicesPage = () => {
   return (
     <div className="my-20">
       <FeaturesSection showAll={true} />
-
-      </div>
+    </div>
   );
 };
 

@@ -1,7 +1,7 @@
 'use client'
 
 import { tabData } from "@/Servicesdata/WebDevelopment"
-import React, { useState, useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import { CheckCircle } from "lucide-react"
 import { motion } from "framer-motion"
 

@@ -1,6 +1,5 @@
 'use client'
-
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef } from 'react'
 import {
     FaReact, FaVuejs, FaAngular, FaNodeJs, FaPython, FaJava, FaSwift, FaAndroid,
     FaAws, FaMicrosoft, FaGoogle, FaWordpress, FaDrupal, FaJoomla, FaHtml5,
@@ -51,19 +50,12 @@ const technologies = [
 ]
 
 export default function TechnologyShowcase({ title }: { title: string }) {
-    const [activeCategory, setActiveCategory] = useState('All')
-    const [currentIndex, setCurrentIndex] = useState(0)
-    const [filteredTechnologies, setFilteredTechnologies] = useState(technologies)
+    const [activeCategory, setActiveCategory] = useState<string>('All')
+    const [currentIndex, setCurrentIndex] = useState<number>(0)
+    const [filteredTechnologies] = useState(technologies)
     const categoryRef = useRef<HTMLDivElement>(null)
-    const availableCategories = ['All', ...Array.from(new Set(technologies.map(tech => tech.category)))]
 
-    useEffect(() => {
-        const newFilteredTechnologies = activeCategory === 'All'
-            ? technologies
-            : technologies.filter(tech => tech.category === activeCategory)
-        setFilteredTechnologies(newFilteredTechnologies)
-        setCurrentIndex(0)
-    }, [activeCategory])
+    const availableCategories = ['All', ...Array.from(new Set(technologies.map(tech => tech.category)))]
 
     const nextSlide = () => {
         if (filteredTechnologies.length > 1) {
@@ -83,21 +75,33 @@ export default function TechnologyShowcase({ title }: { title: string }) {
         }
     }
 
+    const getVisibleCount = () => {
+        if (typeof window !== 'undefined') {
+            const width = window.innerWidth
+            return width < 640 ? 1 : width < 1024 ? 3 : 5
+        }
+        return 5 // Default count
+    }
+
     const getVisibleTechnologies = () => {
-        const visibleCount = window.innerWidth < 640 ? 1 : window.innerWidth < 1024 ? 3 : 5
-        if (filteredTechnologies.length <= visibleCount) {
-            return filteredTechnologies
+        const visibleCount = getVisibleCount()
+        const filtered = activeCategory === 'All'
+            ? filteredTechnologies
+            : filteredTechnologies.filter(tech => tech.category === activeCategory)
+
+        if (filtered.length <= visibleCount) {
+            return filtered
         }
         const offset = Math.floor(visibleCount / 2)
         return [...Array(visibleCount)].map((_, i) => {
-            const index = (currentIndex - offset + i + filteredTechnologies.length) % filteredTechnologies.length
-            return filteredTechnologies[index]
+            const index = (currentIndex - offset + i + filtered.length) % filtered.length
+            return filtered[index]
         })
     }
 
     return (
         <div className="w-full text-white px-4 pb-24 max-w-6xl mx-auto overflow-x-hidden">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center font-bold leading-tight mb-8 sm:mb-12 text-white">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center font-bold leading-tight mb-8 sm:mb-12">
                 {title}
             </h1>
             <div className="relative mb-8 sm:mb-12">
@@ -105,14 +109,17 @@ export default function TechnologyShowcase({ title }: { title: string }) {
                     ref={categoryRef}
                     className="flex overflow-x-hidden justify-center space-x-2 py-4 px-10"
                 >
-                    {availableCategories.map((category: any) => (
+                    {availableCategories.map((category) => (
                         <button
                             key={category}
                             className={`px-4 py-2 text-sm rounded-full whitespace-nowrap transition-all duration-300 ${activeCategory === category
                                 ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg'
                                 : 'bg-gray-800 hover:bg-gray-700 text-gray-300'
                                 }`}
-                            onClick={() => setActiveCategory(category)}
+                            onClick={() => {
+                                setActiveCategory(category)
+                                setCurrentIndex(0) // Reset index on category change
+                            }}
                         >
                             {category}
                         </button>
@@ -160,10 +167,10 @@ export default function TechnologyShowcase({ title }: { title: string }) {
                                 className={`text-center transition-all duration-300 ${isCenter ? '' : 'opacity-50'
                                     }`}
                             >
-                                <div className="w-20 sm:w-24 h-20 sm:h-24 flex items-center justify-center">
-                                    <Icon className="w-10 h-10 sm:w-12 sm:h-12 text-purple-500" />
+                                <div className="text-5xl mb-2">
+                                    <Icon />
                                 </div>
-                                <h3 className="text-sm sm:text-base text-gray-300">{tech.name}</h3>
+                                <p className="text-lg">{tech.name}</p>
                             </div>
                         )
                     })}
