@@ -30,7 +30,6 @@ const AnimatedNumber = ({ value, duration = 2 }) => {
 
 export default function Stats({ stats, title }) {
 
-
     return (
         <div className="text-white p-8 flex items-center justify-center bg-transparent">
             <div className="max-w-6xl mx-auto">

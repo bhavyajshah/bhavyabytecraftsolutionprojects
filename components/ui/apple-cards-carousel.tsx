@@ -27,7 +27,7 @@ export const CarouselContext = createContext<{
   onCardClose: (index: number) => void;
   currentIndex: number;
 }>({
-  onCardClose: () => {},
+  onCardClose: () => { },
   currentIndex: 0,
 });
 
@@ -86,8 +86,8 @@ export const Carousel = ({ items, initialScroll = 0, title }: any) => {
       value={{ onCardClose: handleCardClose, currentIndex }}
     >
       <div className="relative w-full max-w-6xl mx-auto">
-        <h1 className="text-6xl font-bold leading-none text-white max-md:max-w-full max-md:text-4xl mb-8 text-start">{title}</h1>
-          <div className="flex justify-end gap-2">
+        <h1 className="text-6xl font-bold leading-none text-white max-md:max-w-full max-md:text-4xl mb-8 text-center">{title}</h1>
+        <div className="flex justify-end gap-2">
           <button
             className="relative z-40 h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center disabled:opacity-50"
             onClick={scrollLeft}
@@ -108,8 +108,6 @@ export const Carousel = ({ items, initialScroll = 0, title }: any) => {
           ref={carouselRef}
           onScroll={checkScrollability}
         >
-
-
           <div
             className={cn(
               "absolute right-0  z-[1000] h-auto  w-[5%] overflow-hidden bg-gradient-to-l"
