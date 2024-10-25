@@ -18,27 +18,26 @@ export const metadata: Metadata = {
   title: 'ByteCraft Solutions - Leading IT Software Services',
   description: 'ByteCraft Solutions is a leading IT software services provider, offering innovative and custom-tailored solutions to enhance your business efficiency.',
   keywords: ['ByteCraft Solutions', 'IT software services', 'technology solutions', 'custom software development', 'business solutions', 'IT consulting'],
-  viewport: 'width=device-width, initial-scale=1.0',
 };
 
 const page = async () => {
   const posts = await getBlogPosts();
   return (
     <>
-      <main>
-        <HeroSection />
-        <ClientSlider />
-        <MissionSection />
-        <WhyChooseByteCraftSolutions />
-        <FeaturesSection showMoreAction="/services" showAll={false} showMoreLoad={false} />
-        <AboutUsSection />
-        <Technology />
-        <CaseStudies />
-        <TimelineDemo />
-        <InfiniteMovingCardsDemo />
-        <BlogSection initialPosts={posts} />
-        <RequestaQuote />
-      </main>
+
+      <HeroSection />
+      <ClientSlider />
+      <MissionSection />
+      <WhyChooseByteCraftSolutions />
+      <FeaturesSection showMoreAction="/services" showAll={false} showMoreLoad={false} />
+      <AboutUsSection />
+      <Technology />
+      <CaseStudies />
+      <TimelineDemo />
+      <InfiniteMovingCardsDemo />
+      <BlogSection initialPosts={posts} />
+      <RequestaQuote />
+
     </>
   );
 };

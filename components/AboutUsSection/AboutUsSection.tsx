@@ -30,8 +30,7 @@ const AboutUsSection = () => {
 
   return (
     <section className="py-16 md:py-24 relative" ref={sectionRef}>
-      <div className="absolute inset-0 opacity-20"></div>
-      <div className="max-w-7xl px-4 md:px-8 mx-auto relative z-10">
+      <div className="max-w-6xl px-4 md:px-8 mx-auto relative z-10">
         <div className="text-center mb-10">
           <h2 className="text-white mb-6 text-3xl font-extrabold sm:text-4xl xl:text-heading-2 transition duration-500 ease-in-out hover:text-indigo-400">
             Who We Are
@@ -76,25 +75,25 @@ const AboutUsSection = () => {
                 <p className="text-gray-300">{stat.text}</p>
               </div>
             ))}
-        <Link href='/aboutus' className="hero-button-gradient inline-flex self-start w-full sm:w-auto justify-center items-center rounded-lg py-3 px-5 md:px-7 text-white font-medium ease-in duration-300 hover:opacity-80">
-  Read More
-  <svg
-    className="ml-2"
-    xmlns="http://www.w3.org/2000/svg"
-    width="18"
-    height="18"
-    viewBox="0 0 18 18"
-    fill="none"
-  >
-    <path
-      d="M6.75 4.5L11.25 9L6.75 13.5"
-      stroke="white"
-      strokeWidth="1.6"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-</Link>
+            <Link href='/aboutus' className="hero-button-gradient inline-flex self-start w-full sm:w-auto justify-center items-center rounded-lg py-3 px-5 md:px-7 text-white font-medium ease-in duration-300 hover:opacity-80">
+              Read More
+              <svg
+                className="ml-2"
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 18 18"
+                fill="none"
+              >
+                <path
+                  d="M6.75 4.5L11.25 9L6.75 13.5"
+                  stroke="white"
+                  strokeWidth="1.6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </Link>
 
           </div>
 

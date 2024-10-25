@@ -35,7 +35,7 @@ const FeaturesSection: React.FC<FeaturesSectionProps> = ({
       id="features"
       className="overflow-hidden pt-8 lg:pt-16 xl:pt-20 scroll-mt-8"
     >
-      <div className="max-w-[1222px] mx-auto px-4 sm:px-8 xl:px-0">
+      <div className="max-w-6xl mx-auto px-4 sm:px-8 xl:px-0">
         <div className="text-center" style={{ visibility: "visible" }}>
           <h2 className="text-white mb-4 text-2xl font-extrabold sm:text-4xl xl:text-5xl">
             Services We Offer

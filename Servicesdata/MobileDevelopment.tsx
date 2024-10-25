@@ -22,6 +22,29 @@ export const Data = {
     "Regular Updates and Maintenance",
   ],
 }
+
+export const appData = {
+  'NATIVE APPS': {
+    title: 'Native Mobile App Development',
+    description: 'Native app development continues to dominate mobile experiences, offering unparalleled performance, robust security, and complete access to device hardware. With native apps, businesses can leverage platform-specific features like Swift for iOS or Kotlin for Android, ensuring smooth, responsive, and feature-rich user experiences tailored to each platform. These apps are essential for high-demand applications, such as gaming, AR/VR, or complex enterprise solutions.',
+    image: 'https://static.vecteezy.com/system/resources/previews/006/800/441/non_2x/react-native-mobile-app-illustration-exclusive-design-vector.jpg',
+  },
+  'CROSS-PLATFORM APPS': {
+    title: 'Cross-Platform Mobile App Development',
+    description: 'Cross-platform development frameworks like Flutter and React Native have revolutionized the mobile app industry. By allowing developers to write a single codebase that works across multiple platforms, cross-platform apps significantly reduce time-to-market and development costs. While offering near-native performance, they also enable rapid prototyping and iterative updates, making them a go-to solution for startups and companies looking to expand their mobile presence without doubling the effort.',
+    image: 'https://www.orangemantra.com/blog/wp-content/uploads/2020/01/Cross-Platform-App-Development-Facts-You-Need-To-Know-Right-Now-1024x576.png',
+  },
+  'HYBRID APPS': {
+    title: 'Hybrid Mobile App Development',
+    description: 'Hybrid apps bridge the gap between web and native apps, offering a cost-effective solution that uses web technologies like HTML, CSS, and JavaScript within a native shell. Hybrid apps are perfect for businesses looking to maintain a presence across multiple platforms while keeping development costs in check. Modern tools like Ionic and Apache Cordova have evolved, making hybrid apps more powerful, allowing integration with native device features and offering smoother performance than ever before.',
+    image: 'https://eibsglobal.com/wp-content/uploads/2019/10/hybrid-app-development.png',
+  },
+  'PROGRESSIVE WEB APPS': {
+    title: 'Progressive Web App (PWA) Development',
+    description: 'Progressive Web Apps (PWAs) are a rapidly growing trend, offering the best of both web and mobile worlds. PWAs provide fast load times, offline capabilities, and a native app-like experience without needing app store distribution. These apps have become crucial for eCommerce platforms, news websites, and content-heavy apps, as they ensure seamless accessibility across all devices while reducing bounce rates and increasing user engagement.',
+    image: 'https://www.pngitem.com/pimgs/m/127-1272322_progressive-web-apps-progressive-app-png-transparent-png.png',
+  },
+};
 export const languages = {
   title: "Mobile Development Languages",
   languages: [

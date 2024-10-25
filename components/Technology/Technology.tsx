@@ -44,24 +44,23 @@ const Technologies: React.FC = () => {
 
   return (
     <section id="technologies" className="pt-28 lg:pt-20 lg:pb-40">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto max-w-6xl">
 
 
-  <div className="text-center">
-        <h2 className="text-white mb-4 text-2xl font-extrabold sm:text-4xl xl:text-5xl">
-          Technologies
-        </h2>
-        <p className="max-w-[714px] mx-auto mb-5 font-medium text-zinc-300">
-         We use the latest technologies and tools to deliver top-notch solutions
-        </p>
-      </div>
+        <div className="text-center">
+          <h2 className="text-white mb-4 text-2xl font-extrabold sm:text-4xl xl:text-5xl">
+            Technologies
+          </h2>
+          <p className="max-w-[714px] mx-auto mb-5 font-medium text-zinc-300">
+            We use the latest technologies and tools to deliver top-notch solutions
+          </p>
+        </div>
         {/* Tabs/Filter */}
         <div className="flex justify-center mb-10">
           <button
             onClick={() => handleCategoryChange(null)}
-            className={`px-4 py-2 rounded-full font-semibold transition-all ${
-              activeCategory === null ? "bg-[#200F46] text-white" : "border border-[#200F46] text-white"
-            } mx-2`}
+            className={`px-4 py-2 rounded-full font-semibold transition-all ${activeCategory === null ? "bg-[#200F46] text-white" : "border border-[#200F46] text-white"
+              } mx-2`}
           >
             All
           </button>
@@ -69,9 +68,8 @@ const Technologies: React.FC = () => {
             <button
               key={category.id}
               onClick={() => handleCategoryChange(category.id)}
-              className={`px-4 py-2 rounded-full font-semibold transition-all ${
-                activeCategory === category.id ? "bg-[#200F46] text-white" : "border border-[#200F46] text-white"
-              } mx-2`}
+              className={`px-4 py-2 rounded-full font-semibold transition-all ${activeCategory === category.id ? "bg-[#200F46] text-white" : "border border-[#200F46] text-white"
+                } mx-2`}
             >
               {category.section[0].category}
             </button>

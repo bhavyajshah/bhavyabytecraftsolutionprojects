@@ -5,7 +5,7 @@ import ByteCraftReviews from '@/components/DetailServices/FAQAnimation';
 import MobileAppTypes from '@/components/DetailServices/MobileAppTypes';
 import Contact from '@/components/DetailServices/Contact';
 import SuccessStories from '@/components/DetailServices/MobileSuccessStories/SuccessStories';
-import { Data, Expertises, pastWork, reviews, stories, teamMembersData } from '@/Servicesdata/MobileDevelopment';
+import { appData, Data, Expertises, pastWork, reviews, stories, teamMembersData } from '@/Servicesdata/MobileDevelopment';
 import AppDevelopmentTeam from '@/components/DetailServices/MobileSuccessStories/MobileSuccessTeam';
 import FAQ from '@/components/FAQ/FAQ';
 import { FaqData } from '@/Servicesdata/WebDevelopment';
@@ -27,7 +27,7 @@ const page = () => {
         valuePropositions={Data.valuePropositions}
       />
 
-      <MobileAppTypes />
+      <MobileAppTypes title={"Types of mobile apps we develop"} appData={appData} />
       <TechnologySection title={"Technologies for Web Development"} />
       <SuccessStories stories={stories} title={"Successful app development stories"} />
       <WebDevelopmentWork

@@ -1,4 +1,5 @@
-import { Smartphone, Watch, Truck, Users, Code, Star, Zap, Globe, Cpu, Cloud, Database, Shield, Server, Layers, Settings, Wifi } from "lucide-react"
+import { Smartphone, Watch, Truck, Star, Zap, Globe, Cpu, Cloud, Database, Shield, Server, Layers, Settings, Wifi } from "lucide-react"
+import { Clock, Code, Users } from 'lucide-react'
 
 export const Data = {
     title: "Bespoke Software Solutions",
@@ -26,6 +27,12 @@ export const ExpertiseData = [
     { title: "Client Satisfaction", value: "4.9/5", icon: Star },
 ]
 
+
+export const stats = [
+    { value: 17, label: 'years of experience', icon: <Clock className="w-8 h-8 text-[#6430c2]" /> },
+    { value: 1000, label: 'IT projects', icon: <Code className="w-8 h-8 text-[#6430c2]" /> },
+    { value: 200, label: 'support partnerships', icon: <Users className="w-8 h-8 text-[#6430c2]" /> },
+]
 export const technologies = [
     { name: "Flutter", icon: Zap, description: "Google's UI toolkit for building natively compiled applications" },
     { name: "React Native", icon: Globe, description: "Facebook's framework for building native apps using React" },

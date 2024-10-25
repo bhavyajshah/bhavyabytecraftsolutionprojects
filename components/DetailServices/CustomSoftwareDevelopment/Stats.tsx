@@ -1,7 +1,6 @@
 "use client"
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Clock, Code, Users } from 'lucide-react'
 
 const AnimatedNumber = ({ value, duration = 2 }) => {
     const [displayValue, setDisplayValue] = useState(0)
@@ -29,19 +28,15 @@ const AnimatedNumber = ({ value, duration = 2 }) => {
     return <span>{displayValue}</span>
 }
 
-export default function Stats() {
-    const stats = [
-        { value: 17, label: 'years of experience', icon: Clock },
-        { value: 1000, label: 'IT projects', icon: Code },
-        { value: 200, label: 'support partnerships', icon: Users },
-    ]
+export default function Stats({ stats, title }) {
+
 
     return (
         <div className="text-white p-8 flex items-center justify-center bg-transparent">
             <div className="max-w-6xl mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                     <div className="text-3xl md:text-4xl font-bold leading-tight">
-                        Custom software development partner for complex tech needs
+                        {title}
                     </div>
                     <div className="grid grid-cols-3 gap-4">
                         {stats.map((stat, index) => (
@@ -53,11 +48,12 @@ export default function Stats() {
                                 transition={{ delay: index * 0.2 }}
                             >
                                 <div className="flex justify-center mb-2">
-                                    <stat.icon className="w-8 h-pnpm 8 text-[#6430c2]" />
+                                    {stat?.icon}
+
                                 </div>
                                 <div className="text-4xl font-bold mb-2">
                                     <AnimatedNumber value={stat.value} />
-                                    {stat.value >= 1000 ? '+' : ''}
+                                    {stat.value >= 100 ? '+' : ''}
                                 </div>
                                 <div className="text-sm text-gray-400">{stat.label}</div>
                             </motion.div>

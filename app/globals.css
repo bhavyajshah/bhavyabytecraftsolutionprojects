@@ -6,18 +6,6 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  z-index: 1;
-  --tw-bg-opacity: 1;
-  background-color: rgb(3 0 20 / var(--tw-bg-opacity));
-  font-family: Plus Jakarta Sans, sans-serif;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  font-weight: 400;
-  --tw-text-opacity: 1;
-  color: rgb(145 142 160 / var(--tw-text-opacity));
-}
-
 .nav-gradient {
   background-image: -webkit-gradient(linear,
       left top,
