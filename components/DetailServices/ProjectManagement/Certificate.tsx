@@ -51,7 +51,7 @@ export default function Certificates() {
     const [selectedCertificate, setSelectedCertificate] = useState<Certificate | null>(null)
 
     return (
-        <div className="min-h-screen text-white mt-20 sm:p-8">
+        <div className="text-white mt-20 sm:p-8">
             <div className="max-w-6xl mx-auto">
                 <h1 className="text-5xl sm:text-4xl md:text-5xl font-bold mb-4 text-center text-white">
                     Expert-level company in DevOps

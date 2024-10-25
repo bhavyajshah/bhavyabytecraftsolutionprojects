@@ -4,8 +4,10 @@ import Contact from '@/components/DetailServices/Contact';
 import { Expertises, stats, tabData } from '@/Servicesdata/ProjectManagement';
 import Stats from '@/components/DetailServices/CustomSoftwareDevelopment/Stats';
 import { Data } from '@/Servicesdata/DevopsServices';
-import Certificates from './Certificate';
 import WebDevelopmentOfferings from '@/components/DetailServices/WebDevelopmentOfferings';
+import Certificates from '@/components/DetailServices/ProjectManagement/Certificate';
+import ProjectPricing from '@/components/DetailServices/ProjectManagement/ProjectPricing';
+import ProjectServices from '@/components/DetailServices/ProjectManagement/ProjectServices';
 
 const page = () => {
   return (
@@ -26,8 +28,8 @@ const page = () => {
       <Stats stats={stats} title="Custom Project development partner for complex tech needs" />
       <Certificates />
       <WebDevelopmentOfferings title={"Our DevOps Special Features"} tabData={tabData} />
-
-
+      <ProjectServices />
+      <ProjectPricing />
       <Expertise
         title={Expertises.expertiseTitle}
       />
