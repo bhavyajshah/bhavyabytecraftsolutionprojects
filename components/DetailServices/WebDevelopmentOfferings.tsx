@@ -1,11 +1,10 @@
 'use client'
 
-import { tabData } from "@/Servicesdata/WebDevelopment"
 import React, { useEffect, useState } from "react"
 import { CheckCircle } from "lucide-react"
 import { motion } from "framer-motion"
 
-function WebDevelopmentOfferings({ title }: { title: string }) {
+function WebDevelopmentOfferings({ title, tabData }: any) {
   const [activeTab, setActiveTab] = useState(0)
   const [isMobile, setIsMobile] = useState(false)
 
@@ -25,7 +24,7 @@ function WebDevelopmentOfferings({ title }: { title: string }) {
 
   return (
     <main className="flex flex-col justify-center items-end px-4 sm:px-8 md:px-16 lg:px-20 py-12 sm:py-16 md:py-20 lg:py-24">
-      <section className="w-full max-w-6xl">
+      <section className="w-full max-w-6xl mx-auto">
         <h1 className="text-3xl sm:text-4xl md:text-5xl text-center lg:text-6xl text-white font-bold leading-tight mb-8 sm:mb-12 md:mb-16">
           {title}
         </h1>

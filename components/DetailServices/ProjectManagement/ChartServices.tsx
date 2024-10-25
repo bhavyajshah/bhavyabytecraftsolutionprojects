@@ -138,14 +138,14 @@ export default function OptimizedPMValue() {
                                     <Card key={index} className="backdrop-blur-sm bg-gray-900/30 border-gray-700">
                                         <CardContent className="p-4 flex items-center justify-between">
                                             <div className="flex items-center space-x-4">
-                                                <item.icon className="h-8 w-8 text-blue-300" />
+                                                <item.icon className="h-8 w-8 text-[#6430C2]" />
                                                 <div>
                                                     <h3 className="font-semibold text-white text-lg">{item.metric}</h3>
-                                                    <p className="text-blue-200">With PM: {item.withPM}</p>
+                                                    <p className="text-white">With PM: {item.withPM}</p>
                                                 </div>
                                             </div>
                                             <div className="text-right">
-                                                <p className="text-blue-300">Without PM: {item.withoutPM}</p>
+                                                <p className="text-white">Without PM: {item.withoutPM}</p>
                                                 <p className="text-[#6430C2] font-semibold">
                                                     +{parseInt(item.withPM) - parseInt(item.withoutPM)}% Improvement
                                                 </p>

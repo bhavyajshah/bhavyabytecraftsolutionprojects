@@ -273,8 +273,8 @@ export default function Component() {
                     </CardContent>
                 </Card>
 
-                <div className="mt-8 text-center">
-                    <h2 className="text-2xl font-bold mb-4">Why Choose Our Project Management Services?</h2>
+                <div className="mt-8 lg:mt-20 text-center">
+                    <h2 className="text-5xl font-bold mb-4">Why Choose Our Project Management Services?</h2>
                     <div className="grid md:grid-cols-2 gap-4">
                         <Card className="backdrop-blur-sm bg-gray-900/30 border-gray-700">
                             <CardHeader>

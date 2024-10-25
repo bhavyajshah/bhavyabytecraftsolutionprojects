@@ -5,7 +5,7 @@ import WebDevelopmentWork from '@/components/DetailServices/Portfolio';
 import ByteCraftReviews from '@/components/DetailServices/FAQAnimation';
 import Feature from '@/components/DetailServices/Feature';
 import Contact from '@/components/DetailServices/Contact';
-import { Data, Expertises, FaqData, feature, pastWork, reviews, stats } from '@/Servicesdata/WebDevelopment';
+import { Data, Expertises, FaqData, feature, pastWork, reviews, stats, tabData } from '@/Servicesdata/WebDevelopment';
 import WebDevelopmentOfferings from '@/components/DetailServices/WebDevelopmentOfferings';
 import FAQ from '@/components/FAQ/FAQ';
 import TechnologySection from '@/components/DetailServices/WebDevelopment/WebTechnologySection';
@@ -32,7 +32,7 @@ const page = () => {
           stats?.statsCard
         }
       />
-      <WebDevelopmentOfferings title={"Web Development Offerings"} />
+      <WebDevelopmentOfferings title={"Web Development Offerings"} tabData={tabData} />
       <TechnologySection title={"Technologies for Web Development"} />
       <Feature
         title={feature.title}
