@@ -42,7 +42,7 @@ export default function OptimizedPMValue() {
 
                 <CardHeader>
                     <CardTitle className="text-5xl font-bold text-center text-white">
-                        Unleash Your Project's Potential with Professional Management
+                        Unleash Your Project&apos;s Potential with Professional Management
                     </CardTitle>
                 </CardHeader>
 

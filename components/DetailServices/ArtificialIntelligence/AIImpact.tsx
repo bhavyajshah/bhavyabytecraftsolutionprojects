@@ -61,7 +61,7 @@ export default function AIImpact() {
                 transition={{ duration: 0.5 }}
                 className="text-5xl font-bold mb-6 text-center"
             >
-                AI's Transformative Impact Across Industries
+                AI&apos;s Transformative Impact Across Industries
             </motion.h1>
             <motion.p
                 initial={{ opacity: 0, y: -20 }}

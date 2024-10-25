@@ -1,7 +1,6 @@
 'use client'
 import { useState } from 'react'
-import { Button } from "@/components/ui/button"
-import { Brain, Cpu, Zap, ChevronRight } from "lucide-react"
+import { Brain, Cpu, Zap } from "lucide-react"
 import { Card, CardContent } from '@/components/ui/card'
 import Link from 'next/link'
 
