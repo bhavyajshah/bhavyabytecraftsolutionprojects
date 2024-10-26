@@ -4,7 +4,7 @@ export const Data = {
     description:
         "Our DevOps services streamline development and operations, ensuring faster deployment, enhanced collaboration, and optimized performance. We help bridge the gap between teams, delivering high-quality software with efficiency.",
     image:
-        "https://lottie.host/embed/2cc6dab7-90c4-4384-8cb7-8c5aca2f09a7/QtxHSMntBM.json",
+        "https://lottie.host/embed/2a1dbd73-0891-4449-b9e8-0eec5c1b7ab4/k8uv8LUfIA.json",
     headline: "#1 DevOps Service Provider",
     primaryButton: {
         text: "Get Started with DevOps",

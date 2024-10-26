@@ -8,6 +8,7 @@ import WebDevelopmentOfferings from '@/components/DetailServices/WebDevelopmentO
 import Certificates from '@/components/DetailServices/ProjectManagement/Certificate';
 import ProjectPricing from '@/components/DetailServices/ProjectManagement/ProjectPricing';
 import ProjectServices from '@/components/DetailServices/ProjectManagement/ProjectServices';
+import ProjectStack from '@/components/DetailServices/ProjectManagement/ProjectStack';
 
 const page = () => {
   return (
@@ -28,7 +29,9 @@ const page = () => {
       <Stats stats={stats} title="Custom Project development partner for complex tech needs" />
       <Certificates />
       <WebDevelopmentOfferings title={"Our DevOps Special Features"} tabData={tabData} />
+      <ProjectStack />
       <ProjectServices />
+
       <ProjectPricing />
       <Expertise
         title={Expertises.expertiseTitle}

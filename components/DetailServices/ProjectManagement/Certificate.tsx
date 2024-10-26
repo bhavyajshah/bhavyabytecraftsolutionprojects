@@ -77,7 +77,7 @@ export default function Certificates() {
                 </div>
             </div>
             <Dialog open={!!selectedCertificate} onOpenChange={() => setSelectedCertificate(null)}>
-                <DialogContent className="bg-gray-800 text-white">
+                <DialogContent className="backdrop-blur-sm bg-gray-900/30 border-gray-700 text-white">
                     <DialogHeader>
                         <DialogTitle className="text-2xl font-bold mb-2">{selectedCertificate?.name}</DialogTitle>
                         <DialogDescription className="text-gray-300">

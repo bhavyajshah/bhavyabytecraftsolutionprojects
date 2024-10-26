@@ -1,148 +1,126 @@
 'use client'
-import React from 'react';
-import { FaLock, FaTools, FaChartLine, FaBolt, FaClipboardCheck, FaExclamationTriangle } from 'react-icons/fa';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
-import { Bar, Doughnut } from 'react-chartjs-2';
-import { Chart as ChartJS, ArcElement, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js';
 
-ChartJS.register(ArcElement, Tooltip, Legend, BarElement, CategoryScale, LinearScale);
+import React from 'react'
+import { Card, CardContent } from "@/components/ui/card"
+import { Bar } from 'react-chartjs-2'
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js'
 
-const ProjectServices: React.FC = () => {
-    // Bar chart data
-    const barData = {
-        labels: ['Q1', 'Q2', 'Q3', 'Q4'],
-        datasets: [
-            {
-                label: 'Project Progress',
-                data: [65, 59, 80, 81],
-                backgroundColor: 'rgba(99, 102, 241, 0.6)',
-                borderColor: 'rgba(99, 102, 241, 1)',
-                borderWidth: 1,
+ChartJS.register(CategoryScale, LinearScale, BarElement, PointElement, LineElement, Title, Tooltip, Legend)
+
+export default function DevOpsValueComparison() {
+
+
+    const commonOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                display: false,
             },
-        ],
-    };
-
-    // Doughnut chart data
-    const doughnutData = {
-        labels: ['Completed', 'In Progress', 'Pending'],
-        datasets: [
-            {
-                label: 'Task Distribution',
-                data: [300, 50, 100],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.6)',
-                    'rgba(54, 162, 235, 0.6)',
-                    'rgba(255, 206, 86, 0.6)',
-                ],
-                hoverOffset: 4,
+        },
+        scales: {
+            y: {
+                display: false,
+                beginAtZero: true,
             },
-        ],
-    };
+            x: {
+                display: false,
+            },
+        },
+    }
 
     return (
-        <section className="px-4 py-12 md:px-10 lg:px-20 bg-gray-50">
-            <div className="grid lg:grid-cols-2 gap-8 items-center mb-12">
-                {/* Left side */}
-                <Card className="p-6 bg-white shadow-lg rounded-lg hover:shadow-xl transition-shadow duration-300">
-                    <CardHeader>
-                        <CardTitle className="text-2xl font-bold text-gray-800">DevOps as part of PDS</CardTitle>
-                        <CardDescription className="mt-4 text-gray-600">
-                            Explore our White Paper to learn more about other components of PDS and how DevOps fits into the bigger picture.
-                        </CardDescription>
-                    </CardHeader>
-                    <CardContent className="mt-6">
-                        <div className="bg-blue-100 p-4 rounded-lg">
-                            <Bar data={barData} options={{ responsive: true, maintainAspectRatio: false }} height={100} />
-                        </div>
-                    </CardContent>
-                </Card>
+        <div className="min-h-screen mb-12 text-white p-8">
+            <div className="max-w-6xl mx-auto">
+                <h1 className="text-5xl text-center font-bold mb-4">The value DevOps adds to a project</h1>
+                <p className="text-white text-xl text-center max-w-4xl mx-auto mb-8">See the difference between projects implemented with a DevOps consulting company and without one.</p>
 
-                {/* Right side: Accordion Cards */}
-                <div className="grid gap-4">
-                    {[
-                        { title: 'Initial preparation', content: 'Gathering requirements, designing an NFR approach...' },
-                        { title: 'Development', content: 'Handling development tasks and building the solution...' },
-                        { title: 'Advanced features', content: 'Implementing advanced features for better scalability...' },
-                        { title: 'Production design', content: 'Optimizing production design for deployment and delivery...' },
-                    ].map((item, index) => (
-                        <Card
-                            key={index}
-                            className="p-6 bg-white shadow-lg rounded-lg hover:shadow-xl transition-shadow duration-300"
-                        >
-                            <CardHeader>
-                                <CardTitle className="text-lg font-medium text-gray-800">{`${index + 1}. ${item.title}`}</CardTitle>
-                            </CardHeader>
-                            <CardContent className="mt-2 text-gray-600">
-                                {item.content}
-                            </CardContent>
-                        </Card>
-                    ))}
+                <div className="grid gap-8 md:grid-cols-2">
+                    <Card className="backdrop-blur-sm bg-gray-900/30 border-gray-700">
+                        <CardContent className="p-6">
+                            <h2 className="text-xl text-white font-semibold mb-4">Time team needs for release</h2>
+                            <div className="grid grid-cols-2 gap-4">
+                                <div>
+                                    <p className="text-gray-400 mb-2">WITHOUT DEVOPS</p>
+                                    <div className="flex items-center">
+                                        <div className="w-16 h-16 rounded-full border-8 border-yellow-400 mr-4"></div>
+                                        <span className="text-4xl font-bold text-white">8<span className="text-xl">h</span></span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p className="text-gray-400 mb-2">WITH DEVOPS</p>
+                                    <div className="flex items-center">
+                                        <div className="w-16 h-16 rounded-full border-8 border-gray-400 mr-4 relative">
+                                            <div className="absolute top-0 left-0 w-4 h-4 bg-gray-400 rounded-full transform -translate-x-1/2 -translate-y-1/2"></div>
+                                        </div>
+                                        <span className="text-4xl font-bold text-white">0.1<span className="text-xl">h</span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </CardContent>
+                    </Card>
+
+                    <Card className="backdrop-blur-sm bg-gray-900/30 border-gray-700">
+                        <CardContent className="p-6">
+                            <h2 className="text-xl text-white font-semibold mb-4">Quantity of specialists required for release</h2>
+                            <div className="grid grid-cols-2 gap-4">
+                                <div>
+                                    <p className="text-white mb-2">WITHOUT DEVOPS</p>
+                                    <div className="flex items-center">
+                                        <span className="text-4xl text-white font-bold mr-2">5-10</span>
+                                        <span className="text-white">specialists</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p className="text-white mb-2">WITH DEVOPS</p>
+                                    <div className="flex items-center">
+                                        <span className="text-4xl text-white font-bold mr-2">2-3</span>
+                                        <span className="text-white">specialists</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </CardContent>
+                    </Card>
+
+                    <Card className="backdrop-blur-sm bg-gray-900/30 border-gray-700 md:col-span-2">
+                        <CardContent className="p-6">
+                            <h2 className="text-xl font-semibold mb-4 text-white">Quantity of issues after release</h2>
+                            <div className="grid grid-cols-2 gap-8">
+                                <div>
+                                    <p className="text-white mb-2">WITHOUT DEVOPS</p>
+                                    <div className="h-48">
+                                        <Bar
+                                            data={{
+                                                labels: ['1 sprint', '2 sprint'],
+                                                datasets: [{
+                                                    data: [11, 13],
+                                                    backgroundColor: '#fbbf24',
+                                                }]
+                                            }}
+                                            options={commonOptions}
+                                        />
+                                    </div>
+                                </div>
+                                <div>
+                                    <p className="text-white mb-2">WITH DEVOPS</p>
+                                    <div className="h-48">
+                                        <Bar
+                                            data={{
+                                                labels: ['1 sprint', '2 sprint'],
+                                                datasets: [{
+                                                    data: [15, 3],
+                                                    backgroundColor: '#e2e8f0',
+                                                }]
+                                            }}
+                                            options={commonOptions}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </CardContent>
+                    </Card>
                 </div>
             </div>
-
-            {/* Bottom Section: The value of DevOps Services */}
-            <div className="bg-white p-10 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <h2 className="text-2xl font-bold text-gray-800 mb-6">The value of DevOps Services for projects</h2>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {[
-                        {
-                            title: 'Data safety and scalability',
-                            description: 'Gathering requirements, designing NFR approaches...',
-                            icon: <FaLock className="text-4xl text-yellow-400" />,
-                        },
-                        {
-                            title: 'Better costs, tools, and visibility',
-                            description: 'The most suitable requirement combinations manage...',
-                            icon: <FaTools className="text-4xl text-yellow-400" />,
-                        },
-                        {
-                            title: 'Metrics and knowledge transfer',
-                            description: 'Clear service delivery metrics, SLAs, and knowledge transfer...',
-                            icon: <FaChartLine className="text-4xl text-yellow-400" />,
-                            chart: (
-                                <div className="bg-blue-100 p-4 rounded-lg mt-4">
-                                    <Doughnut data={doughnutData} options={{ responsive: true, maintainAspectRatio: false }} height={100} />
-                                </div>
-                            ),
-                        },
-                        {
-                            title: 'Quick start and requirements',
-                            description: 'Actions and plans accelerate the team’s start...',
-                            icon: <FaBolt className="text-4xl text-yellow-400" />,
-                        },
-                        {
-                            title: 'Control and reporting',
-                            description: 'Productive mechanisms for process control and detailed reporting...',
-                            icon: <FaClipboardCheck className="text-4xl text-yellow-400" />,
-                        },
-                        {
-                            title: 'Mitigated risks',
-                            description: 'Minimizing competency risks and onboarding challenges...',
-                            icon: <FaExclamationTriangle className="text-4xl text-yellow-400" />,
-                        },
-                    ].map((value, index) => (
-                        <Card
-                            key={index}
-                            className="p-6 bg-gray-50 shadow-lg rounded-lg hover:shadow-xl transition-shadow duration-300"
-                        >
-                            <CardHeader className="flex items-start">
-                                <div>{value.icon}</div>
-                                <div className="ml-4">
-                                    <CardTitle className="font-semibold text-gray-800 mb-2">{value.title}</CardTitle>
-                                    <CardDescription className="text-gray-600">
-                                        {value.description}
-                                    </CardDescription>
-                                </div>
-                            </CardHeader>
-                            <CardContent>
-                                {value.chart && value.chart}
-                            </CardContent>
-                        </Card>
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
-};
-
-export default ProjectServices;
+        </div>
+    )
+}

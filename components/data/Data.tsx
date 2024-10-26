@@ -17,7 +17,7 @@ import {
   FaLifeRing,
   FaRocket,
   FaRedo,
-  FaUserShield, FaDrawPolygon, FaSearchDollar
+  FaUserShield, FaSearchDollar
 } from "react-icons/fa";
 import { GrTestDesktop } from "react-icons/gr";
 import { RiTeamLine } from "react-icons/ri";
@@ -224,7 +224,7 @@ export const techCategory = [
   },
 ];
 
-export const services:any = [
+export const services: any = [
   {
     title: "Mobile Development",
     description:
@@ -246,7 +246,7 @@ export const services:any = [
     icon: <FaProjectDiagram />,
     href: "/cross-platform-development",
   },
- {
+  {
     title: "Custom Software Development",
     description:
       "Developing bespoke software solutions that are tailored to your business processes & enhancing efficiency and driving innovation.",
@@ -302,13 +302,13 @@ export const services:any = [
     icon: <MdOutlineBusinessCenter />,
     href: "/business-analysis",
   },
-  {
-    title: "Solution Architecture",
-    description:
-      "Designing scalable and efficient system architectures for optimized performance.",
-    icon: <FaDrawPolygon />,
-    href: "/solution-architecture",
-  },
+  // {
+  //   title: "Solution Architecture",
+  //   description:
+  //     "Designing scalable and efficient system architectures for optimized performance.",
+  //   icon: <FaDrawPolygon />,
+  //   href: "/solution-architecture",
+  // },
   {
     title: "All services →",
     description:

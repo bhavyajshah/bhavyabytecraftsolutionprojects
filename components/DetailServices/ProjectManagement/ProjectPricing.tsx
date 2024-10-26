@@ -126,7 +126,7 @@ export default function ProjectPricing() {
                                 {plan.features.map((feature, index) => (
                                     <li key={index} className="flex items-start">
                                         <svg
-                                            className="w-5 h-5 text-green-400 mr-2 mt-1 flex-shrink-0"
+                                            className="w-5 h-5 text-[#6430c2] mr-2 mt-1 flex-shrink-0"
                                             fill="none"
                                             strokeLinecap="round"
                                             strokeLinejoin="round"
