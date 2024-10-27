@@ -421,7 +421,6 @@ export const tabData = [
     }
   }
 ];
-
 export const FaqData = [
   {
     title: "Discovery phase",
