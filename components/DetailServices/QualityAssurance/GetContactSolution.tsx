@@ -1,5 +1,5 @@
 'use client'
-import { Formik, Form, FieldArray, FormikHelpers } from 'formik'
+import { Formik, Form, FormikHelpers } from 'formik'
 import * as Yup from 'yup'
 import { motion } from 'framer-motion'
 import { Slider } from "@/components/ui/slider"
