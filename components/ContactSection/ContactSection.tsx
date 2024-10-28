@@ -6,7 +6,7 @@ import * as Yup from "yup";
 import { AiOutlineMail, AiOutlineUser, AiOutlinePhone } from "react-icons/ai";
 import { FaRegBuilding } from "react-icons/fa";
 import { LuFileSearch } from "react-icons/lu";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 
@@ -96,6 +96,8 @@ const ContactSection = () => {
           title: 'Error',
           message: 'An error occurred while submitting the form. Please try again.'
         });
+        console.error(error);
+
       }
       setIsDialogOpen(true);
     },
@@ -146,7 +148,7 @@ const ContactSection = () => {
         >
           <h2 className="text-4xl md:text-5xl font-extrabold mb-4 bg-clip-text text-white">Get in Touch</h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            We're excited to hear about your project. Fill out the form below, and let's create something amazing together.
+            We&apos;re excited to hear about your project. Fill out the form below, and let&apos;s create something amazing together.
           </p>
         </motion.div>
 
