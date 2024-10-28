@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#030014] dark:bg-white text-[#918EA0] font-normal w-full`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#030014] dark:bg-white text-[#918EA0] font-normal`}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />

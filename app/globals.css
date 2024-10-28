@@ -1298,11 +1298,11 @@ html {
   background-color: #5a28a8;
 }
 
-html {
+/* html {
   scrollbar-width: thin;
   scrollbar-color: #6430c2 #f1f1f1;
 
-}
+} */
 
 .customscrollbar {
   scrollbar-width: thin;
