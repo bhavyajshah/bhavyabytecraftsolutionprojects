@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Hero from '@/components/DetailServices/Hero'
 import { Expertise } from '@/components/DetailServices/Expertise';
 import Contact from '@/components/DetailServices/Contact';
@@ -8,7 +9,14 @@ import Business from '@/components/DetailServices/ArtificialIntelligence/Busines
 import AIImpact from '@/components/DetailServices/ArtificialIntelligence/AIImpact';
 import AITechnology from '@/components/DetailServices/ArtificialIntelligence/AITechnology';
 import AICostSavings from '@/Servicesdata/AICostSavings';
-const page = () => {
+
+export const metadata: Metadata = {
+  title: 'Artificial Intelligence Services - Enhance Your Business with AI',
+  description: 'Discover our Artificial Intelligence services to transform your business through data-driven insights, machine learning, and AI technology.',
+  keywords: ['Artificial Intelligence', 'AI services', 'machine learning', 'AI technology', 'business intelligence', 'AI impact'],
+}
+
+const Page = () => {
   return (
     <>
       <Hero
@@ -36,4 +44,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page;

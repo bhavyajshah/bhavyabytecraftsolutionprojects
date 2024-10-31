@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Hero from '@/components/DetailServices/Hero'
 import { Expertise } from '@/components/DetailServices/Expertise';
 import WebDevelopmentWork from '@/components/DetailServices/Portfolio';
@@ -11,7 +12,13 @@ import FAQ from '@/components/FAQ/FAQ';
 import { FaqData } from '@/Servicesdata/WebDevelopment';
 import TechnologySection from '@/components/DetailServices/WebDevelopment/WebTechnologySection';
 
-const page = () => {
+export const metadata: Metadata = {
+  title: 'Mobile App Development Services - Create Powerful Mobile Solutions',
+  description: 'Discover our mobile app development services that cater to diverse business needs. We specialize in building scalable, user-friendly mobile applications tailored for both Android and iOS platforms.',
+  keywords: ['mobile development', 'app development', 'iOS development', 'Android development', 'cross-platform apps', 'mobile application services'],
+}
+
+const Page = () => {
   return (
     <>
       <Hero
@@ -34,15 +41,13 @@ const page = () => {
         works={pastWork.pastWorks}
         sectionTitle={pastWork?.title}
       />
-      <FAQ title={"Mobile Development Delievery Cycle"} FaqData={FaqData} />
+      <FAQ title={"Mobile Development Delivery Cycle"} FaqData={FaqData} />
       <AppDevelopmentTeam title={"Our Successful Mobile App Team Members"} teamMembersData={teamMembersData} />
       <ByteCraftReviews reviews={reviews} />
-      <Expertise
-        title={Expertises.expertiseTitle}
-      />
+      <Expertise title={Expertises.expertiseTitle} />
       <Contact />
     </>
   )
 }
 
-export default page
+export default Page;

@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Hero from '@/components/DetailServices/Hero'
 import StatsServices from '@/components/DetailServices/StatsServices';
 import { Expertise } from '@/components/DetailServices/Expertise';
@@ -9,6 +10,13 @@ import { Data, Expertises, FaqData, feature, pastWork, reviews, stats, tabData }
 import WebDevelopmentOfferings from '@/components/DetailServices/WebDevelopmentOfferings';
 import FAQ from '@/components/FAQ/FAQ';
 import TechnologySection from '@/components/DetailServices/WebDevelopment/WebTechnologySection';
+
+// SEO Metadata
+export const metadata: Metadata = {
+  title: 'Web Development Services - Building Robust Digital Solutions',
+  description: 'Explore our web development services tailored to meet your business needs with cutting-edge technologies and expert solutions.',
+  keywords: ['web development', 'custom websites', 'web applications', 'responsive design', 'eCommerce solutions'],
+};
 
 const page = () => {
   return (
@@ -28,9 +36,7 @@ const page = () => {
 
       <StatsServices
         title={stats?.title}
-        stats={
-          stats?.statsCard
-        }
+        stats={stats?.statsCard}
       />
       <WebDevelopmentOfferings title={"Web Development Offerings"} tabData={tabData} />
       <TechnologySection title={"Technologies for Web Development"} />
@@ -42,7 +48,7 @@ const page = () => {
           description: feature.description,
         }))}
       />
-      <FAQ title={"Web Development Delievery Cycle"} FaqData={FaqData} />
+      <FAQ title={"Web Development Delivery Cycle"} FaqData={FaqData} />
       <WebDevelopmentWork
         works={pastWork.pastWorks}
         sectionTitle={pastWork?.title}
@@ -56,4 +62,4 @@ const page = () => {
   )
 }
 
-export default page
+export default page;

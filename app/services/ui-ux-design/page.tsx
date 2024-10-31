@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Hero from '@/components/DetailServices/Hero'
 import Contact from '@/components/DetailServices/Contact'
 import { Stories } from '@/Servicesdata/CustomSoftwareDevelopment'
@@ -7,6 +8,13 @@ import UIUXStats from '@/components/DetailServices/UIUXDesigner/UIUXStats'
 import DesignServices from '@/components/DetailServices/UIUXDesigner/DesignServices'
 import StreamLineFAQ from '@/components/DetailServices/UIUXDesigner/StreamLineFAQ'
 import AppDevelopmentTeam from '@/components/DetailServices/MobileSuccessStories/MobileSuccessTeam'
+
+// SEO Metadata
+export const metadata: Metadata = {
+  title: 'UI and UX Design Services - Crafting Exceptional User Experiences',
+  description: 'Discover our UI/UX design services that focus on creating intuitive and user-friendly interfaces for all digital platforms.',
+  keywords: ['UI design', 'UX design', 'user interface', 'user experience', 'design services', 'web design'],
+}
 
 export default function Page() {
   const teamMembersData = [
@@ -70,7 +78,7 @@ export default function Page() {
       <DesignServices />
       <SuccessStories stories={Stories} title="Our Successful Projects" />
       <StreamLineFAQ />
-      <AppDevelopmentTeam title={"Our Design Problem Solvings Team"} teamMembersData={teamMembersData} />
+      <AppDevelopmentTeam title={"Our Design Problem Solving Team"} teamMembersData={teamMembersData} />
       <Contact />
     </>
   )

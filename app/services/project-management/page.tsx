@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Hero from '@/components/DetailServices/Hero'
 import { Expertise } from '@/components/DetailServices/Expertise';
 import Contact from '@/components/DetailServices/Contact';
@@ -7,8 +8,13 @@ import ProjectManagementDashboard from '@/components/DetailServices/ProjectManag
 import ProjectReports from '@/components/DetailServices/ProjectManagement/ProjectReports';
 import { CreativePriceRequestForm } from '@/components/DetailServices/CrossAppDevelopment/RequestPrice';
 
+export const metadata: Metadata = {
+  title: 'Project Management Services - Streamline Your Projects',
+  description: 'Optimize your project workflow with our expert project management services. We provide comprehensive solutions for efficient planning, execution, and reporting.',
+  keywords: ['project management', 'project planning', 'workflow optimization', 'project execution', 'project reporting', 'agile project management'],
+}
 
-const page = () => {
+const Page = () => {
   return (
     <>
       <Hero
@@ -28,12 +34,10 @@ const page = () => {
       <ProjectManagementDashboard />
       <ProjectReports />
       <CreativePriceRequestForm />
-      <Expertise
-        title={Expertises.expertiseTitle}
-      />
+      <Expertise title={Expertises.expertiseTitle} />
       <Contact />
     </>
   )
 }
 
-export default page
+export default Page;
