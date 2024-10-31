@@ -79,13 +79,14 @@ export const DropdownArrow = () => (
   </svg>
 );
 
-export const BackgroundImageBlur = () => (
+export const BackgroundImageBlur = (props) => (
   <svg
     width="1920"
     height="1032"
     viewBox="0 0 1920 1032"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    {...props}
   >
     <g opacity="0.25" filter="url(#filter0_f_17_11570)">
       <circle cx="962.014" cy="-109" r="641" fill="#8646F4" />

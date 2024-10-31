@@ -6,6 +6,12 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 .nav-gradient {
   background-image: -webkit-gradient(linear,
       left top,

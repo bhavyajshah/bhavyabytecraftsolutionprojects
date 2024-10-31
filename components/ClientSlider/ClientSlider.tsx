@@ -1,9 +1,11 @@
 'use client'
-import React from "react";
+
+import React, { useEffect, useState } from "react";
 import SwiperCore from "swiper";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { Autoplay } from 'swiper/modules';
+import Link from "next/link";
 
 SwiperCore.use([Autoplay]);
 
@@ -54,45 +56,78 @@ const clientsData: Client[] = [
 
 const ClientLogo: React.FC<{ client: Client }> = ({ client }) => {
   return (
-    <div className="relative mx-4 inline-flex justify-center items-center">
-      <a href={client.website} target="_blank" rel="noopener noreferrer">
-        <div className="w-28 h-14 relative overflow-hidden bg-white p-2">
+    <div className="relative mx-4 inline-flex justify-center items-center group">
+      <Link href={client.website} target="_blank" rel="noopener noreferrer">
+        <div className="w-28 h-14 relative overflow-hidden bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 p-2 group-hover:scale-105">
           <img
             src={client.logo}
             alt={client.name}
             className="w-full h-full object-contain"
           />
+          <div className="absolute inset-0 bg-black/5 dark:bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         </div>
-      </a>
+      </Link>
     </div>
   );
 };
 
 const TrustedClients: React.FC = () => {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
+
   return (
-    <section className="pt-12">
+    <section className="pt-12 bg-gradient-to-b from-gray-50 to-white dark:from-transparent dark:to-transparent">
       <div className="container mx-auto px-4">
-        <h2 className="text-2xl text-white font-bold mb-2 text-center">Trusted Clients</h2>
-        <p className="text-center text-white mb-8">
+        <h2 className="text-2xl font-bold mb-2 text-center bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent dark:text-white">
+          Trusted Clients
+        </h2>
+        <p className="text-center text-gray-600 dark:text-white/80 mb-8 max-w-2xl mx-auto font-medium">
           We&apos;re proud to work with some of the most innovative companies in the world.
         </p>
-        <Swiper
-          className="swiper-container"
-          direction="horizontal"
-          slidesPerView={5}
-          spaceBetween={10}
-          loop={true}
-          autoplay={{
-            delay: 1500,
-            disableOnInteraction: false,
-          }}
-        >
-          {clientsData.concat(clientsData).map((client, index) => (
-            <SwiperSlide key={index} className="swiper-slide">
-              <ClientLogo client={client} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+        <div className="relative">
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-transparent to-white dark:from-[#030014] dark:via-transparent dark:to-[#030014] z-10 pointer-events-none"></div>
+          <Swiper
+            className="swiper-container"
+            direction="horizontal"
+            slidesPerView={5}
+            spaceBetween={10}
+            loop={true}
+            autoplay={{
+              delay: 1500,
+              disableOnInteraction: false,
+            }}
+            breakpoints={{
+              320: {
+                slidesPerView: 2,
+                spaceBetween: 10
+              },
+              480: {
+                slidesPerView: 3,
+                spaceBetween: 15
+              },
+              768: {
+                slidesPerView: 4,
+                spaceBetween: 20
+              },
+              1024: {
+                slidesPerView: 5,
+                spaceBetween: 25
+              }
+            }}
+          >
+            {clientsData.concat(clientsData).map((client, index) => (
+              <SwiperSlide key={index} className="swiper-slide">
+                <ClientLogo client={client} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
       </div>
     </section>
   );

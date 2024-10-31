@@ -36,21 +36,21 @@ export function TimelineDemo() {
       >
         <motion.div
           whileHover="hover"
-          className="border border-gray-700 p-4 rounded-xl shadow-lg"
+          className="border border-blue-200 dark:border-gray-700 p-4 rounded-xl shadow-lg bg-white dark:bg-gray-800"
           variants={hoverEffect}
         >
-          <p className="text-white text-lg md:text-md font-semibold items-center flex flex-row mb-4">
-            <step.icon className="text-white text-xl mr-4" />
+          <p className="text-blue-800 dark:text-white text-lg md:text-md font-semibold items-center flex flex-row mb-4">
+            <step.icon className="text-blue-600 dark:text-blue-400 text-xl mr-4" />
             {step.title}
           </p>
-          <p className="text-white text-md md:text-sm font-normal mb-4">
+          <p className="text-blue-700 dark:text-gray-300 text-md md:text-sm font-normal mb-4">
             {step.description}
           </p>
-          <ul className="list-disc ml-8 text-md md:text-sm text-gray-400 mb-4">
+          <ul className="list-disc ml-8 text-md md:text-sm text-blue-600 dark:text-gray-400 mb-4">
             {step.list.map((item, index) => (
               <motion.li
                 key={index}
-                className="mb-2 text-white text-md md:text-sm"
+                className="mb-2 text-blue-700 dark:text-gray-300 text-md md:text-sm"
                 whileHover={{ scale: 1.05 }}
               >
                 {item}
@@ -58,7 +58,7 @@ export function TimelineDemo() {
             ))}
           </ul>
           <motion.div whileHover="hover" className="rounded-lg shadow-lg">
-            <div className="w-[250px] h-[250px] md:w-[400px] md:h-[400px]">
+            <div className="w-full h-[250px] md:h-[400px]">
               <img
                 src={step.image.src}
                 alt={step.title}

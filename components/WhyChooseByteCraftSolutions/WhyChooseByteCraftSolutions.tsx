@@ -1,8 +1,11 @@
 "use client";
 import Image from "next/image";
 import { Tabs } from "../ui/tabs";
+import { useTheme } from "next-themes";
 
 export function WhyChooseByteCraftSolutions() {
+  const { theme } = useTheme();
+
   const tabs = [
     {
       title: "Mastery",
@@ -63,18 +66,24 @@ export function WhyChooseByteCraftSolutions() {
   ];
 
   return (
-    <div className="h-[30rem] md:h-[50rem] [perspective:1000px] relative flex flex-col max-w-5xl mx-auto w-full items-center justify-center mt-10 mb-60">
-      <div className="text-center mb-12">
-        <h2 className="text-4xl font-extrabold text-white transition duration-500 hover:text-indigo-400">
-          Why Choose ByteCraft Solutions?
-        </h2>
-        <p className="max-w-[714px] mx-auto mt-4 text-lg text-gray-300">
-          At ByteCraft, we turn your visions into scalable digital solutions.
-          Our team’s combined expertise of over 30 years helps us create
-          innovative software for all business sizes.
-        </p>
+    <div className={`${theme === 'light' ? 'bg-gradient-to-br from-blue-50 to-white' : ''}`}>
+      <div className={`h-[30rem] md:h-[50rem] [perspective:1000px] relative flex flex-col max-w-5xl mx-auto w-full items-center justify-center mt-10 mb-60`}>
+        <div className="text-center mb-12">
+          <h2 className={`text-4xl font-extrabold transition duration-500 ${theme === 'light'
+            ? 'text-blue-800 mt-10'
+            : 'text-white hover:text-indigo-400'
+            }`}>
+            Why Choose ByteCraft Solutions?
+          </h2>
+          <p className={`max-w-[714px] mx-auto mt-4 text-lg ${theme === 'light' ? 'text-blue-700' : 'text-gray-300'
+            }`}>
+            At ByteCraft, we turn your visions into scalable digital solutions.
+            Our team&apos;s combined expertise of over 30 years helps us create
+            innovative software for all business sizes.
+          </p>
+        </div>
+        <Tabs tabs={tabs} />
       </div>
-      <Tabs tabs={tabs} />
     </div>
   );
 }
@@ -82,21 +91,33 @@ export function WhyChooseByteCraftSolutions() {
 const TabContent = ({
   title,
   image,
+  description,
 }: {
   title: string;
   image: string;
   description: string;
 }) => {
+  const { theme } = useTheme();
+
   return (
-    <div className="w-full h-full relative p-6 rounded-2xl text-xl md:text-4xl font-bold text-white bg-[#201046]">
-      <p className="">{title}</p>
+    <div className={`w-full h-full relative p-6 rounded-2xl text-xl md:text-4xl font-bold ${theme === 'light'
+      ? ' text-blue-800 shadow-lg'
+      : 'bg-[#201046] text-white'
+      }`}>
+      <p className="mb-4">{title}</p>
+      <p className={`text-base md:text-lg font-normal mb-6 ${theme === 'light' ? 'text-blue-700' : 'text-blue-200'
+        }`}>
+        {description}
+      </p>
       <Image
         src={image}
         alt={title}
         width={1000}
         height={1000}
-        className="object-cover object-left-top h-[60%] md:h-[90%] absolute -bottom-10 inset-x-0 w-[90%] rounded-xl mx-auto transition duration-300"
+        className="object-cover object-left-top h-[60%] md:h-[70%] absolute -bottom-10 inset-x-0 w-[90%] rounded-xl mx-auto transition duration-300 shadow-xl"
       />
     </div>
   );
 };
+
+export default WhyChooseByteCraftSolutions;

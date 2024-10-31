@@ -24,7 +24,6 @@ const page = async () => {
   const posts = await getBlogPosts();
   return (
     <>
-
       <HeroSection />
       <ClientSlider />
       <MissionSection />

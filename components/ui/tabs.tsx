@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { useTheme } from "next-themes";
 
 type Tab = {
   title: string;
@@ -24,6 +25,7 @@ export const Tabs = ({
 }) => {
   const [active, setActive] = useState<Tab>(propTabs[0]);
   const [tabs, setTabs] = useState<Tab[]>(propTabs);
+  const { theme } = useTheme();
 
   const moveSelectedTabToTop = (idx: number) => {
     const newTabs = [...propTabs];
@@ -51,7 +53,11 @@ export const Tabs = ({
             }}
             onMouseEnter={() => setHovering(true)}
             onMouseLeave={() => setHovering(true)}
-            className={cn("relative px-4 py-2 rounded-full", tabClassName)}
+            className={cn(
+              "relative px-4 py-2 rounded-full",
+              theme === "light" ? "text-blue-800" : "text-white",
+              tabClassName
+            )}
             style={{
               transformStyle: "preserve-3d",
             }}
@@ -61,13 +67,16 @@ export const Tabs = ({
                 layoutId="clickedbutton"
                 transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
                 className={cn(
-                  "absolute inset-0 bg-[#201046] text-black dark:bg-zinc-800 rounded-full",
+                  "absolute inset-0 rounded-full",
+                  theme === "light"
+                    ? "bg-blue-100 shadow-md"
+                    : "bg-[#201046] dark:bg-zinc-800",
                   activeTabClassName
                 )}
               />
             )}
 
-            <span className="relative block text-white">{tab.title}</span>
+            <span className="relative block">{tab.title}</span>
           </button>
         ))}
       </div>
@@ -96,6 +105,8 @@ export const FadeInDiv = ({
   const isActive = (tab: Tab) => {
     return tab.value === tabs[0].value;
   };
+  const { theme } = useTheme();
+
   return (
     <div className="relative w-full h-full">
       {tabs.map((tab, idx) => (
@@ -111,7 +122,11 @@ export const FadeInDiv = ({
           animate={{
             y: isActive(tab) ? [0, 40, 0] : 0,
           }}
-          className={cn("w-full h-full absolute top-0 left-0", className)}
+          className={cn(
+            "w-full h-full absolute top-0 left-0",
+            theme === "light" ? "bg-white shadow-lg" : "",
+            className
+          )}
         >
           {tab.content}
         </motion.div>

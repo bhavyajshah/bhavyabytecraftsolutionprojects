@@ -9,11 +9,11 @@ import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { Upload, Send } from 'lucide-react'
 
-export default function RequestQuote() {
+export function RequestQuoteComponent() {
   const [fileName, setFileName] = useState<string | null>(null)
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4 sm:p-8">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-indigo-950 flex items-center justify-center p-4 sm:p-8">
       <div className="w-full max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -73,7 +73,7 @@ export default function RequestQuote() {
                   <p className="text-purple-100 mb-8">Our team is ready to bring your ideas to life. Get a personalized quote for your project today!</p>
                 </motion.div>
                 <motion.img
-                  src="https://cdn3d.iconscout.com/3d/premium/thumb/customer-service-3d-illustration-download-in-png-blend-fbx-gltf-file-formats--helpline-support-digital-marketing-pack-business-illustrations-4379020.png"
+                  src="/placeholder.svg?height=200&width=200"
                   alt="3D Illustration"
                   className="w-48 h-48 object-contain mx-auto"
                   initial={{ scale: 0.8, rotate: -10 }}

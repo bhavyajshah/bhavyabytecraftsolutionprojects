@@ -38,12 +38,12 @@ const fadeInUp = {
 
 const Footer = () => {
   return (
-    <footer className="relative z-10 pb-8 text-white">
-      <div className="max-w-[1170px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-0 relative pt-12">
-        <div className="w-full h-[1px] footer-divider-gradient absolute top-0 left-0"></div>
-        <div className="flex flex-wrap justify-between lg:justify-start gap-16">
+    <footer className="relative z-10 pb-8 bg-blue-50 text-blue-900 dark:bg-transparent dark:text-white">
+      <div className="max-w-[1170px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-0 relative pt-12">
+        <div className="w-full h-[1px] bg-gradient-to-r from-blue-200 via-blue-400 to-blue-200 dark:from-gray-700 dark:via-gray-500 dark:to-gray-700 absolute top-0 left-0"></div>
+        <div className="flex flex-wrap justify-between lg:justify-start gap-8 lg:gap-16">
           {/* Company Information Section */}
-          <div className="lg:flex-1 mb-10 w-full lg:max-w-[450px] px-4">
+          <div className="lg:flex-1 mb-10 w-full lg:max-w-[450px]">
             <motion.div
               initial="initial"
               animate="animate"
@@ -51,9 +51,9 @@ const Footer = () => {
               variants={fadeInUp}
             >
               <TextLogo />
-              <p className="mb-6 mt-4 text-gray-300 leading-relaxed">
-                At ByteCraft Solutions, we’re shaping the future with
-                cutting-edge software solutions. Whether it’s innovative mobile
+              <p className="mb-6 mt-4 text-blue-700 dark:text-gray-300 leading-relaxed">
+                At ByteCraft Solutions, we&apos;re shaping the future with
+                cutting-edge software solutions. Whether it&apos;s innovative mobile
                 apps or AI-driven enterprise tools, we help businesses thrive in
                 the digital age. Partner with us to craft bespoke solutions that
                 redefine possibilities.
@@ -65,30 +65,28 @@ const Footer = () => {
               animate="animate"
               transition={{ duration: 0.6 }}
               variants={fadeInUp}
-              className="mt-8 text-sm text-gray-400 space-y-3"
+              className="mt-8 text-sm text-blue-600 dark:text-gray-400 space-y-3"
             >
               <div className="flex items-center space-x-3">
-                <FaMapMarkerAlt className="text-white" />
-                <p className="text-gray-400">
-                  5123 Market St. #22B, City Name, Poland 44635
-                </p>
+                <FaMapMarkerAlt className="text-blue-500 dark:text-white" />
+                <p>5123 Market St. #22B, City Name, Poland 44635</p>
               </div>
               <div className="flex items-center space-x-3">
-                <FaPhoneAlt className="text-white" />
-                <p className="text-gray-400"> (434) 546-4356</p>
+                <FaPhoneAlt className="text-blue-500 dark:text-white" />
+                <p>(434) 546-4356</p>
               </div>
               <div className="flex items-center space-x-3">
-                <FaEnvelope className="text-white" />
-                <p className="text-gray-400">contact@bytecraftsolutions.com</p>
+                <FaEnvelope className="text-blue-500 dark:text-white" />
+                <p>contact@bytecraftsolutions.com</p>
               </div>
             </motion.div>
           </div>
 
           {/* Links Section */}
-          <div className="grid grid-cols-2 gap-8 lg:gap-20 lg:flex-1 px-4">
+          <div className="grid grid-cols-2 gap-8 lg:gap-20 lg:flex-1">
             {/* Company Links */}
             <div>
-              <h2 className="font-bold text-xl mb-6 inline-block border-b-2 border-gray-700 pb-2">
+              <h2 className="font-bold text-xl mb-6 inline-block border-b-2 border-blue-300 dark:border-gray-700 pb-2">
                 Company
               </h2>
               <ul className="space-y-3">
@@ -96,7 +94,7 @@ const Footer = () => {
                   <li key={idx}>
                     <motion.a
                       href={link}
-                      className="text-gray-400 hover:text-white transition duration-300"
+                      className="text-blue-600 hover:text-blue-800 dark:text-gray-400 dark:hover:text-white transition duration-300"
                       whileHover={{ scale: 1.05 }}
                     >
                       {title}
@@ -108,7 +106,7 @@ const Footer = () => {
 
             {/* Legal Links */}
             <div>
-              <h2 className="font-bold text-xl mb-6 inline-block border-b-2 border-gray-700 pb-2">
+              <h2 className="font-bold text-xl mb-6 inline-block border-b-2 border-blue-300 dark:border-gray-700 pb-2">
                 Legal
               </h2>
               <ul className="space-y-3">
@@ -116,7 +114,7 @@ const Footer = () => {
                   <li key={idx}>
                     <motion.a
                       href={link}
-                      className="text-gray-400 hover:text-white transition duration-300"
+                      className="text-blue-600 hover:text-blue-800 dark:text-gray-400 dark:hover:text-white transition duration-300"
                       whileHover={{ scale: 1.05 }}
                     >
                       {title}
@@ -129,14 +127,14 @@ const Footer = () => {
         </div>
 
         {/* Social Icons and Copyright */}
-        <div className="flex flex-col sm:flex-row items-center justify-between mt-12 px-4 border-t border-gray-700 pt-6">
+        <div className="flex flex-col sm:flex-row items-center justify-between mt-12 border-t border-blue-200 dark:border-gray-700 pt-6">
           <div className="flex items-center gap-6 mb-4 sm:mb-0">
             {socialLinks.map(({ alt, link, icon }, idx) => (
               <motion.a
                 key={idx}
                 href={link}
                 aria-label={alt}
-                className="hover:text-white transition duration-300 text-2xl"
+                className="text-blue-600 hover:text-blue-800 dark:text-gray-400 dark:hover:text-white transition duration-300 text-2xl"
                 whileHover={{ scale: 1.2 }}
               >
                 {icon}
@@ -144,7 +142,7 @@ const Footer = () => {
             ))}
           </div>
           <motion.p
-            className="text-gray-500 text-sm text-center"
+            className="text-blue-500 dark:text-gray-500 text-sm text-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
