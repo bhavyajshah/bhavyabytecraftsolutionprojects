@@ -17,10 +17,10 @@ const BlogSection: React.FC<BlogSectionProps> = ({ initialPosts }) => {
     <section className="py-10 lg:py-15 bg-white dark:bg-transparent">
       <div className="max-w-6xl mx-auto px-4 sm:px-8 xl:px-0">
         <div className="text-center mb-10">
-          <h2 className="text-blue-900 dark:text-white mb-6 text-3xl font-extrabold sm:text-4xl xl:text-heading-2 transition duration-500 ease-in-out hover:text-blue-600 dark:hover:text-indigo-400">
+          <h2 className="text-black dark:text-white mb-6 text-3xl font-extrabold sm:text-4xl xl:text-heading-2 transition duration-500 ease-in-out dark:hover:text-indigo-400">
             Latest Blogs &amp; News
           </h2>
-          <p className="max-w-[714px] mx-auto mb-5 md:text-lg font-medium text-blue-700 dark:text-gray-300">
+          <p className="max-w-[714px] mx-auto mb-5 md:text-lg font-medium text-black dark:text-gray-300">
             Stay updated on AI, technology, and software development trends that
             are shaping the future of the industry.
           </p>
@@ -34,7 +34,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ initialPosts }) => {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
-                className="group bg-blue-50 dark:bg-white/5 rounded-xl shadow-lg hover:shadow-xl p-4 md:p-6 transform transition-all duration-500 ease-out hover:scale-105 hover:bg-blue-100/50 dark:hover:bg-opacity-20"
+                className="group bg-white dark:bg-white/5 rounded-xl shadow-2xl hover:shadow-xl p-4 md:p-6 transform transition-all duration-500 ease-out hover:scale-105 dark:hover:bg-opacity-20"
               >
                 <div className="mb-6 overflow-hidden rounded-xl">
                   <img
@@ -47,7 +47,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ initialPosts }) => {
                   {blog.categories.map((category) => (
                     <span
                       key={category}
-                      className="font-medium text-xs cursor-pointer py-1 px-3 rounded-full bg-blue-100 dark:bg-white/10 text-blue-700 dark:text-white border border-blue-200 dark:border-white/15 hover:bg-blue-200 dark:hover:border-white/30 hover:text-blue-800 dark:hover:text-white transition-all duration-300"
+                      className="font-medium text-xs cursor-pointer py-1 px-3 rounded-full bg-black/100 dark:bg-white/10 text-white dark:text-white border border-blue-200 dark:border-white/15 dark:hover:border-white/30 dark:hover:text-white transition-all duration-300"
                     >
                       {category}
                     </span>
@@ -56,21 +56,21 @@ const BlogSection: React.FC<BlogSectionProps> = ({ initialPosts }) => {
                 <h4 className="mb-3 md:mb-4">
                   <Link
                     href={`/blog/${blog.slug}`}
-                    className="text-blue-900 dark:text-white font-semibold text-lg md:text-xl ease-in duration-300 hover:text-blue-600 dark:hover:text-blue-400"
+                    className="text-black dark:text-white font-semibold text-lg md:text-xl ease-in duration-300 dark:hover:text-blue-400"
                   >
                     {blog.title}
                   </Link>
                 </h4>
-                <p className="font-medium text-blue-700 dark:text-gray-400 text-sm md:text-base">
+                <p className="font-medium text-black dark:text-gray-400 text-sm md:text-base">
                   {blog.description}
                 </p>
                 <div className="flex items-center gap-4 flex-wrap mt-4 md:mt-6">
-                  <div className="flex items-center gap-2 cursor-pointer text-blue-700 dark:text-gray-300 transition-all duration-300 hover:text-blue-500 dark:hover:text-blue-400">
-                    <FaUserCircle className="text-blue-500 dark:text-blue-300 group-hover:text-blue-600 dark:group-hover:text-white transition-all duration-300" />
+                  <div className="flex items-center gap-2 cursor-pointer text-black dark:text-gray-300 transition-all duration-300 dark:hover:text-blue-400">
+                    <FaUserCircle className="text-black dark:text-blue-300  dark:group-hover:text-white transition-all duration-300" />
                     <span className="text-sm font-medium">{blog.author.name}</span>
                   </div>
-                  <div className="flex items-center gap-2 cursor-pointer text-blue-700 dark:text-gray-300 transition-all duration-300 hover:text-blue-500 dark:hover:text-blue-400">
-                    <FaCalendarAlt className="text-blue-500 dark:text-blue-300 group-hover:text-blue-600 dark:group-hover:text-white transition-all duration-300" />
+                  <div className="flex items-center gap-2 cursor-pointer text-black dark:text-gray-300 transition-all duration-300 dark:hover:text-blue-400">
+                    <FaCalendarAlt className="text-black dark:text-blue-300 dark:group-hover:text-white transition-all duration-300" />
                     <span className="text-sm font-medium">{blog.date}</span>
                   </div>
                 </div>
@@ -84,7 +84,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ initialPosts }) => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setShowMore(true)}
-              className="bg-gradient-to-r from-blue-600 to-blue-400 hover:from-blue-500 hover:to-blue-300 dark:from-blue-500 dark:to-indigo-600 inline-flex rounded-lg py-3 px-7 text-white font-medium ease-in duration-300 hover:shadow-lg"
+              className="bg-black dark:hero-button-gradient inline-flex rounded-lg py-3 px-7 text-white font-medium ease-in duration-300 hover:shadow-lg"
             >
               Show More
             </motion.button>

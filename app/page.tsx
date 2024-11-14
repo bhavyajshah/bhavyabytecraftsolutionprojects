@@ -1,7 +1,6 @@
 import React from "react";
 import AboutUsSection from "@/components/AboutUsSection/AboutUsSection";
 import BlogSection from "@/components/BlogSection/BlogSection";
-import { CaseStudies } from "@/components/CaseStudies/CaseStudies";
 import ClientSlider from "@/components/ClientSlider/ClientSlider";
 import FeaturesSection from "@/components/FeatureSection/FeatureSection";
 import HeroSection from "@/components/HeroSection/HeroSection";
@@ -13,6 +12,7 @@ import { WhyChooseByteCraftSolutions } from "@/components/WhyChooseByteCraftSolu
 import type { Metadata } from 'next'
 import { getBlogPosts } from "@/lib/api";
 import MissionSection from "@/components/MissionSection/MissionSection";
+import CaseStudies from "@/components/CaseStudies/CaseStudies";
 
 export const metadata: Metadata = {
   title: 'ByteCraft Solutions - Leading IT Software Services',

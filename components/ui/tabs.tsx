@@ -70,7 +70,7 @@ export const Tabs = ({
                   "absolute inset-0 rounded-full",
                   theme === "light"
                     ? "bg-blue-100 shadow-md"
-                    : "bg-[#201046] dark:bg-zinc-800",
+                    : "bg-[#201046] dark:bg-[#201046]",
                   activeTabClassName
                 )}
               />

@@ -86,12 +86,12 @@ export const InfiniteMovingCards = ({
       >
         {items.map((item, idx) => (
           <li
-            className="w-[300px] md:w-[350px] lg:w-[450px] max-w-full relative rounded-2xl border flex-shrink-0 border-blue-100 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-lg px-6 py-4 md:px-8 md:py-6 transition-colors"
+            className="w-[300px] md:w-[350px] lg:w-[450px] max-w-full relative rounded-2xl border flex-shrink-0 border-neutral-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-lg px-6 py-4 md:px-8 md:py-6 transition-colors"
             key={idx}
           >
             <blockquote>
               <div className="relative z-20 mb-4 flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full overflow-hidden bg-blue-50 dark:bg-slate-700">
+                <div className="w-12 h-12 rounded-full overflow-hidden bg-neutral-100 dark:bg-slate-700">
                   <img
                     src={item.avatar}
                     alt={item.name}
@@ -99,10 +99,10 @@ export const InfiniteMovingCards = ({
                   />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-lg font-semibold text-blue-900 dark:text-gray-100">
+                  <span className="text-lg font-semibold text-neutral-900 dark:text-gray-100">
                     {item.name}
                   </span>
-                  <span className="text-sm text-blue-600 dark:text-gray-400">
+                  <span className="text-sm text-neutral-600 dark:text-gray-400">
                     {item.designation}
                   </span>
                 </div>
@@ -115,12 +115,12 @@ export const InfiniteMovingCards = ({
                       "h-5 w-5",
                       i < item.rating
                         ? "text-yellow-400"
-                        : "text-blue-100 dark:text-gray-600"
+                        : "text-neutral-300 dark:text-gray-600"
                     )}
                   />
                 ))}
               </div>
-              <p className="mt-4 text-blue-800 dark:text-gray-100 text-sm md:text-base">
+              <p className="mt-4 text-neutral-800 dark:text-gray-100 text-sm md:text-base">
                 {item.quote}
               </p>
             </blockquote>

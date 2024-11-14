@@ -16,27 +16,26 @@ export const metadata: Metadata = {
   },
 };
 
-
 const StatsSection = ({ stats }: any) => {
   return (
     <section className="py-10">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 className="font-manrope text-4xl text-center text-white font-bold mb-14">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <h2 className="font-manrope text-4xl text-center text-neutral-800 dark:text-white font-bold mb-14">
           Our results in numbers
         </h2>
         <div className="flex flex-col gap-5 xl:gap-8 lg:flex-row lg:justify-between">
           {stats.map((stat: any, index: number) => (
             <div
               key={index}
-              className="w-full max-lg:max-w-2xl mx-auto lg:mx-0 lg:w-1/3 p-6 rounded-2xl border-2 border-gray-300 hover:border-indigo-600 transition-all duration-300 transform hover:scale-105"
+              className="w-full max-lg:max-w-2xl mx-auto lg:mx-0 lg:w-1/3 p-6 rounded-2xl border-2 border-neutral-300 dark:border-gray-300 hover:border-neutral-600 dark:hover:border-indigo-600 transition-all duration-300 transform hover:scale-105 bg-white dark:bg-transparent"
             >
               <div className="flex gap-5 items-center">
-                <div className="font-manrope text-2xl font-bold text-indigo-600">
+                <div className="font-manrope text-2xl font-bold text-neutral-600 dark:text-indigo-600">
                   {stat.icon}
                 </div>
                 <div className="flex-1">
-                  <h4 className="text-xl text-white font-semibold mb-2">{stat.title}</h4>
-                  <p className="text-sm leading-5">{stat.description}</p>
+                  <h4 className="text-xl text-neutral-800 dark:text-white font-semibold mb-2">{stat.title}</h4>
+                  <p className="text-sm leading-5 text-neutral-600 dark:text-neutral-300">{stat.description}</p>
                 </div>
               </div>
             </div>
@@ -48,35 +47,34 @@ const StatsSection = ({ stats }: any) => {
 };
 
 const AboutUsPage = () => {
-const stats = [
+  const stats = [
     {
-      icon: <FaChartLine size={40} className="text-white" />,
+      icon: <FaChartLine size={40} className="text-neutral-600 dark:text-white" />,
       title: 'Company Growth',
       description: 'Our remarkable growth reflects continuous innovation and relentless pursuit of excellence.',
     },
     {
-      icon: <FaUsers size={40} className="text-white" />,
+      icon: <FaUsers size={40} className="text-neutral-600 dark:text-white" />,
       title: 'Team Members',
       description: 'Our talented team members form the backbone of Byte Craft Solutions, driving our success.',
     },
     {
-      icon: <FaProjectDiagram size={40} className="text-white" />,
+      icon: <FaProjectDiagram size={40} className="text-neutral-600 dark:text-white" />,
       title: 'Projects Completed',
       description: 'With over 625 projects completed globally, we continue to expand our impact.',
     },
   ];
 
   return (
-    <div>
-
- <AboutUsSectionHeader
-        heading="About Byte Craft Solutions"
-        description="At Byte Craft Solutions, we are driven by a commitment to provide cutting-edge IT services and solutions. We aim to empower businesses by delivering seamless, scalable, and user-friendly software that enhances every interaction and experience."
-        reverse={false}
-        useLottieFile="animation1"
-      />
-
-
+    <div className="dark:bg-transparent text-neutral-800 dark:text-white">
+      <div className="mt-20">
+        <AboutUsSectionHeader
+          heading="About Byte Craft Solutions"
+          description="At Byte Craft Solutions, we are driven by a commitment to provide cutting-edge IT services and solutions. We aim to empower businesses by delivering seamless, scalable, and user-friendly software that enhances every interaction and experience."
+          reverse={false}
+          useLottieFile="animation1"
+        />
+      </div>
       <AboutUsSectionHeader
         heading="Creative and Innovative"
         description="Founded in 2024, Byte Craft Solutions has been at the forefront of technology innovation. We prioritize creativity, accessibility, and scalability in every project, crafting intuitive and functional software solutions that help businesses thrive."
@@ -84,9 +82,9 @@ const stats = [
         useLottieFile="animation2"
       />
       <StatsSection stats={stats} />
-<TeamSection />
+      <TeamSection />
     </div>
   );
 };
 
-export default AboutUsPage
+export default AboutUsPage;

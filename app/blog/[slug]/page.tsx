@@ -45,7 +45,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
   }
 
   return (
-    <div className="min-h-screen text-white">
+    <div className="min-h-screen dark:bg-transparent text-white">
       <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <article className="max-w-4xl mx-auto">
           <motion.img
@@ -60,7 +60,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-4xl md:text-4xl lg:text-6xl font-bold mb-6 leading-tight"
+            className="text-4xl md:text-4xl lg:text-5xl text-black dark:text-white font-bold mb-6 leading-tight"
           >
             {post.title}
           </motion.h1>
@@ -71,27 +71,27 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             className="flex flex-wrap items-center mb-8 text-gray-300 gap-6"
           >
             <div className="flex items-center">
-              <img src={post.author.avatar} alt={post.author.name} className="w-12 h-12 rounded-full mr-4 border-2 border-blue-500" />
+              <img src={post.author.avatar} alt={post.author.name} className="w-12 h-12 rounded-full mr-4 border-2 border-black" />
               <div>
-                <p className="font-semibold text-lg">{post.author.name}</p>
-                <p className="text-sm">{post.author.bio}</p>
+                <p className="font-semibold text-black dark:text-white text-lg">{post.author.name}</p>
+                <p className="text-sm text-black dark:text-white">{post.author.bio}</p>
               </div>
             </div>
             <div className="flex items-center">
-              <FaCalendarAlt className="mr-2 text-blue-400" />
-              <span>{post.date}</span>
+              <FaCalendarAlt className="mr-2 text-black dark:text-white" />
+              <span className="text-black dark:text-white">{post.date}</span>
             </div>
             <div className="flex items-center">
-              <FaClock className="mr-2 text-blue-400" />
-              <span>{post.readingTime} min read</span>
+              <FaClock className="mr-2 text-black dark:text-white" />
+              <span className='text-black dark:text-white'>{post.readingTime} min read</span>
             </div>
             <div className="flex items-center">
-              <FaEye className="mr-2 text-blue-400" />
-              <span>{post.views} views</span>
+              <FaEye className="mr-2 text-black dark:text-white" />
+              <span className='text-black dark:text-white'>{post.views} views</span>
             </div>
             <div className="flex items-center">
-              <FaHeart className="mr-2 text-red-400" />
-              <span>{post.likes} likes</span>
+              <FaHeart className="mr-2 text-black dark:text-white" />
+              <span className='text-black dark:text-white'>{post.likes} likes</span>
             </div>
           </motion.div>
           <motion.div
@@ -101,7 +101,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             className="flex flex-wrap gap-3 mb-10"
           >
             {post.categories.map((category) => (
-              <span key={category}     className="px-4 py-2 rounded-full text-sm font-medium border border-gray-600 hover:border-blue-500 hover:text-blue-400 transition-colors duration-200 cursor-pointer"
+              <span key={category} className="px-4 py-2 rounded-full text-sm text-black dark:text-white font-medium border border-gray-600 hover:border-black hover:text-black transition-colors duration-200 cursor-pointer"
               >
                 {category}
               </span>
@@ -111,16 +111,16 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.8 }}
-            className="prose prose-lg prose-invert max-w-none mb-16"
+            className="prose prose-lg prose-invert text-black dark:text-white max-w-none mb-16"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 1 }}
-            className="border-t border-gray-700 pt-8 mt-16"
+            className="border-t border-black pt-8 mt-16"
           >
-            <h3 className="text-2xl font-semibold mb-6">Tags</h3>
+            <h3 className="text-2xl font-semibold mb-6 text-black dark:text-white">Tags</h3>
             <div className="flex flex-wrap gap-3">
               {post.tags.map((tag, index) => (
                 <motion.span
@@ -128,7 +128,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.3, delay: index * 0.1 }}
-                  className="px-4 py-2 rounded-full text-sm font-medium border border-gray-600 hover:border-blue-500 hover:text-blue-400 transition-colors duration-200 cursor-pointer"
+                  className="px-4 py-2 rounded-full text-sm font-medium border text-black dark:text-white border-black dark:border-white hover:border-black hover:text-black transition-colors duration-200 cursor-pointer"
                 >
                   #{tag}
                 </motion.span>
@@ -141,7 +141,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             transition={{ duration: 0.5, delay: 1.2 }}
             className="border-t border-gray-700 pt-8 mt-16"
           >
-            <h3 className="text-2xl font-semibold mb-6">Share this post</h3>
+            <h3 className="text-2xl font-semibold mb-6 text-black dark:text-white">Share this post</h3>
             <div className="flex gap-4">
               <button onClick={shareOnTwitter} className="text-blue-400 hover:text-blue-300 transition-colors duration-200">
                 <FaTwitter size={28} />

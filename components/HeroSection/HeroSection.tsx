@@ -40,14 +40,14 @@ const HeroSection = () => {
             <>
               <div className="mx-auto max-w-[900px] px-4 sm:px-8 xl:px-0 relative z-1">
                 <div className="text-center">
-                  <h2 className="mb-4 text-2xl font-semibold dark:text-white text-gray-800">
+                  <h2 className="mb-4 text-2xl font-semibold dark:text-white text-black">
                     Welcome to ByteCraft Solutions!
                   </h2>
 
-                  <h1 className="mb-6 text-3xl font-extrabold sm:text-5xl xl:text-heading-1 dark:text-white bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent dark:bg-gradient-to-r dark:from-gray-100 dark:to-gray-300">
+                  <h1 className="mb-6 text-3xl font-extrabold sm:text-5xl xl:text-heading-1 dark:text-white bg-black bg-clip-text text-transparent dark:bg-gradient-to-r dark:from-gray-100 dark:to-gray-300">
                     Elevate Your Business with Custom Software Solutions
                   </h1>
-                  <p className="max-w-[500px] mx-auto mb-9 font-medium md:text-lg dark:text-white text-gray-700">
+                  <p className="max-w-[500px] mx-auto mb-9 font-medium md:text-lg dark:text-white text-black">
                     At ByteCraft Solutions, we transform your ideas into powerful,
                     tailored applications. Experience the difference of working
                     with a dedicated team that puts your business first.

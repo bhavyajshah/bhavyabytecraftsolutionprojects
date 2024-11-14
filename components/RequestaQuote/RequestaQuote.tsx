@@ -2,27 +2,28 @@
 
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { Upload, Send } from 'lucide-react'
+import { useTheme } from "next-themes";
 
 export default function RequestQuote() {
   const [fileName, setFileName] = useState<string | null>(null)
+  const { theme } = useTheme();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4 sm:p-8">
-      <div className="w-full max-w-4xl">
+    <div className={`min-h-screen flex items-center justify-center p-4 sm:p-8 ${theme === 'light' ? 'bg-gradient-to-br from-gray-50 to-white' : 'bg-transparent'}`}>
+      <div className="w-full max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl overflow-hidden"
+          className="bg-white dark:bg-transparent dark:border-white rounded-3xl shadow-2xl overflow-hidden"
         >
           <div className="flex flex-col lg:flex-row">
-            {/* Left side - Form */}
+
             <div className="p-8 lg:p-12 flex-1">
               <h2 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">Request a Quote</h2>
               <form className="space-y-6">
@@ -57,7 +58,6 @@ export default function RequestQuote() {
               </form>
             </div>
 
-            {/* Right side - Decorative */}
             <div className="bg-gradient-to-br from-purple-500 to-indigo-600 p-8 lg:p-12 flex-1 relative overflow-hidden">
               <div className="absolute inset-0 opacity-20">
                 <div className="stars"></div>
@@ -86,9 +86,7 @@ export default function RequestQuote() {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 1.2, duration: 0.8 }}
                 >
-                  <Link href="/portfolio" className="text-white hover:text-purple-200 transition duration-300">
-                    View Our Portfolio <span aria-hidden="true">→</span>
-                  </Link>
+
                 </motion.div>
               </div>
             </div>

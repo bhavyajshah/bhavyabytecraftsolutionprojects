@@ -19,7 +19,7 @@ export default async function BlogPage() {
   const posts = await getBlogPosts();
 
   return (
-    <div className="min-h-screen">
+    <div className="mt-24">
       <BlogSection initialPosts={posts} />
     </div>
   );

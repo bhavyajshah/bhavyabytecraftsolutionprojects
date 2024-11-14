@@ -3,12 +3,14 @@
 import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { AiOutlineMail, AiOutlineUser, AiOutlinePhone } from "react-icons/ai";
-import { FaRegBuilding } from "react-icons/fa";
-import { LuFileSearch } from "react-icons/lu";
+import { Mail, User, Phone, Building, Search } from "lucide-react";
 import { motion } from "framer-motion";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 interface FormValues {
   firstName: string;
@@ -23,7 +25,41 @@ interface FormValues {
   projectDuration: string;
 }
 
-const ContactSection = () => {
+const checkboxOptions = [
+  "Web Development",
+  "Mobile Development",
+  "UI/UX Design",
+  "Custom Software",
+  "AI Development",
+  "Blockchain Integration",
+];
+
+const radioOptions = [
+  "Less than 3 months",
+  "3-6 months",
+  "6-12 months",
+  "More than 12 months",
+];
+
+const softwareDevelopmentProcess = [
+  "Idea",
+  "Prototype",
+  "MVP",
+  "Designed solution",
+  "In Production",
+];
+
+const teamMember = [
+  "Project Manager",
+  "UI/UX Designer",
+  "Business Analyst",
+  "Architect",
+  "DevOps Engineer",
+  "Quality Assurance",
+  "Software Engineer",
+];
+
+export default function ContactSection() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [dialogContent, setDialogContent] = useState({ title: '', message: '' });
 
@@ -97,48 +133,13 @@ const ContactSection = () => {
           message: 'An error occurred while submitting the form. Please try again.'
         });
         console.error(error);
-
       }
       setIsDialogOpen(true);
     },
   });
 
-  const checkboxOptions = [
-    "Web Development",
-    "Mobile Development",
-    "UI/UX Design",
-    "Custom Software",
-    "AI Development",
-    "Blockchain Integration",
-  ];
-
-  const radioOptions = [
-    "Less than 3 months",
-    "3-6 months",
-    "6-12 months",
-    "More than 12 months",
-  ];
-
-  const softwareDevelopmentProcess = [
-    "Idea",
-    "Prototype",
-    "MVP",
-    "Designed solution",
-    "In Production",
-  ];
-
-  const teamMember = [
-    "Project Manager",
-    "UI/UX Designer",
-    "Business Analyst",
-    "Architect",
-    "DevOps Engineer",
-    "Quality Assurance",
-    "Software Engineer",
-  ];
-
   return (
-    <section id="contact" className="py-16  text-white">
+    <section id="contact" className="py-16 text-gray-800 dark:text-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-12"
@@ -146,32 +147,28 @@ const ContactSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-4 bg-clip-text text-white">Get in Touch</h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-gray-700 to-gray-900 dark:from-gray-100 dark:to-white">Get in Touch</h2>
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             We&apos;re excited to hear about your project. Fill out the form below, and let&apos;s create something amazing together.
           </p>
         </motion.div>
 
-        <div className="border rounded-2xl shadow-2xl overflow-hidden">
+        <div className="bg-white dark:bg-transparent border border-gray-200 dark:border-white rounded-2xl shadow-xl overflow-hidden">
           <form onSubmit={formik.handleSubmit} className="p-8 space-y-8">
             <div className="grid md:grid-cols-2 gap-8">
-              {/* First Name */}
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2 }}
               >
-                <label htmlFor="firstName" className="block text-sm font-medium mb-2">
-                  First Name *
-                </label>
-                <div className="relative">
-                  <AiOutlineUser className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                  <input
+                <Label htmlFor="firstName">First Name *</Label>
+                <div className="relative mt-1">
+                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+                  <Input
                     id="firstName"
-                    type="text"
                     name="firstName"
                     placeholder="Enter your First Name"
-                    className="w-full pl-10 pr-3 py-2 bg-transparent border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500 transition duration-300"
+                    className="pl-10"
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.firstName}
@@ -182,23 +179,19 @@ const ContactSection = () => {
                 )}
               </motion.div>
 
-              {/* Last Name */}
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3 }}
               >
-                <label htmlFor="lastName" className="block text-sm font-medium mb-2">
-                  Last Name *
-                </label>
-                <div className="relative">
-                  <AiOutlineUser className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                  <input
+                <Label htmlFor="lastName">Last Name *</Label>
+                <div className="relative mt-1">
+                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+                  <Input
                     id="lastName"
-                    type="text"
                     name="lastName"
                     placeholder="Enter your Last Name"
-                    className="w-full pl-10 pr-3 py-2 bg-transparent  border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500 transition duration-300"
+                    className="pl-10"
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.lastName}
@@ -209,23 +202,20 @@ const ContactSection = () => {
                 )}
               </motion.div>
 
-              {/* Email */}
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.4 }}
               >
-                <label htmlFor="email" className="block text-sm font-medium mb-2">
-                  Email *
-                </label>
-                <div className="relative">
-                  <AiOutlineMail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                  <input
+                <Label htmlFor="email">Email *</Label>
+                <div className="relative mt-1">
+                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+                  <Input
                     id="email"
-                    type="email"
                     name="email"
+                    type="email"
                     placeholder="Enter your Email"
-                    className="w-full pl-10 pr-3 py-2 bg-transparent  border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500 transition duration-300"
+                    className="pl-10"
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.email}
@@ -236,23 +226,20 @@ const ContactSection = () => {
                 )}
               </motion.div>
 
-              {/* Phone */}
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.5 }}
               >
-                <label htmlFor="phone" className="block text-sm font-medium mb-2">
-                  Phone Number
-                </label>
-                <div className="relative">
-                  <AiOutlinePhone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                  <input
+                <Label htmlFor="phone">Phone Number</Label>
+                <div className="relative mt-1">
+                  <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+                  <Input
                     id="phone"
-                    type="tel"
                     name="phone"
+                    type="tel"
                     placeholder="Enter your Phone Number"
-                    className="w-full pl-10 pr-3 py-2 bg-transparent border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500 transition duration-300"
+                    className="pl-10"
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.phone}
@@ -260,23 +247,19 @@ const ContactSection = () => {
                 </div>
               </motion.div>
 
-              {/* Company Name */}
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.6 }}
               >
-                <label htmlFor="company" className="block text-sm font-medium mb-2">
-                  Company Name
-                </label>
-                <div className="relative">
-                  <FaRegBuilding className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                  <input
+                <Label htmlFor="company">Company Name</Label>
+                <div className="relative mt-1">
+                  <Building className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+                  <Input
                     id="company"
-                    type="text"
                     name="company"
                     placeholder="Enter your Company Name"
-                    className="w-full pl-10 pr-3 py-2 bg-transparent border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500 transition duration-300"
+                    className="pl-10"
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.company}
@@ -284,23 +267,19 @@ const ContactSection = () => {
                 </div>
               </motion.div>
 
-              {/* Referral */}
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.7 }}
               >
-                <label htmlFor="referral" className="block text-sm font-medium mb-2">
-                  How did you hear about us? *
-                </label>
-                <div className="relative">
-                  <LuFileSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                  <input
+                <Label htmlFor="referral">How did you hear about us? *</Label>
+                <div className="relative mt-1">
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+                  <Input
                     id="referral"
-                    type="text"
                     name="referral"
                     placeholder="Tell us how you heard about us"
-                    className="w-full pl-10 pr-3 py-2 bg-transparent border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500 transition duration-300"
+                    className="pl-10"
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.referral}
@@ -317,24 +296,30 @@ const ContactSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 }}
             >
-              <p className="text-lg font-semibold mb-3">
+              <p className="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-200">
                 1. What type of software solution would you like to develop with us? *
               </p>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {checkboxOptions.map((option, index) => (
-                  <label key={index} className="flex items-center space-x-2 cursor-pointer group">
-                    <input
-                      type="checkbox"
+                {checkboxOptions.map((option) => (
+                  <div className="flex items-center space-x-2" key={option}>
+                    <Checkbox
+                      id={option}
                       name="softwareType"
                       value={option}
                       checked={formik.values.softwareType.includes(option)}
-                      onChange={formik.handleChange}
-                      className="form-checkbox h-5 w-5 text-blue-600 rounded focus:ring-blue-500 border-gray-500 bg-gray-700"
+                      onCheckedChange={(checked) => {
+                        if (checked) {
+                          formik.setFieldValue("softwareType", [...formik.values.softwareType, option]);
+                        } else {
+                          formik.setFieldValue(
+                            "softwareType",
+                            formik.values.softwareType.filter((type) => type !== option)
+                          );
+                        }
+                      }}
                     />
-                    <span className="group-hover:text-blue-400 transition-colors duration-200">
-                      {option}
-                    </span>
-                  </label>
+                    <Label htmlFor={option}>{option}</Label>
+                  </div>
                 ))}
               </div>
               {formik.touched.softwareType && formik.errors.softwareType && (
@@ -347,26 +332,23 @@ const ContactSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.9 }}
             >
-              <p className="text-lg font-semibold mb-3">
+              <p className="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-200">
                 2. What is the expected duration of your project? *
               </p>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {radioOptions.map((option, index) => (
-                  <label key={index} className="flex items-center space-x-2 cursor-pointer group">
-                    <input
-                      type="radio"
-                      name="projectDuration"
-                      value={option}
-                      checked={formik.values.projectDuration === option}
-                      onChange={formik.handleChange}
-                      className="form-radio h-5 w-5 text-blue-600 focus:ring-blue-500 border-gray-500 bg-gray-700"
-                    />
-                    <span className="group-hover:text-blue-400 transition-colors duration-200">
-                      {option}
-                    </span>
-                  </label>
-                ))}
-              </div>
+              <RadioGroup
+                name="projectDuration"
+                value={formik.values.projectDuration}
+                onValueChange={(value) => formik.setFieldValue("projectDuration", value)}
+              >
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  {radioOptions.map((option) => (
+                    <div className="flex items-center space-x-2" key={option}>
+                      <RadioGroupItem value={option} id={option} />
+                      <Label htmlFor={option}>{option}</Label>
+                    </div>
+                  ))}
+                </div>
+              </RadioGroup>
               {formik.touched.projectDuration && formik.errors.projectDuration && (
                 <p className="text-red-500 text-sm mt-2">{formik.errors.projectDuration}</p>
               )}
@@ -377,24 +359,30 @@ const ContactSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.0 }}
             >
-              <p className="text-lg font-semibold mb-3">
+              <p className="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-200">
                 3. What team members do you need for your project? *
               </p>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {teamMember.map((option, index) => (
-                  <label key={index} className="flex items-center space-x-2 cursor-pointer group">
-                    <input
-                      type="checkbox"
+                {teamMember.map((option) => (
+                  <div className="flex items-center space-x-2" key={option}>
+                    <Checkbox
+                      id={option}
                       name="teamMembers"
                       value={option}
                       checked={formik.values.teamMembers.includes(option)}
-                      onChange={formik.handleChange}
-                      className="form-checkbox h-5 w-5 text-blue-600 rounded focus:ring-blue-500 border-gray-500 bg-gray-700"
+                      onCheckedChange={(checked) => {
+                        if (checked) {
+                          formik.setFieldValue("teamMembers", [...formik.values.teamMembers, option]);
+                        } else {
+                          formik.setFieldValue(
+                            "teamMembers",
+                            formik.values.teamMembers.filter((member) => member !== option)
+                          );
+                        }
+                      }}
                     />
-                    <span className="group-hover:text-blue-400 transition-colors duration-200">
-                      {option}
-                    </span>
-                  </label>
+                    <Label htmlFor={option}>{option}</Label>
+                  </div>
                 ))}
               </div>
               {formik.touched.teamMembers && formik.errors.teamMembers && (
@@ -407,26 +395,23 @@ const ContactSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.1 }}
             >
-              <p className="text-lg font-semibold mb-3">
+              <p className="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-200">
                 4. What is the current stage of your software development process? *
               </p>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {softwareDevelopmentProcess.map((option, index) => (
-                  <label key={index} className="flex items-center space-x-2 cursor-pointer group">
-                    <input
-                      type="radio"
-                      name="developmentStage"
-                      value={option}
-                      checked={formik.values.developmentStage === option}
-                      onChange={formik.handleChange}
-                      className="form-radio h-5 w-5 text-blue-600 focus:ring-blue-500 border-gray-500 bg-gray-700"
-                    />
-                    <span className="group-hover:text-blue-400 transition-colors duration-200">
-                      {option}
-                    </span>
-                  </label>
-                ))}
-              </div>
+              <RadioGroup
+                name="developmentStage"
+                value={formik.values.developmentStage}
+                onValueChange={(value) => formik.setFieldValue("developmentStage", value)}
+              >
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  {softwareDevelopmentProcess.map((option) => (
+                    <div className="flex items-center space-x-2" key={option}>
+                      <RadioGroupItem value={option} id={option} />
+                      <Label htmlFor={option}>{option}</Label>
+                    </div>
+                  ))}
+                </div>
+              </RadioGroup>
               {formik.touched.developmentStage && formik.errors.developmentStage && (
                 <p className="text-red-500 text-sm mt-2">{formik.errors.developmentStage}</p>
               )}
@@ -438,19 +423,19 @@ const ContactSection = () => {
               transition={{ delay: 1.2 }}
               className="text-center"
             >
-              <button
+              <Button
                 type="submit"
-                className="hero-button-gradient inline-flex rounded-lg py-3 px-7 text-white font-medium ease-in duration-300 hover:opacity-80"
+                className="w-full sm:w-auto px-8 py-3  hero-button-gradient hero-button text-white font-medium rounded-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
               >
                 Get Your Free Quote
-              </button>
+              </Button>
             </motion.div>
           </form>
         </div>
       </div>
 
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogContent className="border-gray-700 backdrop-blur-sm bg-gray-900/30 text-white border rounded-lg shadow-xl">
+        <DialogContent className="sm:max-w-[425px] border-gray-700 backdrop-blur-sm bg-gray-900/30 text-white border rounded-lg shadow-xl">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -492,6 +477,4 @@ const ContactSection = () => {
       </Dialog>
     </section>
   );
-};
-
-export default ContactSection;
+}

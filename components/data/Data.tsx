@@ -515,3 +515,58 @@ export const faqsList = [
     a: "We specialize in a wide range of technologies including JavaScript frameworks (React, Node.js), mobile technologies (Flutter, Swift), and cloud platforms (AWS, Azure).",
   },
 ];
+
+export const teamMembers = [
+  {
+    name: "Rohit Raaj",
+    position: "Founder",
+    description:
+      "With a passion for technology and innovation, I founded Byte Craft Solutions to help businesses thrive.",
+    imgSrc: "https://randomuser.me/api/portraits/men/1.jpg",
+    social: {
+      linkedin: "https://linkedin.com/in/rohitraaj",
+      twitter: "https://twitter.com/rohitraaj",
+      instagram: "https://instagram.com/rohitraaj",
+      facebook: "https://facebook.com/rohitraaj",
+    },
+  },
+  {
+    name: "Rahul Mehta",
+    position: "Co-Founder",
+    description:
+      "As a co-founder, I am committed to leading our team to deliver exceptional IT solutions.",
+    imgSrc: "https://randomuser.me/api/portraits/men/2.jpg",
+    social: {
+      linkedin: "https://linkedin.com/in/rahulmehta",
+      twitter: "https://twitter.com/rahulmehta",
+      instagram: "https://instagram.com/rahulmehta",
+      facebook: "https://facebook.com/rahulmehta",
+    },
+  },
+  {
+    name: "Kiara Verma",
+    position: "Lead Designer",
+    description:
+      "With a keen eye for design, I ensure our products are user-friendly and visually appealing.",
+    imgSrc: "https://randomuser.me/api/portraits/women/1.jpg",
+    social: {
+      linkedin: "https://linkedin.com/in/kiaraverma",
+      twitter: "https://twitter.com/kiaraverma",
+      instagram: "https://instagram.com/kiaraverma",
+      facebook: "https://facebook.com/kiaraverma",
+    },
+  },
+  {
+    name: "Priya Desai",
+    position: "Product Manager",
+    description:
+      "I align our product strategy with client needs, ensuring our offerings are top-notch.",
+    imgSrc: "https://randomuser.me/api/portraits/women/2.jpg",
+    social: {
+      linkedin: "https://linkedin.com/in/priyadesai",
+      twitter: "https://twitter.com/priyadesai",
+      instagram: "https://instagram.com/priyadesai",
+      facebook: "https://facebook.com/priyadesai",
+    },
+  },
+];

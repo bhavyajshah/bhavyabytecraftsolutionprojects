@@ -1,4 +1,5 @@
 'use client'
+
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { techCategory } from "../data/Data";
@@ -20,7 +21,7 @@ interface Category {
   section: Section[];
 }
 
-const Technologies: React.FC = () => {
+export default function Technologies() {
   const { theme } = useTheme();
   const [activeCategory, setActiveCategory] = useState<number | null>(null);
 
@@ -46,16 +47,16 @@ const Technologies: React.FC = () => {
   return (
     <section
       id="technologies"
-      className={`pt-20 lg:pb-40 ${theme === 'light' ? 'bg-gradient-to-br from-blue-50 to-white' : ''
+      className={`pt-20 lg:pb-40 ${theme === 'light' ? 'bg-gradient-to-br from-gray-50 to-white' : ''
         }`}
     >
       <div className="container mx-auto max-w-6xl px-4">
         <div className="text-center">
-          <h2 className={`mb-4 text-2xl font-extrabold sm:text-4xl xl:text-5xl ${theme === 'light' ? 'text-blue-800' : 'text-white'
+          <h2 className={`mb-4 text-2xl font-extrabold sm:text-4xl xl:text-5xl ${theme === 'light' ? 'text-gray-800' : 'text-white'
             }`}>
             Technologies
           </h2>
-          <p className={`max-w-[714px] mx-auto mb-8 font-medium ${theme === 'light' ? 'text-blue-700' : 'text-zinc-300'
+          <p className={`max-w-[714px] mx-auto mb-8 font-medium ${theme === 'light' ? 'text-gray-600' : 'text-zinc-300'
             }`}>
             We use the latest technologies and tools to deliver top-notch solutions
           </p>
@@ -67,8 +68,8 @@ const Technologies: React.FC = () => {
             onClick={() => handleCategoryChange(null)}
             className={`px-4 py-2 rounded-full font-semibold transition-all ${theme === 'light'
               ? activeCategory === null
-                ? 'bg-blue-600 text-white'
-                : 'border border-blue-300 text-blue-700 hover:bg-blue-50'
+                ? 'bg-gray-800 text-white'
+                : 'border border-gray-300 text-gray-700 hover:bg-gray-100'
               : activeCategory === null
                 ? 'bg-[#200F46] text-white'
                 : 'border border-[#200F46] text-white'
@@ -82,8 +83,8 @@ const Technologies: React.FC = () => {
               onClick={() => handleCategoryChange(category.id)}
               className={`px-4 py-2 rounded-full font-semibold transition-all ${theme === 'light'
                 ? activeCategory === category.id
-                  ? 'bg-blue-600 text-white'
-                  : 'border border-blue-300 text-blue-700 hover:bg-blue-50'
+                  ? 'bg-gray-800 text-white'
+                  : 'border border-gray-300 text-gray-700 hover:bg-gray-100'
                 : activeCategory === category.id
                   ? 'bg-[#200F46] text-white'
                   : 'border border-[#200F46] text-white'
@@ -116,13 +117,13 @@ const Technologies: React.FC = () => {
                   >
                     {/* Category Title */}
                     <h3
-                      className={`text-xl font-semibold text-center mb-4 ${theme === 'light' ? 'text-blue-800' : 'text-white'
+                      className={`text-xl font-semibold text-center mb-4 ${theme === 'light' ? 'text-gray-800' : 'text-white'
                         }`}
                       dangerouslySetInnerHTML={{ __html: section.category }}
                     />
 
                     {/* Description */}
-                    <p className={`text-center mb-6 ${theme === 'light' ? 'text-blue-600' : 'text-white'
+                    <p className={`text-center mb-6 ${theme === 'light' ? 'text-gray-600' : 'text-white'
                       }`}>
                       {section.description || "Explore the latest tools and frameworks for this category."}
                     </p>
@@ -152,6 +153,4 @@ const Technologies: React.FC = () => {
       </div>
     </section>
   );
-};
-
-export default Technologies;
+}
