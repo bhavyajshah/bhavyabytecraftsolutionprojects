@@ -1,4 +1,5 @@
 'use client'
+
 import React, { useState, useRef } from 'react'
 import {
     FaReact, FaVuejs, FaAngular, FaNodeJs, FaPython, FaJava, FaSwift, FaAndroid,
@@ -80,7 +81,7 @@ export default function TechnologyShowcase({ title }: { title: string }) {
             const width = window.innerWidth
             return width < 640 ? 1 : width < 1024 ? 3 : 5
         }
-        return 5 // Default count
+        return 5
     }
 
     const getVisibleTechnologies = () => {
@@ -100,7 +101,7 @@ export default function TechnologyShowcase({ title }: { title: string }) {
     }
 
     return (
-        <div className="w-full text-white px-4 pb-24 max-w-6xl mx-auto overflow-x-hidden">
+        <div className="w-full text-gray-800 dark:text-white px-4 pb-24 max-w-6xl mx-auto overflow-x-hidden">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center font-bold leading-tight mb-8 sm:mb-12">
                 {title}
             </h1>
@@ -113,12 +114,12 @@ export default function TechnologyShowcase({ title }: { title: string }) {
                         <button
                             key={category}
                             className={`px-4 py-2 text-sm rounded-full whitespace-nowrap transition-all duration-300 ${activeCategory === category
-                                ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg'
-                                : 'bg-gray-800 hover:bg-gray-700 text-gray-300'
+                                    ? 'bg-gradient-to-r from-gray-500 to-gray-600 text-white shadow-lg dark:from-blue-500 dark:to-purple-600'
+                                    : 'bg-gray-200 hover:bg-gray-300 text-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-300'
                                 }`}
                             onClick={() => {
                                 setActiveCategory(category)
-                                setCurrentIndex(0) // Reset index on category change
+                                setCurrentIndex(0)
                             }}
                         >
                             {category}
@@ -126,13 +127,13 @@ export default function TechnologyShowcase({ title }: { title: string }) {
                     ))}
                 </div>
                 <button
-                    className="absolute left-0 top-1/2 lg:hidden block transform -translate-y-1/2 bg-gray-800 p-2 rounded-full opacity-75 hover:opacity-100 transition-opacity"
+                    className="absolute left-0 top-1/2 lg:hidden block transform -translate-y-1/2 bg-gray-300 dark:bg-gray-800 p-2 rounded-full opacity-75 hover:opacity-100 transition-opacity"
                     onClick={() => scroll(-100)}
                 >
                     <FaChevronLeft className="w-4 h-4" />
                 </button>
                 <button
-                    className="absolute right-0 top-1/2 lg:hidden block transform -translate-y-1/2 bg-gray-800 p-2 rounded-full opacity-75 hover:opacity-100 transition-opacity"
+                    className="absolute right-0 top-1/2 lg:hidden block transform -translate-y-1/2 bg-gray-300 dark:bg-gray-800 p-2 rounded-full opacity-75 hover:opacity-100 transition-opacity"
                     onClick={() => scroll(100)}
                 >
                     <FaChevronRight className="w-4 h-4" />
@@ -143,13 +144,13 @@ export default function TechnologyShowcase({ title }: { title: string }) {
                 {filteredTechnologies.length > 1 && (
                     <>
                         <button
-                            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 p-3 rounded-full opacity-75 hover:opacity-100 transition-opacity z-10"
+                            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-300 dark:bg-gray-800 p-3 rounded-full opacity-75 hover:opacity-100 transition-opacity z-10"
                             onClick={prevSlide}
                         >
                             <FaChevronLeft className="w-6 h-6" />
                         </button>
                         <button
-                            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 p-3 rounded-full opacity-75 hover:opacity-100 transition-opacity z-10"
+                            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-300 dark:bg-gray-800 p-3 rounded-full opacity-75 hover:opacity-100 transition-opacity z-10"
                             onClick={nextSlide}
                         >
                             <FaChevronRight className="w-6 h-6" />
@@ -164,8 +165,7 @@ export default function TechnologyShowcase({ title }: { title: string }) {
                         return (
                             <div
                                 key={tech.name}
-                                className={`text-center transition-all duration-300 ${isCenter ? '' : 'opacity-50'
-                                    }`}
+                                className={`text-center transition-all duration-300 ${isCenter ? '' : 'opacity-50'}`}
                             >
                                 <div className="text-5xl mb-2">
                                     <Icon />

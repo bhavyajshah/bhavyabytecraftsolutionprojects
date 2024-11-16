@@ -27,7 +27,7 @@ const awardsData = [
 
 export default function UIUXStats() {
     return (
-        <div className="text-white p-8 md:p-16 max-w-7xl mx-auto">
+        <div className="p-8 md:p-16 max-w-7xl mx-auto dark:text-white text-gray-800">
             <motion.h2
                 className="text-4xl text-center md:text-5xl lg:text-6xl font-bold mb-12 md:mb-16"
                 initial={{ opacity: 0, y: -50 }}
@@ -46,7 +46,7 @@ export default function UIUXStats() {
                 {awardsData.map((award) => (
                     <motion.div
                         key={award.id}
-                        className="space-y-4"
+                        className="space-y-4 shadow-lg p-4"
                         whileHover={{ scale: 1.05 }}
                         transition={{ duration: 0.3 }}
                     >
@@ -63,7 +63,7 @@ export default function UIUXStats() {
                             />
                         </motion.div>
                         <h3 className="text-xl font-semibold">{award.title}</h3>
-                        <p className="text-sm text-gray-400">{award.description}</p>
+                        <p className="text-sm dark:text-gray-400 text-gray-600">{award.description}</p>
                     </motion.div>
                 ))}
             </motion.div>

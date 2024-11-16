@@ -1,4 +1,5 @@
 'use client';
+
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
@@ -11,7 +12,7 @@ interface FormValues {
   nda: boolean;
 }
 
-const ConsultationForm: React.FC = () => {
+export default function Component() {
   const formik = useFormik<FormValues>({
     initialValues: {
       name: '',
@@ -27,10 +28,10 @@ const ConsultationForm: React.FC = () => {
       phone: Yup.string().required('Phone number is required'),
       projectDescription: Yup.string().required('Please describe your project'),
       file: Yup.mixed()
-        .test('fileSize', 'File size should be less than 3MB', (value:any) => {
+        .test('fileSize', 'File size should be less than 3MB', (value: any) => {
           return !value || (value && value.size <= 3 * 1024 * 1024);
         })
-        .test('fileFormat', 'Unsupported format', (value:any) => {
+        .test('fileFormat', 'Unsupported format', (value: any) => {
           return (
             !value ||
             [
@@ -57,21 +58,21 @@ const ConsultationForm: React.FC = () => {
   });
 
   return (
-    <div className="flex flex-col lg:flex-row  p-10 rounded-lg shadow-lg max-w-6xl mx-auto">
+    <div className="flex flex-col lg:flex-row p-10 rounded-lg shadow-lg max-w-6xl mx-auto bg-gray-100 dark:bg-transparent">
       {/* Left Section */}
-      <div className="lg:w-1/2 pr-0 lg:pr-10 mb-10 lg:mb-0 text-white">
+      <div className="lg:w-1/2 pr-0 lg:pr-10 mb-10 lg:mb-0 text-gray-800 dark:text-white">
         <h2 className="text-2xl font-bold mb-5">Schedule a free IT consultation</h2>
         <ul className="space-y-4 mb-10">
           <li className="flex items-center">
-            <div className="w-8 h-8  rounded-full flex justify-center items-center mr-3">1</div>
+            <div className="w-8 h-8 bg-gray-300 dark:bg-gray-700 rounded-full flex justify-center items-center mr-3">1</div>
             <span>An expert contacts you after analyzing your requirements</span>
           </li>
           <li className="flex items-center">
-            <div className="w-8 h-8  rounded-full flex justify-center items-center mr-3">2</div>
+            <div className="w-8 h-8 bg-gray-300 dark:bg-gray-700 rounded-full flex justify-center items-center mr-3">2</div>
             <span>If needed, we sign an NDA to ensure privacy</span>
           </li>
           <li className="flex items-center">
-            <div className="w-8 h-8  rounded-full flex justify-center items-center mr-3">3</div>
+            <div className="w-8 h-8 bg-gray-300 dark:bg-gray-700 rounded-full flex justify-center items-center mr-3">3</div>
             <span>We submit a comprehensive project proposal</span>
           </li>
         </ul>
@@ -85,7 +86,7 @@ const ConsultationForm: React.FC = () => {
       </div>
 
       {/* Right Section */}
-      <div className="lg:w-1/2 text-white">
+      <div className="lg:w-1/2 text-gray-800 dark:text-white">
         <form onSubmit={formik.handleSubmit}>
           <div className="mb-5">
             <label htmlFor="name" className="block text-sm font-bold mb-2">Name</label>
@@ -96,7 +97,7 @@ const ConsultationForm: React.FC = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.name}
-              className="w-full p-2 outline-none border bg-transparent border-gray-300 rounded-lg"
+              className="w-full p-2 outline-none border bg-white dark:bg-transparent border-gray-300 rounded-lg"
             />
             {formik.touched.name && formik.errors.name ? <div className="text-red-500 text-sm mt-1">{formik.errors.name}</div> : null}
           </div>
@@ -110,7 +111,7 @@ const ConsultationForm: React.FC = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.email}
-              className="w-full p-2 outline-none border bg-transparent border-gray-300 rounded-lg"
+              className="w-full p-2 outline-none border bg-white dark:bg-transparent border-gray-300 rounded-lg"
             />
             {formik.touched.email && formik.errors.email ? <div className="text-red-500 text-sm mt-1">{formik.errors.email}</div> : null}
           </div>
@@ -124,7 +125,7 @@ const ConsultationForm: React.FC = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.phone}
-              className="w-full p-2 outline-none border bg-transparent border-gray-300 rounded-lg"
+              className="w-full p-2 outline-none border bg-white dark:bg-transparent border-gray-300 rounded-lg"
             />
             {formik.touched.phone && formik.errors.phone ? <div className="text-red-500 text-sm mt-1">{formik.errors.phone}</div> : null}
           </div>
@@ -137,7 +138,7 @@ const ConsultationForm: React.FC = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.projectDescription}
-              className="w-full p-3 border bg-transparent border-gray-300 rounded-lg"
+              className="w-full p-3 border bg-white dark:bg-transparent border-gray-300 rounded-lg"
             />
             {formik.touched.projectDescription && formik.errors.projectDescription ? <div className="text-red-500 text-sm mt-1">{formik.errors.projectDescription}</div> : null}
           </div>
@@ -149,10 +150,10 @@ const ConsultationForm: React.FC = () => {
               name="file"
               type="file"
               onChange={(event) => formik.setFieldValue('file', event.currentTarget.files?.[0] || null)}
-              className="w-full p-3 border bg-transparent border-gray-300 rounded-lg"
+              className="w-full p-3 border bg-white dark:bg-transparent border-gray-300 rounded-lg"
             />
-            {formik.errors.file && formik.touched.file ? <div className="text-red-500 text-sm mt-1">{(formik.errors.file as any)}</div> : null}
-            <p className="text-gray-500 text-xs mt-1">No more than 3MB. Formats: doc, docx, pdf, ppt, pptx.</p>
+            {formik.errors.file && formik.touched.file ? <div className="text-red-500 text-sm mt-1">{formik.errors.file as string}</div> : null}
+            <p className="text-gray-500 dark:text-gray-400 text-xs mt-1">No more than 3MB. Formats: doc, docx, pdf, ppt, pptx.</p>
           </div>
 
           <div className="mb-5">
@@ -171,13 +172,11 @@ const ConsultationForm: React.FC = () => {
 
           <button type="submit" className="bg-[#6430c2] text-white w-full py-3 font-semibold rounded-lg">Send Request</button>
 
-          <p className="text-sm text-white flex items-center mt-3">
+          <p className="text-sm text-gray-800 dark:text-white flex items-center mt-3">
             <span className="material-icons text-[#6430c2] mr-1">&#128274;</span> Your privacy is protected
           </p>
         </form>
       </div>
     </div>
   );
-};
-
-export default ConsultationForm;
+}

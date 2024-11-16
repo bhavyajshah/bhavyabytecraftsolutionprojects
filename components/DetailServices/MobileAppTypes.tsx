@@ -1,11 +1,24 @@
 'use client';
-import React, { useState } from 'react';
+
+import React, { useState, useEffect } from 'react';
 import { AppType, appTypes, AppFeature } from '../../lib/types';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Smartphone, TrendingUp, CheckCircle, Swords } from 'lucide-react';
+import { Smartphone, TrendingUp, CheckCircle, Swords, Sun, Moon } from 'lucide-react';
 
 const MobileAppTypes = ({ title, appData }: any) => {
   const [selectedAppType, setSelectedAppType] = useState<AppType>(appTypes[0]);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    const isDark = localStorage.getItem('darkMode') === 'true';
+    setIsDarkMode(isDark);
+  }, []);
+
+  const toggleDarkMode = () => {
+    const newMode = !isDarkMode;
+    setIsDarkMode(newMode);
+    localStorage.setItem('darkMode', newMode.toString());
+  };
 
   const features: AppFeature[] = [
     {
@@ -29,12 +42,13 @@ const MobileAppTypes = ({ title, appData }: any) => {
       icon: <TrendingUp className="w-10 h-10" />,
       items: [
         "AI and ML-powered apps providing personalized experiences (e.g., recommendation engines, voice assistants);",
-        "5G-enabled apps allowing ultra-fast streaming, gaming, and real-time collaboration;",]
+        "5G-enabled apps allowing ultra-fast streaming, gaming, and real-time collaboration;",
+      ]
     }
   ];
 
   return (
-    <section className="flex flex-col items-center px-20 py-24 text-white max-md:px-5 transition-all duration-300">
+    <section className={`flex flex-col items-center px-20 py-24 max-md:px-5 transition-all duration-300 ${isDarkMode ? 'bg-gradient-to-br from-gray-50 to-white' : 'bg-transparent'}`}>
       <h1 className="text-6xl font-bold leading-none max-md:max-w-full max-md:text-4xl transition-transform duration-300 hover:scale-105">
         {title}
       </h1>
@@ -43,7 +57,7 @@ const MobileAppTypes = ({ title, appData }: any) => {
           {appTypes.map((type) => (
             <li
               key={type}
-              className={`cursor-pointer text-white relative transition-colors duration-300 hover:text-[#6430C2] ${selectedAppType === type ? 'text-[#6430C2] font-bold' : ''}`}
+              className={`cursor-pointer relative transition-colors duration-300 hover:text-[#6430C2] ${selectedAppType === type ? 'text-[#6430C2] font-bold' : ''}`}
               onClick={() => setSelectedAppType(type)}
             >
               {type}
@@ -60,7 +74,7 @@ const MobileAppTypes = ({ title, appData }: any) => {
               loading="lazy"
               src={appData[selectedAppType].image}
               alt={`${selectedAppType} illustration`}
-              className="object-contain grow shrink aspect-[1.41] min-w-[240px] w-[360px] max-md:max-w-full transition-transform duration-300 hover:scale-105"
+              className="object-contain bg-transparent opacity-0 grow shrink aspect-[1.41] min-w-[240px] w-[360px] max-md:max-w-full transition-transform duration-300 hover:scale-105"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.8 }}
@@ -68,7 +82,7 @@ const MobileAppTypes = ({ title, appData }: any) => {
             />
           </AnimatePresence>
           <motion.div
-            className="flex flex-col grow shrink p-10 min-w-[240px] w-[530px] max-md:px-5 max-md:max-w-full rounded-lg shadow-lg"
+            className={`flex flex-col grow shrink p-10 min-w-[240px] w-[530px] max-md:px-5 max-md:max-w-full rounded-lg shadow-2xl ${isDarkMode ? 'bg-gray-800' : 'bg-transparent'}`}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -76,13 +90,13 @@ const MobileAppTypes = ({ title, appData }: any) => {
           >
             <h2 className="self-start text-3xl">{appData[selectedAppType].title}</h2>
             <p className="mt-5 leading-relaxed">{appData[selectedAppType].description}</p>
-            <button className="overflow-hidden self-start px-11 py-3 mt-6 bg-[#6430C2] border-2 border-[#6430C2] border-solid transition-all duration-300 hover:bg-[#6430C2] max-md:px-5 max-md:mt-10 rounded-lg">
+            <button className="overflow-hidden self-start px-11 py-3 mt-6 bg-[#6430C2] text-white border-2 border-[#6430C2] border-solid transition-all duration-300 hover:bg-opacity-80 max-md:px-5 max-md:mt-10 rounded-lg">
               Request services
             </button>
           </motion.div>
         </div>
       </article>
-      <section className="flex flex-col justify-center p-6 mt-10 w-full rounded-lg">
+      <section className={`flex flex-col justify-center p-6 mt-10 w-full rounded-lg ${isDarkMode ? 'bg-gray-800' : 'bg-transparent'}`}>
         <div className="flex flex-wrap items-start min-h-[182px]">
           {features.map((feature, index) => (
             <motion.div
