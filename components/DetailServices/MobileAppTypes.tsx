@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { AppType, appTypes, AppFeature } from '../../lib/types';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Smartphone, TrendingUp, CheckCircle, Swords, Sun, Moon } from 'lucide-react';
+import { Smartphone, TrendingUp, CheckCircle, Swords } from 'lucide-react';
 
 const MobileAppTypes = ({ title, appData }: any) => {
   const [selectedAppType, setSelectedAppType] = useState<AppType>(appTypes[0]);
@@ -13,12 +13,6 @@ const MobileAppTypes = ({ title, appData }: any) => {
     const isDark = localStorage.getItem('darkMode') === 'true';
     setIsDarkMode(isDark);
   }, []);
-
-  const toggleDarkMode = () => {
-    const newMode = !isDarkMode;
-    setIsDarkMode(newMode);
-    localStorage.setItem('darkMode', newMode.toString());
-  };
 
   const features: AppFeature[] = [
     {

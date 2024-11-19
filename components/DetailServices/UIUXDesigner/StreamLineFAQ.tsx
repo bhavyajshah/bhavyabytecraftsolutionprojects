@@ -2,20 +2,17 @@
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { ChevronDown, ChevronUp, Check, Sun, Moon } from 'lucide-react'
+import { ChevronDown, ChevronUp, Check } from 'lucide-react'
 import Image from "next/image"
 
 export default function StreamLineFAQ() {
     const [openStep, setOpenStep] = useState(0)
-    const [theme, setTheme] = useState('dark')
+    const [theme] = useState('dark')
 
     useEffect(() => {
         document.documentElement.className = theme
     }, [theme])
 
-    const toggleTheme = () => {
-        setTheme(prevTheme => prevTheme === 'dark' ? 'light' : 'dark')
-    }
 
     const steps = [
         {
