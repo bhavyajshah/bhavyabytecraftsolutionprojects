@@ -15,7 +15,7 @@ export default function MaintenanceSupportService() {
             >
                 <h1 className="text-4xl text-gray-900 dark:text-white md:text-5xl font-bold mb-4 text-center">IT Maintenance Support Services</h1>
                 <p className="text-gray-700 dark:text-white text-xl mb-12 text-center max-w-4xl mx-auto">
-                    Providing reliable, proactive IT support services to keep your systems running smoothly, minimize downtime, and ensure data integrity. Our expertise in IT maintenance allows us to tailor support solutions that meet your organization's unique needs.
+                    Providing reliable, proactive IT support services to keep your systems running smoothly, minimize downtime, and ensure data integrity. Our expertise in IT maintenance allows us to tailor support solutions that meet your organization&apos;s unique needs.
                 </p>
 
                 <motion.div
