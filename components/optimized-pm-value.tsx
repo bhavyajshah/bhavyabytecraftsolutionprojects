@@ -2,9 +2,8 @@
 
 import { motion } from "framer-motion"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ChartContainer, ChartTooltip, ChartTooltipContent, ChartLegend, ChartLegendContent } from "@/components/ui/chart"
-import { PieChart, Pie, LineChart, Line } from "@/components/ui/chart"
-import { Users, CheckCircle, TrendingUp, BarChart as BarChartIcon, Zap, ThumbsUp, PieChart as PieChartIcon } from "lucide-react"
+import { PieChart, Pie, LineChart, Line, Tooltip, Legend, ResponsiveContainer, XAxis, YAxis, Cell } from "recharts"
+import { Users, CheckCircle, TrendingUp, BarChartIcon, Zap, ThumbsUp, PieChartIcon } from 'lucide-react'
 
 const projectManagerData = [
   { name: "Completion Ratio", value: 97 },
@@ -28,6 +27,8 @@ const comparisonData = [
   { metric: "Team Productivity", withPM: "High", withoutPM: "Medium", icon: Users },
   { metric: "Stakeholder Satisfaction", withPM: "92%", withoutPM: "65%", icon: ThumbsUp },
 ]
+
+const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
 export function OptimizedPmValue() {
   return (
@@ -54,27 +55,7 @@ export function OptimizedPmValue() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <ChartContainer
-                  config={{
-                    "Completion Ratio": {
-                      label: "Completion Ratio",
-                      color: "hsl(var(--chart-1))",
-                    },
-                    "Budget Efficiency": {
-                      label: "Budget Efficiency",
-                      color: "hsl(var(--chart-2))",
-                    },
-                    "Team Productivity": {
-                      label: "Team Productivity",
-                      color: "hsl(var(--chart-3))",
-                    },
-                    "Stakeholder Satisfaction": {
-                      label: "Stakeholder Satisfaction",
-                      color: "hsl(var(--chart-4))",
-                    },
-                  }}
-                  className="h-[300px] sm:h-[200px]"
-                >
+                <ResponsiveContainer width="100%" height={300}>
                   <PieChart>
                     <Pie
                       data={projectManagerData}
@@ -83,12 +64,17 @@ export function OptimizedPmValue() {
                       cx="50%"
                       cy="50%"
                       outerRadius={80}
+                      fill="#8884d8"
                       label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
-                    />
-                    <ChartTooltip content={<ChartTooltipContent />} />
-                    <ChartLegend content={<ChartLegendContent />} />
+                    >
+                      {projectManagerData.map((entry, index) => (
+                        <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                      ))}
+                    </Pie>
+                    <Tooltip />
+                    <Legend />
                   </PieChart>
-                </ChartContainer>
+                </ResponsiveContainer>
               </CardContent>
             </Card>
 
@@ -100,26 +86,16 @@ export function OptimizedPmValue() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <ChartContainer
-                  config={{
-                    withPM: {
-                      label: "With PM",
-                      color: "hsl(var(--chart-2))",
-                    },
-                    withoutPM: {
-                      label: "Without PM",
-                      color: "hsl(var(--chart-3))",
-                    },
-                  }}
-                  className="h-[300px] sm:h-[200px]"
-                >
+                <ResponsiveContainer width="100%" height={300}>
                   <LineChart data={projectProgressData}>
-                    <Line dataKey="withPM" />
-                    <Line dataKey="withoutPM" />
-                    <ChartTooltip content={<ChartTooltipContent />} />
-                    <ChartLegend content={<ChartLegendContent />} />
+                    <XAxis dataKey="month" />
+                    <YAxis />
+                    <Tooltip />
+                    <Legend />
+                    <Line type="monotone" dataKey="withPM" stroke="#8884d8" />
+                    <Line type="monotone" dataKey="withoutPM" stroke="#82ca9d" />
                   </LineChart>
-                </ChartContainer>
+                </ResponsiveContainer>
               </CardContent>
             </Card>
           </div>
@@ -196,3 +172,4 @@ export function OptimizedPmValue() {
     </div>
   )
 }
+
