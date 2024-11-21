@@ -33,7 +33,7 @@ export default function CostCalculator() {
     }
 
     return (
-        <div className="min-h-screen text-white my-16 max-w-6xl text-center mx-auto">
+        <div className="min-h-screen text-gray-800 dark:text-white my-16 max-w-6xl text-center mx-auto">
             <Toaster position="top-center" reverseOrder={false} />
 
             <motion.div
@@ -42,8 +42,8 @@ export default function CostCalculator() {
                 transition={{ duration: 0.6 }}
                 className='text-center'
             >
-                <h1 className="text-4xl md:text-5xl font-extrabold mb-4">Quality Analysis Cost Calculator</h1>
-                <p className="mb-8 text-lg">Provide your project details for a pricing estimate.</p>
+                <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-gray-900 dark:text-white">Quality Analysis Cost Calculator</h1>
+                <p className="mb-8 text-lg text-gray-600 dark:text-gray-300">Provide your project details for a pricing estimate.</p>
 
                 <Formik
                     initialValues={initialValues}
@@ -54,10 +54,10 @@ export default function CostCalculator() {
                         <Form className="space-y-6">
                             {/* Specialist Selection */}
                             <div className="text-left">
-                                <h2 className="text-2xl font-semibold mb-2">1. Select a Specialist</h2>
+                                <h2 className="text-2xl font-semibold mb-2 text-gray-800 dark:text-white">1. Select a Specialist</h2>
                                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                                     {['Business Analyst', 'Product Owner', 'System Analyst'].map((role) => (
-                                        <label key={role} className="flex items-center cursor-pointer">
+                                        <label key={role} className="flex items-center cursor-pointer text-gray-700 dark:text-gray-300">
                                             <Field type="radio" name="specialist" value={role} className="mr-2" />
                                             {role}
                                         </label>
@@ -68,10 +68,10 @@ export default function CostCalculator() {
 
                             {/* Project Stage */}
                             <div className="text-left">
-                                <h2 className="text-2xl font-semibold mb-2">2. Current Project Stage</h2>
+                                <h2 className="text-2xl font-semibold mb-2 text-gray-800 dark:text-white">2. Current Project Stage</h2>
                                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                                     {['New project', 'Ongoing project', 'Project review'].map((stage) => (
-                                        <label key={stage} className="flex items-center cursor-pointer">
+                                        <label key={stage} className="flex items-center cursor-pointer text-gray-700 dark:text-gray-300">
                                             <Field type="radio" name="projectStage" value={stage} className="mr-2" />
                                             {stage}
                                         </label>
@@ -82,7 +82,7 @@ export default function CostCalculator() {
 
                             {/* Priorities */}
                             <div className="text-left">
-                                <h2 className="text-2xl font-semibold mb-2">3. Select Priorities</h2>
+                                <h2 className="text-2xl font-semibold mb-2 text-gray-800 dark:text-white">3. Select Priorities</h2>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
                                     {[
                                         'Discovery Phase',
@@ -94,7 +94,7 @@ export default function CostCalculator() {
                                         'Guide Writing',
                                         'Development Support'
                                     ].map((priority) => (
-                                        <label key={priority} className="flex items-center cursor-pointer">
+                                        <label key={priority} className="flex items-center cursor-pointer text-gray-700 dark:text-gray-300">
                                             <Field
                                                 type="checkbox"
                                                 name="priorities"
@@ -110,7 +110,7 @@ export default function CostCalculator() {
 
                             {/* Duration */}
                             <div className="text-left">
-                                <h2 className="text-2xl font-semibold mb-2">4. Project Duration (in months)</h2>
+                                <h2 className="text-2xl font-semibold mb-2 text-gray-800 dark:text-white">4. Project Duration (in months)</h2>
                                 <Field
                                     name="duration"
                                     type="range"
@@ -120,7 +120,7 @@ export default function CostCalculator() {
                                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFieldValue('duration', parseInt(e.target.value))}
                                     className="w-full"
                                 />
-                                <div className="flex justify-between text-xs text-gray-400 mt-1">
+                                <div className="flex justify-between text-xs text-gray-500 dark:text-gray-400 mt-1">
                                     <span>1 month</span>
                                     <span>6 months</span>
                                     <span>1 year</span>
@@ -146,3 +146,4 @@ export default function CostCalculator() {
         </div>
     )
 }
+

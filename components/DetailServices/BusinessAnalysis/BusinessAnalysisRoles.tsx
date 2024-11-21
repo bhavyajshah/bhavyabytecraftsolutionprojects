@@ -46,7 +46,7 @@ export default function BusinessAnalysisRoles() {
     const [activeTab, setActiveTab] = useState('BUSINESS ANALYST')
 
     return (
-        <div className="min-h-screen text-white my-16">
+        <div className="min-h-screen text-gray-800 dark:text-white my-16">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -54,7 +54,7 @@ export default function BusinessAnalysisRoles() {
                 className="max-w-6xl mx-auto"
             >
                 <motion.h1
-                    className="text-3xl lg:text-5xl font-bold mb-4 text-center text-white"
+                    className="text-3xl lg:text-5xl font-bold mb-4 text-center text-gray-900 dark:text-white"
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2, duration: 0.5 }}
@@ -62,7 +62,7 @@ export default function BusinessAnalysisRoles() {
                     The Variety of Business Analysis Roles We Provide
                 </motion.h1>
                 <motion.p
-                    className="mb-8 text-center text-gray-300"
+                    className="mb-8 text-center text-gray-600 dark:text-gray-300"
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3, duration: 0.5 }}
@@ -75,7 +75,9 @@ export default function BusinessAnalysisRoles() {
                     {tabs.map((tab, index) => (
                         <motion.button
                             key={tab}
-                            className={`mr-4 mb-2 pb-2 px-4 py-2 text-sm rounded-full ${activeTab === tab ? 'bg-[#6430C2] text-white' : 'bg-gray-700 text-white'
+                            className={`mr-4 mb-2 pb-2 px-4 py-2 text-sm rounded-full ${activeTab === tab
+                                    ? 'bg-[#6430C2] text-white'
+                                    : 'bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-white'
                                 } transition-colors duration-300`}
                             onClick={() => setActiveTab(tab)}
                             whileHover={{ scale: 1.05 }}
@@ -97,12 +99,12 @@ export default function BusinessAnalysisRoles() {
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: 20 }}
                             transition={{ duration: 0.5 }}
-                            className="border-gray-700 backdrop-blur-sm bg-gray-900/30 border-none p-6 rounded-lg shadow-lg"
+                            className="bg-white dark:bg-gray-900/30 border border-gray-200 dark:border-gray-700 p-6 rounded-lg shadow-lg"
                         >
-                            <h2 className="text-2xl font-bold mb-4 text-white">{activeTab}</h2>
-                            <p className="mb-4 text-gray-300">{tabContent[activeTab].description}</p>
-                            <h3 className="text-xl font-semibold mb-2 text-white">Key Responsibilities:</h3>
-                            <ul className="list-disc list-inside mb-4 text-gray-300">
+                            <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">{activeTab}</h2>
+                            <p className="mb-4 text-gray-700 dark:text-gray-300">{tabContent[activeTab].description}</p>
+                            <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Key Responsibilities:</h3>
+                            <ul className="list-disc list-inside mb-4 text-gray-700 dark:text-gray-300">
                                 {tabContent[activeTab].responsibilities.map((item, index) => (
                                     <motion.li
                                         key={item}
@@ -159,12 +161,11 @@ export default function BusinessAnalysisRoles() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                 >
-                    <h3 className="text-xl font-bold mb-4 text-white">
+                    <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">
                         Request a 30-minute Business Analysis and Technology consultation
                     </h3>
                     <motion.button
                         className="hero-button-gradient inline-flex rounded-lg py-3 px-7 text-white font-medium ease-in duration-300 hover:opacity-80"
-
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >
@@ -175,3 +176,4 @@ export default function BusinessAnalysisRoles() {
         </div>
     )
 }
+

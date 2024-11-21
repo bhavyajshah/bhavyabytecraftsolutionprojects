@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { ChevronRight } from "lucide-react"
+import { ChevronRight } from 'lucide-react'
 import { Switch } from "@/components/ui/switch"
 import { Card, CardContent } from "@/components/ui/card"
 import Link from "next/link"
@@ -36,7 +36,7 @@ export default function BusinessAnalysisGrowth() {
 
     return (
         <motion.div
-            className="min-h-screen max-w-6xl mx-auto bg-transparent text-white"
+            className="min-h-screen max-w-6xl mx-auto bg-transparent text-gray-800 dark:text-white"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
@@ -48,20 +48,20 @@ export default function BusinessAnalysisGrowth() {
                 animate={{ y: 0 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
-                <h1 className="text-5xl text-white font-bold mb-4">
+                <h1 className="text-5xl text-gray-900 dark:text-white font-bold mb-4">
                     Business Analysts: Catalysts for Growth and Profit
                 </h1>
-                <p className="text-xl mb-8">
+                <p className="text-xl mb-8 text-gray-700 dark:text-gray-300">
                     Insights from over 100 projects with and without Business Analysts.
                 </p>
                 <div className="flex items-center justify-center space-x-4">
-                    <span className={`text-lg ${withBA ? "font-bold" : "text-gray-300"}`}>With BA</span>
+                    <span className={`text-lg ${withBA ? "font-bold text-gray-900 dark:text-white" : "text-gray-500 dark:text-gray-300"}`}>With BA</span>
                     <Switch
                         checked={withBA}
                         onCheckedChange={setWithBA}
-                        className="data-[state=checked]:bg-white"
+                        className="data-[state=checked]:bg-gray-800 dark:data-[state=checked]:bg-white"
                     />
-                    <span className={`text-lg ${!withBA ? "font-bold" : "text-gray-300"}`}>Without BA</span>
+                    <span className={`text-lg ${!withBA ? "font-bold text-gray-900 dark:text-white" : "text-gray-500 dark:text-gray-300"}`}>Without BA</span>
                 </div>
             </motion.div>
 
@@ -78,20 +78,20 @@ export default function BusinessAnalysisGrowth() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: index * 0.1 }}
                     >
-                        <Card className="border-gray-700 backdrop-blur-sm bg-gray-900/30 border-none">
+                        <Card className="border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900/30 backdrop-blur-sm border">
                             <CardContent className="p-6">
-                                <h2 className="text-xl text-white font-semibold mb-4">{metric.title}</h2>
+                                <h2 className="text-xl text-gray-900 dark:text-white font-semibold mb-4">{metric.title}</h2>
                                 <motion.div
-                                    className="text-4xl text-white font-bold mb-4"
+                                    className="text-4xl text-gray-900 dark:text-white font-bold mb-4"
                                     key={withBA ? metric.withBA : metric.withoutBA}
                                     initial={{ scale: 0.8, opacity: 0 }}
                                     animate={{ scale: 1, opacity: 1 }}
                                     transition={{ type: "spring", stiffness: 300, damping: 15 }}
                                 >
                                     {withBA ? metric.withBA : metric.withoutBA}
-                                    <span className="text-2xl ml-1 text-white">{metric.unit}</span>
+                                    <span className="text-2xl ml-1 text-gray-700 dark:text-gray-300">{metric.unit}</span>
                                 </motion.div>
-                                <p className="text-md text-white">{metric.description}</p>
+                                <p className="text-md text-gray-600 dark:text-gray-300">{metric.description}</p>
                             </CardContent>
                         </Card>
                     </motion.div>
@@ -104,11 +104,11 @@ export default function BusinessAnalysisGrowth() {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.6 }}
             >
-                <h2 className="text-2xl font-semibold mb-6">
+                <h2 className="text-2xl font-semibold mb-6 text-gray-900 dark:text-white">
                     Elevate Your Project with Expert Business Analysts
                 </h2>
                 <Link href="/pricing"
-                    className="hero-button-gradient inline-flex rounded-lg py-3 px-7 text-white font-medium ease-in duration-300 hover:opacity-80"
+                    className="hero-button-gradient inline-flex rounded-lg py-3 px-7 text-white font-medium ease-in duration-300 hover:opacity-80 bg-gray-800 dark:bg-white dark:text-gray-900"
                 >
                     Request Consultation <ChevronRight className="ml-2 h-5 w-5" />
                 </Link>
@@ -117,3 +117,4 @@ export default function BusinessAnalysisGrowth() {
         </motion.div>
     )
 }
+
