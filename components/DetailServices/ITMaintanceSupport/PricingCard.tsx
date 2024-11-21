@@ -19,7 +19,6 @@ const supportLevels = [
     },
 ]
 
-
 const pricingData = [
     {
         id: 'small',
@@ -79,12 +78,11 @@ export default function PricingCardUI() {
     const [activeTab, setActiveTab] = useState('l2')
 
     return (
-        <div className="min-h-screen my-10 text-gray-100 md:p-8">
+        <div className="min-h-screen my-10 text-gray-800 dark:text-gray-100 md:p-8">
             <div className="max-w-6xl mx-auto">
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 text-center text-white">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 text-center text-gray-900 dark:text-white">
                     IT Maintenance Support Services
                 </h1>
-
 
                 <div className="mb-12">
                     <div className="flex flex-wrap justify-center">
@@ -92,7 +90,9 @@ export default function PricingCardUI() {
                             <button
                                 key={level.id}
                                 className={`px-4 py-3 text-xs sm:text-sm md:text-base font-semibold transition-colors duration-200 ease-in-out
-                  ${activeTab === level.id ? 'bg-[#6430c2] text-white' : 'backdrop-blur-sm bg-gray-700 border-gray-700 text-gray-300 hover:bg-gray-700'}
+                  ${activeTab === level.id
+                                        ? 'bg-gray-800 text-white dark:bg-[#6430c2] dark:text-white'
+                                        : 'bg-gray-200 text-gray-800 hover:bg-gray-300 dark:backdrop-blur-sm dark:bg-gray-700 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-700'}
                   ${level.id === 'l2' ? 'rounded-none' : level.id === 'l1' ? 'rounded-l-lg' : 'rounded-r-lg'}`}
                                 onClick={() => setActiveTab(level.id)}
                             >
@@ -100,7 +100,7 @@ export default function PricingCardUI() {
                             </button>
                         ))}
                     </div>
-                    <p className="text-center mt-4 max-w-4xl mx-auto text-white text-xl">
+                    <p className="text-center mt-4 max-w-4xl mx-auto text-gray-700 dark:text-white text-xl">
                         {supportLevels.find(level => level.id === activeTab)?.description}
                     </p>
                 </div>
@@ -117,27 +117,26 @@ export default function PricingCardUI() {
 
 function PricingCard({ title, price, period, description, features, recommended }) {
     return (
-        <div className={`backdrop-blur-sm bg-gray-900/30 border-gray-700 border ${recommended ? 'border-[#6430c2]' : 'border-gray-700'} p-6 rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105`}>
+        <div className={`bg-white dark:backdrop-blur-sm dark:bg-gray-900/30 border ${recommended ? 'border-gray-800 dark:border-[#6430c2]' : 'border-gray-300 dark:border-gray-700'} p-6 rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105`}>
             {recommended && (
-                <div className="bg-[#6430c2] text-white text-xs font-bold uppercase py-1 px-2 rounded-full absolute top-0 right-0 mt-4 mr-4">
+                <div className="bg-gray-800 dark:bg-[#6430c2] text-white text-xs font-bold uppercase py-1 px-2 rounded-full absolute top-0 right-0 mt-4 mr-4">
                     Recommended
                 </div>
             )}
-            <h3 className="text-2xl font-semibold mb-2">{title}</h3>
-            <p className="text-sm text-gray-400 mb-4">{description}</p>
-            <div className="text-4xl font-bold mb-1">{price}</div>
-            <div className="text-sm text-gray-400 mb-6">{period}</div>
+            <h3 className="text-2xl font-semibold mb-2 text-gray-900 dark:text-white">{title}</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">{description}</p>
+            <div className="text-4xl font-bold mb-1 text-gray-900 dark:text-white">{price}</div>
+            <div className="text-sm text-gray-600 dark:text-gray-400 mb-6">{period}</div>
             <ul className="space-y-3 mb-6">
                 {features.map((feature, index) => (
-                    <li key={index} className="flex items-start text-sm">
-                        <svg className="w-5 h-5 text-[#6430c2] mr-2 mt-px" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                    <li key={index} className="flex items-start text-sm text-gray-700 dark:text-white">
+                        <svg className="w-5 h-5 text-gray-800 dark:text-[#6430c2] mr-2 mt-px" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
                             <path d="M5 13l4 4L19 7"></path>
                         </svg>
                         <span>{feature}</span>
                     </li>
                 ))}
             </ul>
-
         </div>
     )
 }

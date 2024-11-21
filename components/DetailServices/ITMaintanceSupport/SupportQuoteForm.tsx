@@ -39,7 +39,7 @@ const SupportQuoteForm = () => {
             transition={{ duration: 0.5 }}
         >
             <motion.h1
-                className="text-2xl md:text-5xl font-bold mb-6 text-white text-center"
+                className="text-2xl md:text-5xl font-bold mb-6 text-gray-800 dark:text-white text-center"
                 initial={{ y: -20 }}
                 animate={{ y: 0 }}
                 transition={{ type: 'spring', stiffness: 100 }}
@@ -49,11 +49,11 @@ const SupportQuoteForm = () => {
 
             <form
                 onSubmit={formik.handleSubmit}
-                className="w-full backdrop-blur-sm bg-gray-900/30 border-gray-700 rounded-lg shadow-md p-6 space-y-6"
+                className="w-full bg-white dark:backdrop-blur-sm dark:bg-gray-900/30 border border-gray-200 dark:border-gray-700 rounded-lg shadow-md p-6 space-y-6"
             >
                 {/* Support Services Section */}
                 <div>
-                    <h2 className="font-semibold text-white mb-3">1. What type of Support Services do you need?</h2>
+                    <h2 className="font-semibold text-gray-800 dark:text-white mb-3">1. What type of Support Services do you need?</h2>
                     <div className="grid grid-cols-2 gap-3">
                         {['Client Support', 'Infrastructure Support', 'Application Support', 'Consultancy needed'].map((service) => (
                             <div
@@ -62,11 +62,11 @@ const SupportQuoteForm = () => {
                                 onClick={() => handleCheckboxChange(service)}
                             >
                                 {formik.values.supportServices.includes(service) ? (
-                                    <FaCheckSquare className="text-[#6430c2]" />
+                                    <FaCheckSquare className="text-gray-800 dark:text-[#6430c2]" />
                                 ) : (
-                                    <FaSquare className="text-white" />
+                                    <FaSquare className="text-gray-400 dark:text-white" />
                                 )}
-                                <span className="text-white">{service}</span>
+                                <span className="text-gray-700 dark:text-white">{service}</span>
                             </div>
                         ))}
                     </div>
@@ -84,7 +84,7 @@ const SupportQuoteForm = () => {
 
                 {/* Working Schedule Section */}
                 <div>
-                    <h2 className="font-semibold text-white mb-3">2. What is the required working schedule?</h2>
+                    <h2 className="font-semibold text-gray-800 dark:text-white mb-3">2. What is the required working schedule?</h2>
                     <div className="grid grid-cols-2 gap-3">
                         {['24/7', '16/5', '8/5', 'Custom'].map((schedule) => (
                             <label key={schedule} className="flex items-center space-x-2 cursor-pointer">
@@ -97,10 +97,10 @@ const SupportQuoteForm = () => {
                                     className="hidden"
                                 />
                                 <span
-                                    className={`w-5 h-5 rounded-full border-2 ${formik.values.workingSchedule === schedule ? 'bg-[#6430c2]' : 'border-gray-400'
+                                    className={`w-5 h-5 rounded-full border-2 ${formik.values.workingSchedule === schedule ? 'bg-gray-800 dark:bg-[#6430c2]' : 'border-gray-400 dark:border-gray-400'
                                         }`}
                                 ></span>
-                                <span className="text-white">{schedule}</span>
+                                <span className="text-gray-700 dark:text-white">{schedule}</span>
                             </label>
                         ))}
                     </div>
@@ -118,7 +118,7 @@ const SupportQuoteForm = () => {
 
                 {/* Tickets Section */}
                 <div>
-                    <h2 className="font-semibold text-white mb-3">3. What is the daily number of tickets you need to process and resolve?</h2>
+                    <h2 className="font-semibold text-gray-800 dark:text-white mb-3">3. What is the daily number of tickets you need to process and resolve?</h2>
                     <motion.input
                         type="range"
                         name="tickets"
@@ -127,12 +127,12 @@ const SupportQuoteForm = () => {
                         step="50"
                         value={formik.values.tickets}
                         onChange={formik.handleChange}
-                        className="w-full h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer"
+                        className="w-full h-2 bg-gray-300 dark:bg-gray-300 rounded-lg appearance-none cursor-pointer"
                         initial={{ scaleX: 0 }}
                         animate={{ scaleX: 1 }}
                         transition={{ duration: 0.5 }}
                     />
-                    <div className="flex justify-between text-white text-sm mt-2">
+                    <div className="flex justify-between text-gray-600 dark:text-white text-sm mt-2">
                         <span>up to 50 tickets</span>
                         <span>50-250</span>
                         <span>250-500</span>
@@ -145,7 +145,7 @@ const SupportQuoteForm = () => {
                 <div className="text-center">
                     <motion.button
                         type="submit"
-                        className="bg-[#6430c2] hover:bg-[#6430c2] text-white font-semibold py-2 px-4 rounded-lg transition duration-200 ease-in-out"
+                        className="bg-gray-800 hover:bg-gray-700 dark:bg-[#6430c2] dark:hover:bg-[#6430c2] text-white font-semibold py-2 px-4 rounded-lg transition duration-200 ease-in-out"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >

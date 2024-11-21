@@ -27,9 +27,9 @@ export default function TestDevice() {
     }
 
     return (
-        <div className="min-h-screen max-w-6xl mx-auto text-white my-12">
+        <div className="min-h-screen max-w-6xl mx-auto text-gray-800 dark:text-white my-12">
             <motion.h1
-                className="text-4xl sm:text-5xl font-bold mb-4 sm:mb-6 text-center text-white"
+                className="text-4xl sm:text-5xl font-bold mb-4 sm:mb-6 text-center text-gray-900 dark:text-white"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
@@ -37,7 +37,7 @@ export default function TestDevice() {
                 Test your software on real devices
             </motion.h1>
             <motion.p
-                className="text-lg sm:text-xl mb-8 sm:mb-12 text-center text-gray-300"
+                className="text-lg sm:text-xl mb-8 sm:mb-12 text-center text-gray-600 dark:text-gray-300"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
@@ -48,7 +48,7 @@ export default function TestDevice() {
                 {categories.map((category, index) => (
                     <motion.div
                         key={category.name}
-                        className="border-gray-700 backdrop-blur-sm bg-gray-900/30 p-4 sm:p-6 rounded-xl shadow-lg border  hover:border-purple-500 transition-colors duration-300"
+                        className="border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900/30 backdrop-blur-sm p-4 sm:p-6 rounded-xl shadow-lg border hover:border-purple-500 transition-colors duration-300"
                         whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -62,7 +62,7 @@ export default function TestDevice() {
                                 <Image src={category.image} alt={category.name} width={60} height={60} className="rounded-lg object-cover" />
                                 <span className="text-xl font-semibold">{category.name}</span>
                             </div>
-                            <category.icon className="w-6 h-6 text-purple-400" />
+                            <category.icon className="w-6 h-6 text-purple-600 dark:text-purple-400" />
                         </div>
                         <AnimatePresence initial={false}>
                             {expandedCategories.includes(category.name) && (
@@ -79,7 +79,7 @@ export default function TestDevice() {
                                             initial={{ opacity: 0, x: -20 }}
                                             animate={{ opacity: 1, x: 0 }}
                                             transition={{ duration: 0.3, delay: index * 0.05 }}
-                                            className="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors duration-200"
+                                            className="flex items-center space-x-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
                                         >
                                             <Laptop className="w-4 h-4" />
                                             <span>{device}</span>
@@ -94,3 +94,4 @@ export default function TestDevice() {
         </div>
     )
 }
+

@@ -75,7 +75,7 @@ export default function TechnologyStack() {
     return (
         <div className="max-w-6xl mx-auto px-4 py-8">
             <motion.h1
-                className="text-center text-3xl text-white lg:text-5xl font-bold mb-4"
+                className="text-center text-3xl text-gray-800 dark:text-white lg:text-5xl font-bold mb-4"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
@@ -83,7 +83,7 @@ export default function TechnologyStack() {
                 Our tech stack for IT support
             </motion.h1>
             <motion.p
-                className="mb-8 text-white md:text-xl max-w-4xl mx-auto text-center lg:text-xl"
+                className="mb-8 text-gray-600 dark:text-white md:text-xl max-w-4xl mx-auto text-center lg:text-xl"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
@@ -100,8 +100,8 @@ export default function TechnologyStack() {
                             setCurrentIndex(0)
                         }}
                         className={`px-4 py-2 rounded-full text-xs md:text-sm lg:text-base transition-colors duration-200 ${category === activeCategory
-                            ? 'bg-[#6430c2] text-white'
-                            : 'bg-white text-black hover:bg-gray-300'
+                                ? 'bg-gray-800 text-white dark:bg-[#6430c2] dark:text-white'
+                                : 'bg-gray-200 text-gray-800 hover:bg-gray-300 dark:bg-white dark:text-black dark:hover:bg-gray-300'
                             }`}
                     >
                         {category}
@@ -120,13 +120,13 @@ export default function TechnologyStack() {
                         transition={{ duration: 0.5 }}
                     >
                         {techStack[activeCategory].slice(currentIndex, currentIndex + itemsPerPage).map((item) => (
-                            <div key={item.name} className="backdrop-blur-sm bg-gray-900/30 border-gray-700 p-6 rounded-lg shadow-md flex flex-col items-center justify-center h-48">
+                            <div key={item.name} className="bg-white dark:bg-gray-900/30 border border-gray-200 dark:border-gray-700 p-6 rounded-lg shadow-md flex flex-col items-center justify-center h-48">
                                 <img
                                     src={item.logo}
                                     alt={item.name}
                                     className="w-16 h-16 mb-4 object-contain"
                                 />
-                                <h3 className="text-lg md:text-xl font-semibold text-center">
+                                <h3 className="text-lg md:text-xl font-semibold text-center text-gray-800 dark:text-white">
                                     {item.name}
                                 </h3>
                             </div>
@@ -135,7 +135,7 @@ export default function TechnologyStack() {
                 </AnimatePresence>
                 <button
                     onClick={prevSlide}
-                    className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md z-10 focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white dark:bg-gray-800 text-gray-800 dark:text-white rounded-full p-2 shadow-md z-10 focus:outline-none focus:ring-2 focus:ring-gray-400 dark:focus:ring-gray-600"
                     aria-label="Previous slide"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -144,7 +144,7 @@ export default function TechnologyStack() {
                 </button>
                 <button
                     onClick={nextSlide}
-                    className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md z-10 focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white dark:bg-gray-800 text-gray-800 dark:text-white rounded-full p-2 shadow-md z-10 focus:outline-none focus:ring-2 focus:ring-gray-400 dark:focus:ring-gray-600"
                     aria-label="Next slide"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -156,7 +156,9 @@ export default function TechnologyStack() {
                 {Array.from({ length: Math.ceil(techStack[activeCategory].length / itemsPerPage) }).map((_, index) => (
                     <motion.div
                         key={index}
-                        className={`h-2 w-2 rounded-full mx-1 ${index === Math.floor(currentIndex / itemsPerPage) ? 'bg-primary' : 'bg-gray-300'
+                        className={`h-2 w-2 rounded-full mx-1 ${index === Math.floor(currentIndex / itemsPerPage)
+                                ? 'bg-gray-800 dark:bg-primary'
+                                : 'bg-gray-300 dark:bg-gray-600'
                             }`}
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}

@@ -81,12 +81,12 @@ export default function ProjectPricing() {
     ]
 
     return (
-        <div className="min-h-screen mb-20 text-white p-8">
+        <div className="min-h-screen mb-20 text-gray-800 dark:bg-transparent dark:text-white p-8">
             <div className="max-w-6xl mx-auto">
-                <h1 className="text-5xl font-bold mb-4 text-center text-white">
+                <h1 className="text-5xl font-bold mb-4 text-center text-gray-900 dark:text-white">
                     DevOps & DataOps Solutions
                 </h1>
-                <p className="mb-8 text-xl max-w-4xl mx-auto text-center text-gray-300">
+                <p className="mb-8 text-xl max-w-4xl mx-auto text-center text-gray-600 dark:text-gray-300">
                     Empower your organization with our cutting-edge DevOps and DataOps services. We offer tailored solutions to
                     streamline your development pipeline, optimize data workflows, and drive innovation at scale.
                 </p>
@@ -98,18 +98,18 @@ export default function ProjectPricing() {
                         id="pricing-toggle"
                         checked={isYearly}
                         onCheckedChange={setIsYearly}
-                        className="data-[state=checked]:bg-pink-500"
+                        className="data-[state=checked]:bg-gray-600 dark:data-[state=checked]:bg-pink-500"
                     />
                     <Label htmlFor="pricing-toggle" className="ml-2 text-lg">
                         Yearly
-                        {isYearly && <span className="ml-2 text-[#6430c2] font-semibold">(Save up to 17%)</span>}
+                        {isYearly && <span className="ml-2 text-gray-700 dark:text-[#6430c2] font-semibold">(Save up to 17%)</span>}
                     </Label>
                 </div>
                 <div className="grid md:grid-cols-3 gap-8">
                     {plans.map((plan) => (
                         <div
                             key={plan.name}
-                            className="border-gray-700 backdrop-blur-sm bg-gray-900/30 rounded-lg p-6 shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+                            className="border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900/30 backdrop-blur-sm rounded-lg p-6 shadow-lg transform transition-all duration-300 hover:shadow-2xl"
                         >
                             <h3 className="text-2xl font-semibold mb-4">{plan.name}</h3>
                             <div className="text-4xl font-bold mb-4">
@@ -126,7 +126,7 @@ export default function ProjectPricing() {
                                 {plan.features.map((feature, index) => (
                                     <li key={index} className="flex items-start">
                                         <svg
-                                            className="w-5 h-5 text-[#6430c2] mr-2 mt-1 flex-shrink-0"
+                                            className="w-5 h-5 text-gray-600 dark:text-[#6430c2] mr-2 mt-1 flex-shrink-0"
                                             fill="none"
                                             strokeLinecap="round"
                                             strokeLinejoin="round"
@@ -141,7 +141,7 @@ export default function ProjectPricing() {
                                 ))}
                             </ul>
                             <Button
-                                className="w-full mb-4 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700"
+                                className="w-full mb-4 bg-gradient-to-r from-gray-400 to-gray-600 hover:from-gray-500 hover:to-gray-700 dark:from-blue-500 dark:to-purple-600 dark:hover:from-blue-600 dark:hover:to-purple-700"
                                 onClick={() => setExpandedPlan(expandedPlan === plan.name ? null : plan.name)}
                             >
                                 {expandedPlan === plan.name ? 'Hide Details' : 'Show Details'}
@@ -153,7 +153,7 @@ export default function ProjectPricing() {
                                     <h4 className="font-semibold text-lg mb-2">Detailed Features:</h4>
                                     {plan.details.map((detail, index) => (
                                         <p key={index} className="flex items-start">
-                                            <span className="text-pink-400 mr-2">•</span>
+                                            <span className="text-gray-500 dark:text-pink-400 mr-2">•</span>
                                             {detail}
                                         </p>
                                     ))}

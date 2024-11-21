@@ -12,7 +12,7 @@ const projectManagerData = [
     { name: "Stakeholder Satisfaction", value: 92 },
 ]
 
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042']
+const COLORS = ['#8C8C8C', '#B3B3B3', '#D9D9D9', '#F2F2F2']
 
 const projectProgressData = [
     { month: "Jan", withPM: 30, withoutPM: 20 },
@@ -32,25 +32,24 @@ const comparisonData = [
 
 export default function OptimizedPMValue() {
     return (
-        <div className="w-full min-h-screen py-16 text-white">
+        <div className="w-full min-h-screen py-16 text-gray-800">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
                 className="max-w-6xl mx-auto space-y-12"
             >
-
                 <CardHeader>
-                    <CardTitle className="text-5xl font-bold text-center text-white">
+                    <CardTitle className="text-5xl font-bold text-center text-gray-800 dark:text-white">
                         Unleash Your Project&apos;s Potential with Professional Management
                     </CardTitle>
                 </CardHeader>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <div className="space-y-8">
-                        <Card className="backdrop-blur-sm bg-gray-900/30 border-gray-700 shadow-xl">
+                        <Card className="bg-white dark:bg-transparent border-gray-200 shadow-md">
                             <CardHeader>
-                                <CardTitle className="text-3xl font-bold text-center text-white flex items-center justify-center">
+                                <CardTitle className="text-3xl font-bold text-center text-gray-800 dark:text-white   flex items-center justify-center">
                                     <PieChartIcon className="mr-2 h-8 w-8" />
                                     Project Manager Impact
                                 </CardTitle>
@@ -88,9 +87,9 @@ export default function OptimizedPMValue() {
                             </CardContent>
                         </Card>
 
-                        <Card className="backdrop-blur-sm bg-gray-900/30 border-gray-700 shadow-xl">
+                        <Card className="bg-white  dark:bg-transparent border-gray-200 shadow-md">
                             <CardHeader>
-                                <CardTitle className="text-3xl font-bold text-center text-white flex items-center justify-center">
+                                <CardTitle className="text-3xl font-bold text-center text-gray-800 dark:text-white flex items-center justify-center">
                                     <TrendingUp className="mr-2 h-8 w-8" />
                                     Project Progress Acceleration
                                 </CardTitle>
@@ -111,13 +110,13 @@ export default function OptimizedPMValue() {
                                 >
                                     <ResponsiveContainer width={700} height="80%">
                                         <LineChart data={projectProgressData}>
-                                            <CartesianGrid strokeDasharray="3 3" stroke="#ffffff20" />
-                                            <XAxis dataKey="month" stroke="#fff" />
-                                            <YAxis stroke="#fff" />
+                                            <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
+                                            <XAxis dataKey="month" stroke="#333" />
+                                            <YAxis stroke="#333" />
                                             <ChartTooltip content={<ChartTooltipContent />} />
                                             <Legend />
-                                            <Line type="monotone" dataKey="withPM" stroke="var(--color-withPM)" strokeWidth={2} />
-                                            <Line type="monotone" dataKey="withoutPM" stroke="var(--color-withoutPM)" strokeWidth={2} />
+                                            <Line type="monotone" dataKey="withPM" stroke="#8C8C8C" strokeWidth={2} />
+                                            <Line type="monotone" dataKey="withoutPM" stroke="#D9D9D9" strokeWidth={2} />
                                         </LineChart>
                                     </ResponsiveContainer>
                                 </ChartContainer>
@@ -126,27 +125,27 @@ export default function OptimizedPMValue() {
                     </div>
 
                     <div className="space-y-8">
-                        <Card className="backdrop-blur-sm bg-gray-900/30 border-gray-700 shadow-xl">
+                        <Card className="bg-white  dark:bg-transparent border-gray-200 shadow-md">
                             <CardHeader>
-                                <CardTitle className="text-3xl font-bold text-center text-white flex items-center justify-center">
+                                <CardTitle className="text-3xl font-bold text-center text-gray-800 dark:text-white flex items-center justify-center">
                                     <BarChartIcon className="mr-2 h-8 w-8" />
                                     PM vs No PM: The Clear Advantage
                                 </CardTitle>
                             </CardHeader>
                             <CardContent className="space-y-4">
                                 {comparisonData.map((item, index) => (
-                                    <Card key={index} className="backdrop-blur-sm bg-gray-900/30 border-gray-700">
+                                    <Card key={index} className="bg-gray-50  dark:bg-transparent dark:text-white border-gray-200">
                                         <CardContent className="p-4 flex items-center justify-between">
                                             <div className="flex items-center space-x-4">
-                                                <item.icon className="h-8 w-8 text-[#6430C2]" />
+                                                <item.icon className="h-8 w-8" />
                                                 <div>
-                                                    <h3 className="font-semibold text-white text-lg">{item.metric}</h3>
-                                                    <p className="text-white">With PM: {item.withPM}</p>
+                                                    <h3 className="font-semibold text-lg">{item.metric}</h3>
+                                                    <p className="">With PM: {item.withPM}</p>
                                                 </div>
                                             </div>
                                             <div className="text-right">
-                                                <p className="text-white">Without PM: {item.withoutPM}</p>
-                                                <p className="text-[#6430C2] font-semibold">
+                                                <p className="">Without PM: {item.withoutPM}</p>
+                                                <p className="font-semibold">
                                                     +{parseInt(item.withPM) - parseInt(item.withoutPM)}% Improvement
                                                 </p>
                                             </div>
@@ -156,29 +155,29 @@ export default function OptimizedPMValue() {
                             </CardContent>
                         </Card>
 
-                        <Card className="backdrop-blur-sm bg-gray-900/30 border-gray-700 shadow-xl">
+                        <Card className="bg-white dark:bg-transparent dark:text-white border-gray-200 shadow-md">
                             <CardHeader>
-                                <CardTitle className="text-3xl font-bold text-center text-white flex items-center justify-center">
+                                <CardTitle className="text-3xl font-bold text-center flex items-center justify-center">
                                     <CheckCircle className="mr-2 h-8 w-8" />
                                     Key Benefits
                                 </CardTitle>
                             </CardHeader>
                             <CardContent>
-                                <ul className="space-y-4 text-blue-100">
+                                <ul className="space-y-4">
                                     <li className="flex items-start">
-                                        <CheckCircle className="mr-2 h-5 w-5 text-[#6430C2] flex-shrink-0 mt-0.5" />
+                                        <CheckCircle className="mr-2 h-5 w-5 flex-shrink-0 mt-0.5" />
                                         <span>Boost project completion rates by up to 37%</span>
                                     </li>
                                     <li className="flex items-start">
-                                        <CheckCircle className="mr-2 h-5 w-5 text-[#6430C2] flex-shrink-0 mt-0.5" />
+                                        <CheckCircle className="mr-2 h-5 w-5 flex-shrink-0 mt-0.5" />
                                         <span>Enhance budget adherence, saving valuable resources</span>
                                     </li>
                                     <li className="flex items-start">
-                                        <CheckCircle className="mr-2 h-5 w-5 text-[#6430C2] flex-shrink-0 mt-0.5" />
+                                        <CheckCircle className="mr-2 h-5 w-5 flex-shrink-0 mt-0.5" />
                                         <span>Elevate team productivity to new heights</span>
                                     </li>
                                     <li className="flex items-start">
-                                        <CheckCircle className="mr-2 h-5 w-5 text-[#6430C2] flex-shrink-0 mt-0.5" />
+                                        <CheckCircle className="mr-2 h-5 w-5 flex-shrink-0 mt-0.5" />
                                         <span>Delight stakeholders with exceptional results</span>
                                     </li>
                                 </ul>
@@ -187,10 +186,10 @@ export default function OptimizedPMValue() {
                     </div>
                 </div>
 
-                <Card className="backdrop-blur-sm bg-gray-900/30 border-gray-700 shadow-xl">
+                <Card className="backdrop-blur-sm bg-gray-50 dark:bg-transparent border-gray-700 shadow-xl">
                     <CardContent className="p-8">
-                        <h2 className="text-3xl font-bold text-center text-white mb-4">Take the First Step Towards Project Success</h2>
-                        <p className="text-center text-blue-100 text-lg">Let us help you achieve your project goals effectively and efficiently. Contact us to learn more about how a professional Project Manager can make a difference in your project outcomes.</p>
+                        <h2 className="text-3xl font-bold text-center text-black dark:text-white mb-4">Take the First Step Towards Project Success</h2>
+                        <p className="text-center text-black dark:text-white text-lg">Let us help you achieve your project goals effectively and efficiently. Contact us to learn more about how a professional Project Manager can make a difference in your project outcomes.</p>
                     </CardContent>
                 </Card>
             </motion.div>

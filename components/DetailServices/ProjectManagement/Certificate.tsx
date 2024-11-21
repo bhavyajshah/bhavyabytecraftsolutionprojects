@@ -44,19 +44,18 @@ const certificates: Certificate[] = [
         image: "https://media.licdn.com/dms/image/C4D12AQH0-GW9NhmXsA/article-cover_image-shrink_600_2000/0/1650910340524?e=2147483647&v=beta&t=3QH3ACm7gQV2acO5827bHNpPWbqK67NycX4ou3UlOBY",
         description: "The CKA certification validates the ability to perform the responsibilities of a Kubernetes administrator, including designing, installing, configuring, and managing a Kubernetes cluster production environment."
     },
-
 ]
 
 export default function Certificates() {
     const [selectedCertificate, setSelectedCertificate] = useState<Certificate | null>(null)
 
     return (
-        <div className="text-white mt-20 sm:p-8">
+        <div className="mt-20 sm:p-8 dark:text-white text-gray-800">
             <div className="max-w-6xl mx-auto">
-                <h1 className="text-5xl sm:text-4xl md:text-5xl font-bold mb-4 text-center text-white">
+                <h1 className="text-5xl sm:text-4xl md:text-5xl font-bold mb-4 text-center dark:text-white text-gray-900">
                     Expert-level company in DevOps
                 </h1>
-                <p className="mb-8 text-xl max-w-4xl mx-auto text-center text-gray-300">
+                <p className="mb-8 text-xl max-w-4xl mx-auto text-center dark:text-gray-300 text-gray-600">
                     In order to prove their knowledge and confirm their qualifications and professional skills, the experts from our
                     DevOps development company have received the following certificates in their core fields.
                 </p>
@@ -77,16 +76,16 @@ export default function Certificates() {
                 </div>
             </div>
             <Dialog open={!!selectedCertificate} onOpenChange={() => setSelectedCertificate(null)}>
-                <DialogContent className="backdrop-blur-sm bg-gray-900/30 border-gray-700 text-white">
+                <DialogContent className="backdrop-blur-sm bg-gray-100/90 dark:bg-gray-900/30 border-gray-300 dark:border-gray-700 text-gray-800 dark:text-white">
                     <DialogHeader>
                         <DialogTitle className="text-2xl font-bold mb-2">{selectedCertificate?.name}</DialogTitle>
-                        <DialogDescription className="text-gray-300">
+                        <DialogDescription className="text-gray-600 dark:text-gray-300">
                             {selectedCertificate?.description}
                         </DialogDescription>
                     </DialogHeader>
                     <div className="mt-4">
-                        <h3 className="text-lg font-semibold mb-2 text-blue-400">DevOps Relevance:</h3>
-                        <p className="text-gray-300">
+                        <h3 className="text-lg font-semibold mb-2 text-gray-700 dark:text-blue-400">DevOps Relevance:</h3>
+                        <p className="text-gray-600 dark:text-gray-300">
                             This certification is crucial in the DevOps field as it enables professionals to streamline the software
                             development lifecycle, improve collaboration between development and operations teams, and implement
                             continuous integration and delivery practices. It contributes to faster, more reliable software releases

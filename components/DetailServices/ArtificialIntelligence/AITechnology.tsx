@@ -1,4 +1,5 @@
 "use client"
+
 import { useState, useEffect, useRef } from "react"
 import { motion, useAnimation, useInView } from "framer-motion"
 
@@ -52,15 +53,15 @@ export default function AITechnology() {
     const handleMouseLeave = () => setIsHovered(false)
 
     return (
-        <div className="max-w-6xl mx-auto text-gray-100 p-8">
+        <div className="max-w-6xl mx-auto  text-neutral-800 dark:bg-transparent dark:text-gray-100 p-8">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
                 className="max-w-6xl mx-auto"
             >
-                <h1 className="text-5xl font-bold mb-6 text-center">AI Technologies We Leverage</h1>
-                <p className="text-xl mb-12 text-center max-w-3xl mx-auto">
+                <h1 className="text-5xl font-bold mb-6 text-center text-neutral-900 dark:text-white">AI Technologies We Leverage</h1>
+                <p className="text-xl mb-12 text-center max-w-3xl mx-auto text-neutral-700 dark:text-gray-300">
                     Our team of AI experts harnesses cutting-edge technologies to create intelligent solutions. We specialize in
                     developing AI-driven systems that can tackle complex tasks such as natural language processing, computer
                     vision, and machine learning.
@@ -82,12 +83,12 @@ export default function AITechnology() {
                         {duplicatedTechnologies.map((tech, index) => (
                             <motion.div
                                 key={`${tech.name}-${index}`}
-                                className="flex flex-col items-center space-y-4 w-48"
+                                className="flex flex-col items-center space-y-4 w-48 group"
                                 whileHover={{ scale: 1.05 }}
                             >
                                 <img src={tech.logo} alt={`${tech.name} logo`} className="w-24 h-24 object-contain" />
-                                <span className="text-lg font-semibold text-center">{tech.name}</span>
-                                <p className="text-sm text-center text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <span className="text-lg font-semibold text-center text-neutral-800 dark:text-white">{tech.name}</span>
+                                <p className="text-sm text-center text-neutral-600 dark:text-gray-300 transition-opacity duration-300">
                                     {tech.description}
                                 </p>
                             </motion.div>

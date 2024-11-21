@@ -1,4 +1,5 @@
 'use client'
+
 import { useState, useEffect } from 'react'
 import { ChevronLeft, ChevronRight, Workflow, Database, Layers, Zap, Award, Lightbulb } from 'lucide-react'
 import { Button } from "@/components/ui/button"
@@ -72,16 +73,16 @@ export default function Business() {
     }
 
     return (
-        <div className="min-h-screen text-white p-4 flex flex-col justify-center">
+        <div className="min-h-screen  text-neutral-800 dark:bg-transparent dark:text-white p-4 flex flex-col justify-center">
             <div className="max-w-6xl mx-auto w-full">
-                <h1 className="text-4xl md:text-5xl font-bold mb-12 text-center text-white">
+                <h1 className="text-4xl md:text-5xl font-bold mb-12 text-center text-neutral-800 dark:text-white">
                     How can AI revolutionize your business?
                 </h1>
                 <div className="relative">
                     <Button
                         variant="outline"
                         size="icon"
-                        className="absolute -left-4 top-1/2 -translate-y-1/2 z-10 bg-gray-800 text-white border-gray-700 hover:bg-gray-700"
+                        className="absolute -left-4 top-1/2 -translate-y-1/2 z-10 bg-white text-neutral-800 border-neutral-300 hover:bg-neutral-100 dark:bg-gray-800 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700"
                         onClick={prevSlide}
                     >
                         <ChevronLeft className="h-6 w-6" />
@@ -89,7 +90,7 @@ export default function Business() {
                     <Button
                         variant="outline"
                         size="icon"
-                        className="absolute -right-4 top-1/2 -translate-y-1/2 z-10 bg-gray-800 text-white border-gray-700 hover:bg-gray-700"
+                        className="absolute -right-4 top-1/2 -translate-y-1/2 z-10 bg-white text-neutral-800 border-neutral-300 hover:bg-neutral-100 dark:bg-gray-800 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700"
                         onClick={nextSlide}
                     >
                         <ChevronRight className="h-6 w-6" />
@@ -100,18 +101,18 @@ export default function Business() {
                             style={{ transform: `translateX(-${currentIndex * 33.333}%)` }}
                         >
                             {solutions.map((solution, index) => (
-                                <Card key={index} className="w-full md:w-1/3 flex-shrink-0 backdrop-blur-sm bg-gray-900/30 border-gray-700 m-2 overflow-hidden">
+                                <Card key={index} className="w-full md:w-1/3 flex-shrink-0 bg-white border-neutral-200 dark:backdrop-blur-sm dark:bg-gray-900/30 dark:border-gray-700 m-2 overflow-hidden">
                                     <CardHeader className="relative overflow-hidden">
-                                        <solution.icon className="w-6 h-6 mb-4 text-[#6430C2]" />
-                                        <CardTitle className="text-white">{solution.title}</CardTitle>
+                                        <solution.icon className="w-6 h-6 mb-4 text-neutral-600 dark:text-[#6430C2]" />
+                                        <CardTitle className="text-neutral-800 dark:text-white">{solution.title}</CardTitle>
                                     </CardHeader>
                                     <CardContent>
-                                        <p className="text-gray-300">{solution.description}</p>
+                                        <p className="text-neutral-600 dark:text-gray-300">{solution.description}</p>
                                     </CardContent>
                                     <CardFooter className="flex justify-between items-center">
                                         <div className="flex gap-2">
                                             {solution.tags.map((tag, tagIndex) => (
-                                                <span key={tagIndex} className="bg-gray-700 text-xs px-2 py-1 rounded-full text-white">
+                                                <span key={tagIndex} className="bg-neutral-200 text-neutral-700 dark:bg-gray-700 dark:text-white text-xs px-2 py-1 rounded-full">
                                                     {tag}
                                                 </span>
                                             ))}
@@ -126,7 +127,6 @@ export default function Business() {
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     )

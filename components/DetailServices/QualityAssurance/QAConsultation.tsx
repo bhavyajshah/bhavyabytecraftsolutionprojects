@@ -79,7 +79,7 @@ export default function QAConsultation() {
     }
 
     return (
-        <div className="min-h-screen text-white p-4 md:p-8 lg:p-12">
+        <div className="min-h-screen text-gray-800 dark:text-white p-4 md:p-8 lg:p-12">
             <div className="max-w-6xl mx-auto space-y-12">
 
                 <motion.div
@@ -96,11 +96,11 @@ export default function QAConsultation() {
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                             >
-                                <Card className="border-gray-700 backdrop-blur-sm bg-gray-900/30 border-none h-full">
+                                <Card className="border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900/30 backdrop-blur-sm border h-full">
                                     <CardContent className="p-6 flex flex-col items-center text-center h-full">
                                         <service.icon className="w-12 h-12 text-[#6430c2] mb-4" />
-                                        <h4 className="font-semibold text-white text-lg mb-2">{service.title}</h4>
-                                        <p className="text-white flex-grow">{service.description}</p>
+                                        <h4 className="font-semibold text-gray-800 dark:text-white text-lg mb-2">{service.title}</h4>
+                                        <p className="text-gray-600 dark:text-white flex-grow">{service.description}</p>
                                     </CardContent>
                                 </Card>
                             </motion.div>
@@ -112,10 +112,10 @@ export default function QAConsultation() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                 >
-                    <Card className="border-gray-700 backdrop-blur-sm bg-gray-900/30 border-none p-6 md:p-8 rounded-2xl shadow-xl">
+                    <Card className="border-gray-200 dark:border-gray-700 bg-gray-100 dark:bg-gray-900/30 backdrop-blur-sm border p-6 md:p-8 rounded-2xl shadow-xl">
                         <CardContent className="space-y-6">
                             <motion.h1
-                                className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-white"
+                                className="text-3xl md:text-4xl font-bold bg-clip-text text-gray-800 dark:text-transparent dark:bg-white"
                                 initial={{ opacity: 0, x: -20 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: 0.2, duration: 0.5 }}
@@ -123,7 +123,7 @@ export default function QAConsultation() {
                                 Expert QA Consultation
                             </motion.h1>
                             <motion.p
-                                className="text-gray-300 text-lg"
+                                className="text-gray-600 dark:text-gray-300 text-lg"
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 transition={{ delay: 0.4, duration: 0.5 }}
@@ -149,8 +149,8 @@ export default function QAConsultation() {
                                     <h2 className="text-2xl md:text-3xl font-bold">{selectedExpert.name}</h2>
                                     <LinkedInLogoIcon className="w-6 h-6 text-[#6430c2] cursor-pointer transform hover:scale-110 transition-transform" />
                                 </div>
-                                <p className="text-gray-300 text-lg">{selectedExpert.bio}</p>
-                                <ul className="space-y-2 text-gray-300">
+                                <p className="text-gray-600 dark:text-gray-300 text-lg">{selectedExpert.bio}</p>
+                                <ul className="space-y-2 text-gray-600 dark:text-gray-300">
                                     {selectedExpert.expertise.map((skill, index) => (
                                         <li key={index} className="flex items-center gap-2">
                                             <CheckCircle className="text-[#6430c2] flex-shrink-0" /> {skill}
@@ -175,7 +175,7 @@ export default function QAConsultation() {
                         <Button
                             variant="outline"
                             size="icon"
-                            className="rounded-full border-gray-700 backdrop-blur-sm bg-gray-900/30 hover:bg-white/20"
+                            className="rounded-full border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900/30 hover:bg-gray-100 dark:hover:bg-white/20"
                             onClick={prevExpert}
                         >
                             <ChevronLeft className="h-4 w-4" />
@@ -183,7 +183,7 @@ export default function QAConsultation() {
                         <Button
                             variant="outline"
                             size="icon"
-                            className="rounded-full border-gray-700 backdrop-blur-sm bg-gray-900/30 hover:bg-white/20"
+                            className="rounded-full border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900/30 hover:bg-gray-100 dark:hover:bg-white/20"
                             onClick={nextExpert}
                         >
                             <ChevronRight className="h-4 w-4" />
@@ -196,3 +196,4 @@ export default function QAConsultation() {
         </div>
     )
 }
+

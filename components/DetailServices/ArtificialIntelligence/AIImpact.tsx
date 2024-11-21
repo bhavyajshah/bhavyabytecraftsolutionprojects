@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Briefcase, Stethoscope, GraduationCap, ShoppingCart } from "lucide-react"
+import { Briefcase, Stethoscope, GraduationCap, ShoppingCart } from 'lucide-react'
 
 export default function AIImpact() {
     const categories = [
@@ -54,12 +54,12 @@ export default function AIImpact() {
     ]
 
     return (
-        <div className="min-h-screen max-w-6xl mx-auto mb-20 text-white">
+        <div className="min-h-screen max-w-6xl mx-auto mb-20 text-neutral-800 dark:text-white dark:bg-transparent">
             <motion.h1
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="text-5xl font-bold mb-6 text-center"
+                className="text-5xl font-bold mb-6 text-center text-neutral-900 dark:text-white pt-8"
             >
                 AI&apos;s Transformative Impact Across Industries
             </motion.h1>
@@ -67,11 +67,11 @@ export default function AIImpact() {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="text-xl text-center mb-8 max-w-3xl mx-auto"
+                className="text-xl text-center mb-8 max-w-3xl mx-auto text-neutral-600 dark:text-neutral-300"
             >
                 Discover how AI is revolutionizing various sectors, driving innovation and efficiency.
             </motion.p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-4">
                 {categories.map((category, index) => (
                     <motion.div
                         key={category.title}
@@ -79,9 +79,9 @@ export default function AIImpact() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: index * 0.1 + 0.3 }}
                     >
-                        <Card className="backdrop-blur-sm bg-gray-900/30 border-gray-700">
+                        <Card className="bg-white dark:backdrop-blur-sm dark:bg-gray-900/30 border-neutral-200 dark:border-gray-700 shadow-md">
                             <CardHeader>
-                                <CardTitle className="flex items-center space-x-2 text-[#6430C2]">
+                                <CardTitle className="flex items-center space-x-2 text-neutral-700 dark:text-[#6430C2]">
                                     {category.icon}
                                     <span>{category.title}</span>
                                 </CardTitle>
@@ -96,8 +96,8 @@ export default function AIImpact() {
                                             transition={{ duration: 0.3, delay: itemIndex * 0.1 + 0.5 }}
                                             className="flex items-center space-x-2"
                                         >
-                                            <span className="text-[#6430C2]">•</span>
-                                            <span className="text-white">{item}</span>
+                                            <span className="text-neutral-500 dark:text-[#6430C2]">•</span>
+                                            <span className="text-neutral-700 dark:text-white">{item}</span>
                                         </motion.li>
                                     ))}
                                 </ul>
