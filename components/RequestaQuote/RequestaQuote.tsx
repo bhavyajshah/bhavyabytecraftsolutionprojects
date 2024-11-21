@@ -75,7 +75,7 @@ export default function RequestQuote() {
                 <motion.img
                   src="https://cdn3d.iconscout.com/3d/premium/thumb/customer-service-3d-illustration-download-in-png-blend-fbx-gltf-file-formats--helpline-support-digital-marketing-pack-business-illustrations-4379020.png"
                   alt="3D Illustration"
-                  className="w-48 h-48 object-contain mx-auto"
+                  className="w-56 h-56 object-contain mx-auto"
                   initial={{ scale: 0.8, rotate: -10 }}
                   animate={{ scale: 1, rotate: 0 }}
                   transition={{ delay: 0.8, duration: 0.8, type: 'spring' }}

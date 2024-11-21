@@ -152,7 +152,8 @@ export default function Header() {
               </Switch>
               <Link
                 href="/pricing"
-                className="button-border-gradient relative rounded-lg text-[#918EA0] dark:text-white text-sm flex items-center gap-1.5 py-2 px-4.5 shadow-button hover:button-gradient-hover hover:shadow-none px-4"
+                className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold py-2 rounded-lg transition  transform hover:scale-105  inline-flex px-4 ease-in duration-300 hover:shadow-lg"
+                // className="button-border-gradient relative rounded-lg text-[#918EA0] dark:text-white text-sm flex items-center gap-1.5 py-2 px-4.5 shadow-button hover:button-gradient-hover hover:shadow-none px-4"
               >
                 <PiHandWaving className="w-6 h-6" />
                 Get in Touch
@@ -228,11 +229,11 @@ export default function Header() {
               </ul>
             </nav>
 
-            {/* Mobile Get in Touch Button */}
             <div className="mt-4 flex flex-col gap-4">
               <Link
                 href="/pricing"
-                className="button-border-gradient relative rounded-lg text-black dark:text-white text-sm flex items-center justify-center gap-1.5 py-2 px-4.5 shadow-button hover:button-gradient-hover hover:shadow-none"
+                className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold py-2 rounded-lg transition  transform hover:scale-105  inline-flex px-4 ease-in duration-300 hover:shadow-lg"
+
                 onClick={() => setNavigationOpen(false)}
               >
                 <PiHandWaving className="w-6 h-6" />
@@ -243,7 +244,6 @@ export default function Header() {
         </div>
       </header>
 
-      {/* Mobile Bottom Menu - Now fixed at the bottom with a more attractive design */}
       <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-blur backdrop-blur bg-white/80 dark:bg-[#030014]/80 shadow-lg px-4 py-2 flex justify-around items-center w-full z-50">
         {navLinks.map((item, index) => (
           <Link
@@ -255,8 +255,6 @@ export default function Header() {
             <span className="text-xs mt-1">{item.label}</span>
           </Link>
         ))}
-
-        {/* Services Popover */}
         <Popover className="relative">
           {({ open }) => (
             <>
@@ -280,8 +278,6 @@ export default function Header() {
             </>
           )}
         </Popover>
-
-        {/* Theme Toggle */}
         <button
           onClick={toggleTheme}
           className="text-[#918EA0] dark:text-white p-2 rounded-full hover:bg-[#918EA0]/10  dark:hover:bg-white/10 transition-all duration-300 flex flex-col items-center"

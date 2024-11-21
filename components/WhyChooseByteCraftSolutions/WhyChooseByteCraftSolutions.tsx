@@ -101,7 +101,7 @@ const TabContent = ({
       : 'bg-[#201046] text-white'
       }`}>
       <p className="mb-4">{title}</p>
-      <p className={`text-base md:text-lg font-normal mb-6 ${theme === 'light' ? 'text-gray-600' : 'text-blue-200'
+      <p className={`text-base md:text-lg font-normal mb-6 ${theme === 'light' ? 'text-gray-600' : 'text-white'
         }`}>
         {description}
       </p>

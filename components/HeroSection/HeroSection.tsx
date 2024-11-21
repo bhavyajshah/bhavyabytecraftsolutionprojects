@@ -5,7 +5,6 @@ import React, { useState, useEffect } from "react";
 import { ContainerScroll } from "../ui/container-scroll-animation";
 import { BackgroundImageBlur } from "../icons/Icons";
 import Image from "next/image";
-import { BackgroundBeams } from "@/hooks/background-beams";
 import { useTheme } from "next-themes";
 
 const HeroSection = () => {
@@ -25,8 +24,9 @@ const HeroSection = () => {
       <section
         className="relative overflow-hidden z-10 pt-20 sm:pt-35 md:pt-40 xl:pt-45"
       >
+        {/* Ensure background is non-interactive */}
         <div className="max-w-6xl mx-auto">
-          <div className="absolute -z-10 pointer-events-none inset-0 overflow-hidden -mx-28">
+          <div className="absolute inset-0 overflow-hidden -mx-28 pointer-events-none">
             {theme === 'dark' && (
               <div className="absolute top-0 left-1/2 -translate-x-1/2">
                 <BackgroundImageBlur />
@@ -38,7 +38,8 @@ const HeroSection = () => {
         <ContainerScroll
           titleComponent={
             <>
-              <div className="mx-auto max-w-[900px] px-4 sm:px-8 xl:px-0 relative z-1">
+              <div className="relative z-20 mx-auto max-w-[900px] px-4 sm:px-8 xl:px-0">
+                {/* Ensure content is on top */}
                 <div className="text-center">
                   <h2 className="mb-4 text-2xl font-semibold dark:text-white text-black">
                     Welcome to ByteCraft Solutions!
@@ -54,7 +55,7 @@ const HeroSection = () => {
                   </p>
                   <Link
                     href="/pricing"
-                    className="hero-button-gradient inline-flex rounded-lg py-3 px-7 text-white font-medium ease-in duration-300 hover:opacity-80"
+                    className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white inline-flex rounded-lg py-3 px-7 font-medium ease-in duration-300 hover:opacity-80"
                   >
                     Book a Free Consultation
                   </Link>
@@ -71,7 +72,7 @@ const HeroSection = () => {
             className="w-full rounded-2xl object-cover h-full"
           />
         </ContainerScroll>
-        <BackgroundBeams />
+        {/* <BackgroundBeams /> */}
       </section>
     </>
   );

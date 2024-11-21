@@ -55,7 +55,7 @@ export const Tabs = ({
             onMouseLeave={() => setHovering(true)}
             className={cn(
               "relative px-4 py-2 rounded-full",
-              theme === "light" ? "text-blue-800" : "text-white",
+              theme === "light" ? "text-black" : "text-white",
               tabClassName
             )}
             style={{
@@ -67,10 +67,10 @@ export const Tabs = ({
                 layoutId="clickedbutton"
                 transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
                 className={cn(
-                  "absolute inset-0 rounded-full",
+                  "absolute inset-0 rounded-full text-white",
                   theme === "light"
-                    ? "bg-blue-100 shadow-md"
-                    : "bg-[#201046] dark:bg-[#201046]",
+                    ? "bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 shadow-md"
+                    : "dark:bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700",
                   activeTabClassName
                 )}
               />

@@ -84,7 +84,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ initialPosts }) => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setShowMore(true)}
-              className="bg-black dark:hero-button-gradient inline-flex rounded-lg py-3 px-7 text-white font-medium ease-in duration-300 hover:shadow-lg"
+              className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold py-3 rounded-lg transition  transform hover:scale-105  inline-flex px-7 ease-in duration-300 hover:shadow-lg"
             >
               Show More
             </motion.button>
